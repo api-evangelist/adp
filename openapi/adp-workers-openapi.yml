@@ -1,0 +1,544 @@
+openapi: 3.1.0
+info:
+  title: ADP Workers API
+  description: >-
+    The ADP Workers API enables access to employee and worker data including personal
+    information, job assignments, pay grades, compensation, and employment status.
+    REST APIs support worker lifecycle management for HCM integrations across ADP
+    Workforce Now, Vantage HCM, and Enterprise HR platforms.
+  version: 2.0.0
+  contact:
+    name: ADP Developer Resources
+    url: https://developers.adp.com/
+  license:
+    name: ADP API License
+    url: https://developers.adp.com/
+
+servers:
+  - url: https://api.adp.com
+    description: ADP Production API
+
+security:
+  - oauth2ClientCredentials: []
+
+tags:
+  - name: Workers
+    description: Worker (employee) data access
+  - name: Organizations
+    description: Organizational unit management
+
+paths:
+  /hr/v2/workers:
+    get:
+      operationId: listWorkers
+      summary: List workers
+      description: >-
+        Retrieve a collection of workers (employees and contractors) from the
+        organization. Supports filtering by worker type, status, and OData query parameters.
+      tags: [Workers]
+      parameters:
+        - name: $filter
+          in: query
+          description: OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')
+          schema:
+            type: string
+        - name: $select
+          in: query
+          description: OData select fields to return
+          schema:
+            type: string
+        - name: $top
+          in: query
+          description: Number of records to return
+          schema:
+            type: integer
+            default: 25
+            maximum: 100
+        - name: $skip
+          in: query
+          description: Number of records to skip for pagination
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Collection of workers
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkersResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+
+  /hr/v2/workers/{aoid}:
+    get:
+      operationId: getWorker
+      summary: Get worker by AOID
+      description: Retrieve a single worker record by the ADP worker AOID (Associate OID).
+      tags: [Workers]
+      parameters:
+        - name: aoid
+          in: path
+          required: true
+          description: ADP Associate Object Identifier (AOID)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Worker details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkerResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /hr/v2/workers/{aoid}/work-assignments:
+    get:
+      operationId: getWorkerWorkAssignments
+      summary: Get worker work assignments
+      description: Retrieve all work assignments (positions) associated with a worker.
+      tags: [Workers]
+      parameters:
+        - name: aoid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Work assignments for the worker
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  workers:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WorkAssignment'
+
+  /events/hr/v1/worker.hire:
+    post:
+      operationId: hireWorker
+      summary: Hire a new worker
+      description: >-
+        Submit a worker hire event to onboard a new employee or contractor into the
+        ADP HCM system. This creates a new worker record with initial work assignment.
+      tags: [Workers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkerHireEvent'
+      responses:
+        '201':
+          description: Worker hire event accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+  /events/hr/v1/worker.terminate:
+    post:
+      operationId: terminateWorker
+      summary: Terminate a worker
+      description: >-
+        Submit a worker termination event to end employment for an existing worker.
+      tags: [Workers]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkerTerminateEvent'
+      responses:
+        '201':
+          description: Termination event accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventResponse'
+
+  /core/v1/organization-departments:
+    get:
+      operationId: listDepartments
+      summary: List organization departments
+      description: Retrieve all departments/organizational units in the company structure.
+      tags: [Organizations]
+      responses:
+        '200':
+          description: List of departments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  organizationDepartments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Department'
+
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+          scopes:
+            api__workers-v2__read: Read worker data
+            api__workers-v2__write: Write worker data
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+
+  schemas:
+    WorkersResponse:
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+        meta:
+          type: object
+          properties:
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
+
+    WorkerResponse:
+      type: object
+      properties:
+        workers:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/Worker'
+
+    Worker:
+      type: object
+      description: ADP Worker (employee or contractor)
+      properties:
+        associateOID:
+          type: string
+          description: ADP Associate Object Identifier - unique worker identifier
+        workerID:
+          type: object
+          properties:
+            idValue:
+              type: string
+            schemeCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+        person:
+          $ref: '#/components/schemas/Person'
+        workerDates:
+          type: object
+          properties:
+            originalHireDate:
+              type: string
+              format: date
+            terminationDate:
+              type: string
+              format: date
+            rehireDate:
+              type: string
+              format: date
+        workAssignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkAssignment'
+        customFieldGroup:
+          type: object
+          additionalProperties: true
+
+    Person:
+      type: object
+      properties:
+        legalName:
+          type: object
+          properties:
+            givenName:
+              type: string
+            familyName1:
+              type: string
+            preferredSalutations:
+              type: array
+              items:
+                type: object
+        birthDate:
+          type: string
+          format: date
+        genderCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+              enum: [M, F, N]
+        maritalStatusCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        communication:
+          type: object
+          properties:
+            emails:
+              type: array
+              items:
+                type: object
+                properties:
+                  emailUri:
+                    type: string
+                    format: email
+            phones:
+              type: array
+              items:
+                type: object
+                properties:
+                  countryDialing:
+                    type: string
+                  areaDialing:
+                    type: string
+                  dialNumber:
+                    type: string
+        legalAddress:
+          $ref: '#/components/schemas/Address'
+
+    WorkAssignment:
+      type: object
+      properties:
+        itemID:
+          type: string
+        primaryIndicator:
+          type: boolean
+        hireDate:
+          type: string
+          format: date
+        assignmentStatus:
+          type: object
+          properties:
+            statusCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+                  enum: [Active, Inactive, Terminated]
+        positionID:
+          type: string
+        jobCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+            shortName:
+              type: string
+        jobTitle:
+          type: string
+        standardHours:
+          type: object
+          properties:
+            hoursQuantity:
+              type: number
+            unitCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+                  enum: [HRS, WK, MO]
+        annualBaseRemuneration:
+          type: object
+          properties:
+            annualRateAmount:
+              type: object
+              properties:
+                amountValue:
+                  type: number
+                currencyCode:
+                  type: string
+        homeOrganizationalUnits:
+          type: array
+          items:
+            type: object
+            properties:
+              nameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              unitCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+
+    Department:
+      type: object
+      properties:
+        departmentCode:
+          type: string
+        departmentName:
+          type: string
+        parentDepartmentCode:
+          type: string
+
+    Address:
+      type: object
+      properties:
+        lineOne:
+          type: string
+        lineTwo:
+          type: string
+        cityName:
+          type: string
+        countrySubdivisionLevel1:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        postalCode:
+          type: string
+        countryCode:
+          type: string
+
+    WorkerHireEvent:
+      type: object
+      required: [events]
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            required: [eventNameCode, data]
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum: [worker.hire]
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      worker:
+                        $ref: '#/components/schemas/Worker'
+
+    WorkerTerminateEvent:
+      type: object
+      required: [events]
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum: [worker.terminate]
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      workerDates:
+                        type: object
+                        properties:
+                          terminationDate:
+                            type: string
+                            format: date
+                      terminationReason:
+                        type: object
+                        properties:
+                          codeValue:
+                            type: string
+
+    EventResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventID:
+                type: string
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              confirmMessage:
+                $ref: '#/components/schemas/ConfirmMessage'
+
+    ConfirmMessage:
+      type: object
+      properties:
+        confirmMessageID:
+          type: object
+          properties:
+            idValue:
+              type: string
+        processMessages:
+          type: array
+          items:
+            type: object
+            properties:
+              processMessageID:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+              messageTypeCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              userMessage:
+                type: object
+                properties:
+                  messageTxt:
+                    type: string

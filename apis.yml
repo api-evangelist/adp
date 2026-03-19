@@ -19,6 +19,8 @@ apis:
     type: Reference
   - url: https://developers.adp.com/getting-started/client-integration-overview
     type: GettingStarted
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
+    type: OpenAPI
   description: >-
     The ADP Workers API enables access to employee and worker data including personal information, job assignments, pay grades, and employment status. REST APIs support worker lifecycle management for HCM integrations across ADP Workforce Now, Vantage HCM, and Enterprise HR platforms.
 
@@ -40,6 +42,8 @@ apis:
     type: Reference
   - url: https://developers.adp.com/getting-started/client-integration-overview
     type: GettingStarted
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
+    type: OpenAPI
   description: >-
     The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
 
@@ -88,6 +92,14 @@ common:
     type: GettingStarted
   - url: https://developers.adp.com/getting-started/client-integration-overview
     type: Authentication
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
+    type: OpenAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
+    type: OpenAPI
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-schema/adp-worker-schema.json
+    type: JSONSchema
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-ld/adp-context.jsonld
+    type: JSONLDContext
 
 maintainers:
 - name: Kin Lane

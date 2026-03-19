@@ -1,0 +1,444 @@
+openapi: 3.1.0
+info:
+  title: ADP Payroll API
+  description: >-
+    The ADP Payroll API provides programmatic access to payroll processing, payroll
+    output data, and compensation management. REST APIs support payroll runs, payroll
+    output retrieval (including CSV-formatted bulk data), and headcount and compensation
+    analysis across ADP payroll platforms.
+  version: 1.0.0
+  contact:
+    name: ADP Developer Resources
+    url: https://developers.adp.com/
+
+servers:
+  - url: https://api.adp.com
+    description: ADP Production API
+
+security:
+  - oauth2ClientCredentials: []
+
+tags:
+  - name: PayrollOutputs
+    description: Payroll output and run data
+  - name: PayrollInstructions
+    description: Payroll instructions and overrides
+
+paths:
+  /payroll/v1/payroll-outputs:
+    get:
+      operationId: listPayrollOutputs
+      summary: List payroll outputs
+      description: >-
+        Retrieve payroll output summaries for completed payroll runs including
+        totals, period dates, and status.
+      tags: [PayrollOutputs]
+      parameters:
+        - name: $filter
+          in: query
+          description: OData filter expression
+          schema:
+            type: string
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            default: 25
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: List of payroll outputs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollOutputsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /payroll/v1/payroll-outputs/{payrollOutputID}:
+    get:
+      operationId: getPayrollOutput
+      summary: Get payroll output details
+      description: Retrieve full payroll output details for a specific payroll run by output ID.
+      tags: [PayrollOutputs]
+      parameters:
+        - name: payrollOutputID
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payroll output details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollOutputResponse'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /payroll/v1/payroll-outputs/{payrollOutputID}/worker-outputs:
+    get:
+      operationId: getPayrollWorkerOutputs
+      summary: Get worker-level payroll outputs
+      description: Retrieve individual worker pay statement data for a specific payroll run.
+      tags: [PayrollOutputs]
+      parameters:
+        - name: payrollOutputID
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            default: 100
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        '200':
+          description: Worker payroll outputs
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkerOutputsResponse'
+
+  /payroll/v1/payroll-instructions:
+    get:
+      operationId: listPayrollInstructions
+      summary: List payroll instructions
+      description: Retrieve pending payroll instructions and overrides for the next payroll run.
+      tags: [PayrollInstructions]
+      responses:
+        '200':
+          description: Payroll instructions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payrollInstructions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PayrollInstruction'
+
+    post:
+      operationId: createPayrollInstruction
+      summary: Create payroll instruction
+      description: Add a pay instruction (bonus, deduction override, garnishment) for an upcoming payroll run.
+      tags: [PayrollInstructions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollInstructionRequest'
+      responses:
+        '201':
+          description: Instruction created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollInstruction'
+
+components:
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+          scopes:
+            api__payroll-output-v1__read: Read payroll output data
+
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+
+  schemas:
+    PayrollOutputsResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollOutputSummary'
+        meta:
+          type: object
+          properties:
+            totalCount:
+              type: integer
+
+    PayrollOutputSummary:
+      type: object
+      properties:
+        payrollOutputID:
+          type: string
+        payrollScheduleReference:
+          type: object
+          properties:
+            payFrequencyCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+                  enum: [Weekly, BiWeekly, SemiMonthly, Monthly]
+            payPeriodStartDate:
+              type: string
+              format: date
+            payPeriodEndDate:
+              type: string
+              format: date
+            payDate:
+              type: string
+              format: date
+        payrollStatusCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+              enum: [Open, Closed, Processing, Completed, Locked]
+        workerCount:
+          type: integer
+
+    PayrollOutputResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/PayrollOutput'
+
+    PayrollOutput:
+      type: object
+      properties:
+        payrollOutputID:
+          type: string
+        payrollScheduleReference:
+          type: object
+          properties:
+            payFrequencyCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+            payPeriodStartDate:
+              type: string
+              format: date
+            payPeriodEndDate:
+              type: string
+              format: date
+            payDate:
+              type: string
+              format: date
+        payrollSummary:
+          type: object
+          properties:
+            grossPayAmount:
+              $ref: '#/components/schemas/AmountValue'
+            netPayAmount:
+              $ref: '#/components/schemas/AmountValue'
+            totalDeductionsAmount:
+              $ref: '#/components/schemas/AmountValue'
+            totalTaxesAmount:
+              $ref: '#/components/schemas/AmountValue'
+
+    WorkerOutputsResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          items:
+            type: object
+            properties:
+              payrollOutputID:
+                type: string
+              workerOutputs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkerPayOutput'
+
+    WorkerPayOutput:
+      type: object
+      properties:
+        associateOID:
+          type: string
+        workerID:
+          type: object
+          properties:
+            idValue:
+              type: string
+        payStatementID:
+          type: string
+        payDate:
+          type: string
+          format: date
+        grossPayAmount:
+          $ref: '#/components/schemas/AmountValue'
+        netPayAmount:
+          $ref: '#/components/schemas/AmountValue'
+        regularEarnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/EarningItem'
+        overtimeEarnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/EarningItem'
+        otherEarnings:
+          type: array
+          items:
+            $ref: '#/components/schemas/EarningItem'
+        deductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeductionItem'
+        taxes:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaxItem'
+
+    EarningItem:
+      type: object
+      properties:
+        typeCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        nameCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+            shortName:
+              type: string
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        hoursQuantity:
+          type: number
+        rateAmount:
+          $ref: '#/components/schemas/AmountValue'
+
+    DeductionItem:
+      type: object
+      properties:
+        typeCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        nameCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+            shortName:
+              type: string
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+
+    TaxItem:
+      type: object
+      properties:
+        typeCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        nameCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        jurisdictionCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+
+    AmountValue:
+      type: object
+      properties:
+        amountValue:
+          type: number
+          format: double
+        currencyCode:
+          type: string
+          default: USD
+
+    PayrollInstruction:
+      type: object
+      properties:
+        instructionID:
+          type: string
+        associateOID:
+          type: string
+        instructionTypeCode:
+          type: string
+          enum: [Bonus, Deduction, Garnishment, Override]
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        effectiveDate:
+          type: string
+          format: date
+
+    PayrollInstructionRequest:
+      type: object
+      required: [associateOID, instructionTypeCode, amount]
+      properties:
+        associateOID:
+          type: string
+        instructionTypeCode:
+          type: string
+          enum: [Bonus, Deduction, Garnishment, Override]
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        effectiveDate:
+          type: string
+          format: date
+        description:
+          type: string
+
+    ErrorMessage:
+      type: object
+      properties:
+        confirmMessage:
+          type: object
+          properties:
+            processMessages:
+              type: array
+              items:
+                type: object
+                properties:
+                  messageTypeCode:
+                    type: object
+                    properties:
+                      codeValue:
+                        type: string
+                  userMessage:
+                    type: object
+                    properties:
+                      messageTxt:
+                        type: string

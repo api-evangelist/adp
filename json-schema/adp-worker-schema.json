@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-schema/adp-worker-schema.json",
+  "title": "ADP Worker",
+  "description": "JSON Schema for an ADP Worker object representing an employee or contractor in ADP HCM platforms.",
+  "type": "object",
+  "required": ["associateOID"],
+  "properties": {
+    "associateOID": {
+      "type": "string",
+      "description": "ADP Associate Object Identifier - globally unique worker identifier"
+    },
+    "workerID": {
+      "type": "object",
+      "description": "Client-assigned worker identification",
+      "properties": {
+        "idValue": {
+          "type": "string",
+          "description": "Employee ID number"
+        },
+        "schemeCode": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "person": {
+      "$ref": "#/$defs/Person"
+    },
+    "workerDates": {
+      "type": "object",
+      "properties": {
+        "originalHireDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "terminationDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "rehireDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "adjustedServiceDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "workAssignments": {
+      "type": "array",
+      "description": "Active and historical work assignments",
+      "items": {
+        "$ref": "#/$defs/WorkAssignment"
+      }
+    },
+    "workerStatus": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string",
+              "enum": ["Active", "Inactive", "Terminated", "Leave"]
+            }
+          }
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Person": {
+      "type": "object",
+      "description": "Personal information for the worker",
+      "properties": {
+        "legalName": {
+          "type": "object",
+          "properties": {
+            "givenName": {
+              "type": "string"
+            },
+            "middleName": {
+              "type": "string"
+            },
+            "familyName1": {
+              "type": "string"
+            },
+            "nameSuffix": {
+              "type": "string"
+            }
+          }
+        },
+        "preferredName": {
+          "type": "object",
+          "properties": {
+            "givenName": {
+              "type": "string"
+            }
+          }
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "genderCode": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string",
+              "enum": ["M", "F", "N"]
+            }
+          }
+        },
+        "communication": {
+          "type": "object",
+          "properties": {
+            "emails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailUri": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "notificationIndicator": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            },
+            "phones": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "countryDialing": {
+                    "type": "string"
+                  },
+                  "areaDialing": {
+                    "type": "string"
+                  },
+                  "dialNumber": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "legalAddress": {
+          "$ref": "#/$defs/Address"
+        }
+      }
+    },
+    "WorkAssignment": {
+      "type": "object",
+      "description": "A worker's assignment to a position or role",
+      "properties": {
+        "itemID": {
+          "type": "string"
+        },
+        "primaryIndicator": {
+          "type": "boolean",
+          "description": "Whether this is the worker's primary assignment"
+        },
+        "hireDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "assignmentStatus": {
+          "type": "object",
+          "properties": {
+            "statusCode": {
+              "type": "object",
+              "properties": {
+                "codeValue": {
+                  "type": "string",
+                  "enum": ["Active", "Inactive", "Terminated"]
+                }
+              }
+            },
+            "effectiveDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+        "positionID": {
+          "type": "string"
+        },
+        "jobCode": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string"
+            },
+            "shortName": {
+              "type": "string"
+            }
+          }
+        },
+        "jobTitle": {
+          "type": "string"
+        },
+        "standardHours": {
+          "type": "object",
+          "properties": {
+            "hoursQuantity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 168
+            },
+            "unitCode": {
+              "type": "object",
+              "properties": {
+                "codeValue": {
+                  "type": "string",
+                  "enum": ["HRS", "WK", "MO"]
+                }
+              }
+            }
+          }
+        },
+        "annualBaseRemuneration": {
+          "type": "object",
+          "properties": {
+            "annualRateAmount": {
+              "type": "object",
+              "properties": {
+                "amountValue": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "currencyCode": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{3}$"
+                }
+              }
+            }
+          }
+        },
+        "workerTypeCode": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string",
+              "enum": ["Employee", "Contractor", "Intern", "Temp"]
+            }
+          }
+        },
+        "managementPositionIndicator": {
+          "type": "boolean"
+        },
+        "homeOrganizationalUnits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nameCode": {
+                "type": "object",
+                "properties": {
+                  "codeValue": {
+                    "type": "string"
+                  }
+                }
+              },
+              "unitCode": {
+                "type": "object",
+                "properties": {
+                  "codeValue": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Address": {
+      "type": "object",
+      "properties": {
+        "lineOne": {
+          "type": "string"
+        },
+        "lineTwo": {
+          "type": "string"
+        },
+        "cityName": {
+          "type": "string"
+        },
+        "countrySubdivisionLevel1": {
+          "type": "object",
+          "properties": {
+            "codeValue": {
+              "type": "string"
+            }
+          }
+        },
+        "postalCode": {
+          "type": "string"
+        },
+        "countryCode": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$"
+        }
+      }
+    }
+  }
+}

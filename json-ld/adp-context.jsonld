@@ -1,0 +1,73 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "adp": "https://developers.adp.com/articles/api/",
+    "schema": "https://schema.org/",
+    "hr": "https://www.hr-xml.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Worker": {
+      "@id": "schema:Person",
+      "@context": {
+        "associateOID": {"@id": "adp:associateOID", "@type": "xsd:string"},
+        "workerID": {"@id": "adp:workerID"},
+        "person": {"@id": "schema:person"},
+        "workerDates": {"@id": "adp:workerDates"},
+        "workAssignments": {"@id": "adp:workAssignment", "@container": "@set"},
+        "workerStatus": {"@id": "adp:workerStatus"}
+      }
+    },
+
+    "Person": {
+      "@id": "schema:Person",
+      "@context": {
+        "legalName": {"@id": "schema:legalName"},
+        "givenName": {"@id": "schema:givenName"},
+        "familyName1": {"@id": "schema:familyName"},
+        "birthDate": {"@id": "schema:birthDate", "@type": "xsd:date"},
+        "genderCode": {"@id": "schema:gender"},
+        "legalAddress": {"@id": "schema:address"},
+        "communication": {"@id": "schema:contactPoint"}
+      }
+    },
+
+    "WorkAssignment": {
+      "@id": "schema:EmployeeRole",
+      "@context": {
+        "itemID": {"@id": "adp:assignmentItemID"},
+        "primaryIndicator": {"@id": "adp:primaryAssignment", "@type": "xsd:boolean"},
+        "hireDate": {"@id": "schema:startDate", "@type": "xsd:date"},
+        "jobTitle": {"@id": "schema:title"},
+        "positionID": {"@id": "adp:positionID"},
+        "jobCode": {"@id": "adp:jobCode"},
+        "standardHours": {"@id": "adp:standardHours"},
+        "annualBaseRemuneration": {"@id": "schema:baseSalary"},
+        "workerTypeCode": {"@id": "adp:workerType"},
+        "homeOrganizationalUnits": {"@id": "schema:memberOf", "@container": "@set"}
+      }
+    },
+
+    "PayrollOutput": {
+      "@id": "adp:PayrollOutput",
+      "@context": {
+        "payrollOutputID": {"@id": "adp:payrollOutputID"},
+        "payDate": {"@id": "schema:paymentDueDate", "@type": "xsd:date"},
+        "grossPayAmount": {"@id": "adp:grossPay"},
+        "netPayAmount": {"@id": "adp:netPay"},
+        "totalDeductionsAmount": {"@id": "adp:totalDeductions"},
+        "totalTaxesAmount": {"@id": "adp:totalTaxes"}
+      }
+    },
+
+    "Address": {
+      "@id": "schema:PostalAddress",
+      "@context": {
+        "lineOne": {"@id": "schema:streetAddress"},
+        "cityName": {"@id": "schema:addressLocality"},
+        "countrySubdivisionLevel1": {"@id": "schema:addressRegion"},
+        "postalCode": {"@id": "schema:postalCode"},
+        "countryCode": {"@id": "schema:addressCountry"}
+      }
+    }
+  }
+}
