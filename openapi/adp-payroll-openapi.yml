@@ -19,11 +19,11 @@ security:
   - oauth2ClientCredentials: []
 
 tags:
-  - name: PayrollOutputs
-    description: Payroll output and run data
   - name: PayrollInstructions
     description: Payroll instructions and overrides
 
+  - name: PayrollOutputs
+    description: Payroll output and run data
 paths:
   /payroll/v1/payroll-outputs:
     get:

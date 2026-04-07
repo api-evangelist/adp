@@ -22,11 +22,11 @@ security:
   - oauth2ClientCredentials: []
 
 tags:
-  - name: Workers
-    description: Worker (employee) data access
   - name: Organizations
     description: Organizational unit management
 
+  - name: Workers
+    description: Worker (employee) data access
 paths:
   /hr/v2/workers:
     get:

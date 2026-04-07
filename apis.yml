@@ -1,30 +1,25 @@
 aid: adp
-url: 
-  https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/apis.yml
 apis:
   - aid: adp:adp-workers-api
     name: ADP Workers API
     tags:
-      - Payroll
-      - HR
       - HCM
-      - Workforce
+      - HR
+      - Payroll
       - Workers
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
+      - Workforce
+    image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
     humanURL: https://developers.adp.com/
     baseURL: https://api.adp.com
     properties:
       - url: https://developers.adp.com/
         type: Documentation
-      - url: 
-          https://developers.adp.com/articles/guides/workers-management-api-guide-for-adp-expert
+      - url: https://developers.adp.com/articles/guides/workers-management-api-guide-for-adp-expert
         type: Reference
-      - url: 
-          https://developers.adp.com/getting-started/client-integration-overview
+      - url: https://developers.adp.com/getting-started/client-integration-overview
         type: GettingStarted
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
         type: OpenAPI
     description: >-
       The ADP Workers API enables access to employee and worker data including personal
@@ -35,26 +30,22 @@ apis:
   - aid: adp:adp-payroll-api
     name: ADP Payroll API
     tags:
-      - Payroll
-      - HR
-      - HCM
-      - CSV
       - Compensation
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
+      - CSV
+      - HCM
+      - HR
+      - Payroll
+    image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
     humanURL: https://developers.adp.com/
     baseURL: https://api.adp.com
     properties:
       - url: https://developers.adp.com/
         type: Documentation
-      - url: 
-          https://developers.adp.com/articles/guides/payroll-output-api-guide-for-adp-link
+      - url: https://developers.adp.com/articles/guides/payroll-output-api-guide-for-adp-link
         type: Reference
-      - url: 
-          https://developers.adp.com/getting-started/client-integration-overview
+      - url: https://developers.adp.com/getting-started/client-integration-overview
         type: GettingStarted
-      - url: 
-          https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
+      - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
         type: OpenAPI
     description: >-
       The ADP Payroll API provides programmatic access to payroll processing, payroll
@@ -65,12 +56,11 @@ apis:
   - aid: adp:adp-embedded-payroll-api
     name: ADP Embedded Payroll API
     tags:
-      - Payroll
       - Embedded
       - HCM
+      - Payroll
       - Small Business
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
+    image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
     humanURL: https://developers.adp.com/getting-started/embedded-payroll
     baseURL: https://api.adp.com
     properties:
@@ -87,11 +77,10 @@ apis:
     name: ADP Benefits Administration API
     tags:
       - Benefits
-      - HR
-      - HCM
       - Enrollment
-    image: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
+      - HCM
+      - HR
+    image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
     humanURL: https://developers.adp.com/
     baseURL: https://api.adp.com
     properties:
@@ -114,17 +103,13 @@ common:
     type: GettingStarted
   - url: https://developers.adp.com/getting-started/client-integration-overview
     type: Authentication
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-workers-openapi.yml
     type: OpenAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/openapi/adp-payroll-openapi.yml
     type: OpenAPI
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-schema/adp-worker-schema.json
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-schema/adp-worker-schema.json
     type: JSONSchema
-  - url: 
-      https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-ld/adp-context.jsonld
+  - url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/json-ld/adp-context.jsonld
     type: JSONLDContext
 
 maintainers:
