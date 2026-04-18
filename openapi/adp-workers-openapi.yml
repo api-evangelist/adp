@@ -15,51 +15,55 @@ info:
     url: https://developers.adp.com/
 
 servers:
-  - url: https://api.adp.com
-    description: ADP Production API
+- url: https://api.adp.com
+  description: ADP Production API
 
 security:
-  - oauth2ClientCredentials: []
+- oauth2ClientCredentials: []
 
 tags:
-  - name: Organizations
-    description: Organizational unit management
+- name: Organizations
+  description: Organizational unit management
 
-  - name: Workers
-    description: Worker (employee) data access
+- name: Workers
+  description: Worker (employee) data access
 paths:
   /hr/v2/workers:
     get:
       operationId: listWorkers
-      summary: List workers
+      summary: List Workers
       description: >-
         Retrieve a collection of workers (employees and contractors) from the
         organization. Supports filtering by worker type, status, and OData query parameters.
       tags: [Workers]
       parameters:
-        - name: $filter
-          in: query
-          description: OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')
-          schema:
-            type: string
-        - name: $select
-          in: query
-          description: OData select fields to return
-          schema:
-            type: string
-        - name: $top
-          in: query
-          description: Number of records to return
-          schema:
-            type: integer
-            default: 25
-            maximum: 100
-        - name: $skip
-          in: query
-          description: Number of records to skip for pagination
-          schema:
-            type: integer
-            default: 0
+      - name: $filter
+        in: query
+        description: OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')
+        schema:
+          type: string
+        example: example_value
+      - name: $select
+        in: query
+        description: OData select fields to return
+        schema:
+          type: string
+        example: example_value
+      - name: $top
+        in: query
+        description: Number of records to return
+        schema:
+          type: integer
+          default: 25
+          maximum: 100
+        example: 10
+      - name: $skip
+        in: query
+        description: Number of records to skip for pagination
+        schema:
+          type: integer
+          default: 0
+        example: 10
       responses:
         '200':
           description: Collection of workers
@@ -67,6 +71,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkersResponse'
+              examples:
+                Listworkers200Example:
+                  summary: Default listWorkers 200 response
+                  x-microcks-default: true
+                  value:
+                    workers:
+                    - associateOID: '500123'
+                      workerID: {}
+                      workerDates: {}
+                      workAssignments: {}
+                      customFieldGroup: example_value
+                    meta:
+                      totalCount: 10
+                      startIndex: 10
+                      itemsPerPage: 10
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':
@@ -74,19 +93,23 @@ paths:
         '403':
           $ref: '#/components/responses/Forbidden'
 
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /hr/v2/workers/{aoid}:
     get:
       operationId: getWorker
-      summary: Get worker by AOID
+      summary: Get Worker by Aoid
       description: Retrieve a single worker record by the ADP worker AOID (Associate OID).
       tags: [Workers]
       parameters:
-        - name: aoid
-          in: path
-          required: true
-          description: ADP Associate Object Identifier (AOID)
-          schema:
-            type: string
+      - name: aoid
+        in: path
+        required: true
+        description: ADP Associate Object Identifier (AOID)
+        schema:
+          type: string
+        example: '500123'
       responses:
         '200':
           description: Worker details
@@ -94,21 +117,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WorkerResponse'
+              examples:
+                Getworker200Example:
+                  summary: Default getWorker 200 response
+                  x-microcks-default: true
+                  value:
+                    workers:
+                    - associateOID: '500123'
+                      workerID: {}
+                      workerDates: {}
+                      workAssignments: {}
+                      customFieldGroup: example_value
         '404':
           $ref: '#/components/responses/NotFound'
 
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /hr/v2/workers/{aoid}/work-assignments:
     get:
       operationId: getWorkerWorkAssignments
-      summary: Get worker work assignments
+      summary: Get Worker Work Assignments
       description: Retrieve all work assignments (positions) associated with a worker.
       tags: [Workers]
       parameters:
-        - name: aoid
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: aoid
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '500123'
       responses:
         '200':
           description: Work assignments for the worker
@@ -122,10 +160,36 @@ paths:
                     items:
                       $ref: '#/components/schemas/WorkAssignment'
 
+              examples:
+                Getworkerworkassignments200Example:
+                  summary: Default getWorkerWorkAssignments 200 response
+                  x-microcks-default: true
+                  value:
+                    workers:
+                    - itemID: '500123'
+                      primaryIndicator: true
+                      hireDate: '2026-01-15'
+                      assignmentStatus:
+                        statusCode: {}
+                      positionID: '500123'
+                      jobCode:
+                        codeValue: example_value
+                        shortName: example_value
+                      jobTitle: example_value
+                      standardHours:
+                        hoursQuantity: 42.5
+                        unitCode: {}
+                      annualBaseRemuneration:
+                        annualRateAmount: {}
+                      homeOrganizationalUnits:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /events/hr/v1/worker.hire:
     post:
       operationId: hireWorker
-      summary: Hire a new worker
+      summary: Hire a New Worker
       description: >-
         Submit a worker hire event to onboard a new employee or contractor into the
         ADP HCM system. This creates a new worker record with initial work assignment.
@@ -136,6 +200,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WorkerHireEvent'
+            examples:
+              HireworkerRequestExample:
+                summary: Default hireWorker request
+                x-microcks-default: true
+                value:
+                  events:
+                  - eventNameCode:
+                      codeValue: worker.hire
+                    data:
+                      transform: {}
       responses:
         '201':
           description: Worker hire event accepted
@@ -143,13 +217,25 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EventResponse'
+              examples:
+                Hireworker201Example:
+                  summary: Default hireWorker 201 response
+                  x-microcks-default: true
+                  value:
+                    events:
+                    - eventID: '500123'
+                      eventNameCode:
+                        codeValue: example_value
         '400':
           $ref: '#/components/responses/BadRequest'
 
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /events/hr/v1/worker.terminate:
     post:
       operationId: terminateWorker
-      summary: Terminate a worker
+      summary: Terminate a Worker
       description: >-
         Submit a worker termination event to end employment for an existing worker.
       tags: [Workers]
@@ -159,6 +245,16 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/WorkerTerminateEvent'
+            examples:
+              TerminateworkerRequestExample:
+                summary: Default terminateWorker request
+                x-microcks-default: true
+                value:
+                  events:
+                  - eventNameCode:
+                      codeValue: worker.terminate
+                    data:
+                      transform: {}
       responses:
         '201':
           description: Termination event accepted
@@ -167,10 +263,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/EventResponse'
 
+              examples:
+                Terminateworker201Example:
+                  summary: Default terminateWorker 201 response
+                  x-microcks-default: true
+                  value:
+                    events:
+                    - eventID: '500123'
+                      eventNameCode:
+                        codeValue: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /core/v1/organization-departments:
     get:
       operationId: listDepartments
-      summary: List organization departments
+      summary: List Organization Departments
       description: Retrieve all departments/organizational units in the company structure.
       tags: [Organizations]
       responses:
@@ -186,6 +294,18 @@ paths:
                     items:
                       $ref: '#/components/schemas/Department'
 
+              examples:
+                Listdepartments200Example:
+                  summary: Default listDepartments 200 response
+                  x-microcks-default: true
+                  value:
+                    organizationDepartments:
+                    - departmentCode: example_value
+                      departmentName: example_value
+                      parentDepartmentCode: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     oauth2ClientCredentials:
@@ -231,6 +351,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Worker'
+          example: []
         meta:
           type: object
           properties:
@@ -241,6 +362,7 @@ components:
             itemsPerPage:
               type: integer
 
+          example: example_value
     WorkerResponse:
       type: object
       properties:
@@ -250,6 +372,7 @@ components:
           items:
             $ref: '#/components/schemas/Worker'
 
+          example: []
     Worker:
       type: object
       description: ADP Worker (employee or contractor)
@@ -257,6 +380,7 @@ components:
         associateOID:
           type: string
           description: ADP Associate Object Identifier - unique worker identifier
+          example: '500123'
         workerID:
           type: object
           properties:
@@ -267,6 +391,7 @@ components:
               properties:
                 codeValue:
                   type: string
+          example: '500123'
         person:
           $ref: '#/components/schemas/Person'
         workerDates:
@@ -281,14 +406,17 @@ components:
             rehireDate:
               type: string
               format: date
+          example: example_value
         workAssignments:
           type: array
           items:
             $ref: '#/components/schemas/WorkAssignment'
+          example: []
         customFieldGroup:
           type: object
           additionalProperties: true
 
+          example: example_value
     Person:
       type: object
       properties:
@@ -303,20 +431,24 @@ components:
               type: array
               items:
                 type: object
+          example: example_value
         birthDate:
           type: string
           format: date
+          example: '2026-01-15'
         genderCode:
           type: object
           properties:
             codeValue:
               type: string
               enum: [M, F, N]
+          example: example_value
         maritalStatusCode:
           type: object
           properties:
             codeValue:
               type: string
+          example: example_value
         communication:
           type: object
           properties:
@@ -339,6 +471,7 @@ components:
                     type: string
                   dialNumber:
                     type: string
+          example: example_value
         legalAddress:
           $ref: '#/components/schemas/Address'
 
@@ -347,11 +480,14 @@ components:
       properties:
         itemID:
           type: string
+          example: '500123'
         primaryIndicator:
           type: boolean
+          example: true
         hireDate:
           type: string
           format: date
+          example: '2026-01-15'
         assignmentStatus:
           type: object
           properties:
@@ -361,8 +497,10 @@ components:
                 codeValue:
                   type: string
                   enum: [Active, Inactive, Terminated]
+          example: example_value
         positionID:
           type: string
+          example: '500123'
         jobCode:
           type: object
           properties:
@@ -370,8 +508,10 @@ components:
               type: string
             shortName:
               type: string
+          example: example_value
         jobTitle:
           type: string
+          example: example_value
         standardHours:
           type: object
           properties:
@@ -383,6 +523,7 @@ components:
                 codeValue:
                   type: string
                   enum: [HRS, WK, MO]
+          example: example_value
         annualBaseRemuneration:
           type: object
           properties:
@@ -393,6 +534,7 @@ components:
                   type: number
                 currencyCode:
                   type: string
+          example: example_value
         homeOrganizationalUnits:
           type: array
           items:
@@ -409,35 +551,45 @@ components:
                   codeValue:
                     type: string
 
+          example: []
     Department:
       type: object
       properties:
         departmentCode:
           type: string
+          example: example_value
         departmentName:
           type: string
+          example: example_value
         parentDepartmentCode:
           type: string
 
+          example: example_value
     Address:
       type: object
       properties:
         lineOne:
           type: string
+          example: example_value
         lineTwo:
           type: string
+          example: example_value
         cityName:
           type: string
+          example: example_value
         countrySubdivisionLevel1:
           type: object
           properties:
             codeValue:
               type: string
+          example: example_value
         postalCode:
           type: string
+          example: example_value
         countryCode:
           type: string
 
+          example: example_value
     WorkerHireEvent:
       type: object
       required: [events]
@@ -463,6 +615,7 @@ components:
                       worker:
                         $ref: '#/components/schemas/Worker'
 
+          example: []
     WorkerTerminateEvent:
       type: object
       required: [events]
@@ -496,6 +649,7 @@ components:
                           codeValue:
                             type: string
 
+          example: []
     EventResponse:
       type: object
       properties:
@@ -514,6 +668,7 @@ components:
               confirmMessage:
                 $ref: '#/components/schemas/ConfirmMessage'
 
+          example: []
     ConfirmMessage:
       type: object
       properties:
@@ -522,6 +677,7 @@ components:
           properties:
             idValue:
               type: string
+          example: '500123'
         processMessages:
           type: array
           items:
@@ -542,3 +698,4 @@ components:
                 properties:
                   messageTxt:
                     type: string
+          example: []

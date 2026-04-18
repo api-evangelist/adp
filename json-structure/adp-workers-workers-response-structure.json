@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WorkersResponse",
+  "type": "object",
+  "properties": {
+    "workers": {
+      "type": "array"
+    },
+    "meta": {
+      "type": "object"
+    }
+  }
+}

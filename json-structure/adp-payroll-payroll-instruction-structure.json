@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "PayrollInstruction",
+  "type": "object",
+  "properties": {
+    "instructionID": {
+      "type": "string"
+    },
+    "associateOID": {
+      "type": "string"
+    },
+    "instructionTypeCode": {
+      "type": "string"
+    },
+    "effectiveDate": {
+      "type": "string"
+    }
+  }
+}

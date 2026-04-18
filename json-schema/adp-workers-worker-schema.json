@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Worker",
+  "type": "object",
+  "description": "ADP Worker (employee or contractor)",
+  "properties": {
+    "associateOID": {
+      "type": "string",
+      "description": "ADP Associate Object Identifier - unique worker identifier"
+    },
+    "workerID": {
+      "type": "object"
+    },
+    "workerDates": {
+      "type": "object"
+    },
+    "workAssignments": {
+      "type": "array"
+    },
+    "customFieldGroup": {
+      "type": "object"
+    }
+  }
+}

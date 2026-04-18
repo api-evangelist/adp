@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Person",
+  "type": "object",
+  "properties": {
+    "legalName": {
+      "type": "object"
+    },
+    "birthDate": {
+      "type": "string"
+    },
+    "genderCode": {
+      "type": "object"
+    },
+    "maritalStatusCode": {
+      "type": "object"
+    },
+    "communication": {
+      "type": "object"
+    }
+  }
+}

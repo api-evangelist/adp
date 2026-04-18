@@ -1,0 +1,11 @@
+{
+  "associateOID": "500123",
+  "workerID": "500123",
+  "payStatementID": "500123",
+  "payDate": "example_value",
+  "regularEarnings": [],
+  "overtimeEarnings": [],
+  "otherEarnings": [],
+  "deductions": [],
+  "taxes": []
+}

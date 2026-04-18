@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "Worker",
+  "type": "object",
+  "properties": {
+    "associateOID": {
+      "type": "string"
+    },
+    "workerID": {
+      "type": "object"
+    },
+    "workerDates": {
+      "type": "object"
+    },
+    "workAssignments": {
+      "type": "array"
+    },
+    "customFieldGroup": {
+      "type": "object"
+    }
+  }
+}

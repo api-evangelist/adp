@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Address",
+  "type": "object",
+  "properties": {
+    "lineOne": {
+      "type": "string"
+    },
+    "lineTwo": {
+      "type": "string"
+    },
+    "cityName": {
+      "type": "string"
+    },
+    "countrySubdivisionLevel1": {
+      "type": "object"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "countryCode": {
+      "type": "string"
+    }
+  }
+}

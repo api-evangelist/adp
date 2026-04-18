@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PayrollOutputSummary",
+  "type": "object",
+  "properties": {
+    "payrollOutputID": {
+      "type": "string"
+    },
+    "payrollScheduleReference": {
+      "type": "object"
+    },
+    "payrollStatusCode": {
+      "type": "object"
+    },
+    "workerCount": {
+      "type": "integer"
+    }
+  }
+}

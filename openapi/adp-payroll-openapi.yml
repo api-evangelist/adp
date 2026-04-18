@@ -12,43 +12,46 @@ info:
     url: https://developers.adp.com/
 
 servers:
-  - url: https://api.adp.com
-    description: ADP Production API
+- url: https://api.adp.com
+  description: ADP Production API
 
 security:
-  - oauth2ClientCredentials: []
+- oauth2ClientCredentials: []
 
 tags:
-  - name: PayrollInstructions
-    description: Payroll instructions and overrides
+- name: PayrollInstructions
+  description: Payroll instructions and overrides
 
-  - name: PayrollOutputs
-    description: Payroll output and run data
+- name: PayrollOutputs
+  description: Payroll output and run data
 paths:
   /payroll/v1/payroll-outputs:
     get:
       operationId: listPayrollOutputs
-      summary: List payroll outputs
+      summary: List Payroll Outputs
       description: >-
         Retrieve payroll output summaries for completed payroll runs including
         totals, period dates, and status.
       tags: [PayrollOutputs]
       parameters:
-        - name: $filter
-          in: query
-          description: OData filter expression
-          schema:
-            type: string
-        - name: $top
-          in: query
-          schema:
-            type: integer
-            default: 25
-        - name: $skip
-          in: query
-          schema:
-            type: integer
-            default: 0
+      - name: $filter
+        in: query
+        description: OData filter expression
+        schema:
+          type: string
+        example: example_value
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          default: 25
+        example: 10
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+          default: 0
+        example: 10
       responses:
         '200':
           description: List of payroll outputs
@@ -56,21 +59,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PayrollOutputsResponse'
+              examples:
+                Listpayrolloutputs200Example:
+                  summary: Default listPayrollOutputs 200 response
+                  x-microcks-default: true
+                  value:
+                    payrollOutputs:
+                    - payrollOutputID: '500123'
+                      payrollScheduleReference: {}
+                      payrollStatusCode: {}
+                      workerCount: 10
+                    meta:
+                      totalCount: 10
         '401':
           $ref: '#/components/responses/Unauthorized'
 
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /payroll/v1/payroll-outputs/{payrollOutputID}:
     get:
       operationId: getPayrollOutput
-      summary: Get payroll output details
+      summary: Get Payroll Output Details
       description: Retrieve full payroll output details for a specific payroll run by output ID.
       tags: [PayrollOutputs]
       parameters:
-        - name: payrollOutputID
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: payrollOutputID
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '500123'
       responses:
         '200':
           description: Payroll output details
@@ -78,31 +97,46 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PayrollOutputResponse'
+              examples:
+                Getpayrolloutput200Example:
+                  summary: Default getPayrollOutput 200 response
+                  x-microcks-default: true
+                  value:
+                    payrollOutputs:
+                    - payrollOutputID: '500123'
+                      payrollScheduleReference: {}
+                      payrollSummary: {}
         '404':
           $ref: '#/components/responses/NotFound'
 
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /payroll/v1/payroll-outputs/{payrollOutputID}/worker-outputs:
     get:
       operationId: getPayrollWorkerOutputs
-      summary: Get worker-level payroll outputs
+      summary: Get Worker-level Payroll Outputs
       description: Retrieve individual worker pay statement data for a specific payroll run.
       tags: [PayrollOutputs]
       parameters:
-        - name: payrollOutputID
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: $top
-          in: query
-          schema:
-            type: integer
-            default: 100
-        - name: $skip
-          in: query
-          schema:
-            type: integer
-            default: 0
+      - name: payrollOutputID
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '500123'
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          default: 100
+        example: 10
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+          default: 0
+        example: 10
       responses:
         '200':
           description: Worker payroll outputs
@@ -111,10 +145,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/WorkerOutputsResponse'
 
+              examples:
+                Getpayrollworkeroutputs200Example:
+                  summary: Default getPayrollWorkerOutputs 200 response
+                  x-microcks-default: true
+                  value:
+                    payrollOutputs:
+                    - payrollOutputID: '500123'
+                      workerOutputs:
+                      - {}
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /payroll/v1/payroll-instructions:
     get:
       operationId: listPayrollInstructions
-      summary: List payroll instructions
+      summary: List Payroll Instructions
       description: Retrieve pending payroll instructions and overrides for the next payroll run.
       tags: [PayrollInstructions]
       responses:
@@ -130,9 +176,22 @@ paths:
                     items:
                       $ref: '#/components/schemas/PayrollInstruction'
 
+              examples:
+                Listpayrollinstructions200Example:
+                  summary: Default listPayrollInstructions 200 response
+                  x-microcks-default: true
+                  value:
+                    payrollInstructions:
+                    - instructionID: '500123'
+                      associateOID: '500123'
+                      instructionTypeCode: Bonus
+                      effectiveDate: '2026-01-15'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createPayrollInstruction
-      summary: Create payroll instruction
+      summary: Create Payroll Instruction
       description: Add a pay instruction (bonus, deduction override, garnishment) for an upcoming payroll run.
       tags: [PayrollInstructions]
       requestBody:
@@ -141,6 +200,18 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PayrollInstructionRequest'
+            examples:
+              CreatepayrollinstructionRequestExample:
+                summary: Default createPayrollInstruction request
+                x-microcks-default: true
+                value:
+                  associateOID: '500123'
+                  instructionTypeCode: Bonus
+                  amount:
+                    amountValue: 42.5
+                    currencyCode: example_value
+                  effectiveDate: '2026-01-15'
+                  description: A sample description.
       responses:
         '201':
           description: Instruction created
@@ -149,6 +220,21 @@ paths:
               schema:
                 $ref: '#/components/schemas/PayrollInstruction'
 
+              examples:
+                Createpayrollinstruction201Example:
+                  summary: Default createPayrollInstruction 201 response
+                  x-microcks-default: true
+                  value:
+                    instructionID: '500123'
+                    associateOID: '500123'
+                    instructionTypeCode: Bonus
+                    amount:
+                      amountValue: 42.5
+                      currencyCode: example_value
+                    effectiveDate: '2026-01-15'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     oauth2ClientCredentials:
@@ -181,17 +267,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/PayrollOutputSummary'
+          example: []
         meta:
           type: object
           properties:
             totalCount:
               type: integer
 
+          example: example_value
     PayrollOutputSummary:
       type: object
       properties:
         payrollOutputID:
           type: string
+          example: '500123'
         payrollScheduleReference:
           type: object
           properties:
@@ -210,15 +299,18 @@ components:
             payDate:
               type: string
               format: date
+          example: example_value
         payrollStatusCode:
           type: object
           properties:
             codeValue:
               type: string
               enum: [Open, Closed, Processing, Completed, Locked]
+          example: example_value
         workerCount:
           type: integer
 
+          example: 10
     PayrollOutputResponse:
       type: object
       properties:
@@ -228,11 +320,13 @@ components:
           items:
             $ref: '#/components/schemas/PayrollOutput'
 
+          example: []
     PayrollOutput:
       type: object
       properties:
         payrollOutputID:
           type: string
+          example: '500123'
         payrollScheduleReference:
           type: object
           properties:
@@ -250,6 +344,7 @@ components:
             payDate:
               type: string
               format: date
+          example: example_value
         payrollSummary:
           type: object
           properties:
@@ -262,6 +357,7 @@ components:
             totalTaxesAmount:
               $ref: '#/components/schemas/AmountValue'
 
+          example: example_value
     WorkerOutputsResponse:
       type: object
       properties:
@@ -277,21 +373,26 @@ components:
                 items:
                   $ref: '#/components/schemas/WorkerPayOutput'
 
+          example: []
     WorkerPayOutput:
       type: object
       properties:
         associateOID:
           type: string
+          example: '500123'
         workerID:
           type: object
           properties:
             idValue:
               type: string
+          example: '500123'
         payStatementID:
           type: string
+          example: '500123'
         payDate:
           type: string
           format: date
+          example: '2026-01-15'
         grossPayAmount:
           $ref: '#/components/schemas/AmountValue'
         netPayAmount:
@@ -300,23 +401,28 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EarningItem'
+          example: []
         overtimeEarnings:
           type: array
           items:
             $ref: '#/components/schemas/EarningItem'
+          example: []
         otherEarnings:
           type: array
           items:
             $ref: '#/components/schemas/EarningItem'
+          example: []
         deductions:
           type: array
           items:
             $ref: '#/components/schemas/DeductionItem'
+          example: []
         taxes:
           type: array
           items:
             $ref: '#/components/schemas/TaxItem'
 
+          example: []
     EarningItem:
       type: object
       properties:
@@ -325,6 +431,7 @@ components:
           properties:
             codeValue:
               type: string
+          example: example_value
         nameCode:
           type: object
           properties:
@@ -332,10 +439,12 @@ components:
               type: string
             shortName:
               type: string
+          example: example_value
         amount:
           $ref: '#/components/schemas/AmountValue'
         hoursQuantity:
           type: number
+          example: 42.5
         rateAmount:
           $ref: '#/components/schemas/AmountValue'
 
@@ -347,6 +456,7 @@ components:
           properties:
             codeValue:
               type: string
+          example: example_value
         nameCode:
           type: object
           properties:
@@ -354,6 +464,7 @@ components:
               type: string
             shortName:
               type: string
+          example: example_value
         amount:
           $ref: '#/components/schemas/AmountValue'
 
@@ -365,11 +476,13 @@ components:
           properties:
             codeValue:
               type: string
+          example: example_value
         nameCode:
           type: object
           properties:
             codeValue:
               type: string
+          example: example_value
         amount:
           $ref: '#/components/schemas/AmountValue'
         jurisdictionCode:
@@ -378,49 +491,60 @@ components:
             codeValue:
               type: string
 
+          example: example_value
     AmountValue:
       type: object
       properties:
         amountValue:
           type: number
           format: double
+          example: 42.5
         currencyCode:
           type: string
           default: USD
 
+          example: example_value
     PayrollInstruction:
       type: object
       properties:
         instructionID:
           type: string
+          example: '500123'
         associateOID:
           type: string
+          example: '500123'
         instructionTypeCode:
           type: string
           enum: [Bonus, Deduction, Garnishment, Override]
+          example: Bonus
         amount:
           $ref: '#/components/schemas/AmountValue'
         effectiveDate:
           type: string
           format: date
 
+          example: '2026-01-15'
     PayrollInstructionRequest:
       type: object
       required: [associateOID, instructionTypeCode, amount]
       properties:
         associateOID:
           type: string
+          example: '500123'
         instructionTypeCode:
           type: string
           enum: [Bonus, Deduction, Garnishment, Override]
+          example: Bonus
         amount:
           $ref: '#/components/schemas/AmountValue'
         effectiveDate:
           type: string
           format: date
+          example: '2026-01-15'
         description:
           type: string
 
+          example: A sample description.
     ErrorMessage:
       type: object
       properties:
@@ -442,3 +566,4 @@ components:
                     properties:
                       messageTxt:
                         type: string
+          example: example_value

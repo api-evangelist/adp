@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConfirmMessage",
+  "type": "object",
+  "properties": {
+    "confirmMessageID": {
+      "type": "object"
+    },
+    "processMessages": {
+      "type": "array"
+    }
+  }
+}

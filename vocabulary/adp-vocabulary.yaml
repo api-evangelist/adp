@@ -1,0 +1,11 @@
+name: adp API Vocabulary
+provider: adp
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 11
+schemas: 24
+tags:
+- Organizations
+- PayrollInstructions
+- PayrollOutputs
+- Workers
