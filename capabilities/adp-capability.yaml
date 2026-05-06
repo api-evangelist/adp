@@ -1,0 +1,256 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ADP Payroll API
+  description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation
+    management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount
+    and compensation analysis across ADP payroll platforms.
+  tags:
+  - Adp
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: adp
+    baseUri: https://api.adp.com
+    description: ADP Payroll API HTTP API.
+    authentication:
+      type: bearer
+      token: '{{ADP_TOKEN}}'
+    resources:
+    - name: payroll-v1-payroll-outputs
+      path: /payroll/v1/payroll-outputs
+      operations:
+      - name: listpayrolloutputs
+        method: GET
+        description: List Payroll Outputs
+        inputParameters:
+        - name: $filter
+          in: query
+          type: string
+          description: OData filter expression
+        - name: $top
+          in: query
+          type: integer
+        - name: $skip
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: payroll-v1-payroll-outputs-payrolloutputid
+      path: /payroll/v1/payroll-outputs/{payrollOutputID}
+      operations:
+      - name: getpayrolloutput
+        method: GET
+        description: Get Payroll Output Details
+        inputParameters:
+        - name: payrollOutputID
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: payroll-v1-payroll-outputs-payrolloutputid-worke
+      path: /payroll/v1/payroll-outputs/{payrollOutputID}/worker-outputs
+      operations:
+      - name: getpayrollworkeroutputs
+        method: GET
+        description: Get Worker-level Payroll Outputs
+        inputParameters:
+        - name: payrollOutputID
+          in: path
+          type: string
+          required: true
+        - name: $top
+          in: query
+          type: integer
+        - name: $skip
+          in: query
+          type: integer
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: payroll-v1-payroll-instructions
+      path: /payroll/v1/payroll-instructions
+      operations:
+      - name: listpayrollinstructions
+        method: GET
+        description: List Payroll Instructions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpayrollinstruction
+        method: POST
+        description: Create Payroll Instruction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: adp-rest
+    description: REST adapter for ADP Payroll API.
+    resources:
+    - path: /payroll/v1/payroll-outputs
+      name: listpayrolloutputs
+      operations:
+      - method: GET
+        name: listpayrolloutputs
+        description: List Payroll Outputs
+        call: adp.listpayrolloutputs
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payroll/v1/payroll-outputs/{payrollOutputID}
+      name: getpayrolloutput
+      operations:
+      - method: GET
+        name: getpayrolloutput
+        description: Get Payroll Output Details
+        call: adp.getpayrolloutput
+        with:
+          payrollOutputID: rest.payrollOutputID
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payroll/v1/payroll-outputs/{payrollOutputID}/worker-outputs
+      name: getpayrollworkeroutputs
+      operations:
+      - method: GET
+        name: getpayrollworkeroutputs
+        description: Get Worker-level Payroll Outputs
+        call: adp.getpayrollworkeroutputs
+        with:
+          payrollOutputID: rest.payrollOutputID
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payroll/v1/payroll-instructions
+      name: listpayrollinstructions
+      operations:
+      - method: GET
+        name: listpayrollinstructions
+        description: List Payroll Instructions
+        call: adp.listpayrollinstructions
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /payroll/v1/payroll-instructions
+      name: createpayrollinstruction
+      operations:
+      - method: POST
+        name: createpayrollinstruction
+        description: Create Payroll Instruction
+        call: adp.createpayrollinstruction
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: adp-mcp
+    transport: http
+    description: MCP adapter for ADP Payroll API for AI agent use.
+    tools:
+    - name: listpayrolloutputs
+      description: List Payroll Outputs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adp.listpayrolloutputs
+      with:
+        $filter: tools.$filter
+        $top: tools.$top
+        $skip: tools.$skip
+      inputParameters:
+      - name: $filter
+        type: string
+        description: OData filter expression
+      - name: $top
+        type: integer
+        description: $top
+      - name: $skip
+        type: integer
+        description: $skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpayrolloutput
+      description: Get Payroll Output Details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adp.getpayrolloutput
+      with:
+        payrollOutputID: tools.payrollOutputID
+      inputParameters:
+      - name: payrollOutputID
+        type: string
+        description: payrollOutputID
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getpayrollworkeroutputs
+      description: Get Worker-level Payroll Outputs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adp.getpayrollworkeroutputs
+      with:
+        payrollOutputID: tools.payrollOutputID
+        $top: tools.$top
+        $skip: tools.$skip
+      inputParameters:
+      - name: payrollOutputID
+        type: string
+        description: payrollOutputID
+        required: true
+      - name: $top
+        type: integer
+        description: $top
+      - name: $skip
+        type: integer
+        description: $skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listpayrollinstructions
+      description: List Payroll Instructions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: adp.listpayrollinstructions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createpayrollinstruction
+      description: Create Payroll Instruction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: adp.createpayrollinstruction
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    ADP_TOKEN: ADP_TOKEN
