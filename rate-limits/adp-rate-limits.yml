@@ -4,101 +4,34 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: ADP
 providerId: adp
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
+notes: ADP does not publish public rate-limit numbers. Limits are governed by partner agreements
+  and may differ across products and environments.
 tags:
-  - Benefits
-  - HCM
-  - HR
-  - Payroll
-  - Workforce
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the ADP API surface. Captures per-tier quotas,
-  burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to be replaced
-  with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - HCM
+  - Payroll
+  - HR
+description: ADP rate limits are not publicly documented. Limits apply per-partner and per-environment
+  (sandbox vs production) and are enforced server-side. Partners should consult their ADP account
+  representative for documented thresholds.
+sources:
+  - https://developers.adp.com/
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - ADP Workers API
-      - ADP Payroll API
-      - ADP Embedded Payroll API
-      - ADP Benefits Administration API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - ADP Workers API
-      - ADP Payroll API
-      - ADP Embedded Payroll API
-      - ADP Benefits Administration API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - ADP Workers API
-      - ADP Payroll API
-      - ADP Embedded Payroll API
-      - ADP Benefits Administration API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - ADP Workers API
-      - ADP Payroll API
-      - ADP Embedded Payroll API
-      - ADP Benefits Administration API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - ADP Workers API
-      - ADP Payroll API
-      - ADP Embedded Payroll API
-      - ADP Benefits Administration API
+  - name: Per-partner rate limit
+    scope: account
+    metric: varies
+    limit: see ADP partner documentation
+    notes: Not publicly disclosed; obtained via partner agreement.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
-maintainers:
-  - name: Kin Lane
-    email: kin@apievangelist.com
+  - name: Backoff
+    description: Use exponential backoff with jitter on 429/503 responses; honor Retry-After when
+      present.
+  - name: Sandbox vs production
+    description: Sandbox limits are smaller than production; do not load-test in sandbox.
+  - name: Partner-scoped
+    description: Limits are scoped to the registered partner application credentials, not per end-client.
