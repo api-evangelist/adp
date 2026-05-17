@@ -9,7 +9,7 @@ url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/apis.y
 created: '2026-03-18'
 modified: '2026-04-18'
 specificationVersion: '0.19'
-type: Contract
+kind: contract
 access: 3rd-Party
 apis:
   - aid: adp:adp-workers-api
