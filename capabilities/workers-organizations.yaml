@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ADP Workers API — Organizations
+  description: 'ADP Workers API — Organizations. 1 operations. Lead operation: List Organization Departments. Self-contained
+    Naftiko capability covering one Adp business surface.'
+  tags:
+  - Adp
+  - Organizations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADP_API_KEY: ADP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workers-organizations
+    baseUri: https://api.adp.com
+    description: ADP Workers API — Organizations business capability. Self-contained, no shared references.
+    resources:
+    - name: core-v1-organization-departments
+      path: /core/v1/organization-departments
+      operations:
+      - name: listdepartments
+        method: GET
+        description: List Organization Departments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.ADP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workers-organizations-rest
+    port: 8080
+    description: REST adapter for ADP Workers API — Organizations. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/core/v1/organization-departments
+      name: core-v1-organization-departments
+      description: REST surface for core-v1-organization-departments.
+      operations:
+      - method: GET
+        name: listdepartments
+        description: List Organization Departments
+        call: workers-organizations.listdepartments
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workers-organizations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ADP Workers API — Organizations. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-organization-departments
+      description: List Organization Departments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workers-organizations.listdepartments
+      outputParameters:
+      - type: object
+        mapping: $.

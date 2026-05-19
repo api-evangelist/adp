@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ADP Payroll API — PayrollInstructions
+  description: 'ADP Payroll API — PayrollInstructions. 2 operations. Lead operation: List Payroll Instructions. Self-contained
+    Naftiko capability covering one Adp business surface.'
+  tags:
+  - Adp
+  - PayrollInstructions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADP_API_KEY: ADP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: payroll-payrollinstructions
+    baseUri: https://api.adp.com
+    description: ADP Payroll API — PayrollInstructions business capability. Self-contained, no shared references.
+    resources:
+    - name: payroll-v1-payroll-instructions
+      path: /payroll/v1/payroll-instructions
+      operations:
+      - name: listpayrollinstructions
+        method: GET
+        description: List Payroll Instructions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createpayrollinstruction
+        method: POST
+        description: Create Payroll Instruction
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: payroll-payrollinstructions-rest
+    port: 8080
+    description: REST adapter for ADP Payroll API — PayrollInstructions. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/payroll/v1/payroll-instructions
+      name: payroll-v1-payroll-instructions
+      description: REST surface for payroll-v1-payroll-instructions.
+      operations:
+      - method: GET
+        name: listpayrollinstructions
+        description: List Payroll Instructions
+        call: payroll-payrollinstructions.listpayrollinstructions
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createpayrollinstruction
+        description: Create Payroll Instruction
+        call: payroll-payrollinstructions.createpayrollinstruction
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: payroll-payrollinstructions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ADP Payroll API — PayrollInstructions. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-payroll-instructions
+      description: List Payroll Instructions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: payroll-payrollinstructions.listpayrollinstructions
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-payroll-instruction
+      description: Create Payroll Instruction
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: payroll-payrollinstructions.createpayrollinstruction
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,264 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: ADP Workers API — Workers
+  description: 'ADP Workers API — Workers. 5 operations. Lead operation: Hire a New Worker. Self-contained Naftiko capability
+    covering one Adp business surface.'
+  tags:
+  - Adp
+  - Workers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ADP_API_KEY: ADP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workers-workers
+    baseUri: https://api.adp.com
+    description: ADP Workers API — Workers business capability. Self-contained, no shared references.
+    resources:
+    - name: events-hr-v1-worker.hire
+      path: /events/hr/v1/worker.hire
+      operations:
+      - name: hireworker
+        method: POST
+        description: Hire a New Worker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: events-hr-v1-worker.terminate
+      path: /events/hr/v1/worker.terminate
+      operations:
+      - name: terminateworker
+        method: POST
+        description: Terminate a Worker
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: hr-v2-workers
+      path: /hr/v2/workers
+      operations:
+      - name: listworkers
+        method: GET
+        description: List Workers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $filter
+          in: query
+          type: string
+          description: OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')
+        - name: $select
+          in: query
+          type: string
+          description: OData select fields to return
+        - name: $top
+          in: query
+          type: integer
+          description: Number of records to return
+        - name: $skip
+          in: query
+          type: integer
+          description: Number of records to skip for pagination
+    - name: hr-v2-workers-aoid
+      path: /hr/v2/workers/{aoid}
+      operations:
+      - name: getworker
+        method: GET
+        description: Get Worker by Aoid
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: aoid
+          in: path
+          type: string
+          description: ADP Associate Object Identifier (AOID)
+          required: true
+    - name: hr-v2-workers-aoid-work-assignments
+      path: /hr/v2/workers/{aoid}/work-assignments
+      operations:
+      - name: getworkerworkassignments
+        method: GET
+        description: Get Worker Work Assignments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: aoid
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ADP_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workers-workers-rest
+    port: 8080
+    description: REST adapter for ADP Workers API — Workers. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/events/hr/v1/worker-hire
+      name: events-hr-v1-worker-hire
+      description: REST surface for events-hr-v1-worker.hire.
+      operations:
+      - method: POST
+        name: hireworker
+        description: Hire a New Worker
+        call: workers-workers.hireworker
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/events/hr/v1/worker-terminate
+      name: events-hr-v1-worker-terminate
+      description: REST surface for events-hr-v1-worker.terminate.
+      operations:
+      - method: POST
+        name: terminateworker
+        description: Terminate a Worker
+        call: workers-workers.terminateworker
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hr/v2/workers
+      name: hr-v2-workers
+      description: REST surface for hr-v2-workers.
+      operations:
+      - method: GET
+        name: listworkers
+        description: List Workers
+        call: workers-workers.listworkers
+        with:
+          $filter: rest.$filter
+          $select: rest.$select
+          $top: rest.$top
+          $skip: rest.$skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hr/v2/workers/{aoid}
+      name: hr-v2-workers-aoid
+      description: REST surface for hr-v2-workers-aoid.
+      operations:
+      - method: GET
+        name: getworker
+        description: Get Worker by Aoid
+        call: workers-workers.getworker
+        with:
+          aoid: rest.aoid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/hr/v2/workers/{aoid}/work-assignments
+      name: hr-v2-workers-aoid-work-assignments
+      description: REST surface for hr-v2-workers-aoid-work-assignments.
+      operations:
+      - method: GET
+        name: getworkerworkassignments
+        description: Get Worker Work Assignments
+        call: workers-workers.getworkerworkassignments
+        with:
+          aoid: rest.aoid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workers-workers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for ADP Workers API — Workers. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: hire-new-worker
+      description: Hire a New Worker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workers-workers.hireworker
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: terminate-worker
+      description: Terminate a Worker
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workers-workers.terminateworker
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-workers
+      description: List Workers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workers-workers.listworkers
+      with:
+        $filter: tools.$filter
+        $select: tools.$select
+        $top: tools.$top
+        $skip: tools.$skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-worker-aoid
+      description: Get Worker by Aoid
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workers-workers.getworker
+      with:
+        aoid: tools.aoid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-worker-work-assignments
+      description: Get Worker Work Assignments
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workers-workers.getworkerworkassignments
+      with:
+        aoid: tools.aoid
+      outputParameters:
+      - type: object
+        mapping: $.
