@@ -1,0 +1,927 @@
+"""
+ADP GraphQL Schema
+Conceptual schema derived from the ADP Workers API, Payroll API, Benefits API, and Time API.
+Source: https://developers.adp.com/ | https://github.com/adplabs
+ADP does not publish an official GraphQL endpoint; this schema models the REST API surface
+for use in a GraphQL gateway or federation layer.
+"""
+
+# ─────────────────────────────────────────────
+# Scalars
+# ─────────────────────────────────────────────
+
+scalar Date
+scalar DateTime
+scalar Decimal
+scalar JSON
+
+# ─────────────────────────────────────────────
+# Root Types
+# ─────────────────────────────────────────────
+
+type Query {
+  "Retrieve a single worker by ADP Associate OID."
+  worker(associateOID: ID!): Worker
+
+  "List workers with optional filtering and pagination."
+  workers(filter: WorkerFilter, limit: Int, offset: Int): WorkerConnection
+
+  "Retrieve a worker's pay statement by pay period end date."
+  payStatement(associateOID: ID!, payPeriodEndDate: String!): PayStatement
+
+  "List pay statements for a worker."
+  payStatements(associateOID: ID!, limit: Int, offset: Int): [PayStatement!]
+
+  "Retrieve a timecard for a worker and pay period."
+  timeCard(associateOID: ID!, payPeriodStartDate: Date!, payPeriodEndDate: Date!): TimeCard
+
+  "List time-off requests for a worker."
+  timeOffRequests(associateOID: ID!, status: String): [TimeOff!]
+
+  "List leave balances for a worker."
+  leaveBalances(associateOID: ID!): [LeaveBalance!]
+
+  "List benefit enrollments for a worker."
+  benefitEnrollments(associateOID: ID!): [BenefitEnrollment!]
+
+  "List available benefit plans."
+  benefitPlans(companyCode: String, planType: String): [BenefitPlan!]
+
+  "List direct deposit accounts for a worker."
+  directDeposits(associateOID: ID!): [DirectDeposit!]
+
+  "Retrieve API key metadata."
+  apiKey(keyID: ID!): APIKey
+
+  "List active webhooks."
+  webhooks(eventType: String): [Webhook!]
+}
+
+type Mutation {
+  "Update worker personal contact information."
+  updatePersonContact(input: UpdatePersonContactInput!): UpdatePersonContactPayload
+
+  "Update worker address."
+  updatePersonAddress(input: UpdatePersonAddressInput!): UpdatePersonAddressPayload
+
+  "Enroll a worker in a benefit plan."
+  enrollInBenefitPlan(input: BenefitEnrollmentInput!): BenefitEnrollmentPayload
+
+  "Update an existing benefit enrollment."
+  updateBenefitEnrollment(input: UpdateBenefitEnrollmentInput!): BenefitEnrollmentPayload
+
+  "Submit a time-off request."
+  submitTimeOff(input: TimeOffInput!): TimeOffPayload
+
+  "Approve a time-off request."
+  approveTimeOff(requestID: ID!, approverNote: String): TimeOffPayload
+
+  "Add or update a direct deposit account."
+  upsertDirectDeposit(input: DirectDepositInput!): DirectDepositPayload
+
+  "Register a new webhook subscription."
+  registerWebhook(input: WebhookInput!): WebhookPayload
+
+  "Delete a webhook subscription."
+  deleteWebhook(webhookID: ID!): DeleteWebhookPayload
+
+  "Refresh an OAuth token."
+  refreshOAuthToken(refreshToken: String!): OAuthToken
+}
+
+# ─────────────────────────────────────────────
+# Worker
+# ─────────────────────────────────────────────
+
+"""
+The central entity representing an individual in ADP — employee, contractor, or other worker.
+Corresponds to the /hr/v2/workers resource in the ADP Workers API.
+"""
+type Worker {
+  "ADP Associate OID — the globally unique identifier for a worker across ADP systems."
+  associateOID: ID!
+
+  "Internal worker ID within the client's ADP environment."
+  workerID: WorkerID
+
+  "Current lifecycle status of the worker."
+  workerStatus: WorkerStatus
+
+  "Associations linking the worker to client companies and ADP products."
+  workerAssociations: [WorkerAssociation!]
+
+  "Personal information including legal name, preferred name, and demographics."
+  person: Person
+
+  "Current primary employment record."
+  employment: Employment
+
+  "Full employment history including prior positions."
+  employmentHistory: [EmploymentHistory!]
+
+  "Current primary position assignment."
+  position: Position
+
+  "Pay group assignment for payroll processing."
+  payGroup: PayGroup
+
+  "Most recent pay statements."
+  payStatements(limit: Int): [PayStatement!]
+
+  "Current time card for the active pay period."
+  currentTimeCard: TimeCard
+
+  "Leave balances by leave type."
+  leaveBalances: [LeaveBalance!]
+
+  "Active benefit plan enrollments."
+  benefitEnrollments: [BenefitEnrollment!]
+
+  "Direct deposit configuration."
+  directDeposits: [DirectDeposit!]
+
+  "Worker profile image."
+  image: WorkerImage
+
+  "In-platform messages and HR communications."
+  messages: [WorkerMessage!]
+
+  "Date and time this record was last modified in ADP."
+  lastModifiedDateTime: DateTime
+}
+
+"A paginated list of workers with total count."
+type WorkerConnection {
+  totalCount: Int!
+  workers: [Worker!]!
+}
+
+"Internal worker identifier within a specific ADP client environment."
+type WorkerID {
+  idValue: String
+  schemeName: String
+}
+
+"A brief summary projection of a worker record for list views."
+type WorkerSummary {
+  associateOID: ID!
+  workerID: WorkerID
+  legalName: LegalName
+  statusCode: String
+  positionTitle: String
+  departmentName: String
+}
+
+"Links a worker to a specific ADP client company and product context."
+type WorkerAssociation {
+  associateOID: ID!
+  companyCode: String
+  companyName: String
+  clientID: String
+  startDate: Date
+  endDate: Date
+}
+
+"The lifecycle status of a worker within ADP (e.g., Active, Terminated, Leave of Absence)."
+type WorkerStatus {
+  statusCode: String!
+  statusName: String
+  effectiveDate: Date
+  reasonCode: String
+  reasonName: String
+}
+
+# ─────────────────────────────────────────────
+# Person / Personal Information
+# ─────────────────────────────────────────────
+
+"Personal information for a worker including names, contact methods, and demographics."
+type Person {
+  "Legal name as recorded in official documents."
+  legalName: LegalName
+
+  "Preferred or preferred name used in day-to-day communications."
+  preferredName: PreferredName
+
+  "All contact methods: phone numbers, email addresses, and physical addresses."
+  contactMethods: [PersonContactMethod]
+
+  "Physical addresses (home, mailing, etc.)."
+  addresses: [PersonAddress!]
+
+  "Phone numbers."
+  phones: [PersonPhone!]
+
+  "Email addresses."
+  emails: [PersonEmail!]
+
+  "Demographic and personal details."
+  personalInfo: PersonalInfo
+}
+
+"The legal name of a worker as it appears on official government documents."
+type LegalName {
+  formattedName: String
+  givenName: String
+  middleName: String
+  familyName: String
+  suffix: String
+  prefix: String
+}
+
+"The name a worker prefers to go by in the workplace."
+type PreferredName {
+  formattedName: String
+  givenName: String
+  middleName: String
+  familyName: String
+  nickName: String
+}
+
+"Union type for all contact method variants (phone, email, address)."
+union PersonContactMethod = PersonPhone | PersonEmail | PersonAddress
+
+"A physical address associated with a person."
+type PersonAddress {
+  addressType: String
+  lineOne: String
+  lineTwo: String
+  lineThree: String
+  cityName: String
+  countrySubdivisionLevel1: String
+  postalCode: String
+  countryCode: String
+  isPrimary: Boolean
+}
+
+"A phone number associated with a person."
+type PersonPhone {
+  phoneType: String
+  phoneNumber: String
+  countryDialing: String
+  extension: String
+  isPrimary: Boolean
+}
+
+"An email address associated with a person."
+type PersonEmail {
+  emailType: String
+  emailAddress: String
+  isPrimary: Boolean
+}
+
+"Demographic and personal characteristics of a worker."
+type PersonalInfo {
+  birthDate: BirthDate
+  gender: Gender
+  maritalStatus: MaritalStatus
+  usCitizenshipStatus: USCitizenshipStatus
+  immigrationStatus: ImmigrationStatus
+  ethnicity: String
+  disabilityIndicator: Boolean
+  militaryStatus: String
+}
+
+"Date of birth — stored separately to enable age calculation without exposing raw PII."
+type BirthDate {
+  dateValue: Date
+}
+
+"Gender identity of a worker."
+type Gender {
+  genderCode: String
+  genderName: String
+}
+
+"Marital/relationship status of a worker."
+type MaritalStatus {
+  maritalStatusCode: String
+  maritalStatusName: String
+  effectiveDate: Date
+}
+
+"US citizenship status for tax and I-9 compliance."
+type USCitizenshipStatus {
+  statusCode: String
+  statusName: String
+}
+
+"Immigration and work authorization status."
+type ImmigrationStatus {
+  statusCode: String
+  statusName: String
+  countryCode: String
+  visaType: String
+  visaExpirationDate: Date
+}
+
+# ─────────────────────────────────────────────
+# Employment
+# ─────────────────────────────────────────────
+
+"The current employment record for a worker, including status and key dates."
+type Employment {
+  "Current employment status (Active, Terminated, Leave, etc.)."
+  employmentStatus: EmploymentStatus
+
+  "Most recent hire date."
+  hireDate: HireDate
+
+  "Original hire date — the first time the worker was ever hired."
+  originalHireDate: OriginalHireDate
+
+  "Re-hire date, if the worker was rehired after termination."
+  reHireDate: ReHireDate
+
+  "Termination date, if applicable."
+  terminationDate: TerminationDate
+
+  "Work email address assigned by the employer."
+  workEmail: String
+
+  "Employment type (Full-Time, Part-Time, Temporary, Contract)."
+  employmentType: String
+
+  "Worker classification (Employee, Contractor, Intern, etc.)."
+  workerTypeCode: String
+
+  "FLSA classification (Exempt or Non-Exempt)."
+  flsaStatusCode: String
+
+  "EEO job category."
+  eeoJobCategoryCode: String
+}
+
+"A historical employment record capturing a prior period of employment."
+type EmploymentHistory {
+  startDate: Date
+  endDate: Date
+  employmentStatus: EmploymentStatus
+  jobTitle: String
+  companyCode: String
+  companyName: String
+  separationReasonCode: String
+  separationReasonName: String
+}
+
+"Employment lifecycle status with effective date and reason."
+type EmploymentStatus {
+  statusCode: String!
+  statusName: String
+  effectiveDate: Date
+  reasonCode: String
+  reasonName: String
+}
+
+"The date the worker was most recently hired."
+type HireDate {
+  dateValue: Date
+}
+
+"The original hire date — the worker's first date of employment ever."
+type OriginalHireDate {
+  dateValue: Date
+}
+
+"The date a worker was rehired following a separation."
+type ReHireDate {
+  dateValue: Date
+}
+
+"The date a worker's employment ended."
+type TerminationDate {
+  dateValue: Date
+  reasonCode: String
+  reasonName: String
+  voluntaryIndicator: Boolean
+}
+
+# ─────────────────────────────────────────────
+# Position and Organization
+# ─────────────────────────────────────────────
+
+"The primary position assignment for a worker."
+type Position {
+  positionID: ID
+  jobTitle: JobTitle
+  positionDetails: PositionDetails
+  businessUnit: BusinessUnit
+  department: Department
+  division: Division
+  location: Location
+  supervisor: Supervisor
+  reportsTo: ReportsTo
+  payrollGroup: PayrollGroup
+  effectiveDate: Date
+}
+
+"Detailed attributes of a position beyond the title."
+type PositionDetails {
+  positionCode: String
+  positionName: String
+  salaryGradeCode: String
+  salaryGradeName: String
+  jobCode: String
+  jobFamilyCode: String
+  jobFamilyName: String
+  standardHoursPerWeek: Decimal
+  fullTimeEquivalency: Decimal
+}
+
+"The job title associated with a worker's position."
+type JobTitle {
+  titleCode: String
+  titleName: String
+}
+
+"A business unit within the organization's hierarchy."
+type BusinessUnit {
+  businessUnitCode: String!
+  businessUnitName: String
+}
+
+"A department within a business unit."
+type Department {
+  departmentCode: String!
+  departmentName: String
+}
+
+"A division within the organization."
+type Division {
+  divisionCode: String!
+  divisionName: String
+}
+
+"The physical or virtual location where a worker is assigned."
+type Location {
+  locationCode: String!
+  locationName: String
+  addressLine1: String
+  city: String
+  stateCode: String
+  postalCode: String
+  countryCode: String
+  timeZone: String
+}
+
+"The direct supervisor of a worker."
+type Supervisor {
+  associateOID: ID
+  formattedName: String
+  titleName: String
+}
+
+"The reporting relationship definition (who the worker reports to)."
+type ReportsTo {
+  associateOID: ID
+  formattedName: String
+  positionID: String
+  titleName: String
+}
+
+# ─────────────────────────────────────────────
+# Payroll
+# ─────────────────────────────────────────────
+
+"A grouping of workers across pay groups for payroll administration."
+type PayrollGroup {
+  payrollGroupCode: String!
+  payrollGroupName: String
+}
+
+"A pay group that determines pay frequency and schedule for a set of workers."
+type PayGroup {
+  payGroupCode: String!
+  payGroupName: String
+  payFrequency: PayFrequency
+}
+
+"The frequency at which workers in a pay group are paid."
+type PayFrequency {
+  frequencyCode: String!
+  frequencyName: String
+  periodsPerYear: Int
+}
+
+"A defined pay period with start and end dates."
+type PayPeriod {
+  startDate: Date!
+  endDate: Date!
+  payDate: Date
+}
+
+"A pay statement (pay stub) issued to a worker for a pay period."
+type PayStatement {
+  payStatementID: ID
+  associateOID: ID!
+  payPeriod: PayPeriod!
+  earnings: [Earning!]
+  deductions: [Deduction!]
+  taxes: [Tax!]
+  netPay: NetPay
+  directDeposits: [DirectDeposit!]
+  grossPay: Decimal
+  totalDeductions: Decimal
+  totalTaxes: Decimal
+  payDate: Date
+  checkNumber: String
+}
+
+"An individual earning line item on a pay statement."
+type Earning {
+  earningTypeCode: String!
+  earningTypeName: String
+  amount: Decimal
+  hours: Decimal
+  rate: Decimal
+  baseIndicator: Boolean
+  currencyCode: String
+}
+
+"A deduction line item on a pay statement (pre-tax or post-tax)."
+type Deduction {
+  deductionTypeCode: String!
+  deductionTypeName: String
+  amount: Decimal
+  preTax: Boolean
+  currencyCode: String
+}
+
+"A tax withholding line item on a pay statement."
+type Tax {
+  taxTypeCode: String!
+  taxTypeName: String
+  jurisdictionCode: String
+  jurisdictionName: String
+  amount: Decimal
+  taxableWages: Decimal
+  currencyCode: String
+}
+
+"The net pay amount after all deductions and taxes."
+type NetPay {
+  amount: Decimal!
+  currencyCode: String!
+}
+
+"Wage and hour compliance data for a worker."
+type WageHour {
+  regularHours: Decimal
+  overtimeHours: Decimal
+  totalHours: Decimal
+  regularRate: Decimal
+  overtimeRate: Decimal
+  payPeriod: PayPeriod
+}
+
+# ─────────────────────────────────────────────
+# Time and Attendance
+# ─────────────────────────────────────────────
+
+"A single time entry (clock-in/clock-out or hours entry)."
+type TimeEntry {
+  entryID: ID
+  entryDate: Date!
+  startTime: DateTime
+  endTime: DateTime
+  hoursWorked: Decimal
+  earningTypeCode: String
+  laborCode: String
+  comment: String
+  approvalStatus: String
+}
+
+"A timecard aggregating all time entries for a worker within a pay period."
+type TimeCard {
+  timeCardID: ID
+  associateOID: ID!
+  payPeriod: PayPeriod!
+  timeEntries: [TimeEntry!]
+  totalRegularHours: Decimal
+  totalOvertimeHours: Decimal
+  totalHours: Decimal
+  approvalStatus: String
+  lastModifiedDateTime: DateTime
+}
+
+"A time-off request submitted by or on behalf of a worker."
+type TimeOff {
+  requestID: ID!
+  associateOID: ID!
+  leaveTypeCode: String!
+  leaveTypeName: String
+  startDate: Date!
+  endDate: Date!
+  totalHours: Decimal
+  totalDays: Decimal
+  status: String
+  requestedDate: DateTime
+  approvedDate: DateTime
+  approverAssociateOID: ID
+  notes: String
+}
+
+"Accrued and available leave balance for a worker by leave type."
+type LeaveBalance {
+  leaveTypeCode: String!
+  leaveTypeName: String
+  balanceHours: Decimal
+  balanceDays: Decimal
+  accruedHours: Decimal
+  usedHours: Decimal
+  scheduledHours: Decimal
+  asOfDate: Date
+}
+
+# ─────────────────────────────────────────────
+# Benefits
+# ─────────────────────────────────────────────
+
+"The benefits portfolio available to or enrolled in by a worker."
+type Benefits {
+  associateOID: ID!
+  enrollments: [BenefitEnrollment!]
+  eligiblePlans: [BenefitPlan!]
+}
+
+"A worker's enrollment in a specific benefit plan."
+type BenefitEnrollment {
+  enrollmentID: ID
+  associateOID: ID!
+  benefitPlan: BenefitPlan!
+  coverageTier: String
+  coverage: BenefitCoverage
+  employeeContribution: Decimal
+  employerContribution: Decimal
+  effectiveDate: Date
+  endDate: Date
+  enrollmentStatus: String
+}
+
+"A benefit plan offered by the employer."
+type BenefitPlan {
+  planID: ID!
+  planCode: String
+  planName: String!
+  planType: String
+  carrierName: String
+  coverageTiers: [String!]
+  effectiveDate: Date
+  endDate: Date
+}
+
+"Coverage details associated with a benefit enrollment."
+type BenefitCoverage {
+  coverageCode: String
+  coverageName: String
+  coverageAmount: Decimal
+  dependentsCovered: [BenefitDependent!]
+}
+
+"A dependent covered under a worker's benefit plan."
+type BenefitDependent {
+  dependentID: ID
+  relationship: String
+  firstName: String
+  lastName: String
+  birthDate: Date
+}
+
+# ─────────────────────────────────────────────
+# Worker Media and Messaging
+# ─────────────────────────────────────────────
+
+"A profile image for a worker."
+type WorkerImage {
+  imageURL: String
+  mimeType: String
+  lastModifiedDateTime: DateTime
+}
+
+"An in-platform message or notification directed to or from a worker."
+type WorkerMessage {
+  messageID: ID
+  subject: String
+  body: String
+  fromName: String
+  sentDateTime: DateTime
+  readIndicator: Boolean
+  messageType: String
+}
+
+# ─────────────────────────────────────────────
+# Banking and Direct Deposit
+# ─────────────────────────────────────────────
+
+"A direct deposit configuration entry for a worker."
+type DirectDeposit {
+  depositID: ID
+  bankAccount: BankAccount!
+  amount: Decimal
+  percentage: Decimal
+  depositType: String
+  priority: Int
+  effectiveDate: Date
+  status: String
+}
+
+"A bank account associated with a direct deposit."
+type BankAccount {
+  bankAccountID: ID
+  bankName: String
+  routingTransitNumber: String
+  accountNumber: String
+  accountType: String
+  lastFour: String
+}
+
+# ─────────────────────────────────────────────
+# Security and Integration
+# ─────────────────────────────────────────────
+
+"An API key credential for ADP marketplace application authentication."
+type APIKey {
+  keyID: ID!
+  clientID: String!
+  keyName: String
+  createdDate: Date
+  expirationDate: Date
+  scopes: [String!]
+  status: String
+}
+
+"An OAuth 2.0 access token issued by ADP's authorization server."
+type OAuthToken {
+  accessToken: String!
+  tokenType: String!
+  expiresIn: Int!
+  scope: String
+  refreshToken: String
+  issuedAt: DateTime
+}
+
+"A webhook subscription for real-time ADP event notifications."
+type Webhook {
+  webhookID: ID!
+  eventType: String!
+  targetURL: String!
+  isActive: Boolean!
+  signingSecret: String
+  createdDate: DateTime
+  lastDeliveryDate: DateTime
+  deliveryStatus: String
+}
+
+# ─────────────────────────────────────────────
+# Input Types
+# ─────────────────────────────────────────────
+
+"Filter parameters for listing workers."
+input WorkerFilter {
+  companyCode: String
+  departmentCode: String
+  locationCode: String
+  payGroupCode: String
+  statusCode: String
+  hiredAfter: Date
+  hiredBefore: Date
+  modifiedSince: DateTime
+}
+
+"Input for updating a worker's contact information."
+input UpdatePersonContactInput {
+  associateOID: ID!
+  phones: [PersonPhoneInput!]
+  emails: [PersonEmailInput!]
+}
+
+"Input for a phone number update."
+input PersonPhoneInput {
+  phoneType: String!
+  phoneNumber: String!
+  countryDialing: String
+  extension: String
+  isPrimary: Boolean
+}
+
+"Input for an email address update."
+input PersonEmailInput {
+  emailType: String!
+  emailAddress: String!
+  isPrimary: Boolean
+}
+
+"Input for updating a worker's address."
+input UpdatePersonAddressInput {
+  associateOID: ID!
+  addressType: String!
+  lineOne: String
+  lineTwo: String
+  cityName: String
+  countrySubdivisionLevel1: String
+  postalCode: String
+  countryCode: String
+}
+
+"Input for enrolling a worker in a benefit plan."
+input BenefitEnrollmentInput {
+  associateOID: ID!
+  planID: ID!
+  coverageTier: String!
+  effectiveDate: Date!
+  dependentIDs: [ID!]
+}
+
+"Input for updating an existing benefit enrollment."
+input UpdateBenefitEnrollmentInput {
+  enrollmentID: ID!
+  coverageTier: String
+  endDate: Date
+  dependentIDs: [ID!]
+}
+
+"Input for submitting a time-off request."
+input TimeOffInput {
+  associateOID: ID!
+  leaveTypeCode: String!
+  startDate: Date!
+  endDate: Date!
+  totalHours: Decimal
+  notes: String
+}
+
+"Input for adding or updating a direct deposit account."
+input DirectDepositInput {
+  associateOID: ID!
+  depositID: ID
+  routingTransitNumber: String!
+  accountNumber: String!
+  accountType: String!
+  bankName: String
+  depositType: String!
+  amount: Decimal
+  percentage: Decimal
+  priority: Int
+  effectiveDate: Date!
+}
+
+"Input for registering a webhook subscription."
+input WebhookInput {
+  eventType: String!
+  targetURL: String!
+  signingSecret: String
+}
+
+# ─────────────────────────────────────────────
+# Payload / Response Types
+# ─────────────────────────────────────────────
+
+"Response payload for worker contact update mutations."
+type UpdatePersonContactPayload {
+  worker: Worker
+  errors: [MutationError!]
+}
+
+"Response payload for worker address update mutations."
+type UpdatePersonAddressPayload {
+  worker: Worker
+  errors: [MutationError!]
+}
+
+"Response payload for benefit enrollment mutations."
+type BenefitEnrollmentPayload {
+  benefitEnrollment: BenefitEnrollment
+  errors: [MutationError!]
+}
+
+"Response payload for time-off request mutations."
+type TimeOffPayload {
+  timeOff: TimeOff
+  errors: [MutationError!]
+}
+
+"Response payload for direct deposit mutations."
+type DirectDepositPayload {
+  directDeposit: DirectDeposit
+  errors: [MutationError!]
+}
+
+"Response payload for webhook registration mutations."
+type WebhookPayload {
+  webhook: Webhook
+  errors: [MutationError!]
+}
+
+"Response payload for webhook deletion."
+type DeleteWebhookPayload {
+  webhookID: ID
+  success: Boolean!
+  errors: [MutationError!]
+}
+
+"A structured error returned in mutation response payloads."
+type MutationError {
+  code: String!
+  message: String!
+  field: String
+}
