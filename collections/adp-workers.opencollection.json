@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ADP Workers API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://accounts.adp.com/auth/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Workers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/hr/v2/workers",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "example_value",
+                "type": "query",
+                "description": "OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')"
+              },
+              {
+                "name": "$select",
+                "value": "example_value",
+                "type": "query",
+                "description": "OData select fields to return"
+              },
+              {
+                "name": "$top",
+                "value": "10",
+                "type": "query",
+                "description": "Number of records to return"
+              },
+              {
+                "name": "$skip",
+                "value": "10",
+                "type": "query",
+                "description": "Number of records to skip for pagination"
+              }
+            ]
+          },
+          "docs": "Retrieve a collection of workers (employees and contractors) from the organization. Supports filtering by worker type, status, and OData query parameters."
+        },
+        {
+          "info": {
+            "name": "Get Worker by Aoid",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/hr/v2/workers/:aoid",
+            "params": [
+              {
+                "name": "aoid",
+                "value": "500123",
+                "type": "path",
+                "description": "ADP Associate Object Identifier (AOID)"
+              }
+            ]
+          },
+          "docs": "Retrieve a single worker record by the ADP worker AOID (Associate OID)."
+        },
+        {
+          "info": {
+            "name": "Get Worker Work Assignments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/hr/v2/workers/:aoid/work-assignments",
+            "params": [
+              {
+                "name": "aoid",
+                "value": "500123",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve all work assignments (positions) associated with a worker."
+        },
+        {
+          "info": {
+            "name": "Hire a New Worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.adp.com/events/hr/v1/worker.hire",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a worker hire event to onboard a new employee or contractor into the ADP HCM system. This creates a new worker record with initial work assignment."
+        },
+        {
+          "info": {
+            "name": "Terminate a Worker",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.adp.com/events/hr/v1/worker.terminate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a worker termination event to end employment for an existing worker."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Organization Departments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/core/v1/organization-departments"
+          },
+          "docs": "Retrieve all departments/organizational units in the company structure."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

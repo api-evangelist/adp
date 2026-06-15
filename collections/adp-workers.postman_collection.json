@@ -1,0 +1,972 @@
+{
+  "item": [
+    {
+      "id": "408f4749-89e6-4b88-a426-82b51ad05ffa",
+      "name": "Organizations",
+      "description": {
+        "content": "Organizational unit management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc1c2c7e-eb2c-4a82-85ed-9255a9cfae8f",
+          "name": "List Organization Departments",
+          "request": {
+            "name": "List Organization Departments",
+            "description": {
+              "content": "Retrieve all departments/organizational units in the company structure.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "core",
+                "v1",
+                "organization-departments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d675a1a-7134-4741-8c2b-02ee651a78de",
+              "name": "List of departments",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "core",
+                    "v1",
+                    "organization-departments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"organizationDepartments\": [\n    {\n      \"departmentCode\": \"example_value\",\n      \"departmentName\": \"example_value\",\n      \"parentDepartmentCode\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "45b694b8-f8bd-44fb-a21e-f195963017da",
+      "name": "Workers",
+      "description": {
+        "content": "Worker (employee) data access",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3a60a19c-0e3c-4d22-b896-058c9e234787",
+          "name": "List Workers",
+          "request": {
+            "name": "List Workers",
+            "description": {
+              "content": "Retrieve a collection of workers (employees and contractors) from the organization. Supports filtering by worker type, status, and OData query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hr",
+                "v2",
+                "workers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression (e.g., workers/workAssignments/assignmentStatus/statusCode/codeValue eq 'Active')"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "OData select fields to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "25",
+                  "description": "Number of records to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "0",
+                  "description": "Number of records to skip for pagination"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6c3f57d-c5b2-44ee-8947-e788cc321364",
+              "name": "Collection of workers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workers\": [\n    {\n      \"associateOID\": \"500123\",\n      \"workerID\": {},\n      \"workerDates\": {},\n      \"workAssignments\": {},\n      \"customFieldGroup\": \"example_value\"\n    }\n  ],\n  \"meta\": {\n    \"totalCount\": 10,\n    \"startIndex\": 10,\n    \"itemsPerPage\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16a7a6da-f1c7-4a32-88ca-692c6f7e2a4a",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessageID\": {\n    \"idValue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44f9bf33-bc92-4012-b464-fbce49465d57",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessageID\": {\n    \"idValue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63e9ad3f-386f-400b-b89a-4ac3e2ea0146",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessageID\": {\n    \"idValue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77dec7e5-ec80-44f4-b577-02ec0376b968",
+          "name": "Get Worker by Aoid",
+          "request": {
+            "name": "Get Worker by Aoid",
+            "description": {
+              "content": "Retrieve a single worker record by the ADP worker AOID (Associate OID).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hr",
+                "v2",
+                "workers",
+                ":aoid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aoid",
+                  "description": "(Required) ADP Associate Object Identifier (AOID)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "703b5bd2-de22-4fa3-860b-1bc47866f7ec",
+              "name": "Worker details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers",
+                    ":aoid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aoid",
+                      "description": "(Required) ADP Associate Object Identifier (AOID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workers\": [\n    {\n      \"associateOID\": \"500123\",\n      \"workerID\": {},\n      \"workerDates\": {},\n      \"workAssignments\": {},\n      \"customFieldGroup\": \"example_value\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1d8c667-686e-46b1-98cf-3900a904d945",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers",
+                    ":aoid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aoid",
+                      "description": "(Required) ADP Associate Object Identifier (AOID)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessageID\": {\n    \"idValue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93c81741-29fe-457e-a187-38e6a6f5cd91",
+          "name": "Get Worker Work Assignments",
+          "request": {
+            "name": "Get Worker Work Assignments",
+            "description": {
+              "content": "Retrieve all work assignments (positions) associated with a worker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "hr",
+                "v2",
+                "workers",
+                ":aoid",
+                "work-assignments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "aoid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b439800-1d4f-45f4-8d66-16375e06b3d4",
+              "name": "Work assignments for the worker",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "hr",
+                    "v2",
+                    "workers",
+                    ":aoid",
+                    "work-assignments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "aoid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"workers\": [\n    {\n      \"itemID\": \"500123\",\n      \"primaryIndicator\": true,\n      \"hireDate\": \"2026-01-15\",\n      \"assignmentStatus\": {\n        \"statusCode\": {}\n      },\n      \"positionID\": \"500123\",\n      \"jobCode\": {\n        \"codeValue\": \"example_value\",\n        \"shortName\": \"example_value\"\n      },\n      \"jobTitle\": \"example_value\",\n      \"standardHours\": {\n        \"hoursQuantity\": 42.5,\n        \"unitCode\": {}\n      },\n      \"annualBaseRemuneration\": {\n        \"annualRateAmount\": {}\n      },\n      \"homeOrganizationalUnits\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c595a101-ed0b-4b90-83ed-54c2a8b736f6",
+          "name": "Hire a New Worker",
+          "request": {
+            "name": "Hire a New Worker",
+            "description": {
+              "content": "Submit a worker hire event to onboard a new employee or contractor into the ADP HCM system. This creates a new worker record with initial work assignment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "hr",
+                "v1",
+                "worker.hire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"events\": [\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"<string>\"\n      },\n      \"data\": {\n        \"transform\": {\n          \"worker\": {\n            \"associateOID\": \"<string>\",\n            \"workerID\": {\n              \"idValue\": \"<string>\",\n              \"schemeCode\": {\n                \"codeValue\": \"<string>\"\n              }\n            },\n            \"person\": {\n              \"legalName\": {\n                \"givenName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"familyName1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"preferredSalutations\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"birthDate\": \"<date>\",\n              \"genderCode\": {\n                \"codeValue\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"maritalStatusCode\": {\n                \"codeValue\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"communication\": {\n                \"emails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"phones\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"legalAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"workerDates\": {\n              \"originalHireDate\": \"<date>\",\n              \"terminationDate\": \"<date>\",\n              \"rehireDate\": \"<date>\"\n            },\n            \"workAssignments\": [\n              {\n                \"itemID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"primaryIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"hireDate\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"assignmentStatus\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"positionID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobTitle\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"standardHours\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"annualBaseRemuneration\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"homeOrganizationalUnits\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"itemID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"primaryIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"hireDate\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"assignmentStatus\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"positionID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobTitle\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"standardHours\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"annualBaseRemuneration\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"homeOrganizationalUnits\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"customFieldGroup\": {\n              \"key_0\": \"string\",\n              \"key_1\": 8175\n            }\n          }\n        }\n      }\n    },\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"<string>\"\n      },\n      \"data\": {\n        \"transform\": {\n          \"worker\": {\n            \"associateOID\": \"<string>\",\n            \"workerID\": {\n              \"idValue\": \"<string>\",\n              \"schemeCode\": {\n                \"codeValue\": \"<string>\"\n              }\n            },\n            \"person\": {\n              \"legalName\": {\n                \"givenName\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"familyName1\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"preferredSalutations\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"birthDate\": \"<date>\",\n              \"genderCode\": {\n                \"codeValue\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"maritalStatusCode\": {\n                \"codeValue\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"communication\": {\n                \"emails\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"phones\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              \"legalAddress\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"workerDates\": {\n              \"originalHireDate\": \"<date>\",\n              \"terminationDate\": \"<date>\",\n              \"rehireDate\": \"<date>\"\n            },\n            \"workAssignments\": [\n              {\n                \"itemID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"primaryIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"hireDate\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"assignmentStatus\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"positionID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobTitle\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"standardHours\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"annualBaseRemuneration\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"homeOrganizationalUnits\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              },\n              {\n                \"itemID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"primaryIndicator\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"hireDate\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"assignmentStatus\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"positionID\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobCode\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"jobTitle\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"standardHours\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"annualBaseRemuneration\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                \"homeOrganizationalUnits\": {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              }\n            ],\n            \"customFieldGroup\": {\n              \"key_0\": 6107.536840978251\n            }\n          }\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d6f7908f-00b5-4800-91b0-5ca388838b5e",
+              "name": "Worker hire event accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "hr",
+                    "v1",
+                    "worker.hire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"events\": [\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"worker.hire\"\n      },\n      \"data\": {\n        \"transform\": {}\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"eventID\": \"500123\",\n      \"eventNameCode\": {\n        \"codeValue\": \"example_value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48ddc455-52fa-40dc-a700-6639935de9c1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "hr",
+                    "v1",
+                    "worker.hire"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"events\": [\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"worker.hire\"\n      },\n      \"data\": {\n        \"transform\": {}\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessageID\": {\n    \"idValue\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "522c2702-0830-4b6a-8d7c-330a9e810603",
+          "name": "Terminate a Worker",
+          "request": {
+            "name": "Terminate a Worker",
+            "description": {
+              "content": "Submit a worker termination event to end employment for an existing worker.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events",
+                "hr",
+                "v1",
+                "worker.terminate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"events\": [\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"<string>\"\n      },\n      \"data\": {\n        \"transform\": {\n          \"workerDates\": {\n            \"terminationDate\": \"<date>\"\n          },\n          \"terminationReason\": {\n            \"codeValue\": \"<string>\"\n          }\n        }\n      }\n    },\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"<string>\"\n      },\n      \"data\": {\n        \"transform\": {\n          \"workerDates\": {\n            \"terminationDate\": \"<date>\"\n          },\n          \"terminationReason\": {\n            \"codeValue\": \"<string>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff682734-511e-4ff0-a302-e950475595a9",
+              "name": "Termination event accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events",
+                    "hr",
+                    "v1",
+                    "worker.terminate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"events\": [\n    {\n      \"eventNameCode\": {\n        \"codeValue\": \"worker.terminate\"\n      },\n      \"data\": {\n        \"transform\": {}\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"eventID\": \"500123\",\n      \"eventNameCode\": {\n        \"codeValue\": \"example_value\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.adp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api__workers-v2__read api__workers-v2__write"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.adp.com/auth/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4fa46857-c2b9-4e95-944a-70eb0db7ef1b",
+    "name": "ADP Workers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ADP Workers API enables access to employee and worker data including personal information, job assignments, pay grades, compensation, and employment status. REST APIs support worker lifecycle management for HCM integrations across ADP Workforce Now, Vantage HCM, and Enterprise HR platforms.\n\nContact Support:\n Name: ADP Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}
