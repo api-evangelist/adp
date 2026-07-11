@@ -1,0 +1,33 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/adp-payroll-openapi.yml, openapi/adp-workers-openapi.yml
+schemes:
+- name: oauth2ClientCredentials
+  source: openapi/adp-payroll-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+- name: oauth2ClientCredentials
+  source: openapi/adp-workers-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+scopes:
+- scope: api__payroll-output-v1__read
+  description: Read payroll output data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/adp-payroll-openapi.yml
+- scope: api__workers-v2__read
+  description: Read worker data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/adp-workers-openapi.yml
+- scope: api__workers-v2__write
+  description: Write worker data
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/adp-workers-openapi.yml
