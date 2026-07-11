@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/adp-payroll-openapi.yml, openapi/adp-workers-openapi.yml
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: oauth2ClientCredentials
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+    scopes: 1
+  sources:
+  - openapi/adp-payroll-openapi.yml
+  - openapi/adp-workers-openapi.yml

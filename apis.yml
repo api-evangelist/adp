@@ -99,6 +99,10 @@ apis:
   - type: Documentation
     url: https://developers.adp.com/
 common:
+- type: DomainSecurity
+  url: security/adp-domain-security.yml
+- type: Authentication
+  url: authentication/adp-authentication.yml
 - type: OAuthScopes
   url: scopes/adp-scopes.yml
 - url: https://www.adp.com/~/spark_feed/insights-trends
