@@ -1,0 +1,11 @@
+{
+  "repo": "adp",
+  "feeds": [
+    {
+      "source": "https://www.adp.com/~/spark_feed/insights-trends",
+      "error": "HTTPError"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 9
+}
