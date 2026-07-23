@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: ADP Payroll Organizations API
+  description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
+  version: 1.0.0
+  contact:
+    name: ADP Developer Resources
+    url: https://developers.adp.com/
+servers:
+- url: https://api.adp.com
+  description: ADP Production API
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: Organizations
+  description: Organizational unit management
+paths:
+  /core/v1/organization-departments:
+    get:
+      operationId: listDepartments
+      summary: List Organization Departments
+      description: Retrieve all departments/organizational units in the company structure.
+      tags:
+      - Organizations
+      responses:
+        '200':
+          description: List of departments
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  organizationDepartments:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Department'
+              examples:
+                Listdepartments200Example:
+                  summary: Default listDepartments 200 response
+                  x-microcks-default: true
+                  value:
+                    organizationDepartments:
+                    - departmentCode: example_value
+                      departmentName: example_value
+                      parentDepartmentCode: example_value
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Department:
+      type: object
+      properties:
+        departmentCode:
+          type: string
+          example: example_value
+        departmentName:
+          type: string
+          example: example_value
+        parentDepartmentCode:
+          type: string
+          example: example_value
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+          scopes:
+            api__payroll-output-v1__read: Read payroll output data

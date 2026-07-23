@@ -1,0 +1,166 @@
+openapi: 3.1.0
+info:
+  title: ADP Payroll Organizations PayrollInstructions API
+  description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
+  version: 1.0.0
+  contact:
+    name: ADP Developer Resources
+    url: https://developers.adp.com/
+servers:
+- url: https://api.adp.com
+  description: ADP Production API
+security:
+- oauth2ClientCredentials: []
+tags:
+- name: PayrollInstructions
+  description: Payroll instructions and overrides
+paths:
+  /payroll/v1/payroll-instructions:
+    get:
+      operationId: listPayrollInstructions
+      summary: List Payroll Instructions
+      description: Retrieve pending payroll instructions and overrides for the next payroll run.
+      tags:
+      - PayrollInstructions
+      responses:
+        '200':
+          description: Payroll instructions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  payrollInstructions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PayrollInstruction'
+              examples:
+                Listpayrollinstructions200Example:
+                  summary: Default listPayrollInstructions 200 response
+                  x-microcks-default: true
+                  value:
+                    payrollInstructions:
+                    - instructionID: '500123'
+                      associateOID: '500123'
+                      instructionTypeCode: Bonus
+                      effectiveDate: '2026-01-15'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createPayrollInstruction
+      summary: Create Payroll Instruction
+      description: Add a pay instruction (bonus, deduction override, garnishment) for an upcoming payroll run.
+      tags:
+      - PayrollInstructions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PayrollInstructionRequest'
+            examples:
+              CreatepayrollinstructionRequestExample:
+                summary: Default createPayrollInstruction request
+                x-microcks-default: true
+                value:
+                  associateOID: '500123'
+                  instructionTypeCode: Bonus
+                  amount:
+                    amountValue: 42.5
+                    currencyCode: example_value
+                  effectiveDate: '2026-01-15'
+                  description: A sample description.
+      responses:
+        '201':
+          description: Instruction created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollInstruction'
+              examples:
+                Createpayrollinstruction201Example:
+                  summary: Default createPayrollInstruction 201 response
+                  x-microcks-default: true
+                  value:
+                    instructionID: '500123'
+                    associateOID: '500123'
+                    instructionTypeCode: Bonus
+                    amount:
+                      amountValue: 42.5
+                      currencyCode: example_value
+                    effectiveDate: '2026-01-15'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    PayrollInstruction:
+      type: object
+      properties:
+        instructionID:
+          type: string
+          example: '500123'
+        associateOID:
+          type: string
+          example: '500123'
+        instructionTypeCode:
+          type: string
+          enum:
+          - Bonus
+          - Deduction
+          - Garnishment
+          - Override
+          example: Bonus
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        effectiveDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+    AmountValue:
+      type: object
+      properties:
+        amountValue:
+          type: number
+          format: double
+          example: 42.5
+        currencyCode:
+          type: string
+          default: USD
+          example: example_value
+    PayrollInstructionRequest:
+      type: object
+      required:
+      - associateOID
+      - instructionTypeCode
+      - amount
+      properties:
+        associateOID:
+          type: string
+          example: '500123'
+        instructionTypeCode:
+          type: string
+          enum:
+          - Bonus
+          - Deduction
+          - Garnishment
+          - Override
+          example: Bonus
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        effectiveDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+        description:
+          type: string
+          example: A sample description.
+  securitySchemes:
+    oauth2ClientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
+          scopes:
+            api__payroll-output-v1__read: Read payroll output data
