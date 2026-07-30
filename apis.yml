@@ -3,6 +3,19 @@ name: ADP
 description: ADP (Automatic Data Processing) is a global provider of cloud-based human
   capital management solutions including payroll, benefits, talent, time, tax, and
   HR services for businesses of all sizes.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
 url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/apis.yml
 created: '2026-03-18'
@@ -11,63 +24,12 @@ specificationVersion: '0.19'
 kind: contract
 access: 3rd-Party
 apis:
-- aid: adp:adp-workers-api
-  name: ADP Workers API
-  description: The ADP Workers API enables access to employee and worker data including
-    personal information, job assignments, pay grades, and employment status. REST
-    APIs support worker lifecycle management for HCM integrations across ADP Workforce
-    Now, Vantage HCM, and Enterprise HR platforms.
-  tags:
-  - HCM
-  - HR
-  - Payroll
-  - Workers
-  - Workforce
-  image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
-  humanURL: https://developers.adp.com/
-  baseURL: https://api.adp.com
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/
-  - type: GettingStarted
-    url: https://developers.adp.com/getting-started/client-integration-overview
-  - type: OpenAPI
-    url: openapi/adp-workers-openapi.yml
-  - type: JSONSchema
-    url: json-schema/adp-worker-schema.json
-  - type: JSONLD
-    url: json-ld/adp-workers-context.jsonld
-  - url: graphql/adp-graphql.md
-    type: GraphQL
-- aid: adp:adp-payroll-api
-  name: ADP Payroll API
-  description: The ADP Payroll API provides programmatic access to payroll processing,
-    payroll output data, and compensation management. REST APIs support payroll runs,
-    payroll output retrieval (including CSV-formatted bulk data), and headcount and
-    compensation analysis across ADP payroll platforms.
-  tags:
-  - Compensation
-  - HCM
-  - HR
-  - Payroll
-  image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
-  humanURL: https://developers.adp.com/
-  baseURL: https://api.adp.com
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/
-  - type: GettingStarted
-    url: https://developers.adp.com/getting-started/client-integration-overview
-  - type: OpenAPI
-    url: openapi/adp-payroll-openapi.yml
-  - type: JSONLD
-    url: json-ld/adp-payroll-context.jsonld
 - aid: adp:adp-embedded-payroll-api
   name: ADP Embedded Payroll API
-  description: The ADP Embedded Payroll API enables ISVs and platforms to embed ADP
-    payroll capabilities directly into their applications. REST APIs support payroll
-    processing, tax compliance, and workforce management embedded within partner software
-    products.
+  description: >-
+    The ADP Embedded Payroll API enables ISVs and platforms to embed ADP payroll capabilities directly
+    into their applications. REST APIs support payroll processing, tax compliance, and workforce management
+    embedded within partner software products.
   tags:
   - Embedded
   - HCM
@@ -83,10 +45,10 @@ apis:
     url: https://developers.adp.com/getting-started/embedded-payroll
 - aid: adp:adp-benefits-api
   name: ADP Benefits Administration API
-  description: The ADP Benefits Administration API provides access to employee benefits
-    enrollment, eligibility, and plan data. APIs support benefits carrier connectivity,
-    open enrollment workflows, and benefits data exchange for insurance carriers and
-    benefits administrators.
+  description: >-
+    The ADP Benefits Administration API provides access to employee benefits enrollment, eligibility,
+    and plan data. APIs support benefits carrier connectivity, open enrollment workflows, and benefits
+    data exchange for insurance carriers and benefits administrators.
   tags:
   - Benefits
   - Enrollment
@@ -98,6 +60,94 @@ apis:
   properties:
   - type: Documentation
     url: https://developers.adp.com/
+- aid: adp:adp-organizations-api
+  name: ADP Organizations API
+  description: Organizational unit management
+  humanURL: https://developers.adp.com/
+  baseURL: https://api.adp.com
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/
+  - type: GettingStarted
+    url: https://developers.adp.com/getting-started/client-integration-overview
+  - type: JSONSchema
+    url: json-schema/adp-worker-schema.json
+  - type: JSONLD
+    url: json-ld/adp-workers-context.jsonld
+  - type: GraphQL
+    url: graphql/adp-graphql.md
+  - type: JSONLD
+    url: json-ld/adp-payroll-context.jsonld
+- aid: adp:adp-payrollinstructions-api
+  name: ADP PayrollInstructions API
+  description: Payroll instructions and overrides
+  humanURL: https://developers.adp.com/
+  baseURL: https://api.adp.com
+  tags:
+  - PayrollInstructions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payrollinstructions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/
+  - type: GettingStarted
+    url: https://developers.adp.com/getting-started/client-integration-overview
+  - type: JSONSchema
+    url: json-schema/adp-worker-schema.json
+  - type: JSONLD
+    url: json-ld/adp-workers-context.jsonld
+  - type: GraphQL
+    url: graphql/adp-graphql.md
+  - type: JSONLD
+    url: json-ld/adp-payroll-context.jsonld
+- aid: adp:adp-payrolloutputs-api
+  name: ADP PayrollOutputs API
+  description: Payroll output and run data
+  humanURL: https://developers.adp.com/
+  baseURL: https://api.adp.com
+  tags:
+  - PayrollOutputs
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payrolloutputs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/
+  - type: GettingStarted
+    url: https://developers.adp.com/getting-started/client-integration-overview
+  - type: JSONSchema
+    url: json-schema/adp-worker-schema.json
+  - type: JSONLD
+    url: json-ld/adp-workers-context.jsonld
+  - type: GraphQL
+    url: graphql/adp-graphql.md
+  - type: JSONLD
+    url: json-ld/adp-payroll-context.jsonld
+- aid: adp:adp-workers-api
+  name: ADP Workers API
+  description: Worker (employee) data access
+  humanURL: https://developers.adp.com/
+  baseURL: https://api.adp.com
+  tags:
+  - Workers
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-workers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/
+  - type: GettingStarted
+    url: https://developers.adp.com/getting-started/client-integration-overview
+  - type: JSONSchema
+    url: json-schema/adp-worker-schema.json
+  - type: JSONLD
+    url: json-ld/adp-workers-context.jsonld
+  - type: GraphQL
+    url: graphql/adp-graphql.md
+  - type: JSONLD
+    url: json-ld/adp-payroll-context.jsonld
 common:
 - type: AgenticAccess
   url: agentic-access/adp-agentic-access.yml
