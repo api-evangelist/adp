@@ -1,0 +1,20 @@
+{
+  "provider": "adp",
+  "sources": [
+    "adp-organizations-api-openapi.yml",
+    "adp-payrollinstructions-api-openapi.yml",
+    "adp-payrolloutputs-api-openapi.yml",
+    "adp-workers-api-openapi.yml"
+  ],
+  "outputs": [
+    "adp-organizations-api-openapi.yml",
+    "adp-payrollinstructions-api-openapi.yml",
+    "adp-payrolloutputs-api-openapi.yml",
+    "adp-workers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
