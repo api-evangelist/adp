@@ -172,10 +172,10 @@ common:
 - type: Authentication
   url: https://developers.adp.com/getting-started/client-integration-overview
 - type: OpenAPI
-  url: openapi/adp-workers-openapi.yml
+  url: openapi/_original/adp-workers-openapi.yml
   title: ADP Workers OpenAPI
 - type: OpenAPI
-  url: openapi/adp-payroll-openapi.yml
+  url: openapi/_original/adp-payroll-openapi.yml
   title: ADP Payroll OpenAPI
 - type: JSONSchema
   url: json-schema/adp-worker-schema.json
