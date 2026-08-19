@@ -1,0 +1,234 @@
+{
+  "item": [
+    {
+      "id": "a1c6d488-d523-4e94-94a1-b07a85aa54e3",
+      "name": "PayrollInstructions",
+      "description": {
+        "content": "Payroll instructions and overrides",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ccf76e2-b3ff-4dce-b285-cb6c0806f9db",
+          "name": "List Payroll Instructions",
+          "request": {
+            "name": "List Payroll Instructions",
+            "description": {
+              "content": "Retrieve pending payroll instructions and overrides for the next payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payroll",
+                "v1",
+                "payroll-instructions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03f1d901-f24d-4e0c-9027-b28b80e8734c",
+              "name": "Payroll instructions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-instructions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payrollInstructions\": [\n    {\n      \"instructionID\": \"500123\",\n      \"associateOID\": \"500123\",\n      \"instructionTypeCode\": \"Bonus\",\n      \"effectiveDate\": \"2026-01-15\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d98046c-3a64-4980-964c-443451e3d00a",
+          "name": "Create Payroll Instruction",
+          "request": {
+            "name": "Create Payroll Instruction",
+            "description": {
+              "content": "Add a pay instruction (bonus, deduction override, garnishment) for an upcoming payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payroll",
+                "v1",
+                "payroll-instructions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"associateOID\": \"<string>\",\n  \"instructionTypeCode\": \"<string>\",\n  \"amount\": {\n    \"amountValue\": \"<double>\",\n    \"currencyCode\": \"USD\"\n  },\n  \"effectiveDate\": \"<date>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57e79560-2ccb-4084-af2b-62b390c6fc91",
+              "name": "Instruction created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-instructions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"associateOID\": \"500123\",\n  \"instructionTypeCode\": \"Bonus\",\n  \"amount\": {\n    \"amountValue\": 42.5,\n    \"currencyCode\": \"example_value\"\n  },\n  \"effectiveDate\": \"2026-01-15\",\n  \"description\": \"A sample description.\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"instructionID\": \"500123\",\n  \"associateOID\": \"500123\",\n  \"instructionTypeCode\": \"Bonus\",\n  \"amount\": {\n    \"amountValue\": 42.5,\n    \"currencyCode\": \"example_value\"\n  },\n  \"effectiveDate\": \"2026-01-15\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.adp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api__payroll-output-v1__read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.adp.com/auth/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "280283e5-a59a-48ee-aa20-321e5008dbc8",
+    "name": "ADP Payroll Organizations PayrollInstructions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.\n\nContact Support:\n Name: ADP Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}

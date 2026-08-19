@@ -1,0 +1,495 @@
+{
+  "item": [
+    {
+      "id": "79c0dddd-3b81-497b-99f5-91589ebbf075",
+      "name": "PayrollOutputs",
+      "description": {
+        "content": "Payroll output and run data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "461ab5b3-ed3b-4a8f-917d-43f4daa72adf",
+          "name": "List Payroll Outputs",
+          "request": {
+            "name": "List Payroll Outputs",
+            "description": {
+              "content": "Retrieve payroll output summaries for completed payroll runs including totals, period dates, and status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payroll",
+                "v1",
+                "payroll-outputs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "25"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0e6a04a-3416-4e79-abae-0c2cd9e466eb",
+              "name": "List of payroll outputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-outputs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payrollOutputs\": [\n    {\n      \"payrollOutputID\": \"500123\",\n      \"payrollScheduleReference\": {},\n      \"payrollStatusCode\": {},\n      \"workerCount\": 10\n    }\n  ],\n  \"meta\": {\n    \"totalCount\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45e3a6c1-d919-41e9-85a9-5b5f484b06aa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-outputs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$filter",
+                      "value": "example_value"
+                    },
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessage\": {\n    \"processMessages\": [\n      {\n        \"messageTypeCode\": {\n          \"codeValue\": \"string\"\n        },\n        \"userMessage\": {\n          \"messageTxt\": \"string\"\n        }\n      },\n      {\n        \"messageTypeCode\": {\n          \"codeValue\": \"string\"\n        },\n        \"userMessage\": {\n          \"messageTxt\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0739058-bce9-446c-abe7-bcd5eb170960",
+          "name": "Get Payroll Output Details",
+          "request": {
+            "name": "Get Payroll Output Details",
+            "description": {
+              "content": "Retrieve full payroll output details for a specific payroll run by output ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payroll",
+                "v1",
+                "payroll-outputs",
+                ":payrollOutputID"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payrollOutputID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8410e41-b96d-4154-ac20-9ad108ebe1f4",
+              "name": "Payroll output details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-outputs",
+                    ":payrollOutputID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payrollOutputID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payrollOutputs\": [\n    {\n      \"payrollOutputID\": \"500123\",\n      \"payrollScheduleReference\": {},\n      \"payrollSummary\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93b76f3f-a469-40c5-a84e-c34fab4e75ca",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-outputs",
+                    ":payrollOutputID"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payrollOutputID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"confirmMessage\": {\n    \"processMessages\": [\n      {\n        \"messageTypeCode\": {\n          \"codeValue\": \"string\"\n        },\n        \"userMessage\": {\n          \"messageTxt\": \"string\"\n        }\n      },\n      {\n        \"messageTypeCode\": {\n          \"codeValue\": \"string\"\n        },\n        \"userMessage\": {\n          \"messageTxt\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64469673-4766-4807-9a99-be5864512be8",
+          "name": "Get Worker-level Payroll Outputs",
+          "request": {
+            "name": "Get Worker-level Payroll Outputs",
+            "description": {
+              "content": "Retrieve individual worker pay statement data for a specific payroll run.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payroll",
+                "v1",
+                "payroll-outputs",
+                ":payrollOutputID",
+                "worker-outputs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "0"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "payrollOutputID",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a154102a-8475-4211-88db-e4b0e35c08d3",
+              "name": "Worker payroll outputs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payroll",
+                    "v1",
+                    "payroll-outputs",
+                    ":payrollOutputID",
+                    "worker-outputs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "10"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "payrollOutputID",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"payrollOutputs\": [\n    {\n      \"payrollOutputID\": \"500123\",\n      \"workerOutputs\": [\n        {}\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.adp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "api__payroll-output-v1__read"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://accounts.adp.com/auth/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "179c1fa0-ee11-4e2b-a43f-84ca23e5a869",
+    "name": "ADP Payroll Organizations PayrollOutputs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.\n\nContact Support:\n Name: ADP Developer Resources",
+      "type": "text/plain"
+    }
+  }
+}

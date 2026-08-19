@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "ADP Payroll Organizations PayrollOutputs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://accounts.adp.com/auth/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PayrollOutputs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Payroll Outputs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/payroll/v1/payroll-outputs",
+            "params": [
+              {
+                "name": "$filter",
+                "value": "example_value",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$top",
+                "value": "10",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "10",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve payroll output summaries for completed payroll runs including totals, period dates, and status."
+        },
+        {
+          "info": {
+            "name": "Get Payroll Output Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/payroll/v1/payroll-outputs/:payrollOutputID",
+            "params": [
+              {
+                "name": "payrollOutputID",
+                "value": "500123",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve full payroll output details for a specific payroll run by output ID."
+        },
+        {
+          "info": {
+            "name": "Get Worker-level Payroll Outputs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.adp.com/payroll/v1/payroll-outputs/:payrollOutputID/worker-outputs",
+            "params": [
+              {
+                "name": "payrollOutputID",
+                "value": "500123",
+                "type": "path"
+              },
+              {
+                "name": "$top",
+                "value": "10",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "10",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve individual worker pay statement data for a specific payroll run."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
