@@ -66,6 +66,8 @@ apis:
   humanURL: https://developers.adp.com/
   baseURL: https://api.adp.com
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
