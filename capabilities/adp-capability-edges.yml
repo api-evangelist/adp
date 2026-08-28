@@ -1,0 +1,46 @@
+slug: adp
+provider: ADP
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: PayrollInstructions
+  spec_file: adp-payrollinstructions-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.9
+  evidence: POST /payroll/v1/payroll-instructions  createPayrollInstruction  Create Payroll Instruction
+  reason: Creates and lists payroll instructions (pay amounts) for payroll processing — payroll administration
+    within HR Operations Management.
+- tag: PayrollOutputs
+  spec_file: adp-payrolloutputs-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.9
+  evidence: 'GET /payroll/v1/payroll-outputs/{payrollOutputID}/worker-outputs  getPayrollWorkerOutputs  Get
+    Worker-level Payroll Outputs; schemas: WorkerPayOutput, TaxItem, EarningItem, DeductionItem'
+  reason: Retrieval of payroll run results with earnings, deductions and tax items per worker — payroll
+    administration, an HR Operations capability.
+- tag: Workers
+  spec_file: adp-workers-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.8
+  evidence: POST /events/hr/v1/worker.hire  hireWorker  Hire a New Worker; POST /events/hr/v1/worker.terminate  terminateWorker  Terminate
+    a Worker
+  reason: Worker records, work assignments, hire and terminate events — employee record management across
+    the lifecycle. HR Operations is the best fit; hire events touch Talent Acquisition, hence some sub-capability
+    ambiguity.

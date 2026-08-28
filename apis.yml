@@ -3,6 +3,17 @@ name: ADP
 description: ADP (Automatic Data Processing) is a global provider of cloud-based human
   capital management solutions including payroll, benefits, talent, time, tax, and
   HR services for businesses of all sizes.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -151,6 +162,9 @@ apis:
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/adp-capability-edges.yml
+  name: ADP Business Capability Map
 - type: AgenticAccess
   url: agentic-access/adp-agentic-access.yml
 - type: DomainSecurity
