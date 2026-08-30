@@ -27,7 +27,6 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
-image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
 url: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/apis.yml
 created: '2026-03-18'
 modified: '2026-05-19'
@@ -46,7 +45,6 @@ apis:
   - HCM
   - Payroll
   - Small Business
-  image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
   properties:
@@ -65,7 +63,6 @@ apis:
   - Enrollment
   - HCM
   - HR
-  image: https://raw.githubusercontent.com/api-evangelist/adp/refs/heads/main/image.png
   humanURL: https://developers.adp.com/
   baseURL: https://api.adp.com
   properties:
