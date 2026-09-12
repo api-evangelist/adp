@@ -159,6 +159,8 @@ apis:
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 common:
+- type: Website
+  url: https://www.adp.com/
 - type: CapabilityMap
   url: capabilities/adp-capability-edges.yml
   name: ADP Business Capability Map
