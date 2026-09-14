@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: ADP Payroll Organizations PayrollOutputs API
+  title: ADP Payroll Organizations Payroll Outputs API
   description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
   version: 1.0.0
   contact:
@@ -146,39 +146,78 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorMessage'
-    NotFound:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorMessage'
   schemas:
-    DeductionItem:
+    ErrorMessage:
       type: object
       properties:
-        typeCode:
+        confirmMessage:
           type: object
           properties:
-            codeValue:
-              type: string
+            processMessages:
+              type: array
+              items:
+                type: object
+                properties:
+                  messageTypeCode:
+                    type: object
+                    properties:
+                      codeValue:
+                        type: string
+                  userMessage:
+                    type: object
+                    properties:
+                      messageTxt:
+                        type: string
           example: example_value
-        nameCode:
+    AmountValue:
+      type: object
+      properties:
+        amountValue:
+          type: number
+          format: double
+          example: 42.5
+        currencyCode:
+          type: string
+          default: USD
+          example: example_value
+    PayrollOutputResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/PayrollOutput'
+          example: []
+    PayrollOutputsResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/PayrollOutputSummary'
+          example: []
+        meta:
           type: object
           properties:
-            codeValue:
-              type: string
-            shortName:
-              type: string
+            totalCount:
+              type: integer
           example: example_value
-        amount:
-          $ref: '#/components/schemas/AmountValue'
+    WorkerOutputsResponse:
+      type: object
+      properties:
+        payrollOutputs:
+          type: array
+          items:
+            type: object
+            properties:
+              payrollOutputID:
+                type: string
+              workerOutputs:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkerPayOutput'
+          example: []
     WorkerPayOutput:
       type: object
       properties:
@@ -227,71 +266,6 @@ components:
           items:
             $ref: '#/components/schemas/TaxItem'
           example: []
-    PayrollOutput:
-      type: object
-      properties:
-        payrollOutputID:
-          type: string
-          example: '500123'
-        payrollScheduleReference:
-          type: object
-          properties:
-            payFrequencyCode:
-              type: object
-              properties:
-                codeValue:
-                  type: string
-            payPeriodStartDate:
-              type: string
-              format: date
-            payPeriodEndDate:
-              type: string
-              format: date
-            payDate:
-              type: string
-              format: date
-          example: example_value
-        payrollSummary:
-          type: object
-          properties:
-            grossPayAmount:
-              $ref: '#/components/schemas/AmountValue'
-            netPayAmount:
-              $ref: '#/components/schemas/AmountValue'
-            totalDeductionsAmount:
-              $ref: '#/components/schemas/AmountValue'
-            totalTaxesAmount:
-              $ref: '#/components/schemas/AmountValue'
-          example: example_value
-    PayrollOutputsResponse:
-      type: object
-      properties:
-        payrollOutputs:
-          type: array
-          items:
-            $ref: '#/components/schemas/PayrollOutputSummary'
-          example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-          example: example_value
-    WorkerOutputsResponse:
-      type: object
-      properties:
-        payrollOutputs:
-          type: array
-          items:
-            type: object
-            properties:
-              payrollOutputID:
-                type: string
-              workerOutputs:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WorkerPayOutput'
-          example: []
     TaxItem:
       type: object
       properties:
@@ -315,15 +289,6 @@ components:
             codeValue:
               type: string
           example: example_value
-    PayrollOutputResponse:
-      type: object
-      properties:
-        payrollOutputs:
-          type: array
-          maxItems: 1
-          items:
-            $ref: '#/components/schemas/PayrollOutput'
-          example: []
     PayrollOutputSummary:
       type: object
       properties:
@@ -368,39 +333,6 @@ components:
         workerCount:
           type: integer
           example: 10
-    ErrorMessage:
-      type: object
-      properties:
-        confirmMessage:
-          type: object
-          properties:
-            processMessages:
-              type: array
-              items:
-                type: object
-                properties:
-                  messageTypeCode:
-                    type: object
-                    properties:
-                      codeValue:
-                        type: string
-                  userMessage:
-                    type: object
-                    properties:
-                      messageTxt:
-                        type: string
-          example: example_value
-    AmountValue:
-      type: object
-      properties:
-        amountValue:
-          type: number
-          format: double
-          example: 42.5
-        currencyCode:
-          type: string
-          default: USD
-          example: example_value
     EarningItem:
       type: object
       properties:
@@ -425,6 +357,74 @@ components:
           example: 42.5
         rateAmount:
           $ref: '#/components/schemas/AmountValue'
+    PayrollOutput:
+      type: object
+      properties:
+        payrollOutputID:
+          type: string
+          example: '500123'
+        payrollScheduleReference:
+          type: object
+          properties:
+            payFrequencyCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+            payPeriodStartDate:
+              type: string
+              format: date
+            payPeriodEndDate:
+              type: string
+              format: date
+            payDate:
+              type: string
+              format: date
+          example: example_value
+        payrollSummary:
+          type: object
+          properties:
+            grossPayAmount:
+              $ref: '#/components/schemas/AmountValue'
+            netPayAmount:
+              $ref: '#/components/schemas/AmountValue'
+            totalDeductionsAmount:
+              $ref: '#/components/schemas/AmountValue'
+            totalTaxesAmount:
+              $ref: '#/components/schemas/AmountValue'
+          example: example_value
+    DeductionItem:
+      type: object
+      properties:
+        typeCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        nameCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+            shortName:
+              type: string
+          example: example_value
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

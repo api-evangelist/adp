@@ -159,6 +159,12 @@ apis:
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 common:
+- type: Signup
+  url: https://developers.adp.com/articles/guide/registration
+- type: Marketplace
+  url: https://apps.adp.com
+- type: Support
+  url: https://developers.adp.com/articles/guide/support
 - type: Website
   url: https://www.adp.com/
 - type: CapabilityMap

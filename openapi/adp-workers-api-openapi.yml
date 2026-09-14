@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: ADP Payroll Organizations Workers API
   description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
@@ -259,20 +259,8 @@ paths:
         dispatcher: FALLBACK
 components:
   responses:
-    Forbidden:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
     Unauthorized:
       description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
-    BadRequest:
-      description: Bad request
       content:
         application/json:
           schema:
@@ -283,7 +271,28 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ConfirmMessage'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
   schemas:
+    WorkerResponse:
+      type: object
+      properties:
+        workers:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/Worker'
+          example: []
     Address:
       type: object
       properties:
@@ -351,110 +360,6 @@ components:
           type: object
           additionalProperties: true
           example: example_value
-    WorkerResponse:
-      type: object
-      properties:
-        workers:
-          type: array
-          maxItems: 1
-          items:
-            $ref: '#/components/schemas/Worker'
-          example: []
-    Person:
-      type: object
-      properties:
-        legalName:
-          type: object
-          properties:
-            givenName:
-              type: string
-            familyName1:
-              type: string
-            preferredSalutations:
-              type: array
-              items:
-                type: object
-          example: example_value
-        birthDate:
-          type: string
-          format: date
-          example: '2026-01-15'
-        genderCode:
-          type: object
-          properties:
-            codeValue:
-              type: string
-              enum:
-              - M
-              - F
-              - N
-          example: example_value
-        maritalStatusCode:
-          type: object
-          properties:
-            codeValue:
-              type: string
-          example: example_value
-        communication:
-          type: object
-          properties:
-            emails:
-              type: array
-              items:
-                type: object
-                properties:
-                  emailUri:
-                    type: string
-                    format: email
-            phones:
-              type: array
-              items:
-                type: object
-                properties:
-                  countryDialing:
-                    type: string
-                  areaDialing:
-                    type: string
-                  dialNumber:
-                    type: string
-          example: example_value
-        legalAddress:
-          $ref: '#/components/schemas/Address'
-    WorkerTerminateEvent:
-      type: object
-      required:
-      - events
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-                    enum:
-                    - worker.terminate
-              data:
-                type: object
-                properties:
-                  transform:
-                    type: object
-                    properties:
-                      workerDates:
-                        type: object
-                        properties:
-                          terminationDate:
-                            type: string
-                            format: date
-                      terminationReason:
-                        type: object
-                        properties:
-                          codeValue:
-                            type: string
-          example: []
     WorkAssignment:
       type: object
       properties:
@@ -537,6 +442,137 @@ components:
                   codeValue:
                     type: string
           example: []
+    Person:
+      type: object
+      properties:
+        legalName:
+          type: object
+          properties:
+            givenName:
+              type: string
+            familyName1:
+              type: string
+            preferredSalutations:
+              type: array
+              items:
+                type: object
+          example: example_value
+        birthDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+        genderCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+              enum:
+              - M
+              - F
+              - N
+          example: example_value
+        maritalStatusCode:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        communication:
+          type: object
+          properties:
+            emails:
+              type: array
+              items:
+                type: object
+                properties:
+                  emailUri:
+                    type: string
+                    format: email
+            phones:
+              type: array
+              items:
+                type: object
+                properties:
+                  countryDialing:
+                    type: string
+                  areaDialing:
+                    type: string
+                  dialNumber:
+                    type: string
+          example: example_value
+        legalAddress:
+          $ref: '#/components/schemas/Address'
+    WorkersResponse:
+      type: object
+      properties:
+        workers:
+          type: array
+          items:
+            $ref: '#/components/schemas/Worker'
+          example: []
+        meta:
+          type: object
+          properties:
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
+          example: example_value
+    WorkerTerminateEvent:
+      type: object
+      required:
+      - events
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum:
+                    - worker.terminate
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      workerDates:
+                        type: object
+                        properties:
+                          terminationDate:
+                            type: string
+                            format: date
+                      terminationReason:
+                        type: object
+                        properties:
+                          codeValue:
+                            type: string
+          example: []
+    EventResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventID:
+                type: string
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              confirmMessage:
+                $ref: '#/components/schemas/ConfirmMessage'
+          example: []
     ConfirmMessage:
       type: object
       properties:
@@ -566,42 +602,6 @@ components:
                 properties:
                   messageTxt:
                     type: string
-          example: []
-    WorkersResponse:
-      type: object
-      properties:
-        workers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-          example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-            startIndex:
-              type: integer
-            itemsPerPage:
-              type: integer
-          example: example_value
-    EventResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventID:
-                type: string
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              confirmMessage:
-                $ref: '#/components/schemas/ConfirmMessage'
           example: []
     WorkerHireEvent:
       type: object
