@@ -1,0 +1,467 @@
+generated: '2026-09-14'
+method: probed
+source: live HTTPS probes of every host in apis.yml plus the API, marketplace, accounts, spec-library and docs hosts
+  named in the developers.adp.com application bundle
+hit_count: 1
+summary: 'One real document found across 12 ADP hosts: the OpenID Connect discovery document for ADP Marketplace
+  SSO at https://apps.adp.com/.well-known/openid-configuration (issuer https://apps.adp.com). www.adp.com / adp.com
+  answer 403 to non-browser agents (Akamai bot policy) on every path, so their /.well-known/ surface could not be
+  read. developers.adp.com and api-central.adp.com are single-page apps that return the same HTML shell for every
+  path including the negative control, so none of their 200s is a document. api.adp.com, api.eu.adp.com and accounts.adp.com
+  require mutual TLS and answer 401 to every anonymous request.'
+hosts:
+- host: https://www.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 403
+  - path: /apis.yml
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 403
+    bytes: 0
+- host: https://adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 403
+  - path: /apis.yml
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 403
+    bytes: 0
+- host: https://developers.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/api-catalog
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/agent.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/apis.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /apis.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /apis.yml
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/ucp.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/acp.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  path_echo_control: failed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 4462
+  hit_count: 0
+  note: Every /.well-known/* path returns the React app shell byte-for-byte identical to the negative control; no
+    document is served here.
+- host: https://api.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+  - path: /.well-known/apis.json
+    status: 401
+  - path: /apis.json
+    status: 401
+  - path: /apis.yml
+    status: 401
+  - path: /.well-known/aauth-resource.json
+    status: 401
+  - path: /.well-known/ucp.json
+    status: 401
+  - path: /.well-known/acp.json
+    status: 401
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 401
+    bytes: 0
+- host: https://api.eu.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+  - path: /.well-known/apis.json
+    status: 401
+  - path: /apis.json
+    status: 401
+  - path: /apis.yml
+    status: 401
+  - path: /.well-known/aauth-resource.json
+    status: 401
+  - path: /.well-known/ucp.json
+    status: 401
+  - path: /.well-known/acp.json
+    status: 401
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 401
+    bytes: 0
+- host: https://api-central.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/api-catalog
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/agent-card.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/agent.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/apis.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /apis.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /apis.yml
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/aauth-resource.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/ucp.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  - path: /.well-known/acp.json
+    status: 200
+    note: 'SPA catch-all: body byte-identical to the negative control; not a document'
+  path_echo_control: failed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 2592
+  hit_count: 0
+  note: Every /.well-known/* path returns the React app shell byte-for-byte identical to the negative control; no
+    document is served here.
+- host: https://apps.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: automatic-data-processing-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 401
+  - path: /apis.yml
+    status: 401
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+- host: https://accounts.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 401
+  - path: /.well-known/openid-configuration
+    status: 401
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+  - path: /.well-known/api-catalog
+    status: 401
+  - path: /.well-known/ai-plugin.json
+    status: 401
+  - path: /.well-known/agent-card.json
+    status: 401
+  - path: /.well-known/agent.json
+    status: 401
+  - path: /.well-known/apis.json
+    status: 401
+  - path: /apis.json
+    status: 401
+  - path: /apis.yml
+    status: 401
+  - path: /.well-known/aauth-resource.json
+    status: 401
+  - path: /.well-known/ucp.json
+    status: 401
+  - path: /.well-known/acp.json
+    status: 401
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 401
+    bytes: 0
+- host: https://marketplace-apis.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+- host: https://api-library-marketplace.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+  - path: /.well-known/agent-card.json
+    status: 403
+  - path: /.well-known/agent.json
+    status: 403
+  - path: /.well-known/apis.json
+    status: 403
+  - path: /apis.json
+    status: 403
+  - path: /apis.yml
+    status: 403
+  - path: /.well-known/aauth-resource.json
+    status: 403
+  - path: /.well-known/ucp.json
+    status: 403
+  - path: /.well-known/acp.json
+    status: 403
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 403
+    bytes: 0
+- host: https://adpembeddedpayroll.readme.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0
+- host: https://partners.adp.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/apis.json
+    status: 404
+  - path: /apis.json
+    status: 404
+  - path: /apis.yml
+    status: 404
+  - path: /.well-known/aauth-resource.json
+    status: 404
+  - path: /.well-known/ucp.json
+    status: 404
+  - path: /.well-known/acp.json
+    status: 404
+  path_echo_control: passed
+  soft_404_control:
+    path: /.well-known/adp-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 0

@@ -1,0 +1,50 @@
+generated: '2026-09-14'
+method: generated
+source: >-
+  Grounded in the 59 harvested ADP Workforce Now OpenAPI 3.0.1 documents in openapi/_original/ and in
+  ADP's own key-concept guides at https://developers.adp.com/getting-started/key-concepts. Every
+  operationId referenced below was grepped out of a harvested contract; none was invented.
+note: >-
+  ADP publishes no AGENTS.md and no agent skills of its own. These are generated operating
+  instructions for the flows an integrator actually builds, written around the two things that make
+  ADP unlike most REST APIs: writes are named events rather than PATCHes, and every write must be
+  preceded by a call to that event's /meta for the per-tenant validation rules.
+skills:
+  - file: automatic-data-processing-read-the-workforce.md
+    name: Read the ADP workforce
+    api: openapi/automatic-data-processing-hr-workers-v2-openapi.yml
+    operations: [2aa32939-9059-4187-8785-0eb593ece43b, 6501f53d-1c15-4ea9-902c-52a49970e0d9, ff6cbf8f-dd8b-4d22-8086-1caa805fe384]
+    consequence: read
+  - file: automatic-data-processing-change-a-worker-email.md
+    name: Change a worker's personal email in ADP
+    api: openapi/automatic-data-processing-hr-workers-personal-communication-management-v2-openapi.yml
+    operations: [6bd32219-6a80-47af-a923-f1ff57f33922, 01616688-5568-4b35-9a69-19a094fd3717, db880d66-662c-492c-b03f-6318f1a67adc]
+    consequence: write
+  - file: automatic-data-processing-terminate-and-rehire.md
+    name: Terminate and rehire a worker in ADP
+    api: openapi/automatic-data-processing-hr-workers-work-assignment-management-v2-openapi.yml
+    operations: [9b1be338-a34e-4ae2-8255-f7ae20aec06d, f3355703-f654-47ee-a98a-f67b74c4b364, df6fbf20-b396-4db9-b76c-cd7bbd2bef8b]
+    consequence: safety-critical
+  - file: automatic-data-processing-pay-data-and-statements.md
+    name: Submit pay data to ADP and retrieve pay statements
+    api: openapi/automatic-data-processing-payroll-pay-data-input-v1-openapi.yml
+    operations: [f149b8b5-443d-484f-9c04-a60da170f90a, 1616325c-2826-44d6-876b-a806a99700a5, 880a38af-1ece-4606-b028-6d7d319e2ec9]
+    consequence: physical
+  - file: automatic-data-processing-consume-event-notifications.md
+    name: Consume ADP event notifications
+    api: openapi/automatic-data-processing-hr-workers-v2-openapi.yml
+    operations: [6501f53d-1c15-4ea9-902c-52a49970e0d9, 2aa32939-9059-4187-8785-0eb593ece43b]
+    consequence: read
+  - file: automatic-data-processing-time-off-request.md
+    name: Create and manage an ADP time-off request
+    api: openapi/automatic-data-processing-time-time-off-requests-v2-openapi.yml
+    operations: [282fb8d5-4746-4857-9432-e59524acc578, f0010334-0978-41c5-9eef-837cc9350ccb, 647e8a1a-602c-4639-8512-74ee148c1954, 5723b54d-cd30-4fc9-a2f4-f761bb76803b]
+    consequence: write
+excluded:
+  - surface: worker demographic, biological and identification data (hr/workers-biological-data-management, hr/workers-identification-management, hr/workers-demographic-data-management)
+    reason: >-
+      These operations return and mutate sensitive personal data — dates of birth, national
+      identifiers, disability and veteran status, ethnicity. They are legitimate parts of the ADP
+      contract and are catalogued in openapi/, but they are deliberately NOT packaged as an agent
+      skill: a skill is an invitation to call, and this data should move only under an explicit,
+      audited, human-authorised integration.

@@ -1,0 +1,30 @@
+generated: '2026-09-14'
+method: searched
+probe: true
+url: https://www.adp.com/about-adp/data-security.aspx
+name: ADP Data Security / Security Center
+certifications:
+  - {name: SOC 1 Type 2, scope: select products and services, note: 'bridge letters produced quarterly'}
+  - {name: SOC 2 Type 2, scope: select products and services}
+  - {name: ISO/IEC 27001, scope: select services and locations}
+  - {name: ISO/IEC 27701, scope: select services and locations, note: privacy information management}
+  - {name: PCI DSS}
+  - {name: Sarbanes-Oxley (SOX)}
+privacy:
+  global_privacy_policy: https://www.adp.com/about-adp/data-privacy.aspx
+  binding_corporate_rules: true
+  note: ADP operates approved EU Binding Corporate Rules alongside its Global Privacy Policy.
+pages:
+  - {name: Data Security, url: 'https://www.adp.com/about-adp/data-security.aspx'}
+  - {name: Vulnerability Disclosure, url: 'https://www.adp.com/about-adp/data-security/vulnerability-disclosure.aspx'}
+  - {name: Security Alerts, url: 'https://www.adp.com/about-adp/data-security/alerts.aspx'}
+  - {name: Client Security Resources, url: 'https://www.adp.com/about-adp/data-security/client-resources.aspx'}
+  - {name: Data Privacy, url: 'https://www.adp.com/about-adp/data-privacy.aspx'}
+report_access:
+  self_serve: false
+  note: 'SOC reports and bridge letters are provided to clients on request rather than downloaded from a self-serve trust portal; there is no trust.adp.com.'
+probed:
+  - {url: 'https://trust.adp.com', status: 'no such host'}
+  - {url: 'https://www.adp.com/about-adp/data-security.aspx', status: 403, note: 'Akamai denies non-browser agents; page read successfully with a browser user agent'}
+evidence:
+  - {source: 'https://www.adp.com/about-adp/data-security.aspx', keywords: [soc 1 type 2, soc 2 type 2, iso/iec 27001, iso/iec 27701, pci dss, sarbanes-oxley, binding corporate rules], fetched: '2026-09-14'}

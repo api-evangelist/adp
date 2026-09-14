@@ -1,0 +1,125 @@
+generated: '2026-09-14'
+method: derived
+source: openapi/_original/*.json (59 harvested ADP Workforce Now OpenAPI 3.0.1 documents) enriched from https://developers.adp.com/getting-started/key-concepts/api-common-exceptions-and-tips-for-handling
+  and .../access-tokens
+format: vendor-envelope
+rfc9457: false
+envelope:
+  name: confirmMessage
+  media_type: application/json
+  schema: json-schema/automatic-data-processing-confirm-message-schema.json
+  schema_source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+  description: Every 4xx/5xx JSON body on the ADP API gateway is an ADP ConfirmMessage object. It carries confirmMessageID,
+    createDateTime, requestReceiptDateTime, resourceMessages[] and processMessages[]; the human-readable text is processMessages[].userMessage.messageTxt.
+    ADP does not use RFC 9457 application/problem+json.
+  fields:
+  - confirmMessage.confirmMessageID
+  - confirmMessage.createDateTime
+  - confirmMessage.requestReceiptDateTime
+  - confirmMessage.processMessages[].userMessage.messageTxt
+  - confirmMessage.processMessages[].processMessageID
+  - confirmMessage.resourceMessages[]
+oauth_error_envelope:
+  note: Token-endpoint and authorization errors use the RFC 6749 / RFC 6750 shape instead of confirmMessage.
+  fields:
+  - error
+  - error_description
+  codes:
+  - error: invalid_request
+    status: 400
+    meaning: Missing or duplicate parameters, or a validation error on the token call.
+  - error: unsupported_grant_type
+    status: 400
+    meaning: grant_type is not one ADP accepts; use client_credentials or authorization_code.
+  - error: invalid_client
+    status: 401
+    meaning: The client_id / client_secret pair is not valid.
+  - error: invalid_token
+    status: 401
+    meaning: Expired, revoked or malformed access token; detail is echoed on the WWW-Authenticate header.
+  - error: insufficient_scope
+    status: 403
+    meaning: The token does not carry the privilege the API requires.
+  - error: access_denied
+    status: 403
+    meaning: Client consent absent or suspended, or the Marketplace subscription is suspended.
+  - error: invalid_scope
+    status: 403
+    meaning: The API is not in the registered application scope; ADP must add it.
+problems:
+- status: 304
+  title: Not Modified
+  operations_declaring: 178
+  envelope: confirmMessage
+  remediation: Cached representation is still valid. Re-use the cached body; the ETag returned on the prior 200 was sent
+    back on If-None-Match.
+- status: 400
+  title: Bad Request
+  operations_declaring: 362
+  envelope: confirmMessage
+  remediation: 'Bad Request. Inspect confirmMessage.processMessages[] for the field-level userMessage. Common ADP causes:
+    missing grant_type on the token call, a validation error, or an invalid/missing roleCode.'
+- status: 401
+  title: Unauthorized
+  operations_declaring: 130
+  envelope: confirmMessage
+  remediation: Unauthorized. The bearer token is expired, revoked or invalid, or the client X.509 certificate was not
+    presented on the mutual-TLS handshake. Re-request a token (tokens live 60 minutes) and confirm the client certificate
+    is installed for both accounts.adp.com and api.adp.com.
+- status: 403
+  title: Forbidden
+  operations_declaring: 357
+  envelope: confirmMessage
+  remediation: Forbidden. Either the subscribing client suspended or never granted consent, the API is outside the application
+    scope (invalid_scope), or the calling actor lacks the product feature/permission. Scope additions go through the
+    ADP representative or Marketplace Technical Advisor.
+- status: 404
+  title: Not Found
+  operations_declaring: 220
+  envelope: confirmMessage
+  remediation: Not Found. The resource, associateOID or message id does not exist, or the notification is not in your
+    application scope.
+- status: 405
+  title: Method Not Allowed
+  operations_declaring: 320
+  envelope: confirmMessage
+  remediation: Method Not Allowed for this resource.
+- status: 406
+  title: Not Acceptable
+  operations_declaring: 320
+  envelope: confirmMessage
+  remediation: Not Acceptable. The requested Accept media type is not supported; ADP APIs serve application/json.
+- status: 412
+  title: Precondition Failed
+  operations_declaring: 324
+  envelope: confirmMessage
+  remediation: Precondition Failed. The If-Match/If-None-Match validator no longer matches the current ETag — re-read
+    the resource and retry with the fresh validator.
+- status: 413
+  title: Request Entity Too Large
+  operations_declaring: 191
+  envelope: confirmMessage
+  remediation: Payload Too Large. Reduce the batch size or page the request with $top/$skip.
+- status: 429
+  title: Too Many Requests
+  operations_declaring: 328
+  envelope: confirmMessage
+  remediation: Too Many Requests. ADP does not publish a numeric limit; back off exponentially with jitter and honour
+    Retry-After.
+- status: 500
+  title: Internal Server Error
+  operations_declaring: 361
+  envelope: confirmMessage
+  remediation: Internal Server Error. Retry with backoff; if persistent, raise a ticket through API Central or Partner
+    Self-Service.
+- status: 503
+  title: Service Unavailable
+  operations_declaring: 357
+  envelope: confirmMessage
+  remediation: Service Unavailable. Frequently a planned ADP product maintenance window (Tue/Wed/Thu 21:00-06:00 ET).
+    Stop calling 30 minutes before the window and resume 60 minutes after it ends.
+- status: 504
+  title: Gateway Timeout
+  operations_declaring: 99
+  envelope: confirmMessage
+  remediation: Gateway Timeout. The upstream ADP product did not answer in time; retry with backoff.

@@ -1,0 +1,89 @@
+generated: '2026-09-14'
+method: searched
+source: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+spec_type: Webhooks
+asyncapi_published: false
+note: >-
+  ADP publishes no AsyncAPI document. It does publish a substantial, first-party event surface with
+  two delivery mechanisms, a signed webhook envelope and a documented retry contract; that is what is
+  captured here. The event *catalogue* itself is per-product and lives in each ADP product's data
+  dictionary rather than in one machine-readable list.
+surface:
+  name: ADP Event Notifications
+  whats_new: 'October 2025 — ADP added webhook delivery alongside the original polling model.'
+  delivery_modes:
+    - mode: polling
+      description: >-
+        ADP pushes each event notification into the subscriber's own message queue, FIFO. The
+        consumer retrieves one message at a time and must delete it before the next is served.
+      operations:
+        - {method: GET, path: /core/v1/event-notification-messages, description: 'Retrieve the next event notification. 200 with a body, or 204 when the queue is empty.'}
+        - {method: DELETE, path: '/core/v1/event-notification-messages/{adp-msg-msgid}', description: 'Delete the message just processed. The id comes from the adp-msg-msgid response header of the GET.'}
+      message_id_header: adp-msg-msgid
+      responses:
+        - {status: 200, meaning: message returned}
+        - {status: 204, meaning: queue empty}
+        - {status: 403, meaning: 'notification not in the application scope — ADP support must add it'}
+        - {status: 404, meaning: 'message already deleted, or an invalid adp-msg-msgid'}
+    - mode: webhook
+      description: >-
+        ADP monitors the queue itself and POSTs each event to an endpoint the partner hosts, moments
+        after it lands in the queue. No polling required.
+      endpoint_requirements:
+        - The receiving endpoint must be publicly reachable and hosted in the United States.
+        - The endpoint must be secured with one of the three supported authentication models.
+      supported_authentication: [api-key-bearer, http-basic, oauth2-client-credentials]
+      acknowledgement:
+        required_status: [200, 201, 202]
+        required_body: '{"status": "success", "timestamp": "YYYY-MM-DDTHH:MM:SSZ"}'
+        on_failure: 'A missing or non-2xx acknowledgement marks the attempt failed and starts ADP''s retry mechanism.'
+      signature:
+        header: adpx-messageauthentication
+        algorithm: HMAC-SHA256
+        message: the data-connector client ID
+        key: the data-connector client secret
+        credential_location: 'Project Details > Credentials in API Central or Partner Self-Service'
+      envelope:
+        description: >-
+          Webhook deliveries wrap the polling event in additional metadata, so a consumer written for
+          polling cannot be pointed at a webhook body unchanged.
+        fields:
+          - {path: /meta/messageId, description: 'the message-queue id, unique per event'}
+          - {path: /events/data/eventContext/worker/associateOID, description: 'the worker record that changed — in most cases the eventContext object is the worker'}
+          - {path: /events/eventNameCode/codeValue, description: 'the event that fired; the value an application should switch on'}
+          - {path: /events/transform/, description: "the object's new value; product- and event-dependent"}
+      testing:
+        description: 'A webhook configuration can be tested before it is enabled — save the configuration, select Test webhook, and API Central or Partner Self-Service reports success or failure.'
+      configuration_path:
+        marketplace_partners: 'Partner Self Service > Projects > View Project > Development APIs / Production APIs > Events > Notification Method > Webhook'
+        api_central_clients: 'Projects > View Project > APIs > Events'
+subscription:
+  model: 'Events must be explicitly subscribed per application; an unsubscribed event is never delivered and returns 403 on the polling endpoint.'
+  api_central_clients: 'Projects > Select a Project > APIs > Events > Add Events'
+  marketplace_partners: 'through the Marketplace Technical Advisor'
+semantics:
+  freshness_warning: >-
+    ADP's own guidance is to treat a notification as a trigger, not as the source of truth: there is
+    always lag between generation and retrieval, so an application should re-read the resource
+    (GET /hr/v2/workers/{aoid}) rather than trust the payload.
+  effective_dating: >-
+    Unless stated otherwise, a notification is generated when the change is issued, not on its
+    effective date. Consumers must read the effective date out of the payload.
+event_naming:
+  convention: '<object>.<facet>.<verb>, e.g. worker.personal-communication.email.add / .change / .remove'
+  examples:
+    - worker.hire
+    - worker.rehire
+    - worker.personalCommunication.email.add
+    - worker.personal-communication.email.remove
+    - worker.leave.cancel
+    - worker.work-assignment.terminate
+    - worker.photo.remove
+    - associate.ksaoc.certification.remove
+    - us-tax-profile.local-income-tax-instruction.remove
+    - work-schedule-day.remove
+  in_contract: >-
+    The event vocabulary is also visible in the harvested OpenAPI: 168 of the 362 Workforce Now
+    operations are event posts or their /meta descriptors under /events/{domain}/v1/{eventName}, and
+    a further set of notification shapes appear under /event-notifications/{domain}/v1/{eventName}.
+  catalogue_source: "per-product ADP data dictionary — ADP does not publish one consolidated machine-readable event list"

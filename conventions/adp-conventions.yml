@@ -1,0 +1,151 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-restful-apis,
+  .../introduction-to-adp-api-open-data-protocol-odata, .../intoduction-to-meta, .../access-tokens,
+  .../api-common-exceptions-and-tips-for-handling, .../adp-event-apis-and-event-notification-guide,
+  plus the 59 harvested ADP Workforce Now OpenAPI 3.0.1 documents in openapi/_original/
+architecture:
+  style: >-
+    ADP's REST surface is deliberately CQRS-shaped. Reads are ordinary GETs against resource
+    collections (/hr/v2/workers). Writes are NOT PUT/PATCH on those resources — they are POSTs of a
+    named *event* to /events/<domain>/v1/<event.name> (worker.personal-communication.email.add,
+    worker.leave.cancel, worker.rehire). 194 of the 362 harvested operations are GETs; 168 are event
+    posts and their /meta descriptors. An agent that expects to PATCH a worker will not find the
+    operation — it must post the event that expresses the change.
+  read_write_split: true
+  event_post_shape: 'POST /events/{domain}/v1/{eventNameCode} with body {"events":[{serviceCategoryCode, eventNameCode, originator, actor, data:{eventContext, transform}}]}'
+authentication:
+  style: OAuth 2.0 bearer token over mutual TLS
+  detail: authentication/automatic-data-processing-authentication.yml
+pagination:
+  style: OData $top / $skip offset paging
+  params: ['$top', '$skip']
+  occurrences: {'$top': 25, '$skip': 25}
+  example: 'GET https://api.adp.com/hr/v2/workers?$top=20&$skip=50'
+  end_of_collection: >-
+    When $skip passes the end of the collection ADP returns 400 Bad Request carrying a ConfirmMessage
+    rather than an empty 200 — an agent must treat a 400 at the paging boundary as "no more rows",
+    not as an error.
+  source: https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-api-open-data-protocol-odata
+filtering_and_shaping:
+  standard: OData URL conventions (v3 subset)
+  params: ['$filter', '$select', '$orderby', '$count', '$expand', '$search']
+  occurrences: {'$filter': 145, '$select': 15, '$orderby': 2, '$count': 7, '$expand': 7, '$search': 6}
+  get_only: true
+  capability_discovery: >-
+    Append /meta to any resource to ask which OData options that operation actually supports; the
+    response carries queryOptionCode entries ("$select", "$filter"). Supported $filter resource paths
+    vary by ADP product, so /meta is the only reliable way to know before calling.
+  source: https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-api-open-data-protocol-odata
+runtime_schema_discovery:
+  mechanism: /meta
+  description: >-
+    ADP's most distinctive convention. GET <event-or-resource>/meta returns the validation and
+    presentation rules that apply to the caller in the current context: which fields are required,
+    readOnly or hidden, maxLength/minLength, regex patterns, min/maxItems on arrays, and enumerated
+    codeList values. The rules are context-dependent, so the same event can require different fields
+    for different clients. ADP states an API user "must use the Meta API response in conjunction with
+    an events schema to post a valid event body" — meaning the OpenAPI alone is not sufficient to
+    build a valid write.
+  agent_note: >-
+    For an agent this is a first-class capability and a first-class trap: it is a machine-readable,
+    per-tenant contract that OpenAPI cannot express, and skipping it produces validation failures
+    that no amount of spec reading would have predicted. Call /meta before every write.
+  source: https://developers.adp.com/getting-started/key-concepts/intoduction-to-meta
+idempotency:
+  coverage: none
+  supported: false
+  header: null
+  detail: >-
+    ADP publishes no idempotency key. There is no Idempotency-Key header, no client-supplied request
+    id that de-duplicates a replay, and none of the 362 harvested operations declares one. Re-posting
+    an event after a timeout will create a second event. What ADP does provide is optimistic
+    concurrency, which is a different guarantee: 346 of 353 200-responses return an ETag, the ETag
+    description names If-Match and If-None-Match as its intended request headers, 178 operations
+    declare 304 Not Modified and 324 declare 412 Precondition Failed. That protects against lost
+    updates, not against duplicate submissions.
+  related_mechanism: http-conditional-requests
+  agent_guidance: >-
+    Treat every event POST as non-idempotent. On a timeout, do not blind-retry — GET the affected
+    resource (or the event's own status) and confirm whether the change landed before re-posting.
+reversibility:
+  grade: documented
+  detail: >-
+    ADP's event vocabulary is explicitly paired: nearly every .add event has a matching .remove, every
+    assignment has a .terminate, leave has .cancel, and a terminated worker has .rehire. 48 of the 168
+    write operations in the harvested Workforce Now contracts are reversal operations. What ADP does
+    NOT publish anywhere in its developer documentation is a time window inside which a reversal is
+    accepted — the constraint is instead effective-dating, which is per-client and per-product and is
+    surfaced at runtime through /meta rather than stated as a policy. Because no window is stated,
+    this grades as documented, not verified. Do not assume a payroll event can be reversed after the
+    pay run has been processed; ADP does not say that it can.
+  reversals:
+    - {write: worker.personal-communication.email.add, reverse: worker.personal-communication.email.remove, operationId: db880d66-662c-492c-b03f-6318f1a67adc, window: not stated}
+    - {write: worker.personal-contact.add, reverse: worker.personal-contact.remove, operationId: 5f3ca1ce-743b-469d-b9c4-e8d2464f4563, window: not stated}
+    - {write: worker.leave.request, reverse: worker.leave.cancel, operationId: 5723b54d-cd30-4fc9-a2f4-f761bb76803b, window: not stated}
+    - {write: worker.work-assignment (hire), reverse: worker.work-assignment.terminate, operationId: 9b1be338-a34e-4ae2-8255-f7ae20aec06d, window: not stated}
+    - {write: worker.work-assignment.terminate, reverse: worker.rehire, operationId: f3355703-f654-47ee-a98a-f67b74c4b364, window: not stated}
+    - {write: worker.photo.change, reverse: worker.photo.remove, operationId: 60b868b8-99f7-4662-9181-33fa6ee24dd3, window: not stated}
+    - {write: us-tax-profile.local-income-tax-instruction.add, reverse: us-tax-profile.local-income-tax-instruction.remove, operationId: dfe2e3e6-1924-4c2a-a84e-54c3e895ec49, window: not stated}
+    - {write: associate.ksaoc.certification.add, reverse: associate.ksaoc.certification.remove, operationId: 7b4667af-06ce-4f8f-a103-591c82d79308, window: not stated}
+    - {write: work-schedule-day.add, reverse: work-schedule-day.remove, operationId: 6018baf5-e56d-48c0-8085-68c78e598d39, window: not stated}
+  reversal_operation_count: 48
+  write_operation_count: 168
+dry_run_mode:
+  supported: partial
+  detail: >-
+    There is no ?dry_run flag, but /meta is a genuine rehearsal surface: it returns the exact
+    field-level rules a write will be validated against, in the caller's own context, without
+    mutating anything. Several talent events additionally split submission from approval through a
+    paired .review event (associate.ksaoc.membership.remove.review), so the change can be staged
+    before it takes effect.
+versioning:
+  scheme: uri-path major version, plus a per-API semantic version published in the API Explorer
+  current_examples: ['hr/v2/workers', 'payroll/v2/payroll-outputs', 'time/v3/time-off-requests', 'hcm/v3/wfn-codelists']
+  coexistence: >-
+    Major versions run side by side — ADP Workforce Now currently publishes us-tax-profiles at both
+    v1 (11 operations) and v2 (4), and time-off-requests at both v2 (5) and v3 (3). Neither older
+    version is marked deprecated in the contract.
+  deprecated_operations_in_spec: 0
+error_envelope:
+  name: confirmMessage
+  media_type: application/json
+  rfc9457: false
+  detail: errors/automatic-data-processing-problem-types.yml
+request_tracing:
+  headers:
+    - {name: ADP-Context-ExpressionID, occurrences: 340, direction: request}
+    - {name: ADP-CorrelationID, occurrences: 17, direction: request}
+    - {name: sm_transactionid, occurrences: 299, direction: request-and-response, note: SiteMinder transaction id, echoed on 301 responses}
+    - {name: ADP-Acting-SessionID, occurrences: 299, direction: request-and-response}
+  correlation: >-
+    ADP echoes sm_transactionid and ADP-Acting-SessionID back on 2xx responses, so a caller can tie a
+    response to the request that produced it. There is no single canonical request-id header.
+rate_limit_signaling:
+  status: 429 Too Many Requests, declared on 328 of 362 operations
+  retry_after: declared on 9 of the 201-responses; ADP's guidance is to honour Retry-After on 429 and 503
+  published_numeric_limits: false
+  detail: rate-limits/automatic-data-processing-rate-limits.yml
+caching:
+  etag: true
+  etag_coverage: 346 of 353 200-responses
+  cache_control: returned on 317 of 353 200-responses
+  last_modified: returned on 29 200-responses
+  conditional_status_codes: [304, 412]
+delegation:
+  detail: >-
+    ADP models act-as and on-behalf-of as first-class headers (ADP-Act-As-AssociateOID,
+    ADP-Act-As-OrgOID, ADP-On-Behalf-Of-AssociateOID, ADP-On-Behalf-Of-OrgOID, each on 309
+    operations) alongside a roleCode on every one of the 362. An agent acting for a human must set
+    these, and an unassigned roleCode is rejected with 400 "Invalid / Missing Role code".
+media_types:
+  request: [application/json]
+  response: [application/json, image/*, application/pdf]
+  language_negotiation: 'Accept-Language declared on 249 operations; Content-Language returned on 31'
+cross_links:
+  errors: errors/automatic-data-processing-problem-types.yml
+  lifecycle: lifecycle/automatic-data-processing-lifecycle.yml
+  authentication: authentication/automatic-data-processing-authentication.yml
+  rate_limits: rate-limits/automatic-data-processing-rate-limits.yml
+  webhooks: asyncapi/automatic-data-processing-event-notifications-webhooks.yml

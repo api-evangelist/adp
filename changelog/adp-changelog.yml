@@ -1,0 +1,255 @@
+generated: '2026-09-14'
+method: searched
+source: https://developers.adp.com/apis/api-explorer (the API Explorer catalogue behind developers.adp.com publishes
+  a semver version and a last-modified timestamp for every API document)
+scheme: per-API semantic version, plus a major version carried in the URI path (/hr/v2/workers)
+note: ADP publishes no single dated product changelog for the API platform. What it does publish, per API, is a semantic
+  version string and a last-modified date on each API Explorer entry, plus dated "What's New" blocks inside individual
+  guides (the Event API guide records "October 2025 - Added support for webhooks"). The entries below are the real per-API
+  version/date pairs for ADP Workforce Now, newest first.
+narrative_entries:
+- date: 2025-10
+  area: Event notifications
+  change: Added support for webhooks as an alternative to message-queue polling.
+  source: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+- date: 2020-07
+  area: Getting started
+  change: 'Postman quick-start guide refreshed: endpoint information, certificate steps and screenshots.'
+  source: https://developers.adp.com/getting-started/key-concepts/make-your-first-api-call-using-postman-1
+api_versions:
+- api: Applicant Onboarding
+  resource_path: hcm/applicant-onboarding/v2/applicant-onboarding
+  version: 2.0.1
+  last_modified: '2026-09-11'
+- api: Worker Profile Experience (WFN)
+  resource_path: hr/hr-worker-profiles/v1/hr-worker-profiles
+  version: 1.0.3
+  last_modified: '2026-08-14'
+- api: US Tax Profiles
+  resource_path: payroll/us-tax-profiles/v2/us-tax-profiles
+  version: 2.0.2
+  last_modified: '2026-08-05'
+- api: Workers - Work Assignment Management
+  resource_path: hr/workers-work-assignment-management/v2/workers-work-assignment-management
+  version: 2.0.14
+  last_modified: '2026-07-31'
+- api: Pay Data Input
+  resource_path: payroll/pay-data-input/v1/pay-data-input
+  version: 1.0.0
+  last_modified: '2026-07-17'
+- api: Tax Policy Eligibility Solutions (PI)
+  resource_path: payroll/tax-policy-eligibility-solutions/v1/tax-policy-eligibility-solutions
+  version: 1.0.1
+  last_modified: '2026-07-14'
+- api: Payroll Outputs
+  resource_path: payroll/payroll-outputs/v2/payroll-outputs
+  version: 2.0.3
+  last_modified: '2026-06-26'
+- api: Time Card Inputs
+  resource_path: time/time-card-inputs/v1/time-card-inputs
+  version: 1.0.2
+  last_modified: '2026-06-25'
+- api: US Tax Profiles
+  resource_path: payroll/us-tax-profiles/v1/us-tax-profiles
+  version: 1.0.5
+  last_modified: '2026-05-13'
+- api: Job Applications
+  resource_path: staffing/job-applications/v2/job-applications
+  version: 2.0.9
+  last_modified: '2026-05-08'
+- api: Job Applicants
+  resource_path: staffing/job-applicants/v2/job-applicants
+  version: 2.0.8
+  last_modified: '2026-05-08'
+- api: Time Cards
+  resource_path: time/time-cards/v2/time-cards
+  version: 2.0.4
+  last_modified: '2026-05-06'
+- api: Payroll Group List of Pay Periods
+  resource_path: payroll/payroll-group-pay-periods/v1/payroll-group-pay-periods
+  version: 1.0.0
+  last_modified: '2026-05-04'
+- api: Work Schedule Import Management
+  resource_path: time/work-schedule-entry-uploads/v2/work-schedule-entry-uploads
+  version: 2.0.0
+  last_modified: '2026-04-25'
+- api: Personal Contacts
+  resource_path: hr/personal-contacts/v2/personal-contacts
+  version: 2.0.1
+  last_modified: '2026-04-24'
+- api: Associate Certifications
+  resource_path: talent/associate-certifications/v2/associate-certifications
+  version: 2.0.2
+  last_modified: '2026-04-19'
+- api: Associate Recognitions
+  resource_path: talent/associate-recognitions/v2/associate-recognitions
+  version: 2.0.0
+  last_modified: '2026-04-19'
+- api: Associate Competencies
+  resource_path: talent/associate-competencies/v2/associate-competencies
+  version: 2.0.1
+  last_modified: '2026-04-19'
+- api: Associate Licenses
+  resource_path: talent/associate-licenses/v2/associate-licenses
+  version: 2.0.1
+  last_modified: '2026-04-19'
+- api: Time Off Requests
+  resource_path: time/time-off-requests/v3/time-off-requests
+  version: 3.0.9
+  last_modified: '2026-04-06'
+- api: Deduction Configuration Management
+  resource_path: payroll/deduction-configurations/v3/deduction-configurations
+  version: 3.0.1
+  last_modified: '2026-04-03'
+- api: Benefit Dependents
+  resource_path: benefits/dependents/v1/dependents
+  version: 1.0.4
+  last_modified: '2026-04-03'
+- api: Time Off Management
+  resource_path: time/time-off-requests/v2/time-off-requests
+  version: 2.0.0
+  last_modified: '2026-03-11'
+- api: Workers - Lifecycle Management
+  resource_path: hr/workers-lifecycle-management/v2/workers-lifecycle-management
+  version: 2.0.14
+  last_modified: '2026-02-12'
+- api: General Ledger Document Management
+  resource_path: payroll/general-ledger-documents/v1/general-ledger-documents
+  version: 1.0.3
+  last_modified: '2025-08-20'
+- api: Team Time Cards
+  resource_path: time/team-time-cards/v2/team-time-cards
+  version: 2.0.5
+  last_modified: '2025-08-12'
+- api: Data Collection Entries
+  resource_path: time/data-collection-entries/v1/data-collection-entries
+  version: 1.0.3
+  last_modified: '2025-07-01'
+- api: Work Assignment Management
+  resource_path: hr/hr-work-assignment-management/v3/hr-work-assignment-management
+  version: 3.0.1
+  last_modified: '2025-06-27'
+- api: Pay Statements
+  resource_path: payroll/pay-statements/v1/pay-statements
+  version: 1.0.27
+  last_modified: '2025-05-27'
+- api: Associate Educational Degrees
+  resource_path: talent/associate-educational-degrees/v2/associate-educational-degrees
+  version: 2.0.3
+  last_modified: '2025-05-06'
+- api: Associate Memberships
+  resource_path: talent/associate-memberships/v2/associate-memberships
+  version: 2.0.1
+  last_modified: '2025-05-06'
+- api: Worker Leaves
+  resource_path: hr/worker-leaves/v2/worker-leaves
+  version: 2.0.3
+  last_modified: '2025-04-23'
+- api: WFN Custom Codelists
+  resource_path: hcm/wfn-codelists/v3/wfn-codelists
+  version: 3.0.0
+  last_modified: '2025-04-22'
+- api: Labor Charge Codes Upload Management
+  resource_path: time/labor-allocation-code-uploads/v2/labor-allocation-code-uploads
+  version: 2.0.0
+  last_modified: '2025-03-31'
+- api: Workers
+  resource_path: hr/workers/v2/workers
+  version: 2.0.16
+  last_modified: '2025-02-05'
+- api: Worker Pay Distributions
+  resource_path: payroll/pay-distributions/v2/pay-distributions
+  version: 2.0.8
+  last_modified: '2024-11-22'
+- api: Client Data - Validation Tables
+  resource_path: hcm/validation-tables/v1/validation-tables
+  version: 1.0.0
+  last_modified: '2024-09-30'
+- api: Workers - Demographic Data Management
+  resource_path: hr/workers-demographic-data-management/v2/workers-demographic-data-management
+  version: 2.0.7
+  last_modified: '2024-09-26'
+- api: Workers - Custom Data Management
+  resource_path: hr/workers-custom-data-management/v2/workers-custom-data-management
+  version: 2.0.3
+  last_modified: '2024-06-21'
+- api: Workers - Compensation Management
+  resource_path: hr/workers-compensation-management/v2/workers-compensation-management
+  version: 2.0.6
+  last_modified: '2024-05-03'
+- api: Time Off Balances
+  resource_path: time/time-off-balances/v3/time-off-balances
+  version: 3.0.1
+  last_modified: '2024-04-26'
+- api: Work Schedules
+  resource_path: time/work-schedules/v1/work-schedules
+  version: 1.0.5
+  last_modified: '2024-04-17'
+- api: Workers - Data Integration Management
+  resource_path: hr/workers-data-integration-management/v2/workers-data-integration-management
+  version: 2.0.15
+  last_modified: '2024-03-22'
+- api: Worker Demographics
+  resource_path: hr/worker-demographics/v2/worker-demographics
+  version: 2.0.6
+  last_modified: '2024-03-22'
+- api: Job Requisitions
+  resource_path: staffing/job-requisitions/v1/job-requisitions
+  version: 1.0.7
+  last_modified: '2024-03-22'
+- api: Worker Associate Profile - Personal & Work Info
+  resource_path: hr/worker-associate-profiles/v2/worker-associate-profiles
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: Worker Payroll Instructions
+  resource_path: payroll/worker-payroll-instructions/v1/worker-payroll-instructions
+  version: 1.0.4
+  last_modified: '2024-03-22'
+- api: Workers - Personal Communication Management
+  resource_path: hr/workers-personal-communication-management/v2/workers-personal-communication-management
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: Corporate Directory
+  resource_path: hr/corporate-directory/v1/corporate-directory
+  version: 1.0.0
+  last_modified: '2024-03-22'
+- api: Workers - Business Communication Management
+  resource_path: hr/workers-business-communication-management/v2/workers-business-communication-management
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: Beneficiaries
+  resource_path: benefits/beneficiaries/v1/beneficiaries
+  version: 1.0.1
+  last_modified: '2024-03-22'
+- api: Workers - Work Deployment Management
+  resource_path: hr/workers-work-deployment-management/v2/workers-work-deployment-management
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: Workers - Identification Management
+  resource_path: hr/workers-identification-management/v2/workers-identification-management
+  version: 2.0.1
+  last_modified: '2024-03-22'
+- api: Workers - Biological Data Management
+  resource_path: hr/workers-biological-data-management/v2/workers-biological-data-management
+  version: 2.0.2
+  last_modified: '2024-03-22'
+- api: Workers - Person Custom Data Management
+  resource_path: hr/workers-person-custom-data-management/v2/workers-person-custom-data-management
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: External Benefit Plans
+  resource_path: benefits/external-plans/v1/external-plans
+  version: 1.0.0
+  last_modified: '2024-03-22'
+- api: Associate Languages
+  resource_path: talent/associate-languages/v2/associate-languages
+  version: 2.0.0
+  last_modified: '2024-03-22'
+- api: Recruiting Questionnaires (WFN & ADPRM)
+  resource_path: staffing/recruiting-questionnaires/v3/recruiting-questionnaires
+  version: 3.0.1
+  last_modified: '2024-03-22'
+- api: Workers - KSAOC Management
+  resource_path: hr/workers-ksaoc-management/v2/workers-ksaoc-management
+  version: 2.0.0
+  last_modified: '2024-03-22'

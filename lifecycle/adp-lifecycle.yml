@@ -1,0 +1,60 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  https://developers.adp.com/apis/api-explorer (per-API version + last-modified),
+  https://developers.adp.com/getting-started/key-concepts/working-with-an-adp-product-maintenance-schedule,
+  https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-restful-apis
+versioning:
+  scheme: uri-path major version, with a per-API semantic version published on each API Explorer entry
+  current: 'v1/v2/v3 side by side, per resource'
+  docs: https://developers.adp.com/apis/api-explorer
+  examples: ['hr/v2/workers (2.0.16)', 'payroll/v2/payroll-outputs', 'time/v3/time-off-requests', 'hcm/v3/wfn-codelists']
+  note: >-
+    Major versions coexist rather than superseding one another — Workforce Now publishes
+    us-tax-profiles at v1 and v2 and time-off-requests at v2 and v3 concurrently, and no operation in
+    any of the 59 harvested contracts carries deprecated:true.
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  detail: >-
+    ADP publishes no API deprecation or sunset policy on its developer portal. There is no RFC 8594
+    Sunset or Deprecation header in any of the 362 harvested operations, no retirement notice page,
+    and no dated deprecation schedule. Partners learn of retirements through their ADP representative
+    or Marketplace Technical Advisor. This is a real gap for an integrator planning multi-year
+    dependency on a v1 resource that already has a v2 alongside it.
+  probed:
+    - {url: 'https://developers.adp.com/getting-started/key-concepts', status: 200, note: 'React SPA shell; the key-concepts index served by the portal API lists 15 articles and none of them is a deprecation or sunset policy'}
+deprecated_operations: []
+availability:
+  status_page: null
+  status_page_published: false
+  probed:
+    - {url: 'https://status.adp.com', status: 403, note: 'Akamai Access Denied to non-browser agents; no public status host resolves to an ADP status page'}
+    - {url: 'https://adp.statuspage.io', status: 200, note: 'redirects to /inactive — "ADP Status - Page Inactive". The Statuspage tenant exists but ADP has switched it off, and its API answers "Your page is inactive."'}
+  detail: >-
+    ADP does not operate a public API status page. What it publishes instead is a planned-maintenance
+    schedule: the ADP Marketplace Platform maintenance windows are every Tuesday, Wednesday and
+    Thursday 21:00-06:00 US Eastern, during which API calls fail. ADP's own guidance is to stop
+    calling 30 minutes before a window opens and resume 60 minutes after it closes.
+maintenance_windows:
+  cadence: Tuesday, Wednesday and Thursday
+  window: '21:00-06:00 America/New_York'
+  scope: ADP Marketplace Platform
+  client_guidance: stop API calls 30 minutes before the scheduled start, resume 60 minutes after the scheduled end
+  schedule_listing: https://marketplace-cdn.adp.com/dev-portal/files/ADPProductMaintenanceWindows2017_noNAS-UATR3.zip
+  source: https://developers.adp.com/getting-started/key-concepts/working-with-an-adp-product-maintenance-schedule
+sla:
+  url: null
+  published: false
+  note: ADP publishes no public API uptime target. Availability commitments live in the client's ADP product contract and the partner agreement.
+support:
+  channels:
+    - {name: ADP Developer Resources help centre, url: 'https://developers.adp.com/support/help-center'}
+    - {name: Partner Support (Zendesk), url: 'https://partnersupport.adp.com/hc/en-us/requests/new'}
+    - {name: ADP Service Portal (clients), url: 'https://serviceportal.adp.com'}
+  escalation: >-
+    API Central clients raise tickets from the API Central help menu; Marketplace partners go through
+    their Marketplace Technical Advisor. Scope additions and production rate-limit increases are both
+    handled on this path rather than self-serve.

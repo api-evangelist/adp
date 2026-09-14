@@ -1,0 +1,49 @@
+generated: '2026-09-14'
+method: searched
+source: https://adpembeddedpayroll.readme.io/docs/step-1-starting-the-integration-1
+docs:
+  - https://adpembeddedpayroll.readme.io/docs/integrating-with-embed-ui
+  - https://adpembeddedpayroll.readme.io/docs/available-journeys
+  - https://adpembeddedpayroll.readme.io/docs/communicating-with-journeys
+  - https://adpembeddedpayroll.readme.io/docs/do-you-have-an-sdk
+summary: >-
+  ADP ships one real embeddable UI product: ADP Embedded Payroll (RUN), a client-side JavaScript SDK
+  that renders complete payroll screens — "Journeys" — inside a partner's own application in an
+  iframe. It is a different thing from the server-side connection libraries in packages/, and it is
+  the only actively maintained developer-facing library ADP publishes (its docs were last updated in
+  2026). The core HCM APIs (Workforce Now, Vantage, Enterprise) ship no embeddable UI.
+families:
+  - family: ADP Embedded Payroll Journeys
+    product: RUN Powered by ADP — Embedded Payroll
+    technology: iframe + client-side JavaScript SDK
+    loader:
+      script: 'https://ngapps.adp.com/static/public/run-embedded-sdk-v1.0.5.js'
+      global: RunSdk
+      init: 'RunSdk.Iframe({ iframeContainerId: "EmbeddedPayroll", ... })'
+      version: 1.0.5
+      distribution: cdn
+      probed: {status: 200, bytes: 6411, content_type: application/javascript}
+      note: 'The SDK is distributed from ADP''s own CDN with the version pinned in the filename; there is no npm, PyPI or other registry entry for it.'
+    components:
+      - {name: People, menu_id: RunSdk.MenuIds.People, description: 'Employee and contractor management — search, directory, edit and create screens'}
+      - {name: People - Edit, menu_id: RunSdk.MenuIds.PeopleEdit, description: 'Edit an existing team member'}
+      - {name: People - Terminate, menu_id: RunSdk.MenuIds.PeopleTermination, description: 'Terminate a fully-onboarded employee. ADP notes this journey only handles fully onboarded employees.'}
+      - {name: Payroll, menu_id: RunSdk.MenuIds.Payroll, description: 'Payroll setup and run'}
+      - {name: Reports, menu_id: RunSdk.MenuIds.Reports, description: 'Payroll reporting'}
+      - {name: Taxes, menu_id: RunSdk.MenuIds.Taxes, description: 'Tax setup and filings'}
+      - {name: Onboarding, menu_id: RunSdk.MenuIds.Onboarding, description: 'New-hire onboarding flow'}
+      - {name: Settings, menu_id: RunSdk.MenuIds.Settings, description: 'Company payroll settings'}
+      - {name: 'Beyond Payroll journeys', menu_id: null, description: 'Additional journeys listed in ADP''s journey table alongside the seven core ones'}
+    messaging:
+      description: 'The host page and the embedded journey talk over the SDK''s event dispatcher rather than by reloading the iframe.'
+      events:
+        - {name: navigate, direction: host-to-journey, usage: 'frame.eventDispatcher.navigateTo(RunSdk.MenuIds.<JourneyID>) — switches journey without re-loading the iframe'}
+        - {name: activity, direction: bidirectional, usage: "frame.eventDispatcher.dispatch({action: 'events.user...'}) — keeps the host and the embedded session from timing each other out as idle"}
+    auth:
+      model: embedded token
+      detail: 'The host obtains an embedded access token server-side and hands it to the SDK; SSO linking of the mutual client happens first.'
+      docs: https://adpembeddedpayroll.readme.io/docs/step-3-get-the-access-token
+    customisation:
+      docs: https://adpembeddedpayroll.readme.io/docs/can-i-customize-the-journeys-look-and-feel
+absent:
+  - {family: 'web components / element library for the HCM APIs', note: 'ADP publishes no embeddable component library for Workforce Now, Vantage, Enterprise HCM or the Marketplace APIs — those are server-side REST only.'}

@@ -1,0 +1,90 @@
+generated: '2026-09-14'
+method: searched
+source: >-
+  https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-api-open-data-protocol-odata,
+  https://apps.adp.com/.well-known/openid-configuration,
+  https://www.adp.com/about-adp/data-security.aspx, and the 59 harvested ADP OpenAPI 3.0.1 documents
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: All 59 harvested ADP Workforce Now contracts declare openapi 3.0.1 — openapi/_original/*.json
+  - id: odata
+    conforms: true
+    evidence: >-
+      ADP publishes a dedicated guide, "Introduction to ADP API Open Data Protocol (OData)", declaring
+      support for the OData $select, $filter, $top and $skip system query options, and the harvested
+      contracts declare them as real query parameters ($filter on 145 operations, $top 25, $skip 25,
+      $select 15, $count 7, $expand 7, $search 6, $orderby 2). ADP also exposes a per-operation
+      capability descriptor at <resource>/meta whose queryOptionCode field states which OData options
+      that operation supports.
+    source: https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-api-open-data-protocol-odata
+    domain_standard: true
+    note: >-
+      This is the domain-standard signature for the contract: ADP's HCM query surface speaks OData
+      URL conventions, so a consumer that already speaks OData integrates without a bespoke query
+      translator. ADP cites the OData v3 URL-conventions document; it is the query-option subset, not
+      a full OData service with $metadata.
+  - id: oauth2
+    conforms: true
+    evidence: client_credentials and authorization_code flows against accounts.adp.com; RFC 6749/6750 error shapes documented
+    source: https://developers.adp.com/getting-started/key-concepts/access-tokens
+  - id: oidc
+    conforms: true
+    evidence: live discovery document at https://apps.adp.com/.well-known/openid-configuration — issuer, authorization/token/userinfo endpoints, jwks_uri, RS256
+    source: https://apps.adp.com/.well-known/openid-configuration
+  - id: rfc6750-bearer
+    conforms: true
+    evidence: 'Authorization: Bearer scheme with WWW-Authenticate error responses (invalid_token, insufficient_scope) documented verbatim against RFC 6750'
+  - id: mutual-tls
+    conforms: true
+    evidence: X.509 client certificate required on accounts.adp.com and api.adp.com; CSR issuance process published
+  - id: http-conditional-requests
+    conforms: true
+    evidence: ETag returned on 346 of 353 200-responses, If-None-Match accepted, 304 Not Modified declared on 178 operations and 412 Precondition Failed on 324
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: error bodies use ADP's proprietary confirmMessage envelope (application/json), not application/problem+json
+  - id: iso-8601
+    conforms: true
+    evidence: ADP ConfirmMessage schema states date-time fields "follow the ISO-8601:2000 format"
+  - id: hmac-sha256-webhook-signature
+    conforms: true
+    evidence: webhook deliveries carry an adpx-messageauthentication header, an HMAC-SHA256 of the data-connector client ID keyed with the client secret
+    source: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+  - id: asyncapi
+    conforms: false
+    evidence: ADP documents its event catalogue in prose and in per-product data dictionaries; no AsyncAPI document is published
+  - id: graphql
+    conforms: false
+    evidence: >-
+      No public GraphQL surface. One internal GraphQL endpoint (cir-services-graphql.prod.us.caas.oneadp.com/graphql)
+      is referenced by the developer-portal application bundle but is not documented or offered to developers.
+  - id: scim
+    conforms: false
+    evidence: no urn:ietf:params:scim schema URNs in any harvested contract
+  - id: fhir-r4
+    conforms: false
+  - id: soc2
+    conforms: true
+    evidence: ADP publishes SOC 1 Type 2 and SOC 2 Type 2 reports over select products and services
+    source: https://www.adp.com/about-adp/data-security.aspx
+  - id: iso-27001
+    conforms: true
+    evidence: ISO/IEC 27001 certification for select services and locations
+    source: https://www.adp.com/about-adp/data-security.aspx
+  - id: iso-27701
+    conforms: true
+    evidence: ISO/IEC 27701 privacy information management certification for select services and locations
+    source: https://www.adp.com/about-adp/data-security.aspx
+  - id: pci-dss
+    conforms: true
+    evidence: PCI DSS named in ADP's published data-security posture
+    source: https://www.adp.com/about-adp/data-security.aspx
+  - id: sox
+    conforms: true
+    evidence: Sarbanes-Oxley controls named in ADP's published data-security posture
+    source: https://www.adp.com/about-adp/data-security.aspx
+  - id: gdpr-bcr
+    conforms: true
+    evidence: ADP operates an approved set of Binding Corporate Rules alongside its Global Privacy Policy
+    source: https://www.adp.com/about-adp/data-privacy.aspx

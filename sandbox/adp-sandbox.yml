@@ -1,0 +1,63 @@
+generated: '2026-09-14'
+method: searched
+source: https://developers.adp.com/getting-started/key-concepts/make-your-first-api-call-using-postman-1
+note: >-
+  ADP separates test from live by HOST, not by key prefix. There are no test card numbers or magic
+  identifiers to publish — an ADP sandbox is a provisioned UAT instance with synthetic client data,
+  reached through a parallel set of hostnames using the same OAuth client credentials and the same
+  client certificate flow as production. Nothing below is invented; the UAT hostnames are quoted
+  verbatim from ADP's own Postman quick-start and were confirmed live (they answer with the ADP
+  gateway's own JSON error envelope, not a DNS failure).
+environments:
+  - name: production
+    api_host: https://api.adp.com
+    token_host: https://accounts.adp.com
+    portal: https://developers.adp.com
+  - name: UAT / sandbox
+    api_host: https://uat-api.adp.com
+    token_host: https://uat-accounts.adp.com
+    portal: https://iat-developers.adp.com
+    probed:
+      - {url: 'https://uat-api.adp.com/', status: 404, note: 'ADP gateway JSON error body ("invalid_scope") — the host is live and is the ADP gateway'}
+      - {url: 'https://uat-accounts.adp.com/', status: 404, note: 'same gateway error body'}
+      - {url: 'https://iat-developers.adp.com/', status: 200, note: 'the UAT build of the developer portal SPA'}
+  - name: EU production
+    api_host: https://api.eu.adp.com
+separation:
+  mechanism: separate hostnames plus separate issued client certificates
+  key_prefixes: none
+  detail: >-
+    ADP instructs developers to register the client certificate twice in Postman — once with
+    accounts.adp.com as the host and once with api.adp.com — and to use uat-accounts.adp.com and
+    uat-api.adp.com instead when connecting to a UAT instance. Credentials and certificates are
+    issued per environment; there is no single key that flips between modes.
+prerequisites:
+  items:
+    - client_id and client_secret, issued by ADP per subscribing organization
+    - an ADP-issued X.509 certificate obtained by submitting a Certificate Signing Request
+    - Postman (or any client) configured with the certificate and key for both the token host and the API host, with SSL certificate verification on
+  csr_guide: https://developers.adp.com/getting-started/key-concepts/generate-a-certificate-signing-request
+fixtures:
+  postman_collection:
+    url: https://github.com/adpllc/marketplace-sample-payloads/blob/master/wfn/ADP%20WFN%20APIs.postman_collection.json
+    raw: https://raw.githubusercontent.com/adpllc/marketplace-sample-payloads/master/wfn/ADP%20WFN%20APIs.postman_collection.json
+    file: postman/automatic-data-processing-wfn-postman-collection.json
+    folders: [Core, HR, Payroll, Staffing, Talent, Time, Token Request]
+    official: true
+    probed: {status: 200, bytes: 75796}
+  sample_payloads:
+    url: https://github.com/adpllc/marketplace-sample-payloads/tree/master/wfn
+    description: ADP-published request and response JSON payloads for the Workforce Now APIs
+    official: true
+webhook_testing:
+  supported: true
+  detail: 'Save a webhook configuration and select Test webhook in API Central or Partner Self-Service; a success or failure notification is returned before the webhook is enabled.'
+  source: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+dry_run:
+  mechanism: /meta
+  detail: 'GET <event>/meta returns the exact field-level validation rules a write will be checked against, in the caller''s own context, without mutating anything.'
+self_serve: false
+gate: >-
+  A sandbox is not self-serve. Credentials and a certificate are issued only after a developer
+  agreement is in place, through an ADP representative (API Central clients) or a Marketplace
+  Technical Advisor (partners).

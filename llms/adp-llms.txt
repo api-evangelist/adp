@@ -1,0 +1,129 @@
+# Automatic Data Processing (ADP)
+
+> ADP is a global human capital management provider serving more than one million businesses. Its developer platform exposes REST APIs across payroll, worker demographics, time and labour, benefits, talent and recruiting for ADP Workforce Now, Vantage HCM, RUN, Enterprise HCM, iHCM and GlobalView. Access is gated: an application must be registered with ADP, authenticate with OAuth 2.0 over mutual TLS with an ADP-issued X.509 certificate, and be consented to by each client organization.
+
+## How ADP APIs actually work
+
+- **Reads are REST, writes are events.** There is no `PATCH /hr/v2/workers/{aoid}`. A change is a POST of a named event to `/events/{domain}/v1/{eventName}` (e.g. `worker.personal-communication.email.add`, `worker.leave.cancel`, `worker.rehire`).
+- **Call `/meta` before every write.** `GET <event>/meta` returns the per-tenant, per-actor validation rules — required fields, max lengths, regex patterns, enumerated code lists. ADP states the OpenAPI alone is not sufficient to build a valid write.
+- **Queries speak OData.** `$select`, `$filter`, `$top`, `$skip`, `$orderby`, `$count`, `$expand`, `$search` on GETs. Paging past the end returns `400`, not an empty `200`.
+- **There is no idempotency key.** Do not blind-retry a write; re-read and confirm first.
+- **Every call carries context headers**: `orgoid`, `associateoid`, `roleCode`, plus act-as / on-behalf-of delegation.
+- **Mutual TLS is mandatory** on both `accounts.adp.com` and `api.adp.com` (UAT: `uat-accounts.adp.com`, `uat-api.adp.com`).
+
+## Hosts
+
+- [https://api.adp.com](https://api.adp.com): production API gateway
+- [https://api.eu.adp.com](https://api.eu.adp.com): European API gateway
+- [https://uat-api.adp.com](https://uat-api.adp.com): UAT / sandbox gateway
+- [https://accounts.adp.com](https://accounts.adp.com): OAuth token + authorization host
+- [https://apps.adp.com](https://apps.adp.com): ADP Marketplace, and the OIDC issuer for Marketplace SSO
+
+## Docs
+
+- [ADP Developer Resources (portal)](https://developers.adp.com)
+- [API Explorer](https://developers.adp.com/apis/api-explorer)
+- [Key concepts](https://developers.adp.com/getting-started/key-concepts)
+- [Access tokens](https://developers.adp.com/getting-started/key-concepts/access-tokens)
+- [Introduction to ADP RESTful APIs](https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-restful-apis)
+- [Introduction to Meta](https://developers.adp.com/getting-started/key-concepts/intoduction-to-meta)
+- [OData query options](https://developers.adp.com/getting-started/key-concepts/introduction-to-adp-api-open-data-protocol-odata)
+- [Event APIs and Event Notification Guide (webhooks)](https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide)
+- [Common exceptions](https://developers.adp.com/getting-started/key-concepts/api-common-exceptions-and-tips-for-handling)
+- [Mutual SSL](https://developers.adp.com/getting-started/key-concepts/introduction-mutual-ssl)
+- [Maintenance windows](https://developers.adp.com/getting-started/key-concepts/working-with-an-adp-product-maintenance-schedule)
+- [ADP Embedded Payroll docs](https://adpembeddedpayroll.readme.io/docs/overview-1)
+- [ADP Marketplace](https://apps.adp.com)
+
+## Specs
+
+- [Harvested OpenAPI index (59 ADP Workforce Now contracts, 362 operations, OpenAPI 3.0.1)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/)
+- [Beneficiaries (benefits, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-benefits-beneficiaries-v1-openapi.yml)
+- [Benefit Dependents (benefits, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-benefits-dependents-v1-openapi.yml)
+- [External Benefit Plans (benefits, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-benefits-external-plans-v1-openapi.yml)
+- [Applicant Onboarding (hcm, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hcm-applicant-onboarding-v2-openapi.yml)
+- [Client Data - Validation Tables (hcm, 16 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hcm-validation-tables-v1-openapi.yml)
+- [WFN Custom Codelists (hcm, 4 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hcm-wfn-codelists-v3-openapi.yml)
+- [Corporate Directory (hr, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-corporate-directory-v1-openapi.yml)
+- [Work Assignment Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-hr-work-assignment-management-v3-openapi.yml)
+- [Worker Profile Experience (WFN) (hr, 17 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-hr-worker-profiles-v1-openapi.yml)
+- [Personal Contacts (hr, 9 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-personal-contacts-v2-openapi.yml)
+- [Worker Associate Profile - Personal & Work Info (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-worker-associate-profiles-v2-openapi.yml)
+- [Worker Demographics (hr, 3 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-worker-demographics-v2-openapi.yml)
+- [Worker Leaves (hr, 9 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-worker-leaves-v2-openapi.yml)
+- [Workers - Biological Data Management (hr, 5 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-biological-data-management-v2-openapi.yml)
+- [Workers - Business Communication Management (hr, 15 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-business-communication-management-v2-openapi.yml)
+- [Workers - Compensation Management (hr, 8 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-compensation-management-v2-openapi.yml)
+- [Workers - Custom Data Management (hr, 16 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-custom-data-management-v2-openapi.yml)
+- [Workers - Data Integration Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-data-integration-management-v2-openapi.yml)
+- [Workers - Demographic Data Management (hr, 12 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-demographic-data-management-v2-openapi.yml)
+- [Workers - Identification Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-identification-management-v2-openapi.yml)
+- [Workers - KSAOC Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-ksaoc-management-v2-openapi.yml)
+- [Workers - Lifecycle Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-lifecycle-management-v2-openapi.yml)
+- [Workers - Person Custom Data Management (hr, 16 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-person-custom-data-management-v2-openapi.yml)
+- [Workers - Personal Communication Management (hr, 22 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-personal-communication-management-v2-openapi.yml)
+- [Workers - Work Assignment Management (hr, 7 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-work-assignment-management-v2-openapi.yml)
+- [Workers - Work Deployment Management (hr, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-work-deployment-management-v2-openapi.yml)
+- [Workers (hr, 8 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-hr-workers-v2-openapi.yml)
+- [Deduction Configuration Management (payroll, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-deduction-configurations-v3-openapi.yml)
+- [General Ledger Document Management (payroll, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-general-ledger-documents-v1-openapi.yml)
+- [Pay Data Input (payroll, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-pay-data-input-v1-openapi.yml)
+- [Worker Pay Distributions (payroll, 4 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-pay-distributions-v2-openapi.yml)
+- [Pay Statements (payroll, 3 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-pay-statements-v1-openapi.yml)
+- [Payroll Group List of Pay Periods (payroll, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-payroll-group-pay-periods-v1-openapi.yml)
+- [Payroll Outputs (payroll, 11 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-payroll-outputs-v2-openapi.yml)
+- [Tax Policy Eligibility Solutions (PI) (payroll, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-tax-policy-eligibility-solutions-v1-openapi.yml)
+- [US Tax Profiles (payroll, 11 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-us-tax-profiles-v1-openapi.yml)
+- [US Tax Profiles (payroll, 4 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-us-tax-profiles-v2-openapi.yml)
+- [Worker Payroll Instructions (payroll, 8 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-payroll-worker-payroll-instructions-v1-openapi.yml)
+- [Job Applicants (staffing, 4 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-staffing-job-applicants-v2-openapi.yml)
+- [Job Applications (staffing, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-staffing-job-applications-v2-openapi.yml)
+- [Job Requisitions (staffing, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-staffing-job-requisitions-v1-openapi.yml)
+- [Recruiting Questionnaires (WFN & ADPRM) (staffing, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-staffing-recruiting-questionnaires-v3-openapi.yml)
+- [Associate Certifications (talent, 9 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-certifications-v2-openapi.yml)
+- [Associate Competencies (talent, 9 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-competencies-v2-openapi.yml)
+- [Associate Educational Degrees (talent, 9 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-educational-degrees-v2-openapi.yml)
+- [Associate Languages (talent, 10 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-languages-v2-openapi.yml)
+- [Associate Licenses (talent, 10 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-licenses-v2-openapi.yml)
+- [Associate Memberships (talent, 22 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-memberships-v2-openapi.yml)
+- [Associate Recognitions (talent, 8 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-talent-associate-recognitions-v2-openapi.yml)
+- [Data Collection Entries (time, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-data-collection-entries-v1-openapi.yml)
+- [Labor Charge Codes Upload Management (time, 3 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-labor-allocation-code-uploads-v2-openapi.yml)
+- [Team Time Cards (time, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-team-time-cards-v2-openapi.yml)
+- [Time Card Inputs (time, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-time-card-inputs-v1-openapi.yml)
+- [Time Cards (time, 1 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-time-cards-v2-openapi.yml)
+- [Time Off Balances (time, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-time-off-balances-v3-openapi.yml)
+- [Time Off Management (time, 5 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-time-off-requests-v2-openapi.yml)
+- [Time Off Requests (time, 3 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-time-off-requests-v3-openapi.yml)
+- [Work Schedule Import Management (time, 2 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-work-schedule-entry-uploads-v2-openapi.yml)
+- [Work Schedules (time, 19 ops)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/openapi/automatic-data-processing-time-work-schedules-v1-openapi.yml)
+
+## Artifacts
+
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/authentication/automatic-data-processing-authentication.yml)
+- [OAuth / OIDC scopes](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/scopes/automatic-data-processing-scopes.yml)
+- [API conventions (OData, /meta, idempotency, reversibility)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/conventions/automatic-data-processing-conventions.yml)
+- [Error catalogue (ConfirmMessage envelope)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/errors/automatic-data-processing-problem-types.yml)
+- [ConfirmMessage JSON Schema](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/json-schema/automatic-data-processing-confirm-message-schema.json)
+- [Event notifications + webhooks](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/asyncapi/automatic-data-processing-event-notifications-webhooks.yml)
+- [Lifecycle, versioning and maintenance windows](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/lifecycle/automatic-data-processing-lifecycle.yml)
+- [Conformance (OData, OIDC, SOC 2, ISO 27001/27701, PCI DSS)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/conformance/automatic-data-processing-conformance.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/data-model/automatic-data-processing-data-model.yml)
+- [Packages / SDKs](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/packages/automatic-data-processing-packages.yml)
+- [Embedded UI components (Embedded Payroll Journeys)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/components/automatic-data-processing-components.yml)
+- [Sandbox / UAT](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/sandbox/automatic-data-processing-sandbox.yml)
+- [Postman collection (ADP-published)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/postman/automatic-data-processing-wfn-postman-collection.json)
+- [Agent skills](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/skills/_index.yml)
+- [MCP candidate manifest](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/mcp/automatic-data-processing-mcp.yml)
+- [Well-known probe](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/well-known/automatic-data-processing-well-known.yml)
+- [Vulnerability disclosure](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/security/automatic-data-processing-vulnerability-disclosure.yml)
+- [Trust centre / certifications](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/security/automatic-data-processing-trust-center.yml)
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/security/automatic-data-processing-domain-security.yml)
+- [Plans / pricing](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/plans/automatic-data-processing-plans-pricing.yml)
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/rate-limits/automatic-data-processing-rate-limits.yml)
+- [Changelog / per-API versions](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/changelog/automatic-data-processing-changelog.yml)
+
+## Optional
+
+- [ADP Embedded Payroll llms.txt (ADP-published, saved verbatim)](https://raw.githubusercontent.com/api-evangelist/automatic-data-processing/refs/heads/main/llms/automatic-data-processing-embedded-payroll-llms.txt)
+- ADP publishes no `/llms.txt` on developers.adp.com; that host is a single-page app that returns the same HTML shell for every path. This file is generated by API Evangelist from the harvested contracts and ADP's own documentation.

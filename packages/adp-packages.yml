@@ -1,0 +1,130 @@
+generated: '2026-09-14'
+method: searched
+source: registry.npmjs.org, search.maven.org, api.nuget.org, pypi.org and https://developers.adp.com/articles/faq/what-are-adp-client-connection-libraries
+summary:
+  official_packages: 7
+  languages:
+  - javascript
+  - java
+  - dotnet
+  newest_official_release: 2018-05-02 (registry-published); the CDN-distributed Embedded Payroll SDK v1.0.5 is unversioned
+    by date but actively documented in 2026
+  finding: Every first-party ADP client library is abandoned. The newest official release across four registries is adp-core
+    2.4.10 on 2018-05-02; the Java and .NET libraries have not shipped since 2016. Meanwhile ADP's Workforce Now contracts
+    were last modified in 2025 and the platform added webhook delivery in October 2025. An integrator following ADP's
+    own "client connection libraries" page is being pointed at code seven to ten years older than the API it wraps. There
+    is no first-party Python, Go, Ruby or PHP client at all.
+  source_repositories_gone: 'All six packages declare their source as github.com/adplabs/*. The adplabs organization
+    still exists in the GitHub API as "ADP Innovation Labs" but serves 404 on the web and reports public_repos: 0 — every
+    linked source repository has been removed. ADP''s live public GitHub organization is github.com/adpllc (3 public
+    repositories).'
+packages:
+- language: javascript
+  registry: npm
+  name: adp-connection
+  url: https://www.npmjs.com/package/adp-connection
+  install: npm install adp-connection
+  version: 2.1.1
+  published: '2018-03-23'
+  official: true
+  description: ADP Connection Library — OAuth 2.0 + mutual-TLS connection handling for the ADP Marketplace API gateway.
+  repository: https://github.com/adplabs/adp-connection-node
+  repository_status: gone — the adplabs organization returns 404 and lists zero public repositories
+  note: Last published 2018-03-23, more than seven years before this probe.
+- language: javascript
+  registry: npm
+  name: adp-core
+  url: https://www.npmjs.com/package/adp-core
+  install: npm install adp-core
+  version: 2.4.10
+  published: '2018-05-02'
+  official: true
+  description: ADP core library underpinning the Node connection library.
+  repository: https://github.com/adplabs/adp-core-node
+  repository_status: gone — 404
+  note: The newest first-party ADP client release in any registry.
+- language: java
+  registry: maven
+  name: com.adp.marketplace.connection:ADPConnection
+  url: https://search.maven.org/artifact/com.adp.marketplace.connection/ADPConnection
+  install: <dependency><groupId>com.adp.marketplace.connection</groupId><artifactId>ADPConnection</artifactId><version>1.0.0</version></dependency>
+  version: 1.0.0
+  published: '2016-05-12'
+  official: true
+  description: ADP Client Connection Library for Java — authenticating and connecting to the ADP Marketplace API gateway.
+  note: Single 1.0.0 release, 2016. No subsequent version.
+- language: java
+  registry: maven
+  name: com.adp.marketplace.api.product.userinfo:ADPUserInfo
+  url: https://search.maven.org/artifact/com.adp.marketplace.api.product.userinfo/ADPUserInfo
+  install: <dependency><groupId>com.adp.marketplace.api.product.userinfo</groupId><artifactId>ADPUserInfo</artifactId><version>1.0.0</version></dependency>
+  version: 1.0.0
+  published: '2016-05-12'
+  official: true
+  description: ADP UserInfo product library for Java — retrieves the basic profile of the signed-in ADP user.
+  note: 'Two releases only: 0.0.1-Beta (2016-03-23) and 1.0.0 (2016-05-12).'
+- language: dotnet
+  registry: nuget
+  name: ADP-library-connection-NET
+  url: https://www.nuget.org/packages/ADP-library-connection-NET
+  install: dotnet add package ADP-library-connection-NET
+  version: 1.0.1
+  published: '2016-03-01'
+  official: true
+  description: ADP Client Connection Library for .NET — simplifies authenticating, authorizing and connecting to the
+    ADP Marketplace API gateway.
+  repository: https://github.com/adplabs/adp-connection-NET
+  repository_status: gone — 404
+- language: dotnet
+  registry: nuget
+  name: ADP-library-UserInfo-NET
+  url: https://www.nuget.org/packages/ADP-library-UserInfo-NET
+  install: dotnet add package ADP-library-UserInfo-NET
+  version: 1.0.1
+  published: '2016-03-01'
+  official: true
+  description: ADP UserInfo Product Library for .NET.
+  repository: https://github.com/adplabs/adp-userinfo-NET
+  repository_status: gone — 404
+- language: javascript
+  registry: cdn
+  name: run-embedded-sdk
+  url: https://ngapps.adp.com/static/public/run-embedded-sdk-v1.0.5.js
+  install: <script src="https://ngapps.adp.com/static/public/run-embedded-sdk-v1.0.5.js"></script>
+  version: 1.0.5
+  published: null
+  official: true
+  description: ADP Embedded Payroll (RUN) client-side JavaScript SDK — embeds ADP payroll Journeys into a partner application
+    via an iframe.
+  note: 'Distributed from ADP''s own CDN, not a package registry, so there is no metadata endpoint to read a publish
+    date from; the version is read from the pinned filename. This is the ONLY first-party ADP client library still under
+    active maintenance — its documentation was last updated in 2026, against 2016-2018 for every registry-published library.
+    Probed 2026-09-14: HTTP 200, 6411 bytes, application/javascript.'
+  docs: https://adpembeddedpayroll.readme.io/docs/step-1-starting-the-integration-1
+absent:
+- language: python
+  registry: pypi
+  probed:
+  - adp
+  - adp-client
+  - adp-api
+  - python-adp
+  status: 404
+  note: no first-party ADP package on PyPI
+- language: go
+  registry: pkg.go.dev
+  note: no first-party ADP module found
+- language: ruby
+  registry: rubygems
+  note: no first-party ADP gem found
+- language: php
+  registry: packagist
+  note: no first-party ADP package found
+other_first_party_assets:
+- name: marketplace-sample-payloads
+  url: https://github.com/adpllc/marketplace-sample-payloads
+  kind: sample payloads + Postman collection
+  official: true
+  last_updated: '2026-07-29'
+  note: ADP's only actively maintained public repository relevant to the API — it carries the ADP WFN APIs Postman collection
+    and request/response sample payloads.
