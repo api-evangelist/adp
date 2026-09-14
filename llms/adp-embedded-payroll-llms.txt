@@ -1,0 +1,32 @@
+# Embed Documentation
+
+> Documentation for Embed
+
+Append .md to any documentation page URL to get its markdown version.
+
+## Guides
+- [Overview](https://adpembeddedpayroll.readme.io/docs/overview-1.md)
+- [Your First Integration: Mutual Client Linking](https://adpembeddedpayroll.readme.io/docs/your-first-integration.md)
+- [Pre-Requisites](https://adpembeddedpayroll.readme.io/docs/pre-requisites-1.md)
+- [Step 1: Verify the Payroll Status of the User](https://adpembeddedpayroll.readme.io/docs/step-1-verify-the-payroll-status-of-the-user.md)
+- [Step 2: Linking a Mutual Client User](https://adpembeddedpayroll.readme.io/docs/step-2-handling-a-client-with-payroll.md)
+- [Step 3: Display the SSO Link](https://adpembeddedpayroll.readme.io/docs/step-3-handlings-users-with-payroll.md)
+- [Step 4: Payroll SSO](https://adpembeddedpayroll.readme.io/docs/step-4-payroll-sso.md)
+- [Integrating with Embedded UI](https://adpembeddedpayroll.readme.io/docs/integrating-with-embed-ui.md)
+- [Pre-requisites to Embedding Payroll UI](https://adpembeddedpayroll.readme.io/docs/pre-requisites-embed-payroll-sdk.md)
+- [Step 1: The Javascript SDK](https://adpembeddedpayroll.readme.io/docs/step-1-starting-the-integration-1.md)
+- [Step 2: Get the Embedded Token](https://adpembeddedpayroll.readme.io/docs/step-3-get-the-access-token.md)
+- [Step 3: Embed the Payroll Journey](https://adpembeddedpayroll.readme.io/docs/step-4-embed-payroll-journey.md)
+- [Available Journeys](https://adpembeddedpayroll.readme.io/docs/available-journeys.md)
+- [Communicating with Journeys](https://adpembeddedpayroll.readme.io/docs/communicating-with-journeys.md)
+- [Integrating with Payroll Purchase](https://adpembeddedpayroll.readme.io/docs/payroll-purchase-flows.md)
+- [Pre-requisites to Integrating with Payroll Purchase](https://adpembeddedpayroll.readme.io/docs/pre-requisites-to-integrating-with-payroll-purchase.md)
+- [Embedded Payroll Activation](https://adpembeddedpayroll.readme.io/docs/embedded-payroll-activation.md)
+- [Referral Embed Purchase](https://adpembeddedpayroll.readme.io/docs/referral-embed-purchase.md)
+- [Completing Onboarding](https://adpembeddedpayroll.readme.io/docs/completing-onboarding.md)
+- [How do I call ADP Marketplace APIs?](https://adpembeddedpayroll.readme.io/docs/calling-adp-apis.md)
+- [Step 1: Generating Access Token](https://adpembeddedpayroll.readme.io/docs/step-1-generating-access-token.md)
+- [Step 2: Making the API request](https://adpembeddedpayroll.readme.io/docs/step-2-making-the-api-request.md)
+- [Example Implementation](https://adpembeddedpayroll.readme.io/docs/advanced-notes.md)
+- [Can I customize the Journey's look and feel?](https://adpembeddedpayroll.readme.io/docs/can-i-customize-the-journeys-look-and-feel.md)
+- [Do you have an SDK?](https://adpembeddedpayroll.readme.io/docs/do-you-have-an-sdk.md)

@@ -1,0 +1,276 @@
+openapi: 3.0.1
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+info:
+  contact:
+    name: Mary Arem
+    email: MARY.AREM@ADP.COM
+  description: The Job Requisitions Application Programming Interface (API) can be used to retrieve a specific job requisition
+    or a list of all job requisitions the requester is authorized to view. For more information please refer this link <a
+    href="https://developers.adp.com/articles/guides/job-requisitions-api-guide-for-adp-workforce-now/" rel="noopener noreferrer"
+    target="_blank">Job Requisition</a>
+  title: Recruiting Questionnaires (WFN & ADPRM)
+  version: 3.0.1
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/staffing/recruiting-questionnaires/v3/recruiting-questionnaires-swagger_v3-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: staffing/recruiting-questionnaires/v3/recruiting-questionnaires
+x-adpSpecData:
+  domain: Staffing
+  specId: 63bfccc9-1a0f-4ecb-af13-67ec5f50ea0f
+  canonicalSpecId: 0eecd870-13d1-40d2-856c-1b7981add824
+  specStatusCode: published
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: recruiting-questionnaires-swagger_v3-merged.json
+  serviceProviderId: WFN
+  resourcePath: staffing/recruiting-questionnaires/v3
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: JobRequsition.json
+    description: Job Requisitions Postman Collection.
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''
+tags:
+- name: Questionnaire Management
+  description: APIs to manage the questionnaire defintions
+paths:
+  /staffing/v3/work-fulfillment/recruiting-questionnaires/{questionnaireID}:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: positionSeekerManagement
+      functionCode: questionnaireManagement
+      serviceCode: staffingManagement
+      serviceCategoryCode: staffing
+      canonicalName: Recruiting Questionnaires (WFN)
+    get:
+      summary: Retrieve details of a single questionnaire
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileMSSStaffing
+        - MobileESSStaffing
+        - MobilePSSStaffing
+        - MobileADMStaffing
+        canonicalUri: staffing/staffingManagement/positionSeekerManagement/questionnaireManagement/questionnaire.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: questionnaire.read
+        operationId: 259e8241-7309-4f7c-aac3-f1af2b149c6f
+        roleCodes:
+        - manager
+        - employee
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>Returns the questionaire details for the sepcified requisitionID(itemID)</span>
+          name: 1. Retrieving a List of Questions Posted for a Questionnaire ID
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Returns the questionaire details for the sepcified requisitionID(itemID).
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_a_List_of_Questions_Posted_for_a_Questionnaire_ID_Custom_Example_questionnaire.read_200_352947.json
+          - code: '404'
+            description: 'Invalid itemID is passed in the request.
+
+              "userMessage": {"messageTxt": "Not Found"}'
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_a_List_of_Questions_Posted_for_a_Questionnaire_ID_Custom_Example_questionnaire.read_404_352948.json
+          description: <span>Returns the questionaire details for the sepcified requisitionID(itemID)</span>
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      responses:
+        '200':
+          headers:
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Request was successful
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/recruiting-questionnaire-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '412':
+          $ref: '#/components/responses/412'
+        '204':
+          $ref: '#/components/responses/204'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      description: Retrieve details of the questionnaire identified by the questionnaire id
+      operationId: 259e8241-7309-4f7c-aac3-f1af2b149c6f
+      parameters:
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: questionnaireID
+        description: Unique identifier of a questionnaire / questionnaire session
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The
+          roleCode header should be set by the API consumer otherwise it will be defaulted to the lowest value based on the
+          user profile settings.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages
+          across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $expand
+        description: Indicates the payload should be expanded with the answers data or any other data elements that are not
+          returned by default
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Questionnaire Management
+components:
+  responses:
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '204':
+      description: No Content
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json

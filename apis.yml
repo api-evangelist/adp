@@ -1,8 +1,6 @@
 aid: adp
 name: ADP
-description: ADP (Automatic Data Processing) is a global provider of cloud-based human
-  capital management solutions including payroll, benefits, talent, time, tax, and
-  HR services for businesses of all sizes.
+description: ADP (Automatic Data Processing) is a global provider of cloud-based human capital management solutions including payroll, benefits, talent, time, tax, and HR services for businesses of all sizes.
 deliveryModel:
   model: unknown
   open_source: false
@@ -36,10 +34,7 @@ access: 3rd-Party
 apis:
 - aid: adp:adp-embedded-payroll-api
   name: ADP Embedded Payroll API
-  description: >-
-    The ADP Embedded Payroll API enables ISVs and platforms to embed ADP payroll capabilities directly
-    into their applications. REST APIs support payroll processing, tax compliance, and workforce management
-    embedded within partner software products.
+  description: The ADP Embedded Payroll API enables ISVs and platforms to embed ADP payroll capabilities directly into their applications. REST APIs support payroll processing, tax compliance, and workforce management embedded within partner software products.
   tags:
   - Embedded
   - HCM
@@ -54,10 +49,7 @@ apis:
     url: https://developers.adp.com/getting-started/embedded-payroll
 - aid: adp:adp-benefits-api
   name: ADP Benefits Administration API
-  description: >-
-    The ADP Benefits Administration API provides access to employee benefits enrollment, eligibility,
-    and plan data. APIs support benefits carrier connectivity, open enrollment workflows, and benefits
-    data exchange for insurance carriers and benefits administrators.
+  description: The ADP Benefits Administration API provides access to employee benefits enrollment, eligibility, and plan data. APIs support benefits carrier connectivity, open enrollment workflows, and benefits data exchange for insurance carriers and benefits administrators.
   tags:
   - Benefits
   - Enrollment
@@ -158,7 +150,511 @@ apis:
     url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
+- aid: automatic-data-processing:payroll-api
+  name: ADP Payroll API
+  description: The ADP Payroll API provides programmatic access to payroll processing capabilities including earnings, deductions, pay statements, and payroll runs for employees across ADP Workforce Now and ADP Vantage HCM platforms. Supports payroll input, calculation, and retrieval of pay data.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll
+  - Earnings
+  - Deductions
+  - Pay Statements
+  - Tax
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Deduction Configuration Management (1 ops)
+    url: openapi/adp-payroll-deduction-configurations-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — Deduction Configuration Management
+    url: overlays/adp-payroll-deduction-configurations-v3-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — General Ledger Document Management (2 ops)
+    url: openapi/adp-payroll-general-ledger-documents-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — General Ledger Document Management
+    url: overlays/adp-payroll-general-ledger-documents-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Pay Data Input (2 ops)
+    url: openapi/adp-payroll-pay-data-input-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Pay Data Input
+    url: overlays/adp-payroll-pay-data-input-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Pay Distributions (4 ops)
+    url: openapi/adp-payroll-pay-distributions-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Pay Distributions
+    url: overlays/adp-payroll-pay-distributions-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Pay Statements (3 ops)
+    url: openapi/adp-payroll-pay-statements-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Pay Statements
+    url: overlays/adp-payroll-pay-statements-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Payroll Group List of Pay Periods (2 ops)
+    url: openapi/adp-payroll-payroll-group-pay-periods-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Payroll Group List of Pay Periods
+    url: overlays/adp-payroll-payroll-group-pay-periods-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Payroll Outputs (11 ops)
+    url: openapi/adp-payroll-payroll-outputs-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Payroll Outputs
+    url: overlays/adp-payroll-payroll-outputs-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Tax Policy Eligibility Solutions (PI) (1 ops)
+    url: openapi/adp-payroll-tax-policy-eligibility-solutions-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Tax Policy Eligibility Solutions (PI)
+    url: overlays/adp-payroll-tax-policy-eligibility-solutions-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — US Tax Profiles (11 ops)
+    url: openapi/adp-payroll-us-tax-profiles-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — US Tax Profiles
+    url: overlays/adp-payroll-us-tax-profiles-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — US Tax Profiles (4 ops)
+    url: openapi/adp-payroll-us-tax-profiles-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — US Tax Profiles
+    url: overlays/adp-payroll-us-tax-profiles-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Payroll Instructions (8 ops)
+    url: openapi/adp-payroll-worker-payroll-instructions-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Payroll Instructions
+    url: overlays/adp-payroll-worker-payroll-instructions-v1-overlay.yaml
+- aid: automatic-data-processing:worker-api
+  name: ADP Worker Demographics API
+  description: The ADP Workers API provides access to employee demographic and employment data including personal information, job assignments, pay rates, reporting relationships, and employment status. Supports CRUD operations on worker records across ADP HCM platforms.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Demographics
+  - Employee Data
+  - HR
+  - Workforce
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Corporate Directory (1 ops)
+    url: openapi/adp-hr-corporate-directory-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Corporate Directory
+    url: overlays/adp-hr-corporate-directory-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Work Assignment Management (2 ops)
+    url: openapi/adp-hr-hr-work-assignment-management-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — Work Assignment Management
+    url: overlays/adp-hr-hr-work-assignment-management-v3-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Profile Experience (WFN) (17 ops)
+    url: openapi/adp-hr-hr-worker-profiles-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Profile Experience (WFN)
+    url: overlays/adp-hr-hr-worker-profiles-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Personal Contacts (9 ops)
+    url: openapi/adp-hr-personal-contacts-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Personal Contacts
+    url: overlays/adp-hr-personal-contacts-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Associate Profile - Personal & Work Info (2 ops)
+    url: openapi/adp-hr-worker-associate-profiles-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Associate Profile - Personal & Work Info
+    url: overlays/adp-hr-worker-associate-profiles-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Demographics (3 ops)
+    url: openapi/adp-hr-worker-demographics-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Demographics
+    url: overlays/adp-hr-worker-demographics-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Worker Leaves (9 ops)
+    url: openapi/adp-hr-worker-leaves-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Worker Leaves
+    url: overlays/adp-hr-worker-leaves-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Biological Data Management (5 ops)
+    url: openapi/adp-hr-workers-biological-data-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Biological Data Management
+    url: overlays/adp-hr-workers-biological-data-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Business Communication Management (15 ops)
+    url: openapi/adp-hr-workers-business-communication-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Business Communication Management
+    url: overlays/adp-hr-workers-business-communication-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Compensation Management (8 ops)
+    url: openapi/adp-hr-workers-compensation-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Compensation Management
+    url: overlays/adp-hr-workers-compensation-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Custom Data Management (16 ops)
+    url: openapi/adp-hr-workers-custom-data-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Custom Data Management
+    url: overlays/adp-hr-workers-custom-data-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Data Integration Management (2 ops)
+    url: openapi/adp-hr-workers-data-integration-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Data Integration Management
+    url: overlays/adp-hr-workers-data-integration-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Demographic Data Management (12 ops)
+    url: openapi/adp-hr-workers-demographic-data-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Demographic Data Management
+    url: overlays/adp-hr-workers-demographic-data-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Identification Management (2 ops)
+    url: openapi/adp-hr-workers-identification-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Identification Management
+    url: overlays/adp-hr-workers-identification-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - KSAOC Management (2 ops)
+    url: openapi/adp-hr-workers-ksaoc-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - KSAOC Management
+    url: overlays/adp-hr-workers-ksaoc-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Lifecycle Management (2 ops)
+    url: openapi/adp-hr-workers-lifecycle-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Lifecycle Management
+    url: overlays/adp-hr-workers-lifecycle-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Person Custom Data Management (16 ops)
+    url: openapi/adp-hr-workers-person-custom-data-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Person Custom Data Management
+    url: overlays/adp-hr-workers-person-custom-data-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Personal Communication Management (22 ops)
+    url: openapi/adp-hr-workers-personal-communication-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Personal Communication Management
+    url: overlays/adp-hr-workers-personal-communication-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers (8 ops)
+    url: openapi/adp-hr-workers-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers
+    url: overlays/adp-hr-workers-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Work Assignment Management (7 ops)
+    url: openapi/adp-hr-workers-work-assignment-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Work Assignment Management
+    url: overlays/adp-hr-workers-work-assignment-management-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Workers - Work Deployment Management (2 ops)
+    url: openapi/adp-hr-workers-work-deployment-management-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Workers - Work Deployment Management
+    url: overlays/adp-hr-workers-work-deployment-management-v2-overlay.yaml
+- aid: automatic-data-processing:time-labor-api
+  name: ADP Time and Labor API
+  description: The ADP Time and Labor API enables integration with ADP's timekeeping system for time entries, schedules, time off requests, accruals, and labor cost allocation. Supports both ADP Workforce Now and ADP Vantage time management modules.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Time and Attendance
+  - Scheduling
+  - Timekeeping
+  - Labor Management
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Data Collection Entries (2 ops)
+    url: openapi/adp-time-data-collection-entries-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Data Collection Entries
+    url: overlays/adp-time-data-collection-entries-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Labor Charge Codes Upload Management (3 ops)
+    url: openapi/adp-time-labor-allocation-code-uploads-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Labor Charge Codes Upload Management
+    url: overlays/adp-time-labor-allocation-code-uploads-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Team Time Cards (1 ops)
+    url: openapi/adp-time-team-time-cards-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Team Time Cards
+    url: overlays/adp-time-team-time-cards-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Time Card Inputs (1 ops)
+    url: openapi/adp-time-time-card-inputs-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Time Card Inputs
+    url: overlays/adp-time-time-card-inputs-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Time Cards (1 ops)
+    url: openapi/adp-time-time-cards-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Time Cards
+    url: overlays/adp-time-time-cards-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Time Off Balances (2 ops)
+    url: openapi/adp-time-time-off-balances-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — Time Off Balances
+    url: overlays/adp-time-time-off-balances-v3-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Time Off Management (5 ops)
+    url: openapi/adp-time-time-off-requests-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Time Off Management
+    url: overlays/adp-time-time-off-requests-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Time Off Requests (3 ops)
+    url: openapi/adp-time-time-off-requests-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — Time Off Requests
+    url: overlays/adp-time-time-off-requests-v3-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Work Schedule Import Management (2 ops)
+    url: openapi/adp-time-work-schedule-entry-uploads-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Work Schedule Import Management
+    url: overlays/adp-time-work-schedule-entry-uploads-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Work Schedules (19 ops)
+    url: openapi/adp-time-work-schedules-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Work Schedules
+    url: overlays/adp-time-work-schedules-v1-overlay.yaml
+- aid: automatic-data-processing:benefits-api
+  name: ADP Benefits API
+  description: The ADP Benefits API provides access to employee benefits enrollment, plan data, coverage elections, and life event processing. Enables HR system integrations with benefits carriers and third-party benefits administration platforms.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Benefits
+  - Enrollment
+  - Healthcare
+  - Insurance
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Beneficiaries (1 ops)
+    url: openapi/adp-benefits-beneficiaries-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Beneficiaries
+    url: overlays/adp-benefits-beneficiaries-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Benefit Dependents (1 ops)
+    url: openapi/adp-benefits-dependents-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Benefit Dependents
+    url: overlays/adp-benefits-dependents-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — External Benefit Plans (2 ops)
+    url: openapi/adp-benefits-external-plans-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — External Benefit Plans
+    url: overlays/adp-benefits-external-plans-v1-overlay.yaml
+- aid: automatic-data-processing:talent-api
+  name: ADP Talent Management API
+  description: The ADP Talent Management API provides access to performance reviews, goal management, succession planning, and learning management data within the ADP platform. Enables integration with third-party talent and learning management systems.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Talent Management
+  - Performance Reviews
+  - Learning
+  - Succession Planning
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Certifications (9 ops)
+    url: openapi/adp-talent-associate-certifications-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Certifications
+    url: overlays/adp-talent-associate-certifications-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Competencies (9 ops)
+    url: openapi/adp-talent-associate-competencies-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Competencies
+    url: overlays/adp-talent-associate-competencies-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Educational Degrees (9 ops)
+    url: openapi/adp-talent-associate-educational-degrees-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Educational Degrees
+    url: overlays/adp-talent-associate-educational-degrees-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Languages (10 ops)
+    url: openapi/adp-talent-associate-languages-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Languages
+    url: overlays/adp-talent-associate-languages-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Licenses (10 ops)
+    url: openapi/adp-talent-associate-licenses-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Licenses
+    url: overlays/adp-talent-associate-licenses-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Memberships (22 ops)
+    url: openapi/adp-talent-associate-memberships-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Memberships
+    url: overlays/adp-talent-associate-memberships-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Associate Recognitions (8 ops)
+    url: openapi/adp-talent-associate-recognitions-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Associate Recognitions
+    url: overlays/adp-talent-associate-recognitions-v2-overlay.yaml
+- aid: automatic-data-processing:recruiting-api
+  name: ADP Recruiting API
+  description: The ADP Recruiting API enables integration with ADP's applicant tracking system for job postings, candidate management, offer letters, and new hire onboarding workflows. Connects with third-party ATS platforms and job boards.
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Recruiting
+  - Applicant Tracking
+  - Onboarding
+  - HR
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Job Applicants (4 ops)
+    url: openapi/adp-staffing-job-applicants-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Job Applicants
+    url: overlays/adp-staffing-job-applicants-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Job Applications (2 ops)
+    url: openapi/adp-staffing-job-applications-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Job Applications
+    url: overlays/adp-staffing-job-applications-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Job Requisitions (2 ops)
+    url: openapi/adp-staffing-job-requisitions-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Job Requisitions
+    url: overlays/adp-staffing-job-requisitions-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Recruiting Questionnaires (WFN & ADPRM) (1 ops)
+    url: openapi/adp-staffing-recruiting-questionnaires-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — Recruiting Questionnaires (WFN & ADPRM)
+    url: overlays/adp-staffing-recruiting-questionnaires-v3-overlay.yaml
+- aid: automatic-data-processing:client-data-api
+  name: ADP Client Data and Validation Tables API
+  description: 'The ADP Client Data API exposes the configuration layer every other ADP integration depends on: validation tables (the client-specific reference data a write must match), Workforce Now custom code lists, and applicant onboarding. A caller that does not read these first will fail validation on writes it believed were well formed, because the permitted values are per-client rather than global.'
+  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  baseURL: https://api.adp.com
+  tags:
+  - Validation Tables
+  - Code Lists
+  - Onboarding
+  - Client Configuration
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+  - type: OpenAPI
+    name: ADP Workforce Now — Applicant Onboarding (2 ops)
+    url: openapi/adp-hcm-applicant-onboarding-v2-openapi.yml
+  - type: Overlay
+    name: Overlay — Applicant Onboarding
+    url: overlays/adp-hcm-applicant-onboarding-v2-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — Client Data - Validation Tables (16 ops)
+    url: openapi/adp-hcm-validation-tables-v1-openapi.yml
+  - type: Overlay
+    name: Overlay — Client Data - Validation Tables
+    url: overlays/adp-hcm-validation-tables-v1-overlay.yaml
+  - type: OpenAPI
+    name: ADP Workforce Now — WFN Custom Codelists (4 ops)
+    url: openapi/adp-hcm-wfn-codelists-v3-openapi.yml
+  - type: Overlay
+    name: Overlay — WFN Custom Codelists
+    url: overlays/adp-hcm-wfn-codelists-v3-overlay.yaml
+- aid: automatic-data-processing:event-notifications-api
+  name: ADP Event Notifications API
+  description: ADP's change-data-capture surface. When data changes in an ADP product ADP generates an event notification and delivers it either into the subscriber's FIFO message queue, drained with GET/DELETE /core/v1/event-notification-messages, or — since October 2025 — by POSTing it to a partner-hosted webhook endpoint signed with an HMAC-SHA256 adpx-messageauthentication header. Events must be subscribed per application; an unsubscribed event is never delivered.
+  humanURL: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+  baseURL: https://api.adp.com
+  tags:
+  - Events
+  - Webhooks
+  - Event Notifications
+  - Change Data Capture
+  - Integration
+  properties:
+  - type: Documentation
+    url: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+  - type: Webhooks
+    url: asyncapi/adp-event-notifications-webhooks.yml
+  - type: Portal
+    url: https://developers.adp.com
+- aid: automatic-data-processing:embedded-payroll
+  name: ADP Embedded Payroll (RUN)
+  description: ADP Embedded Payroll lets a software platform embed complete RUN Powered by ADP payroll screens — "Journeys" for People, Payroll, Reports, Taxes, Onboarding and Settings — inside its own product via a client-side JavaScript SDK and an iframe, alongside REST APIs for mutual-client linking and SSO. It is the only ADP developer library still actively maintained, and it has its own documentation site with a published llms.txt.
+  humanURL: https://adpembeddedpayroll.readme.io/docs/overview-1
+  baseURL: https://api.adp.com
+  tags:
+  - Embedded Payroll
+  - RUN
+  - JavaScript SDK
+  - Embedded Finance
+  - Payroll
+  properties:
+  - type: Documentation
+    url: https://adpembeddedpayroll.readme.io/docs/overview-1
+  - type: LLMsTxt
+    url: llms/adp-embedded-payroll-llms.txt
+  - type: Components
+    url: components/adp-components.yml
+  - type: Website
+    url: https://www.adp.com/what-we-offer/products/adp-embedded-payroll.aspx
 common:
+- type: Plans
+  url: plans/adp-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/adp-rate-limits.yml
+- type: FinOps
+  url: finops/adp-finops.yml
 - type: SignUp
   url: https://developers.adp.com/getting-started/partner-integration-overview
 - type: APIReference
@@ -261,48 +757,35 @@ common:
 - type: Features
   data:
   - name: Worker Lifecycle Management
-    description: Manage the complete worker lifecycle including hiring, onboarding,
-      job changes, and termination through REST APIs.
+    description: Manage the complete worker lifecycle including hiring, onboarding, job changes, and termination through REST APIs.
   - name: Payroll Processing
-    description: Programmatic access to payroll runs, payroll output data, and compensation
-      analysis across ADP platforms.
+    description: Programmatic access to payroll runs, payroll output data, and compensation analysis across ADP platforms.
   - name: Embedded Payroll
-    description: Embed ADP payroll capabilities directly into ISV and partner applications
-      with white-label support.
+    description: Embed ADP payroll capabilities directly into ISV and partner applications with white-label support.
   - name: Benefits Administration
-    description: Manage employee benefits enrollment, eligibility, and plan data with
-      carrier connectivity support.
+    description: Manage employee benefits enrollment, eligibility, and plan data with carrier connectivity support.
   - name: Organizational Data
-    description: Access department structures, organizational hierarchies, and work
-      assignment data.
+    description: Access department structures, organizational hierarchies, and work assignment data.
   - name: Bulk Data Export
-    description: Retrieve payroll and workforce data in CSV-formatted bulk exports
-      for analytics and reporting.
+    description: Retrieve payroll and workforce data in CSV-formatted bulk exports for analytics and reporting.
 - type: UseCases
   data:
   - name: HCM Integration
-    description: Synchronize worker data between ADP and third-party HRIS, ERP, and
-      workforce management systems.
+    description: Synchronize worker data between ADP and third-party HRIS, ERP, and workforce management systems.
   - name: Payroll Automation
-    description: Automate payroll instruction submission and output retrieval for
-      streamlined payroll processing workflows.
+    description: Automate payroll instruction submission and output retrieval for streamlined payroll processing workflows.
   - name: Workforce Analytics
-    description: Extract headcount, compensation, and departmental data for workforce
-      planning and business intelligence.
+    description: Extract headcount, compensation, and departmental data for workforce planning and business intelligence.
   - name: ISV Embedded Payroll
-    description: Integrate ADP payroll processing directly into partner software applications
-      for small business customers.
+    description: Integrate ADP payroll processing directly into partner software applications for small business customers.
 - type: Integrations
   data:
   - name: ADP Workforce Now
-    description: Full integration with ADP Workforce Now for mid-market HR, payroll,
-      talent, and benefits management.
+    description: Full integration with ADP Workforce Now for mid-market HR, payroll, talent, and benefits management.
   - name: ADP Vantage HCM
-    description: Enterprise-grade HCM integration for large organizations with complex
-      payroll and HR requirements.
+    description: Enterprise-grade HCM integration for large organizations with complex payroll and HR requirements.
   - name: ADP RUN Powered by ADP
-    description: Payroll and HR integration for small businesses using the ADP RUN
-      platform.
+    description: Payroll and HR integration for small businesses using the ADP RUN platform.
 maintainers:
 - name: Kin Lane
   email: kin@apievangelist.com

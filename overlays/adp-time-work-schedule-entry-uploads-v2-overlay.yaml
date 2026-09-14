@@ -1,0 +1,35 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for ADP Work Schedule Import Management (time-work-schedule-entry-uploads-v2)
+  version: 1.0.0
+extends: openapi/_original/time-work-schedule-entry-uploads-v2-openapi-original.json
+actions:
+- target: $.servers
+  description: ADP publishes servers[] as the placeholder https://__host__/ in every document. The real gateway hosts
+    are documented at https://developers.adp.com/getting-started/key-concepts/access-tokens.
+  update:
+  - url: https://api.adp.com
+    description: ADP production API gateway (mutual TLS required)
+  - url: https://api.eu.adp.com
+    description: ADP European API gateway
+  - url: https://uat-api.adp.com
+    description: ADP UAT / sandbox gateway
+- target: $.info
+  update:
+    x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/time/work-schedule-entry-uploads/v2/work-schedule-entry-uploads-swagger_v1-merged.json
+    x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+    x-apievangelist-resource-path: time/work-schedule-entry-uploads/v2/work-schedule-entry-uploads
+    x-apievangelist-harvested: '2026-09-14'
+    x-apievangelist-notes: Harvested from the ADP API Explorer spec library at api-library-marketplace.adp.com. operationIds
+      are opaque UUIDs; the human-readable handle is summary + method + path. Every write is an event POST under /events/{domain}/v1/{eventName}
+      and must be preceded by a GET of the same path + /meta for the per-tenant validation rules.
+- target: $.components
+  description: ADP declares no securitySchemes in any published document; authentication is an Authorization header parameter
+    plus mutual TLS. Recorded here rather than injected, so the harvested contract stays verbatim.
+  update:
+    x-apievangelist-security:
+      note: See authentication/automatic-data-processing-authentication.yml
+      types:
+      - oauth2
+      - openIdConnect
+      - mutualTLS

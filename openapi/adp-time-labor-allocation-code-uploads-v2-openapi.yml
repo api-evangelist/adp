@@ -1,0 +1,1010 @@
+openapi: 3.0.1
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+info:
+  contact:
+    name: Charles Leonard
+    email: chuck.leonard@adp.com
+  description: Uploads Labor Charge Codes
+  title: Labor Charge Codes Upload Management
+  version: 2.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/time/labor-allocation-code-uploads/v2/labor-allocation-code-uploads-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: time/labor-allocation-code-uploads/v2/labor-allocation-code-uploads
+x-adpSpecData:
+  domain: Time
+  specId: 73588cbd-acc9-43a0-a5dd-cbddf2dafee1
+  canonicalSpecId: 3870e802-0257-445a-b751-e1988f8b14bc
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  filename: labor-allocation-code-uploads-swagger_v1-merged.json
+  serviceProviderId: tlm
+  resourcePath: time/labor-allocation-code-uploads/v1
+  libraryVersion: ''
+  businessRules:
+  - rule: R0.1
+    ruleTitle: This API follow async Polling Pattern.  Consumer sends 'Prefer' header with 'async-respod'.  Service Provider
+      responds back with 202 and link header.  The consumer uses the link provided in 'link' header to make a subsequent call
+      to get status on request.
+    visibilityCodes:
+    - internal
+    - external
+  testCaseCollection:
+    example:
+      href: ADPLaborChargeCodesUploadApi.postman_collection.json
+    description: Labor Charge Codes Upload API Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''
+tags:
+- name: Labor Charge Code Uploads
+  description: Labor Charge Code Mass Uploads
+paths:
+  /time/v1/labor-allocation-code/upload-requests/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientConfigurationManagement
+      functionCode: laborAllocationCodeManagement
+      serviceCode: timeLaborManagement
+      serviceCategoryCode: time
+      canonicalName: Labor Charge Codes Upload APIs
+    get:
+      summary: Meta API
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSTimeSystemConfigurationManagement
+        - MobileADMTimeSystemConfigurationManagement
+        canonicalUri: time/timeLaborManagement/clientConfigurationManagement/laborAllocationCodeManagement/laborAllocationCode.read
+        operationCode: laborAllocationCode.read
+        operationId: 8d102edc-cdec-44b0-9ca0-079b35918215
+        performAuthIndicator: true
+        roleCodes:
+        - practitioner
+        - administrator
+        scenarios:
+        - summary: An example of a successful Labor Charge Field Meta API request/response where the defined LCF Types (<em>allocationTypeCode</em>
+            property values) configured for the client are returned in the response.
+          name: 'Scenario 01: HTTP Status 200 Response'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_01:_HTTP_Status_200_Response_Custom_Example_laborAllocationCode.read_200_497815.json
+          description: An example of a successful Labor Charge Field Meta API request/response where the defined LCF Types
+            (<em>allocationTypeCode</em> property values) configured for the client are returned in the response.
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: false
+      responses:
+        '404':
+          $ref: '#/components/responses/404'
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/labor-allocation-code-uploads-meta-schema_v01.json
+        '202':
+          $ref: '#/components/responses/202'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+      description: Meta API call to get meta data information for labor allocation field configuration
+      operationId: 8d102edc-cdec-44b0-9ca0-079b35918215
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages
+          across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - practitioner
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: practitioner,administrator.  The
+          roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming
+          from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application. This header is required, if the actor (service consumer)
+          is an application and it's internal to ADP.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Labor Charge Code Uploads
+  /time/v1/labor-allocation-code/upload-requests/{request-id}/confirm-message:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientConfigurationManagement
+      functionCode: laborAllocationCodeManagement
+      serviceCode: timeLaborManagement
+      serviceCategoryCode: time
+      canonicalName: Labor Charge Codes Upload APIs
+    get:
+      summary: Get Status for Labor Charge Fields upload
+      x-adpOperationData:
+        asaFeatureCodes:
+        - MobileADMTimeSystemConfigurationManagement
+        - MobilePSSTimeSystemConfigurationManagement
+        canonicalUri: time/timeLaborManagement/clientConfigurationManagement/laborAllocationCodeManagement/laborAllocationCode.upload.status.read
+        operationCode: laborAllocationCode.upload.status.read
+        roleCodes:
+        - administrator
+        - practitioner
+        scenarios:
+        - summary: The response received when the upload identified by the provided requestID has been received and is now
+            being processed.
+          name: 'Scenario 02: While Processing Status'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_02:_While_Processing_Status_Custom_Example_laborAllocationCode.upload.status.read_200_497792.json
+          description: The response received when the upload identified by the provided requestID has been received and is
+            now being processed.
+          parameters:
+            request-id: XY6a8336f98b48e09a9105569380bf9f
+        - summary: The response received when the secondary <em>descriptions</em> array property has entries absent the <em>description</em>
+            property for the upload associated with the provided requestID.
+          name: 'Scenario 16: Secondary Language Description Required'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_16:_Secondary_Language_Description_Required_Custom_Example_laborAllocationCode.upload.status.read_200_497806.json
+          description: The response received when the secondary <em>descriptions</em> array property has entries absent the
+            <em>description</em> property for the upload associated with the provided requestID.
+        - summary: The response received when the secondary <em>descriptions</em> array property has entries absent the <em>languageCode</em>
+            property for the upload associated with the provided requestID.
+          name: 'Scenario 15: Secondary Description Language Code Required'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_15:_Secondary_Description_Language_Code_Required_Custom_Example_laborAllocationCode.upload.status.read_200_497805.json
+          description: The response received when the secondary <em>descriptions</em> array property has entries absent the
+            <em>languageCode</em> property for the upload associated with the provided requestID.
+        - summary: The upload request has been received and is queued for processing.
+          headers:
+            Authorization: XY80cd5c-6755-48bd-8ae2-9c4fc180972P
+          name: 'Scenario 01: Before Processing Status'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: Before Processing Status
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_01:_Before_Processing_Status_Custom_Example_laborAllocationCode.upload.status.read_200_497434.json
+          description: The upload request has been received and is queued for processing.
+          parameters:
+            request-id: XY6a8336f98b48e09a9105569380bf9f
+        - summary: The response received when an invalid culture is specified for the upload associated with the provided
+            requestID.
+          name: 'Scenario 04: Invalid culture'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_04:_Invalid_culture_Custom_Example_laborAllocationCode.upload.status.read_200_497794.json
+          description: The response received when an invalid culture is specified for the upload associated with the provided
+            requestID.
+        - summary: The response received when the upload associated with the provided requestID is successful.
+          name: 'Scenario 03: Success Processing Status'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_03:_Success_Processing_Status_Custom_Example_laborAllocationCode.upload.status.read_200_497793.json
+          description: The response received when the upload associated with the provided requestID is successful.
+        - summary: The response received when the End Date is invalid for the <em>effectiveDatePeriod</em> property of the
+            upload associated with the provided requestID.
+          name: 'Scenario 18: Invalid Effective End Date'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_18:_Invalid_Effective_End_Date_Custom_Example_laborAllocationCode.upload.status.read_200_497808.json
+          description: The response received when the End Date is invalid for the <em>effectiveDatePeriod</em> property of
+            the upload associated with the provided requestID.
+        - summary: The response received when descriptions for the entries exceed the maximum character length defined for
+            the upload associated with the provided requestID.
+          name: 'Scenario 19: Maximum Character Description Limit Exceeded'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_19:_Maximum_Character_Description_Limit_Exceeded_Custom_Example_laborAllocationCode.upload.status.read_200_497809.json
+          description: The response received when descriptions for the entries exceed the maximum character length defined
+            for the upload associated with the provided requestID.
+        - summary: The response received when there are duplicate Labor Charge entries in the payload for the upload associated
+            with the provided requestID.
+          name: 'Scenario 05: Duplicate Error'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_05:_Duplicate_Error_Custom_Example_laborAllocationCode.upload.status.read_200_497795.json
+          description: The response received when there are duplicate Labor Charge entries in the payload for the upload associated
+            with the provided requestID.
+        - summary: The response received when the <em>_modificationTypeCode</em> is missing for the Labor Charge entries for
+            the upload associated with the provided requestID.
+          name: 'Scenario 09: Modification Type Requried'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_09:_Modification_Type_Requried_Custom_Example_laborAllocationCode.upload.status.read_200_497799.json
+          description: The response received when the <em>_modificationTypeCode</em> is missing for the Labor Charge entries
+            for the upload associated with the provided requestID.
+        - summary: The response received when the <em>requestID</em> provided is invalid.
+          name: 'Scenario 13: Invalid Request ID'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_13:_Invalid_Request_ID_Custom_Example_laborAllocationCode.upload.status.read_200_497803.json
+          description: The response received when the <em>requestID</em> provided is invalid.
+        - summary: The response received when dependent child codes are provided for Labor Charge entries that are not configured
+            as hierarchical parents for the upload associated with the provided requestID.
+          name: 'Scenario 11: Hierarchy Dependent Codes Not Configured'
+          responses:
+          - headers:
+              Last-Modified: ''
+              ETag: ''
+              Content-Language: ''
+              Content-Type: ''
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_11:_Hierarchy_Dependent_Codes_Not_Configured_Custom_Example_laborAllocationCode.upload.status.read_200_497801.json
+          description: The response received when dependent child codes are provided for Labor Charge entries that are not
+            configured as hierarchical parents for the upload associated with the provided requestID.
+        - summary: <span>The responses, generally, catalog the reasons for the failure in the confirm message section of the
+            response. 400 HTTP Status values are, typically, only reported when there is an unrecoverable application error.
+            For example, the submitted payload is malformed.</span>
+          name: 'Scenario 21: HTTP Status 400 Response'
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_21:_HTTP_Status_400_Response_Custom_Example_laborAllocationCode.upload.status.read_400_497811.json
+          description: <span>The responses, generally, catalog the reasons for the failure in the confirm message section
+            of the response. 400 HTTP Status values are, typically, only reported when there is an unrecoverable application
+            error. For example, the submitted payload is malformed.</span>
+        - summary: The response received when values associated with the Labor Charge Type referenced in the payload for the
+            upload associated with the provided requestID do not exist in the system.
+          name: 'Scenario 06: LCF Value Missing'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_06:_LCF_Value_Missing_Custom_Example_laborAllocationCode.upload.status.read_200_497796.json
+          description: The response received when values associated with the Labor Charge Type referenced in the payload for
+            the upload associated with the provided requestID do not exist in the system.
+        - summary: The response received when the payload uploaded could not be properly parsed by the system for the upload
+            associated with the provided requestID.
+          name: 'Scenario 14: Invalid Payload'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_14:_Invalid_Payload_Custom_Example_laborAllocationCode.upload.status.read_200_497804.json
+          description: The response received when the payload uploaded could not be properly parsed by the system for the
+            upload associated with the provided requestID.
+        - summary: The response received when values are required for the Labor Charge entries in the payload but are absent
+            for the upload associated with the provided requestID.
+          name: 'Scenario 07: LCF Value Required'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_07:_LCF_Value_Required_Custom_Example_laborAllocationCode.upload.status.read_200_497797.json
+          description: The response received when values are required for the Labor Charge entries in the payload but are
+            absent for the upload associated with the provided requestID.
+        - summary: The response received when <em>allocationTypeCode</em> properties are invalid for the entries of the upload
+            associated with the provided requestID.
+          name: 'Scenario 20: Unsupported LCF'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_20:_Unsupported_LCF_Custom_Example_laborAllocationCode.upload.status.read_200_497810.json
+          description: The response received when <em>allocationTypeCode</em> properties are invalid for the entries of the
+            upload associated with the provided requestID.
+        - summary: The response received when the wrong date formats are provided for the Labor Charge entries for the upload
+            associated with the provided requestID.
+          name: 'Scenario 08: Invalid Start and End Date'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_08:_Invalid_Start_and_End_Date_Custom_Example_laborAllocationCode.upload.status.read_200_497798.json
+          description: The response received when the wrong date formats are provided for the Labor Charge entries for the
+            upload associated with the provided requestID.
+        - summary: The response received when the Start Date is invalid for the <em>effectiveDatePeriod</em> property of the
+            upload associated with the provided requestID.
+          name: 'Scenario 17: Invalid Effective Start Date'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_17:_Invalid_Effective_Start_Date_Custom_Example_laborAllocationCode.upload.status.read_200_497807.json
+          description: The response received when the Start Date is invalid for the <em>effectiveDatePeriod</em> property
+            of the upload associated with the provided requestID.
+        - summary: The response received when the description is missing for the Labor Charge entries for the upload associated
+            with the provided requestID.
+          name: 'Scenario 12: LCF Description Required'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_12:_LCF_Description_Required_Custom_Example_laborAllocationCode.upload.status.read_200_497802.json
+          description: The response received when the description is missing for the Labor Charge entries for the upload associated
+            with the provided requestID.
+        - summary: The response received when the <em>allocationTypeCode</em> is missing for the Labor Charge entries for
+            the upload associated with the provided requestID.
+          name: 'Scenario 10: Allocation Code Required'
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_10:_Allocation_Code_Required_Custom_Example_laborAllocationCode.upload.status.read_200_497800.json
+          description: The response received when the <em>allocationTypeCode</em> is missing for the Labor Charge entries
+            for the upload associated with the provided requestID.
+        globalViewDevPortalIndicator: false
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        operationDataAttributeSensitivitylevels:
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/resourceMessages/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        operationId: ffb4168c-ad0d-47ca-9a58-60cf36757f38
+        performAuthIndicator: true
+        dataSensitivityLevelCode: 2
+        visibilityCodes:
+        - internal
+      responses:
+        '404':
+          $ref: '#/components/responses/404'
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+      description: Marketplace user can access this endpoint to get the status of uploaded Labor Charge Fields
+      operationId: ffb4168c-ad0d-47ca-9a58-60cf36757f38
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages
+          across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: request-id
+        description: Confirmation ID for processing labor code list
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - practitioner
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: practitioner,administrator.  The
+          roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming
+          from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application. This header is required, if the actor (service consumer)
+          is an application and it's internal to ADP.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Labor Charge Code Uploads
+  /time/v1/labor-allocation-code/upload-requests:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientConfigurationManagement
+      functionCode: laborAllocationCodeManagement
+      serviceCode: timeLaborManagement
+      serviceCategoryCode: time
+      canonicalName: Labor Charge Codes Upload APIs
+    post:
+      summary: Upload Labor Charge Fields
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileADMTimeSystemConfigurationManagement
+        - MobilePSSTimeSystemConfigurationManagement
+        canonicalUri: time/timeLaborManagement/clientConfigurationManagement/laborAllocationCodeManagement/laborAllocationCode.upload
+        operationCode: laborAllocationCode.upload
+        operationId: db5fa8dc-edb7-4b41-8be3-2915372ea3bd
+        performAuthIndicator: true
+        roleCodes:
+        - administrator
+        - practitioner
+        dataSensitivityLevelCode: 0
+        scenarios:
+        - summary: Example of using the <em>_modificationTypeCode</em> property to add Labor Charges Fields where the upload
+            has been <span>receive</span>, accepted, stored and is queued for processing.
+          name: 'Scenario 01: Add Labor Charge Fields'
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_01:_Add_Labor_Charge_Fields_Custom_Example_laborAllocationCode.upload_202_497812.json
+          description: Example of using the <em>_modificationTypeCode</em> property to add Labor Charges Fields where the
+            upload has been <span>receive</span>, accepted, stored and is queued for processing.
+          content:
+            application/json:
+              externalValue: ./examples/Scenario_01:_Add_Labor_Charge_Fields_Custom_Example_laborAllocationCode.upload_request_47057.json
+        - summary: Example of using the <em>_modificationTypeCode</em> property to remove a Labor Charge Field where the upload
+            has been receive, accepted, stored and is queued for processing.
+          name: 'Scenario 03: Remove a Labor Charge Field'
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_03:_Remove_a_Labor_Charge_Field_Custom_Example_laborAllocationCode.upload_202_497814.json
+          description: Example of using the <em>_modificationTypeCode</em> property to remove a Labor Charge Field where the
+            upload has been receive, accepted, stored and is queued for processing.
+          content:
+            application/json:
+              externalValue: ./examples/Scenario_03:_Remove_a_Labor_Charge_Field_Custom_Example_laborAllocationCode.upload_request_47059.json
+        - summary: Example of using the <em>_modificationTypeCode</em> property to change a Labor Charge Field where the upload
+            has been receive, accepted, stored and is queued for processing.
+          name: 'Scenario 02: Change a Labor Charge Field'
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_02:_Change_a_Labor_Charge_Field_Custom_Example_laborAllocationCode.upload_202_497813.json
+          description: Example of using the <em>_modificationTypeCode</em> property to change a Labor Charge Field where the
+            upload has been receive, accepted, stored and is queued for processing.
+          content:
+            application/json:
+              externalValue: ./examples/Scenario_02:_Change_a_Labor_Charge_Field_Custom_Example_laborAllocationCode.upload_request_47058.json
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: false
+      requestBody:
+        description: It includes the input data that is required to submit the hardship withdrawal request.
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/labor-allocation-code-uploads-schema_v01.json
+        required: true
+      responses:
+        '404':
+          $ref: '#/components/responses/404'
+        '400':
+          $ref: '#/components/responses/400'
+        '202':
+          $ref: '#/components/responses/202'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+      description: Market Place User can use this endpoint to upload the Labor Charge Fields both flat and hierachical values.
+      operationId: db5fa8dc-edb7-4b41-8be3-2915372ea3bd
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages
+          across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - practitioner
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: practitioner,administrator.  The
+          roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming
+          from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application. This header is required, if the actor (service consumer)
+          is an application and it's internal to ADP.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Labor Charge Code Uploads
+components:
+  responses:
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '202':
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '401':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
