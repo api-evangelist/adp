@@ -34,7 +34,10 @@ access: 3rd-Party
 apis:
 - aid: adp:adp-embedded-payroll-api
   name: ADP Embedded Payroll API
-  description: The ADP Embedded Payroll API enables ISVs and platforms to embed ADP payroll capabilities directly into their applications. REST APIs support payroll processing, tax compliance, and workforce management embedded within partner software products.
+  description: >-
+    The ADP Embedded Payroll API enables ISVs and platforms to embed ADP payroll capabilities directly
+    into their applications. REST APIs support payroll processing, tax compliance, and workforce management
+    embedded within partner software products.
   tags:
   - Embedded
   - HCM
@@ -49,7 +52,10 @@ apis:
     url: https://developers.adp.com/getting-started/embedded-payroll
 - aid: adp:adp-benefits-api
   name: ADP Benefits Administration API
-  description: The ADP Benefits Administration API provides access to employee benefits enrollment, eligibility, and plan data. APIs support benefits carrier connectivity, open enrollment workflows, and benefits data exchange for insurance carriers and benefits administrators.
+  description: >-
+    The ADP Benefits Administration API provides access to employee benefits enrollment, eligibility,
+    and plan data. APIs support benefits carrier connectivity, open enrollment workflows, and benefits
+    data exchange for insurance carriers and benefits administrators.
   tags:
   - Benefits
   - Enrollment
@@ -150,472 +156,24 @@ apis:
     url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
-- aid: automatic-data-processing:payroll-api
-  name: ADP Payroll API
-  description: The ADP Payroll API provides programmatic access to payroll processing capabilities including earnings, deductions, pay statements, and payroll runs for employees across ADP Workforce Now and ADP Vantage HCM platforms. Supports payroll input, calculation, and retrieval of pay data.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Payroll
-  - Earnings
-  - Deductions
-  - Pay Statements
-  - Tax
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Deduction Configuration Management (1 ops)
-    url: openapi/adp-payroll-deduction-configurations-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — Deduction Configuration Management
-    url: overlays/adp-payroll-deduction-configurations-v3-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — General Ledger Document Management (2 ops)
-    url: openapi/adp-payroll-general-ledger-documents-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — General Ledger Document Management
-    url: overlays/adp-payroll-general-ledger-documents-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Pay Data Input (2 ops)
-    url: openapi/adp-payroll-pay-data-input-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Pay Data Input
-    url: overlays/adp-payroll-pay-data-input-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Pay Distributions (4 ops)
-    url: openapi/adp-payroll-pay-distributions-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Pay Distributions
-    url: overlays/adp-payroll-pay-distributions-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Pay Statements (3 ops)
-    url: openapi/adp-payroll-pay-statements-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Pay Statements
-    url: overlays/adp-payroll-pay-statements-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Payroll Group List of Pay Periods (2 ops)
-    url: openapi/adp-payroll-payroll-group-pay-periods-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Payroll Group List of Pay Periods
-    url: overlays/adp-payroll-payroll-group-pay-periods-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Payroll Outputs (11 ops)
-    url: openapi/adp-payroll-payroll-outputs-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Payroll Outputs
-    url: overlays/adp-payroll-payroll-outputs-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Tax Policy Eligibility Solutions (PI) (1 ops)
-    url: openapi/adp-payroll-tax-policy-eligibility-solutions-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Tax Policy Eligibility Solutions (PI)
-    url: overlays/adp-payroll-tax-policy-eligibility-solutions-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — US Tax Profiles (11 ops)
-    url: openapi/adp-payroll-us-tax-profiles-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — US Tax Profiles
-    url: overlays/adp-payroll-us-tax-profiles-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — US Tax Profiles (4 ops)
-    url: openapi/adp-payroll-us-tax-profiles-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — US Tax Profiles
-    url: overlays/adp-payroll-us-tax-profiles-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Payroll Instructions (8 ops)
-    url: openapi/adp-payroll-worker-payroll-instructions-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Payroll Instructions
-    url: overlays/adp-payroll-worker-payroll-instructions-v1-overlay.yaml
-- aid: automatic-data-processing:worker-api
-  name: ADP Worker Demographics API
-  description: The ADP Workers API provides access to employee demographic and employment data including personal information, job assignments, pay rates, reporting relationships, and employment status. Supports CRUD operations on worker records across ADP HCM platforms.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Worker Demographics
-  - Employee Data
-  - HR
-  - Workforce
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Corporate Directory (1 ops)
-    url: openapi/adp-hr-corporate-directory-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Corporate Directory
-    url: overlays/adp-hr-corporate-directory-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Work Assignment Management (2 ops)
-    url: openapi/adp-hr-hr-work-assignment-management-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — Work Assignment Management
-    url: overlays/adp-hr-hr-work-assignment-management-v3-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Profile Experience (WFN) (17 ops)
-    url: openapi/adp-hr-hr-worker-profiles-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Profile Experience (WFN)
-    url: overlays/adp-hr-hr-worker-profiles-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Personal Contacts (9 ops)
-    url: openapi/adp-hr-personal-contacts-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Personal Contacts
-    url: overlays/adp-hr-personal-contacts-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Associate Profile - Personal & Work Info (2 ops)
-    url: openapi/adp-hr-worker-associate-profiles-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Associate Profile - Personal & Work Info
-    url: overlays/adp-hr-worker-associate-profiles-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Demographics (3 ops)
-    url: openapi/adp-hr-worker-demographics-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Demographics
-    url: overlays/adp-hr-worker-demographics-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Worker Leaves (9 ops)
-    url: openapi/adp-hr-worker-leaves-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Worker Leaves
-    url: overlays/adp-hr-worker-leaves-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Biological Data Management (5 ops)
-    url: openapi/adp-hr-workers-biological-data-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Biological Data Management
-    url: overlays/adp-hr-workers-biological-data-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Business Communication Management (15 ops)
-    url: openapi/adp-hr-workers-business-communication-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Business Communication Management
-    url: overlays/adp-hr-workers-business-communication-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Compensation Management (8 ops)
-    url: openapi/adp-hr-workers-compensation-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Compensation Management
-    url: overlays/adp-hr-workers-compensation-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Custom Data Management (16 ops)
-    url: openapi/adp-hr-workers-custom-data-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Custom Data Management
-    url: overlays/adp-hr-workers-custom-data-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Data Integration Management (2 ops)
-    url: openapi/adp-hr-workers-data-integration-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Data Integration Management
-    url: overlays/adp-hr-workers-data-integration-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Demographic Data Management (12 ops)
-    url: openapi/adp-hr-workers-demographic-data-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Demographic Data Management
-    url: overlays/adp-hr-workers-demographic-data-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Identification Management (2 ops)
-    url: openapi/adp-hr-workers-identification-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Identification Management
-    url: overlays/adp-hr-workers-identification-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - KSAOC Management (2 ops)
-    url: openapi/adp-hr-workers-ksaoc-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - KSAOC Management
-    url: overlays/adp-hr-workers-ksaoc-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Lifecycle Management (2 ops)
-    url: openapi/adp-hr-workers-lifecycle-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Lifecycle Management
-    url: overlays/adp-hr-workers-lifecycle-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Person Custom Data Management (16 ops)
-    url: openapi/adp-hr-workers-person-custom-data-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Person Custom Data Management
-    url: overlays/adp-hr-workers-person-custom-data-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Personal Communication Management (22 ops)
-    url: openapi/adp-hr-workers-personal-communication-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Personal Communication Management
-    url: overlays/adp-hr-workers-personal-communication-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers (8 ops)
-    url: openapi/adp-hr-workers-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers
-    url: overlays/adp-hr-workers-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Work Assignment Management (7 ops)
-    url: openapi/adp-hr-workers-work-assignment-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Work Assignment Management
-    url: overlays/adp-hr-workers-work-assignment-management-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Workers - Work Deployment Management (2 ops)
-    url: openapi/adp-hr-workers-work-deployment-management-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Workers - Work Deployment Management
-    url: overlays/adp-hr-workers-work-deployment-management-v2-overlay.yaml
-- aid: automatic-data-processing:time-labor-api
-  name: ADP Time and Labor API
-  description: The ADP Time and Labor API enables integration with ADP's timekeeping system for time entries, schedules, time off requests, accruals, and labor cost allocation. Supports both ADP Workforce Now and ADP Vantage time management modules.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Time and Attendance
-  - Scheduling
-  - Timekeeping
-  - Labor Management
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Data Collection Entries (2 ops)
-    url: openapi/adp-time-data-collection-entries-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Data Collection Entries
-    url: overlays/adp-time-data-collection-entries-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Labor Charge Codes Upload Management (3 ops)
-    url: openapi/adp-time-labor-allocation-code-uploads-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Labor Charge Codes Upload Management
-    url: overlays/adp-time-labor-allocation-code-uploads-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Team Time Cards (1 ops)
-    url: openapi/adp-time-team-time-cards-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Team Time Cards
-    url: overlays/adp-time-team-time-cards-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Time Card Inputs (1 ops)
-    url: openapi/adp-time-time-card-inputs-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Time Card Inputs
-    url: overlays/adp-time-time-card-inputs-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Time Cards (1 ops)
-    url: openapi/adp-time-time-cards-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Time Cards
-    url: overlays/adp-time-time-cards-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Time Off Balances (2 ops)
-    url: openapi/adp-time-time-off-balances-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — Time Off Balances
-    url: overlays/adp-time-time-off-balances-v3-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Time Off Management (5 ops)
-    url: openapi/adp-time-time-off-requests-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Time Off Management
-    url: overlays/adp-time-time-off-requests-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Time Off Requests (3 ops)
-    url: openapi/adp-time-time-off-requests-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — Time Off Requests
-    url: overlays/adp-time-time-off-requests-v3-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Work Schedule Import Management (2 ops)
-    url: openapi/adp-time-work-schedule-entry-uploads-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Work Schedule Import Management
-    url: overlays/adp-time-work-schedule-entry-uploads-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Work Schedules (19 ops)
-    url: openapi/adp-time-work-schedules-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Work Schedules
-    url: overlays/adp-time-work-schedules-v1-overlay.yaml
-- aid: automatic-data-processing:benefits-api
-  name: ADP Benefits API
-  description: The ADP Benefits API provides access to employee benefits enrollment, plan data, coverage elections, and life event processing. Enables HR system integrations with benefits carriers and third-party benefits administration platforms.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Benefits
-  - Enrollment
-  - Healthcare
-  - Insurance
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Beneficiaries (1 ops)
-    url: openapi/adp-benefits-beneficiaries-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Beneficiaries
-    url: overlays/adp-benefits-beneficiaries-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Benefit Dependents (1 ops)
-    url: openapi/adp-benefits-dependents-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Benefit Dependents
-    url: overlays/adp-benefits-dependents-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — External Benefit Plans (2 ops)
-    url: openapi/adp-benefits-external-plans-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — External Benefit Plans
-    url: overlays/adp-benefits-external-plans-v1-overlay.yaml
-- aid: automatic-data-processing:talent-api
-  name: ADP Talent Management API
-  description: The ADP Talent Management API provides access to performance reviews, goal management, succession planning, and learning management data within the ADP platform. Enables integration with third-party talent and learning management systems.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Talent Management
-  - Performance Reviews
-  - Learning
-  - Succession Planning
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Certifications (9 ops)
-    url: openapi/adp-talent-associate-certifications-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Certifications
-    url: overlays/adp-talent-associate-certifications-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Competencies (9 ops)
-    url: openapi/adp-talent-associate-competencies-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Competencies
-    url: overlays/adp-talent-associate-competencies-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Educational Degrees (9 ops)
-    url: openapi/adp-talent-associate-educational-degrees-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Educational Degrees
-    url: overlays/adp-talent-associate-educational-degrees-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Languages (10 ops)
-    url: openapi/adp-talent-associate-languages-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Languages
-    url: overlays/adp-talent-associate-languages-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Licenses (10 ops)
-    url: openapi/adp-talent-associate-licenses-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Licenses
-    url: overlays/adp-talent-associate-licenses-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Memberships (22 ops)
-    url: openapi/adp-talent-associate-memberships-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Memberships
-    url: overlays/adp-talent-associate-memberships-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Associate Recognitions (8 ops)
-    url: openapi/adp-talent-associate-recognitions-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Associate Recognitions
-    url: overlays/adp-talent-associate-recognitions-v2-overlay.yaml
-- aid: automatic-data-processing:recruiting-api
-  name: ADP Recruiting API
-  description: The ADP Recruiting API enables integration with ADP's applicant tracking system for job postings, candidate management, offer letters, and new hire onboarding workflows. Connects with third-party ATS platforms and job boards.
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Recruiting
-  - Applicant Tracking
-  - Onboarding
-  - HR
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Job Applicants (4 ops)
-    url: openapi/adp-staffing-job-applicants-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Job Applicants
-    url: overlays/adp-staffing-job-applicants-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Job Applications (2 ops)
-    url: openapi/adp-staffing-job-applications-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Job Applications
-    url: overlays/adp-staffing-job-applications-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Job Requisitions (2 ops)
-    url: openapi/adp-staffing-job-requisitions-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Job Requisitions
-    url: overlays/adp-staffing-job-requisitions-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Recruiting Questionnaires (WFN & ADPRM) (1 ops)
-    url: openapi/adp-staffing-recruiting-questionnaires-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — Recruiting Questionnaires (WFN & ADPRM)
-    url: overlays/adp-staffing-recruiting-questionnaires-v3-overlay.yaml
-- aid: automatic-data-processing:client-data-api
-  name: ADP Client Data and Validation Tables API
-  description: 'The ADP Client Data API exposes the configuration layer every other ADP integration depends on: validation tables (the client-specific reference data a write must match), Workforce Now custom code lists, and applicant onboarding. A caller that does not read these first will fail validation on writes it believed were well formed, because the permitted values are per-client rather than global.'
-  humanURL: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  baseURL: https://api.adp.com
-  tags:
-  - Validation Tables
-  - Code Lists
-  - Onboarding
-  - Client Configuration
-  properties:
-  - type: Documentation
-    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
-  - type: Portal
-    url: https://developers.adp.com
-  - type: OpenAPI
-    name: ADP Workforce Now — Applicant Onboarding (2 ops)
-    url: openapi/adp-hcm-applicant-onboarding-v2-openapi.yml
-  - type: Overlay
-    name: Overlay — Applicant Onboarding
-    url: overlays/adp-hcm-applicant-onboarding-v2-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — Client Data - Validation Tables (16 ops)
-    url: openapi/adp-hcm-validation-tables-v1-openapi.yml
-  - type: Overlay
-    name: Overlay — Client Data - Validation Tables
-    url: overlays/adp-hcm-validation-tables-v1-overlay.yaml
-  - type: OpenAPI
-    name: ADP Workforce Now — WFN Custom Codelists (4 ops)
-    url: openapi/adp-hcm-wfn-codelists-v3-openapi.yml
-  - type: Overlay
-    name: Overlay — WFN Custom Codelists
-    url: overlays/adp-hcm-wfn-codelists-v3-overlay.yaml
 - aid: automatic-data-processing:event-notifications-api
   name: ADP Event Notifications API
-  description: ADP's change-data-capture surface. When data changes in an ADP product ADP generates an event notification and delivers it either into the subscriber's FIFO message queue, drained with GET/DELETE /core/v1/event-notification-messages, or — since October 2025 — by POSTing it to a partner-hosted webhook endpoint signed with an HMAC-SHA256 adpx-messageauthentication header. Events must be subscribed per application; an unsubscribed event is never delivered.
-  humanURL: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+  description: >-
+    ADP's change-data-capture surface. When data changes in an ADP product ADP generates an event notification
+    and delivers it either into the subscriber's FIFO message queue, drained with GET/DELETE /core/v1/event-notification-messages,
+    or — since October 2025 — by POSTing it to a partner-hosted webhook endpoint signed with an HMAC-SHA256
+    adpx-messageauthentication header. Events must be subscribed per application; an unsubscribed event
+    is never delivered.
+  humanURL: >-
+    https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
   baseURL: https://api.adp.com
   tags:
+  - Event
+  - Webhook
+  - Event Notifications
+  - Change Data Capture
+  - Integration
+  tags_raw:
   - Events
   - Webhooks
   - Event Notifications
@@ -623,17 +181,29 @@ apis:
   - Integration
   properties:
   - type: Documentation
-    url: https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
+    url: >-
+      https://developers.adp.com/getting-started/key-concepts/adp-event-apis-and-event-notification-guide
   - type: Webhooks
     url: asyncapi/adp-event-notifications-webhooks.yml
   - type: Portal
     url: https://developers.adp.com
 - aid: automatic-data-processing:embedded-payroll
   name: ADP Embedded Payroll (RUN)
-  description: ADP Embedded Payroll lets a software platform embed complete RUN Powered by ADP payroll screens — "Journeys" for People, Payroll, Reports, Taxes, Onboarding and Settings — inside its own product via a client-side JavaScript SDK and an iframe, alongside REST APIs for mutual-client linking and SSO. It is the only ADP developer library still actively maintained, and it has its own documentation site with a published llms.txt.
+  description: >-
+    ADP Embedded Payroll lets a software platform embed complete RUN Powered by ADP payroll screens —
+    "Journeys" for People, Payroll, Reports, Taxes, Onboarding and Settings — inside its own product via
+    a client-side JavaScript SDK and an iframe, alongside REST APIs for mutual-client linking and SSO.
+    It is the only ADP developer library still actively maintained, and it has its own documentation site
+    with a published llms.txt.
   humanURL: https://adpembeddedpayroll.readme.io/docs/overview-1
   baseURL: https://api.adp.com
   tags:
+  - Embedded Payroll
+  - Run
+  - JavaScript SDK
+  - Embedded Finance
+  - Payroll
+  tags_raw:
   - Embedded Payroll
   - RUN
   - JavaScript SDK
@@ -648,7 +218,2790 @@ apis:
     url: components/adp-components.yml
   - type: Website
     url: https://www.adp.com/what-we-offer/products/adp-embedded-payroll.aspx
+- aid: adp:adp-add-additional-remuneration-api
+  name: ADP Add Additional Remuneration API
+  description: A worker additional remuneration add management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Additional Remuneration
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-additional-remuneration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-personal-contact-api
+  name: ADP Add Personal Contact API
+  description: Worker personal contact add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Personal Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-personal-contact-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-schedule-day-api
+  name: ADP Add Schedule Day API
+  description: Work schedule add day management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Schedule Day
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-schedule-day-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-work-assignment-api
+  name: ADP Add Work Assignment API
+  description: Add a new work assignment
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Work Assignment
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-work-assignment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-work-schedule-api
+  name: ADP Add Work Schedule API
+  description: Work schedule add management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Work Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-work-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-business-email-api
+  name: ADP Add Worker Business Email API
+  description: Worker business communication email add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Business Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-business-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-business-fax-api
+  name: ADP Add Worker Business Fax API
+  description: Worker business communication fax add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Business Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-business-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-business-landline-api
+  name: ADP Add Worker Business Landline API
+  description: Worker business communication landline add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Business Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-business-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-business-mobile-api
+  name: ADP Add Worker Business Mobile API
+  description: Worker business communication mobile add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Business Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-business-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-business-pager-api
+  name: ADP Add Worker Business Pager API
+  description: Worker business communication pager add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Business Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-business-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-government-id-api
+  name: ADP Add Worker Government ID API
+  description: Worker government id add management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Government ID
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-government-id-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-legal-address-api
+  name: ADP Add Worker Legal Address API
+  description: Worker legal address add management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Legal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-legal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-address-api
+  name: ADP Add Worker Personal Address API
+  description: Worker personal address add management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-email-api
+  name: ADP Add Worker Personal Email API
+  description: Worker personal communication email add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-fax-api
+  name: ADP Add Worker Personal Fax API
+  description: Worker personal communication fax add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-landline-api
+  name: ADP Add Worker Personal Landline API
+  description: Worker personal communication landline add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-mobile-api
+  name: ADP Add Worker Personal Mobile API
+  description: Worker personal communication mobile add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-add-worker-personal-pager-api
+  name: ADP Add Worker Personal Pager API
+  description: Worker personal communication pager add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Add Worker Personal Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-add-worker-personal-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-applicant-s-external-assessment-api
+  name: ADP Applicant's External Assessment API
+  description: API to manage the applicant's assessment by the external agency
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Applicant's External Assessment
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-applicant-s-external-assessment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-applicant-s-external-screening-api
+  name: ADP Applicant's External Screening API
+  description: API to manage the applicant's background screening by the external agency
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Applicant's External Screening
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-applicant-s-external-screening-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-associate-preferred-gender-pronoun-api
+  name: ADP Associate Preferred Gender Pronoun API
+  description: APIs to manage associate preferred gender pronoun
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Associate Preferred Gender Pronoun
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-associate-preferred-gender-pronoun-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-associate-work-locations-api
+  name: ADP Associate Work Locations API
+  description: Validation Table - Associate Work Locations
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Associate Work Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-associate-work-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-beneficiaries-api
+  name: ADP Beneficiaries API
+  description: List all beneficiaries
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Beneficiaries
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-beneficiaries-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-business-units-api
+  name: ADP Business Units API
+  description: Validation Table - Business Units
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Business Units
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-business-units-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-cancel-worker-leave-api
+  name: ADP Cancel Worker Leave API
+  description: Worker cancel worker leave management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Cancel Worker Leave
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-cancel-worker-leave-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-certification-add-api
+  name: ADP Certification Add API
+  description: Organization certification add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Certification Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-certification-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-certification-change-api
+  name: ADP Certification Change API
+  description: Organization certification change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Certification Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-certification-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-certification-remove-api
+  name: ADP Certification Remove API
+  description: Organization certification remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Certification Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-certification-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-certifications-api
+  name: ADP Certifications API
+  description: List all certifications
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Certifications
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-certifications-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-additional-remuneration-api
+  name: ADP Change Additional Remuneration API
+  description: A worker additional remuneration change management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Additional Remuneration
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-additional-remuneration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-base-remuneration-api
+  name: ADP Change Base Remuneration API
+  description: A worker base remuneration change management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Base Remuneration
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-base-remuneration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-birth-date-api
+  name: ADP Change Birth Date API
+  description: Worker's birth date change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Birth Date
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-birth-date-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-birth-name-api
+  name: ADP Change Birth Name API
+  description: Worker birth name change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Birth Name
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-birth-name-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-gender-api
+  name: ADP Change Gender API
+  description: Worker's gender change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Gender
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-gender-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-legal-name-api
+  name: ADP Change Legal Name API
+  description: Worker legal name change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Legal Name
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-legal-name-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-pay-distribution-api
+  name: ADP Change Pay Distribution API
+  description: Pay distribution change management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Pay Distribution
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-pay-distribution-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-amount-api
+  name: ADP Change Person Custom Amount API
+  description: Worker person amount custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Amount
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-amount-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-code-api
+  name: ADP Change Person Custom Code API
+  description: Worker person code custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Code
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-code-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-date-api
+  name: ADP Change Person Custom Date API
+  description: Worker person date custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Date
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-date-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-indicator-api
+  name: ADP Change Person Custom Indicator API
+  description: Worker person indicator custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Indicator
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-indicator-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-number-api
+  name: ADP Change Person Custom Number API
+  description: Worker person number custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Number
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-number-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-percentage-api
+  name: ADP Change Person Custom Percentage API
+  description: Worker person percentage custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Percentage
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-percentage-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-string-api
+  name: ADP Change Person Custom String API
+  description: Worker person string custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom String
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-string-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-person-custom-telephone-api
+  name: ADP Change Person Custom Telephone API
+  description: Worker person telephone custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Person Custom Telephone
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-person-custom-telephone-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-personal-contact-api
+  name: ADP Change Personal Contact API
+  description: Worker personal contact change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Personal Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-personal-contact-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-preferred-name-api
+  name: ADP Change Preferred Name API
+  description: Worker preferred name change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Preferred Name
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-preferred-name-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-race-api
+  name: ADP Change Race API
+  description: Worker's race change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Race
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-race-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-schedule-day-api
+  name: ADP Change Schedule Day API
+  description: Work schedule change day management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Schedule Day
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-schedule-day-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-schedule-entry-api
+  name: ADP Change Schedule Entry API
+  description: Work schedule change entry management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Schedule Entry
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-schedule-entry-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-standard-hours-api
+  name: ADP Change Standard Hours API
+  description: A worker standard hours change management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Standard Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-standard-hours-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-work-schedule-api
+  name: ADP Change Work Schedule API
+  description: Work schedule change management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Work Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-work-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-business-email-api
+  name: ADP Change Worker Business Email API
+  description: Worker business communication email change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Business Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-business-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-business-fax-api
+  name: ADP Change Worker Business Fax API
+  description: Worker business communication fax change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Business Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-business-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-business-landline-api
+  name: ADP Change Worker Business Landline API
+  description: Worker business communication landline change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Business Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-business-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-business-mobile-api
+  name: ADP Change Worker Business Mobile API
+  description: Worker business communication mobile change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Business Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-business-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-business-pager-api
+  name: ADP Change Worker Business Pager API
+  description: Worker business communication pager change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Business Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-business-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-custom-percentage-api
+  name: ADP Change Worker Custom Percentage API
+  description: Worker percentage custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Custom Percentage
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-custom-percentage-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-custom-telephone-api
+  name: ADP Change Worker Custom Telephone API
+  description: Worker telephone custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Custom Telephone
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-custom-telephone-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-gender-identity-api
+  name: ADP Change Worker Gender Identity API
+  description: Worker change worker gender identity management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Gender Identity
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-gender-identity-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-government-id-api
+  name: ADP Change Worker Government ID API
+  description: Worker government id change management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Government ID
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-government-id-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-highest-education-level-api
+  name: ADP Change Worker Highest Education Level API
+  description: Worker person highest level educational change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Highest Education Level
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-highest-education-level-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-leave-api
+  name: ADP Change Worker Leave API
+  description: Worker change worker leave management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Leave
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-leave-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-legal-address-api
+  name: ADP Change Worker Legal Address API
+  description: Worker legal address change management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Legal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-legal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-marital-status-api
+  name: ADP Change Worker Marital Status API
+  description: Worker person marital status change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Marital Status
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-marital-status-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-military-classification-api
+  name: ADP Change Worker Military Classification API
+  description: Worker person military classification change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Military Classification
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-military-classification-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-military-status-api
+  name: ADP Change Worker Military Status API
+  description: Worker person military status change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Military Status
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-military-status-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-address-api
+  name: ADP Change Worker Personal Address API
+  description: Worker personal address management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-email-api
+  name: ADP Change Worker Personal Email API
+  description: Worker personal communication email change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-fax-api
+  name: ADP Change Worker Personal Fax API
+  description: Worker personal communication fax change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-landline-api
+  name: ADP Change Worker Personal Landline API
+  description: Worker personal communication landline change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-mobile-api
+  name: ADP Change Worker Personal Mobile API
+  description: Worker personal communication mobile change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-personal-pager-api
+  name: ADP Change Worker Personal Pager API
+  description: Worker personal communication pager change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Personal Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-personal-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-change-worker-type-api
+  name: ADP Change Worker Type API
+  description: An instance to capture the work assignment worker type change event.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Change Worker Type
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-change-worker-type-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-compensation-management-api
+  name: ADP Compensation Management API
+  description: >-
+    Worker compensation data APIs, e.g. pay history, regular and vairiable compensation details
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Compensation Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-compensation-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-competencies-api
+  name: ADP Competencies API
+  description: List all competencies
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Competencies
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-competencies-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-competency-add-api
+  name: ADP Competency Add API
+  description: Organization competency add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Competency Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-competency-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-competency-change-api
+  name: ADP Competency Change API
+  description: Organization competency change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Competency Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-competency-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-competency-remove-api
+  name: ADP Competency Remove API
+  description: Organization competency remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Competency Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-competency-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-copy-schedule-day-api
+  name: ADP Copy Schedule Day API
+  description: Work schedule copy day management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Copy Schedule Day
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-copy-schedule-day-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-copy-work-schedule-api
+  name: ADP Copy Work Schedule API
+  description: Work schedule copy management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Copy Work Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-copy-work-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-corporate-directory-api
+  name: ADP Corporate Directory API
+  description: List all corporate contacts
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Corporate Directory
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-corporate-directory-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-corporate-groups-management-api
+  name: ADP Corporate Groups Management API
+  description: Corporate Groups data APIs
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Corporate Groups Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-corporate-groups-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-cost-centers-api
+  name: ADP Cost Centers API
+  description: Validation Table - Cost Centers
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Cost Centers
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-cost-centers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-deduction-configuration-details-api
+  name: ADP Deduction Configuration Details API
+  description: Manage deduction configurations (extended version)
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Deduction Configuration Details
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-deduction-configuration-details-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-departments-api
+  name: ADP Departments API
+  description: Validation Table - Departments
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Departments
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-departments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-dependents-api
+  name: ADP Dependents API
+  description: APIs to manage dependents in the benefits domain
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Dependents
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-dependents-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-educational-degree-add-api
+  name: ADP Educational Degree Add API
+  description: Educational degree add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Educational Degree Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-educational-degree-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-educational-degree-change-api
+  name: ADP Educational Degree Change API
+  description: Educational degree change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Educational Degree Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-educational-degree-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-educational-degree-remove-api
+  name: ADP Educational Degree Remove API
+  description: Educational degree remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Educational Degree Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-educational-degree-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-educational-degrees-api
+  name: ADP Educational Degrees API
+  description: List all educational degrees
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Educational Degrees
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-educational-degrees-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-external-benefit-plans-api
+  name: ADP External Benefit Plans API
+  description: Provide one or more employee benefits plans as per LIMRA WBEDX specification
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - External Benefit Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-external-benefit-plans-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-general-deduction-instruction-change-api
+  name: ADP General Deduction Instruction Change API
+  description: Change worker general deduction instruction event management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - General Deduction Instruction Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-general-deduction-instruction-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-general-deduction-instruction-start-api
+  name: ADP General Deduction Instruction Start API
+  description: Start worker general deduction instruction event management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - General Deduction Instruction Start
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-general-deduction-instruction-start-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-general-deduction-instruction-stop-api
+  name: ADP General Deduction Instruction Stop API
+  description: Stop worker general deduction instruction event management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - General Deduction Instruction Stop
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-general-deduction-instruction-stop-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-general-ledger-documents-api
+  name: ADP General Ledger Documents API
+  description: General ledger document mamangement
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - General Ledger Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-general-ledger-documents-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-job-applications-api
+  name: ADP Job Applications API
+  description: List all job applications
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Job Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-job-applications-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-job-requisitions-api
+  name: ADP Job Requisitions API
+  description: List job requisitions
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Job Requisitions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-job-requisitions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-jobs-api
+  name: ADP Jobs API
+  description: Validation Table - Jobs
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-labor-charge-code-uploads-api
+  name: ADP Labor Charge Code Uploads API
+  description: Labor Charge Code Mass Uploads
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Labor Charge Code Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-labor-charge-code-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-language-add-api
+  name: ADP Language Add API
+  description: Organization language add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Language Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-language-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-language-change-api
+  name: ADP Language Change API
+  description: Organization language change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Language Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-language-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-language-remove-api
+  name: ADP Language Remove API
+  description: Organization language remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Language Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-language-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-languages-api
+  name: ADP Languages API
+  description: List all languages
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Languages
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-languages-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-license-add-api
+  name: ADP License Add API
+  description: Organization license add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - License Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-license-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-license-change-api
+  name: ADP License Change API
+  description: Organization license change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - License Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-license-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-license-remove-api
+  name: ADP License Remove API
+  description: Organization license remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - License Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-license-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-licenses-api
+  name: ADP Licenses API
+  description: List all licenses
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Licenses
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-licenses-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-amount-api
+  name: ADP Manage Worker Custom Amount API
+  description: Worker amount custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom Amount
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-amount-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-code-api
+  name: ADP Manage Worker Custom Code API
+  description: Worker code custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom Code
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-code-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-date-api
+  name: ADP Manage Worker Custom Date API
+  description: Worker date custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom Date
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-date-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-indicator-api
+  name: ADP Manage Worker Custom Indicator API
+  description: Worker indicator custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom Indicator
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-indicator-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-number-api
+  name: ADP Manage Worker Custom Number API
+  description: Worker number custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom Number
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-number-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-manage-worker-custom-string-api
+  name: ADP Manage Worker Custom String API
+  description: Worker string custom field management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Manage Worker Custom String
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-manage-worker-custom-string-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-membership-add-api
+  name: ADP Membership Add API
+  description: Organization membership add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Membership Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-membership-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-membership-change-api
+  name: ADP Membership Change API
+  description: Organization membership change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Membership Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-membership-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-membership-remove-api
+  name: ADP Membership Remove API
+  description: Organization membership remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Membership Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-membership-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-memberships-api
+  name: ADP Memberships API
+  description: List all memberships
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Memberships
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-memberships-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-meta-apis-api
+  name: ADP Meta APIs API
+  description: APIs to request the metadata to manage the corresponding valdiation table
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Meta APIs
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-meta-apis-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-modify-assigned-organizational-units-api
+  name: ADP Modify Assigned Organizational Units API
+  description: Modify worker's assigned units, e.g. department, division, etc.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Modify Assigned Organizational Units
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-modify-assigned-organizational-units-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-modify-time-entries-api
+  name: ADP Modify Time Entries API
+  description: Modify a set of time entries
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Modify Time Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-modify-time-entries-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-modify-time-off-balances-api
+  name: ADP Modify Time Off Balances API
+  description: Modify a set of time off balances
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Modify Time Off Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-modify-time-off-balances-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-modify-work-assignment-api
+  name: ADP Modify Work Assignment API
+  description: Modify work assignment details
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Modify Work Assignment
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-modify-work-assignment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-modify-worker-reports-to-api
+  name: ADP Modify Worker Reports To API
+  description: Modify the details of the worker's supervisors
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Modify Worker Reports To
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-modify-worker-reports-to-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-onboarding-api-metadata-api
+  name: ADP Onboarding API Metadata API
+  description: APIs to obtain the applicant onboarding APIs metadata
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Onboarding API Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-onboarding-api-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-onboarding-process-management-api
+  name: ADP Onboarding Process Management API
+  description: APIs to manage the applicant onboarding process
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Onboarding Process Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-onboarding-process-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-paid-time-off-requests-api
+  name: ADP Paid Time Off - Requests API
+  description: List Time Off Requests
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Paid Time Off - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-paid-time-off-requests-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-pay-data-input-modify-api
+  name: ADP Pay Data Input Modify API
+  description: Modify pay data input event management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Pay Data Input Modify
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-pay-data-input-modify-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-pay-distributions-api
+  name: ADP Pay Distributions API
+  description: List all pay distributions
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Pay Distributions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-pay-distributions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-pay-statements-api
+  name: ADP Pay Statements API
+  description: List worker pay statements
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Pay Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-pay-statements-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-payroll-codelists-api
+  name: ADP Payroll Codelists API
+  description: Custom codelists applicable to the WFN APIs across payroll management features
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll Codelists
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payroll-codelists-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-payroll-group-pay-periods-api
+  name: ADP Payroll Group Pay Periods API
+  description: Retrieve the list of pay periods for pay groups
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll Group Pay Periods
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payroll-group-pay-periods-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-payroll-output-associate-payment-allocations-api
+  name: ADP Payroll Output - Associate Payment Allocations API
+  description: Output payment allocations of individual payroll items
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll Output - Associate Payment Allocations
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payroll-output-associate-payment-allocations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-payroll-output-associate-payment-summaries-api
+  name: ADP Payroll Output - Associate Payment Summaries API
+  description: Output summaries of individual payroll items, e.g. earnings, deductions, etc.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll Output - Associate Payment Summaries
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payroll-output-associate-payment-summaries-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-payroll-outputs-api
+  name: ADP Payroll Outputs API
+  description: Worker payroll outputs - complete details
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Payroll Outputs
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-payroll-outputs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-person-custom-fields-api
+  name: ADP Person Custom Fields API
+  description: Validation Table -Person Custom Fields
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Person Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-person-custom-fields-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-personal-contacts-api
+  name: ADP Personal Contacts API
+  description: List all personal contacts
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Personal Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-personal-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-position-data-management-api
+  name: ADP Position Data Management API
+  description: Work assignment data APIs, e.g. business communication, employment custom fields, etc.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Position Data Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-position-data-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-process-data-collection-entries-api
+  name: ADP Process Data Collection Entries API
+  description: >-
+    This API supports the processing of a collection data collection entries from 1 to Many data collection
+    terminals (i.e. Time Clock).
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Process Data Collection Entries
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-process-data-collection-entries-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-questionnaire-management-api
+  name: ADP Questionnaire Management API
+  description: APIs to manage the questionnaire defintions
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Questionnaire Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-questionnaire-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-read-worker-api
+  name: ADP Read Worker API
+  description: Worker read management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Read Worker
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-read-worker-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-recognition-add-api
+  name: ADP Recognition Add API
+  description: Recognition add management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Recognition Add
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-recognition-add-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-recognition-change-api
+  name: ADP Recognition Change API
+  description: Recognition change management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Recognition Change
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-recognition-change-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-recognition-remove-api
+  name: ADP Recognition Remove API
+  description: Recognition remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Recognition Remove
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-recognition-remove-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-recognitions-api
+  name: ADP Recognitions API
+  description: List all recognitions
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Recognitions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-recognitions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-rehire-worker-api
+  name: ADP Rehire Worker API
+  description: Worker rehire management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Rehire Worker
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-rehire-worker-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-additional-remuneration-api
+  name: ADP Remove Additional Remuneration API
+  description: A worker additional remuneration remove management
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Additional Remuneration
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-additional-remuneration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-personal-contact-api
+  name: ADP Remove Personal Contact API
+  description: Worker personal contact remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Personal Contact
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-personal-contact-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-schedule-day-api
+  name: ADP Remove Schedule Day API
+  description: Work schedule day removal management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Schedule Day
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-schedule-day-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-work-schedule-api
+  name: ADP Remove Work Schedule API
+  description: Work schedule remove management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Work Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-work-schedule-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-business-email-api
+  name: ADP Remove Worker Business Email API
+  description: Worker business communication email remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Business Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-business-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-business-fax-api
+  name: ADP Remove Worker Business Fax API
+  description: Worker business communication fax remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Business Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-business-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-business-landline-api
+  name: ADP Remove Worker Business Landline API
+  description: Worker business communication landline remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Business Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-business-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-business-mobile-api
+  name: ADP Remove Worker Business Mobile API
+  description: Worker business communication mobile remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Business Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-business-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-business-pager-api
+  name: ADP Remove Worker Business Pager API
+  description: Worker business communication pager remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Business Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-business-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-legal-address-api
+  name: ADP Remove Worker Legal Address API
+  description: Worker legal address remove management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Legal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-legal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-address-api
+  name: ADP Remove Worker Personal Address API
+  description: Worker personal address remove management events
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Address
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-address-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-email-api
+  name: ADP Remove Worker Personal Email API
+  description: Worker personal communication email remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Email
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-email-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-fax-api
+  name: ADP Remove Worker Personal Fax API
+  description: Worker personal communication fax remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Fax
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-fax-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-landline-api
+  name: ADP Remove Worker Personal Landline API
+  description: Worker personal communication landline remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Landline
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-landline-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-mobile-api
+  name: ADP Remove Worker Personal Mobile API
+  description: Worker personal communication mobile remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Mobile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-mobile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-remove-worker-personal-pager-api
+  name: ADP Remove Worker Personal Pager API
+  description: Worker personal communication pager remove management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Remove Worker Personal Pager
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-remove-worker-personal-pager-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-request-leave-of-absence-api
+  name: ADP Request Leave Of Absence API
+  description: Worker leave of absence management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Request Leave Of Absence
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-request-leave-of-absence-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-request-return-from-leave-of-absence-api
+  name: ADP Request Return From Leave Of Absence API
+  description: Worker return from leave of absence management events.
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Request Return From Leave Of Absence
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-request-return-from-leave-of-absence-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-review-add-membership-api
+  name: ADP Review Add Membership API
+  description: An instance to capture a review event when an associate adds a new membership
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Review Add Membership
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-review-add-membership-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-review-change-membership-api
+  name: ADP Review Change Membership API
+  description: An instance to capture a review event when an associate changes a new membership
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Review Change Membership
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-review-change-membership-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-review-remove-membership-api
+  name: ADP Review Remove Membership API
+  description: An instance to capture a review event when an associate removes a new membership
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Review Remove Membership
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-review-remove-membership-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-tax-policy-eligibility-solutions-api
+  name: ADP Tax Policy Eligibility Solutions API
+  description: APIs to retrieve statutory policies with applicable ADP codes and statutory data
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Tax Policy Eligibility Solutions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-tax-policy-eligibility-solutions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-team-time-cards-api
+  name: ADP Team Time Cards API
+  description: >-
+    Get a worker's team's timecards.  That is all the time cards for the worker's team members.  The worker
+    is identified by workers/{associateOID}
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Team Time Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-team-time-cards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-terminate-work-assignment-api
+  name: ADP Terminate Work Assignment API
+  description: Terminate work assignment details
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Terminate Work Assignment
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-terminate-work-assignment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-federal-tax-profile-change-federal-income-tax-instruction-api
+  name: ADP US Federal Tax Profile - Change Federal Income Tax Instruction API
+  description: APIs to manage the change of a US tax profile federal income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Federal Tax Profile - Change Federal Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-federal-tax-profile-change-federal-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-local-tax-profile-add-local-income-tax-instruction-api
+  name: ADP US Local Tax Profile - Add Local Income Tax Instruction API
+  description: APIs to manage the addition of a US tax profile local income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Local Tax Profile - Add Local Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-local-tax-profile-add-local-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-local-tax-profile-api
+  name: ADP US Local Tax Profile API
+  description: Details of the US local tax profile
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Local Tax Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-local-tax-profile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-local-tax-profile-change-local-income-tax-instruction-api
+  name: ADP US Local Tax Profile - Change Local Income Tax Instruction API
+  description: APIs to manage  the change of a US tax profile local income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Local Tax Profile - Change Local Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-local-tax-profile-change-local-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-local-tax-profile-remove-local-income-tax-instruction-api
+  name: ADP US Local Tax Profile - Remove Local Income Tax Instruction API
+  description: APIs to manage  the change of a US tax profile local income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Local Tax Profile - Remove Local Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-local-tax-profile-remove-local-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-state-tax-profile-add-state-income-tax-instruction-api
+  name: ADP US State Tax Profile - Add State Income Tax Instruction API
+  description: APIs to manage the addition of a US tax profile state income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US State Tax Profile - Add State Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-state-tax-profile-add-state-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-state-tax-profile-api
+  name: ADP US State Tax Profile API
+  description: Details of the US State tax profile
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US State Tax Profile
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-state-tax-profile-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-state-tax-profile-change-state-income-tax-instruction-api
+  name: ADP US State Tax Profile - Change State Income Tax Instruction API
+  description: APIs to manage  the change of a US tax profile state income tax instruction
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US State Tax Profile - Change State Income Tax Instruction
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-state-tax-profile-change-state-income-tax-instruction-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-us-tax-profiles-api
+  name: ADP US Tax Profiles API
+  description: List all US tax profiles (Federal, State and Local)
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - US Tax Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-us-tax-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-work-schedule-entry-uploads-api
+  name: ADP Work Schedule Entry Uploads API
+  description: Import Schedules for multiple employees
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Work Schedule Entry Uploads
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-work-schedule-entry-uploads-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-work-schedules-api
+  name: ADP Work Schedules API
+  description: List all work schedules
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Work Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-work-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-custom-fields-api
+  name: ADP Worker Custom Fields API
+  description: Validation Table Worker Custom Fields
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-custom-fields-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-demographics-api
+  name: ADP Worker Demographics API
+  description: List all worker demographics
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Demographics
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-demographics-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-images-api
+  name: ADP Worker Images API
+  description: APIs to retrieve worker images, e.g profile photo or background
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Images
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-images-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-leaves-api
+  name: ADP Worker Leaves API
+  description: Retrieve worker leaves details
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Leaves
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-leaves-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-management-codelists-api
+  name: ADP Worker Management Codelists API
+  description: Custom codelists applicable to the WFN APIs across worker management features
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Management Codelists
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-management-codelists-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-payroll-instructions-api
+  name: ADP Worker Payroll Instructions API
+  description: List all payroll instructions
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Payroll Instructions
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-payroll-instructions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-profile-photo-management-api
+  name: ADP Worker Profile Photo Management API
+  description: APIs to manage the worker profile picture
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Profile Photo Management
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-profile-photo-management-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-time-card-inputs-api
+  name: ADP Worker Time Card Inputs API
+  description: APIs to manage worker time card input requests
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Time Card Inputs
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-time-card-inputs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-worker-time-off-requests-api
+  name: ADP Worker Time Off Requests API
+  description: List a worker's time off requests
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Worker Time Off Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-worker-time-off-requests-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
+- aid: adp:adp-workers-data-retrieval-api
+  name: ADP Workers Data Retrieval API
+  description: APIs to retrieve the worker data, either for a collection or a single worker
+  humanURL: https://developers.adp.com/getting-started/embedded-payroll
+  baseURL: https://api.adp.com
+  tags:
+  - Workers Data Retrieval
+  properties:
+  - type: OpenAPI
+    url: openapi/adp-workers-data-retrieval-api-openapi.yml
+  - type: Documentation
+    url: https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn
+  - type: Portal
+    url: https://developers.adp.com
 common:
+- type: Overlay
+  url: overlays/adp-payroll-deduction-configurations-v3-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-general-ledger-documents-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-pay-data-input-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-pay-distributions-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-pay-statements-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-payroll-group-pay-periods-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-payroll-outputs-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-tax-policy-eligibility-solutions-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-us-tax-profiles-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-us-tax-profiles-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-payroll-worker-payroll-instructions-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-corporate-directory-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-hr-work-assignment-management-v3-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-hr-worker-profiles-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-personal-contacts-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-worker-associate-profiles-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-worker-demographics-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-worker-leaves-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-biological-data-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-business-communication-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-compensation-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-custom-data-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-data-integration-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-demographic-data-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-identification-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-ksaoc-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-lifecycle-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-person-custom-data-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-personal-communication-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-work-assignment-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hr-workers-work-deployment-management-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-data-collection-entries-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-labor-allocation-code-uploads-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-team-time-cards-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-time-card-inputs-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-time-cards-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-time-off-balances-v3-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-time-off-requests-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-time-off-requests-v3-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-work-schedule-entry-uploads-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-time-work-schedules-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-benefits-beneficiaries-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-benefits-dependents-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-benefits-external-plans-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-certifications-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-competencies-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-educational-degrees-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-languages-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-licenses-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-memberships-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-talent-associate-recognitions-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-staffing-job-applicants-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-staffing-job-applications-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-staffing-job-requisitions-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-staffing-recruiting-questionnaires-v3-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hcm-applicant-onboarding-v2-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hcm-validation-tables-v1-overlay.yaml
+- type: Overlay
+  url: overlays/adp-hcm-wfn-codelists-v3-overlay.yaml
 - type: Plans
   url: plans/adp-plans-pricing.yml
 - type: RateLimits
