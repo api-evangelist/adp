@@ -1,20 +1,3465 @@
-generated: '2026-07-15'
+generated: '2026-09-16'
 method: generated
-source: openapi/adp-payroll-openapi.yml, openapi/adp-workers-openapi.yml
+source: openapi/adp-add-additional-remuneration-api-openapi.yml, openapi/adp-add-personal-contact-api-openapi.yml,
+  openapi/adp-add-schedule-day-api-openapi.yml, openapi/adp-add-work-assignment-api-openapi.yml,
+  openapi/adp-add-work-schedule-api-openapi.yml, openapi/adp-add-worker-business-email-api-openapi.yml,
+  openapi/adp-add-worker-business-fax-api-openapi.yml, openapi/adp-add-worker-business-landline-api-openapi.yml,
+  openapi/adp-add-worker-business-mobile-api-openapi.yml, openapi/adp-add-worker-business-pager-api-openapi.yml,
+  openapi/adp-add-worker-government-id-api-openapi.yml, openapi/adp-add-worker-legal-address-api-openapi.yml,
+  openapi/adp-add-worker-personal-address-api-openapi.yml, openapi/adp-add-worker-personal-email-api-openapi.yml,
+  openapi/adp-add-worker-personal-fax-api-openapi.yml, openapi/adp-add-worker-personal-landline-api-openapi.yml,
+  openapi/adp-add-worker-personal-mobile-api-openapi.yml, openapi/adp-add-worker-personal-pager-api-openapi.yml,
+  openapi/adp-applicant-s-external-assessment-api-openapi.yml, openapi/adp-applicant-s-external-screening-api-openapi.yml,
+  openapi/adp-associate-preferred-gender-pronoun-api-openapi.yml, openapi/adp-associate-work-locations-api-openapi.yml,
+  openapi/adp-beneficiaries-api-openapi.yml, openapi/adp-business-units-api-openapi.yml, openapi/adp-cancel-worker-leave-api-openapi.yml,
+  openapi/adp-certification-add-api-openapi.yml, openapi/adp-certification-change-api-openapi.yml,
+  openapi/adp-certification-remove-api-openapi.yml, openapi/adp-certifications-api-openapi.yml,
+  openapi/adp-change-additional-remuneration-api-openapi.yml, openapi/adp-change-base-remuneration-api-openapi.yml,
+  openapi/adp-change-birth-date-api-openapi.yml, openapi/adp-change-birth-name-api-openapi.yml,
+  openapi/adp-change-gender-api-openapi.yml, openapi/adp-change-legal-name-api-openapi.yml,
+  openapi/adp-change-pay-distribution-api-openapi.yml, openapi/adp-change-person-custom-amount-api-openapi.yml,
+  openapi/adp-change-person-custom-code-api-openapi.yml, openapi/adp-change-person-custom-date-api-openapi.yml,
+  openapi/adp-change-person-custom-indicator-api-openapi.yml, openapi/adp-change-person-custom-number-api-openapi.yml,
+  openapi/adp-change-person-custom-percentage-api-openapi.yml, openapi/adp-change-person-custom-string-api-openapi.yml,
+  openapi/adp-change-person-custom-telephone-api-openapi.yml, openapi/adp-change-personal-contact-api-openapi.yml,
+  openapi/adp-change-preferred-name-api-openapi.yml, openapi/adp-change-race-api-openapi.yml,
+  openapi/adp-change-schedule-day-api-openapi.yml, openapi/adp-change-schedule-entry-api-openapi.yml,
+  openapi/adp-change-standard-hours-api-openapi.yml, openapi/adp-change-work-schedule-api-openapi.yml,
+  openapi/adp-change-worker-business-email-api-openapi.yml, openapi/adp-change-worker-business-fax-api-openapi.yml,
+  openapi/adp-change-worker-business-landline-api-openapi.yml, openapi/adp-change-worker-business-mobile-api-openapi.yml,
+  openapi/adp-change-worker-business-pager-api-openapi.yml, openapi/adp-change-worker-custom-percentage-api-openapi.yml,
+  openapi/adp-change-worker-custom-telephone-api-openapi.yml, openapi/adp-change-worker-gender-identity-api-openapi.yml,
+  openapi/adp-change-worker-government-id-api-openapi.yml, openapi/adp-change-worker-highest-education-level-api-openapi.yml,
+  openapi/adp-change-worker-leave-api-openapi.yml, openapi/adp-change-worker-legal-address-api-openapi.yml,
+  openapi/adp-change-worker-marital-status-api-openapi.yml, openapi/adp-change-worker-military-classification-api-openapi.yml,
+  openapi/adp-change-worker-military-status-api-openapi.yml, openapi/adp-change-worker-personal-address-api-openapi.yml,
+  openapi/adp-change-worker-personal-email-api-openapi.yml, openapi/adp-change-worker-personal-fax-api-openapi.yml,
+  openapi/adp-change-worker-personal-landline-api-openapi.yml, openapi/adp-change-worker-personal-mobile-api-openapi.yml,
+  openapi/adp-change-worker-personal-pager-api-openapi.yml, openapi/adp-change-worker-type-api-openapi.yml,
+  openapi/adp-compensation-management-api-openapi.yml, openapi/adp-competencies-api-openapi.yml,
+  openapi/adp-competency-add-api-openapi.yml, openapi/adp-competency-change-api-openapi.yml,
+  openapi/adp-competency-remove-api-openapi.yml, openapi/adp-copy-schedule-day-api-openapi.yml,
+  openapi/adp-copy-work-schedule-api-openapi.yml, openapi/adp-corporate-directory-api-openapi.yml,
+  openapi/adp-corporate-groups-management-api-openapi.yml, openapi/adp-cost-centers-api-openapi.yml,
+  openapi/adp-deduction-configuration-details-api-openapi.yml, openapi/adp-departments-api-openapi.yml,
+  openapi/adp-dependents-api-openapi.yml, openapi/adp-educational-degree-add-api-openapi.yml,
+  openapi/adp-educational-degree-change-api-openapi.yml, openapi/adp-educational-degree-remove-api-openapi.yml,
+  openapi/adp-educational-degrees-api-openapi.yml, openapi/adp-external-benefit-plans-api-openapi.yml,
+  openapi/adp-general-deduction-instruction-change-api-openapi.yml, openapi/adp-general-deduction-instruction-start-api-openapi.yml,
+  openapi/adp-general-deduction-instruction-stop-api-openapi.yml, openapi/adp-general-ledger-documents-api-openapi.yml,
+  openapi/adp-job-applications-api-openapi.yml, openapi/adp-job-requisitions-api-openapi.yml,
+  openapi/adp-jobs-api-openapi.yml, openapi/adp-labor-charge-code-uploads-api-openapi.yml, openapi/adp-language-add-api-openapi.yml,
+  openapi/adp-language-change-api-openapi.yml, openapi/adp-language-remove-api-openapi.yml,
+  openapi/adp-languages-api-openapi.yml, openapi/adp-license-add-api-openapi.yml, openapi/adp-license-change-api-openapi.yml,
+  openapi/adp-license-remove-api-openapi.yml, openapi/adp-licenses-api-openapi.yml, openapi/adp-manage-worker-custom-amount-api-openapi.yml,
+  openapi/adp-manage-worker-custom-code-api-openapi.yml, openapi/adp-manage-worker-custom-date-api-openapi.yml,
+  openapi/adp-manage-worker-custom-indicator-api-openapi.yml, openapi/adp-manage-worker-custom-number-api-openapi.yml,
+  openapi/adp-manage-worker-custom-string-api-openapi.yml, openapi/adp-membership-add-api-openapi.yml,
+  openapi/adp-membership-change-api-openapi.yml, openapi/adp-membership-remove-api-openapi.yml,
+  openapi/adp-memberships-api-openapi.yml, openapi/adp-meta-apis-api-openapi.yml, openapi/adp-modify-assigned-organizational-units-api-openapi.yml,
+  openapi/adp-modify-time-entries-api-openapi.yml, openapi/adp-modify-time-off-balances-api-openapi.yml,
+  openapi/adp-modify-work-assignment-api-openapi.yml, openapi/adp-modify-worker-reports-to-api-openapi.yml,
+  openapi/adp-onboarding-api-metadata-api-openapi.yml, openapi/adp-onboarding-process-management-api-openapi.yml,
+  openapi/adp-organizations-api-openapi.yml, openapi/adp-paid-time-off-requests-api-openapi.yml,
+  openapi/adp-pay-data-input-modify-api-openapi.yml, openapi/adp-pay-distributions-api-openapi.yml,
+  openapi/adp-pay-statements-api-openapi.yml, openapi/adp-payroll-codelists-api-openapi.yml,
+  openapi/adp-payroll-group-pay-periods-api-openapi.yml, openapi/adp-payroll-output-associate-payment-allocations-api-openapi.yml,
+  openapi/adp-payroll-output-associate-payment-summaries-api-openapi.yml, openapi/adp-payroll-outputs-api-openapi.yml,
+  openapi/adp-payrollinstructions-api-openapi.yml, openapi/adp-person-custom-fields-api-openapi.yml,
+  openapi/adp-personal-contacts-api-openapi.yml, openapi/adp-position-data-management-api-openapi.yml,
+  openapi/adp-process-data-collection-entries-api-openapi.yml, openapi/adp-questionnaire-management-api-openapi.yml,
+  openapi/adp-read-worker-api-openapi.yml, openapi/adp-recognition-add-api-openapi.yml, openapi/adp-recognition-change-api-openapi.yml,
+  openapi/adp-recognition-remove-api-openapi.yml, openapi/adp-recognitions-api-openapi.yml,
+  openapi/adp-rehire-worker-api-openapi.yml, openapi/adp-remove-additional-remuneration-api-openapi.yml,
+  openapi/adp-remove-personal-contact-api-openapi.yml, openapi/adp-remove-schedule-day-api-openapi.yml,
+  openapi/adp-remove-work-schedule-api-openapi.yml, openapi/adp-remove-worker-business-email-api-openapi.yml,
+  openapi/adp-remove-worker-business-fax-api-openapi.yml, openapi/adp-remove-worker-business-landline-api-openapi.yml,
+  openapi/adp-remove-worker-business-mobile-api-openapi.yml, openapi/adp-remove-worker-business-pager-api-openapi.yml,
+  openapi/adp-remove-worker-legal-address-api-openapi.yml, openapi/adp-remove-worker-personal-address-api-openapi.yml,
+  openapi/adp-remove-worker-personal-email-api-openapi.yml, openapi/adp-remove-worker-personal-fax-api-openapi.yml,
+  openapi/adp-remove-worker-personal-landline-api-openapi.yml, openapi/adp-remove-worker-personal-mobile-api-openapi.yml,
+  openapi/adp-remove-worker-personal-pager-api-openapi.yml, openapi/adp-request-leave-of-absence-api-openapi.yml,
+  openapi/adp-request-return-from-leave-of-absence-api-openapi.yml, openapi/adp-review-add-membership-api-openapi.yml,
+  openapi/adp-review-change-membership-api-openapi.yml, openapi/adp-review-remove-membership-api-openapi.yml,
+  openapi/adp-tax-policy-eligibility-solutions-api-openapi.yml, openapi/adp-team-time-cards-api-openapi.yml,
+  openapi/adp-terminate-work-assignment-api-openapi.yml, openapi/adp-us-federal-tax-profile-change-federal-income-tax-instruction-api-openapi.yml,
+  openapi/adp-us-local-tax-profile-add-local-income-tax-instruction-api-openapi.yml, openapi/adp-us-local-tax-profile-api-openapi.yml,
+  openapi/adp-us-local-tax-profile-change-local-income-tax-instruction-api-openapi.yml, openapi/adp-us-local-tax-profile-remove-local-income-tax-instruction-api-openapi.yml,
+  openapi/adp-us-state-tax-profile-add-state-income-tax-instruction-api-openapi.yml, openapi/adp-us-state-tax-profile-api-openapi.yml,
+  openapi/adp-us-state-tax-profile-change-state-income-tax-instruction-api-openapi.yml, openapi/adp-us-tax-profiles-api-openapi.yml,
+  openapi/adp-work-schedule-entry-uploads-api-openapi.yml, openapi/adp-work-schedules-api-openapi.yml,
+  openapi/adp-worker-custom-fields-api-openapi.yml, openapi/adp-worker-demographics-api-openapi.yml,
+  openapi/adp-worker-images-api-openapi.yml, openapi/adp-worker-leaves-api-openapi.yml, openapi/adp-worker-management-codelists-api-openapi.yml,
+  openapi/adp-worker-payroll-instructions-api-openapi.yml, openapi/adp-worker-profile-photo-management-api-openapi.yml,
+  openapi/adp-worker-time-card-inputs-api-openapi.yml, openapi/adp-worker-time-off-requests-api-openapi.yml,
+  openapi/adp-workers-api-openapi.yml, openapi/adp-workers-data-retrieval-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 11
+  operations: 373
   by_action_class:
-    connected: 8
-    acting: 3
+    connected: 202
+    acting: 171
   by_consequence:
-    read: 8
-    write: 2
-    safety-critical: 1
-  human_in_the_loop_required: 1
+    read: 202
+    write: 155
+    safety-critical: 3
+    physical: 13
+  human_in_the_loop_required: 3
 operations:
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.add/meta
+  method: get
+  operationId: 78708634-037d-4c4b-bcad-238256416f88
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.add
+  method: post
+  operationId: 6ccb9f21-b1c3-459a-b4f0-227901812f93
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-contact.add/meta
+  method: get
+  operationId: 53a14843-8b28-462a-a57c-eb67dba354f7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.personal-contact.add
+  method: post
+  operationId: 9c31c52d-47bc-44d9-8b35-7915e8ec38ea
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.add/meta
+  method: get
+  operationId: db27d2fb-0e5f-4204-afb5-62437747a853
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule-day.add
+  method: post
+  operationId: c351925f-501d-494a-ad97-a3ddc980f314
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/v3/workers/{aoid}/work-assignments
+  method: post
+  operationId: 58e328f3-49c9-4527-a280-3a244db6f858
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/v3/workers/{aoid}/work-assignments/meta
+  method: get
+  operationId: 47d98b18-3dc7-4d06-923d-f08ca1f67518
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule.add
+  method: post
+  operationId: f9ede8ae-2541-4c2a-a80a-f6419a001f43
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule.add/meta
+  method: get
+  operationId: 66a34e47-e6ce-4068-8b01-2ebde3bbcf56
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.business-communication.email.add
+  method: post
+  operationId: 3083c9f3-7814-406b-84c8-75ba79d40da8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.fax.add
+  method: post
+  operationId: 0e61f5d5-b99e-45b1-bdb8-44b613c56fe6
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.landline.add
+  method: post
+  operationId: 4650cc32-c19e-4ec1-826b-1498059fdb2f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.mobile.add
+  method: post
+  operationId: 7b11fc33-d8a3-4549-8ed8-d5cd52125740
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.pager.add
+  method: post
+  operationId: 46cfccc0-efb9-4846-9075-3d19ac74c922
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.government-id.add
+  method: post
+  operationId: 7d8058ee-b9a8-4740-a794-2b01ea95c2f1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.legal-address.add
+  method: post
+  operationId: 8107f08b-ecba-4eeb-9d4a-eceb79539daf
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-address.add
+  method: post
+  operationId: 3d94e7ed-1f41-4ad9-b00a-4bb27af419f8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.email.add
+  method: post
+  operationId: 6bd32219-6a80-47af-a923-f1ff57f33922
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.fax.add
+  method: post
+  operationId: 55f1c849-c08d-4d55-881d-7a157a4394a5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.landline.add
+  method: post
+  operationId: 240d9c23-f348-418b-be37-7843c4083cb9
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.mobile.add
+  method: post
+  operationId: fd8c9edc-fd92-40b0-b313-8581b963ddaa
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.pager.add
+  method: post
+  operationId: 98242882-9b2d-4fdb-ad5f-89490d782a02
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/staffing/v1/job-applicant.external-assessment.status.change
+  method: post
+  operationId: 374402a1-a1d4-4f38-9dae-19df7c578f85
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/staffing/v1/job-applicant.external-screening.packages.modify
+  method: post
+  operationId: d020f50f-0818-4ef3-9bb5-1d926852cd85
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/staffing/v1/job-applicant.external-screening.status.change
+  method: post
+  operationId: 7126949c-4061-4b8f-a7aa-2a767865af8d
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/staffing/v1/job-applicant.external-screening.initiate
+  method: post
+  operationId: b6e88159-4bfc-459d-9a79-489f14f09a37
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.associate-profile.preferred-gender-pronoun.change
+  method: post
+  operationId: 083b81de-2019-41ad-bb9f-19205be58ba8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.associate-profile.preferred-gender-pronoun.change/meta
+  method: get
+  operationId: 34250fe6-f217-4112-a3dc-bfdeb12ed632
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/associate-work-locations
+  method: post
+  operationId: 8892c480-b9ae-47e4-ba82-6b1d7c5c2387
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hcm/v1/validation-tables/associate-work-locations
+  method: get
+  operationId: b0192620-cc68-4882-a07f-92a4a1fd4bd4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /benefits/v1/associates/{aoid}/beneficiaries
+  method: get
+  operationId: 02add557-2d7d-4c2c-921c-3e5ec87f9135
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/business-units
+  method: post
+  operationId: df5e396a-5bed-4ea5-a268-82c9cb34cc44
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hcm/v1/validation-tables/business-units
+  method: get
+  operationId: 630627bc-5fb0-4fc0-bae8-392eb27e3272
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.leave.cancel/meta
+  method: get
+  operationId: ec9a4aa4-55e1-4a74-a049-90df41e872de
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.leave.cancel
+  method: post
+  operationId: 5723b54d-cd30-4fc9-a2f4-f761bb76803b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.certification.add/meta
+  method: get
+  operationId: bcccbf34-4cfa-42d8-8ef9-109a406f64c3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.certification.add
+  method: post
+  operationId: 91bb561c-1808-499a-b5cf-0580f0a0f0ff
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.certification.change
+  method: post
+  operationId: 59ce4894-e250-40eb-8c08-78ff71551d33
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.certification.change/meta
+  method: get
+  operationId: a95c854f-df38-439f-98ef-4a219772204a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.certification.remove
+  method: post
+  operationId: 7b4667af-06ce-4f8f-a103-591c82d79308
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.certification.remove/meta
+  method: get
+  operationId: 6c435a85-8324-4423-871e-2218f9c92121
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-certifications/meta
+  method: get
+  operationId: a201c6dc-a34d-4969-9127-a359cd96b949
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-certifications/{certification-id}
+  method: get
+  operationId: 7d18a93a-6c6c-4559-82b0-885ec9e0b45e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-certifications
+  method: get
+  operationId: 866d0ca8-7996-4f11-9089-57935027b488
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.change/meta
+  method: get
+  operationId: e66830d3-e355-4d96-b0b0-cef07c56ad62
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.change
+  method: post
+  operationId: 74244f92-34ac-4487-9590-87c7358b1f9f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.base-remuneration.change/meta
+  method: get
+  operationId: 7ebe5982-c41c-4f66-a5c8-0ffa90c0b521
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.base-remuneration.change
+  method: post
+  operationId: c73b83c7-2750-4683-9ee0-718c55c7c96a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.birth-date.change
+  method: post
+  operationId: 97e6f132-cfef-4db4-ab0d-93ec55a6c01e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.birth-name.change
+  method: post
+  operationId: 02b50028-cf8a-4b1e-ab98-cd905c6b2ea5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.birth-name.change/meta
+  method: get
+  operationId: 81b714ee-ab42-42be-b053-63adaa662f40
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.gender.change
+  method: post
+  operationId: 91a2666e-f8d3-41f3-aa18-72386b799490
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.legal-name.change/meta
+  method: get
+  operationId: 9964e2da-cb90-4588-b51b-3aac8598e3ae
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.legal-name.change
+  method: post
+  operationId: d699f9fa-1229-4821-a86a-0932e9146fe9
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/worker.pay-distribution.change/meta
+  method: get
+  operationId: 64b8cddd-86b7-4851-bd6a-8caf12e24ca0
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v1/worker.pay-distribution.change
+  method: post
+  operationId: fb5b93af-6949-4acc-8ee0-c817ac90fbb0
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.amount.change
+  method: post
+  operationId: 94413adc-2f9b-4ae9-8b7c-96727f761eee
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.amount.change/meta
+  method: get
+  operationId: 394b81f8-fe8e-4a26-b919-2ba36a2c08fd
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.code.change
+  method: post
+  operationId: fb075784-166c-4e38-ba8a-5045c33a2ae7
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.code.change/meta
+  method: get
+  operationId: 43af4d64-ff6f-4ef1-87e4-a935f98e3ad6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.date.change/meta
+  method: get
+  operationId: 08af42b4-a29c-4aa0-b60b-a1d3af7942fc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.date.change
+  method: post
+  operationId: a06c741f-21ba-43b7-ba0b-c2dc5d4c7a47
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.indicator.change
+  method: post
+  operationId: 8bde6bf8-9ee9-40a0-bd99-9a55c8302551
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.indicator.change/meta
+  method: get
+  operationId: 5c30ca4d-4948-4818-b9c6-74e2e4458030
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.number.change
+  method: post
+  operationId: aded07ac-8c42-459d-a103-192442b984c4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.number.change/meta
+  method: get
+  operationId: f90859ef-10be-43a1-88ed-4103d361dc23
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.percentage.change
+  method: post
+  operationId: 3450f055-4e62-4f9c-8e6a-64c5276174fd
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.percentage.change/meta
+  method: get
+  operationId: b4619783-f911-4886-ada3-0aba10658d9f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.string.change
+  method: post
+  operationId: 30987344-293f-4b9b-bbdb-d509d1ce0f00
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.person.custom-field.string.change/meta
+  method: get
+  operationId: c74107ef-b627-4ea7-8749-4a9b7a308c37
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.telephone.change/meta
+  method: get
+  operationId: 23f7a3fa-6d69-4947-99ae-506cfb9dc43c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.person.custom-field.telephone.change
+  method: post
+  operationId: 19c3b53e-4a1a-4a23-ac16-7bbae330381b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-contact.change
+  method: post
+  operationId: 5b01c36b-f732-4e7b-8de6-a6310dc4d257
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-contact.change/meta
+  method: get
+  operationId: f85d8a32-1b40-4500-ac09-46795394c1de
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.preferred-name.change/meta
+  method: get
+  operationId: 53a70918-aa52-474f-903a-63380054558a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.preferred-name.change
+  method: post
+  operationId: b5fdc698-b876-4265-b167-0784a4f5e145
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.race.change
+  method: post
+  operationId: ee7c2c89-ce24-41fe-b7bd-fb48a936f35c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.change
+  method: post
+  operationId: a031154e-07fb-4851-abda-e86fba47eafe
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.change/meta
+  method: get
+  operationId: 128e9cc5-ee49-44cb-b9bd-ea51d2ccb361
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule-entry.change
+  method: post
+  operationId: 298473ea-02f5-477f-a3d6-39fdb1ac734a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.standard-hours.change
+  method: post
+  operationId: dc44f119-eb8d-4672-bc4d-19b5360e6d74
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule.change
+  method: post
+  operationId: d9252c01-5f83-4bd6-9067-5b664129fe6f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule.change/meta
+  method: get
+  operationId: ba7ae95f-24bc-4278-ae5e-d6dde8bd0fb3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.business-communication.email.change
+  method: post
+  operationId: d5ab7379-153c-4223-acae-13d5dc71726c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.fax.change
+  method: post
+  operationId: d8e318de-7771-4fd3-91b7-e217d3fcbdcb
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.landline.change
+  method: post
+  operationId: f87c7664-649e-48d4-8986-63449cb7d13f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.mobile.change
+  method: post
+  operationId: d9362b8d-6cf2-45a5-8955-a1f516c16f4c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.pager.change
+  method: post
+  operationId: 64574ffb-c846-48fe-b7cc-3d1d75ff8988
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.percentage.change/meta
+  method: get
+  operationId: 9ff4e185-0f86-4e67-bbf8-28a85d2f9e1d
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.percentage.change
+  method: post
+  operationId: 247cdbe6-3c0e-4418-aac7-b34dbcd4092b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.telephone.change
+  method: post
+  operationId: 78ba26d3-c581-47ea-bb22-90066c9d543b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.telephone.change/meta
+  method: get
+  operationId: d2da4103-9fc7-4224-81d1-e60a619cb1c3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.gender-identity.change
+  method: post
+  operationId: 4b295331-eba6-4514-a496-9aef2ca2617f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.gender-identity.change/meta
+  method: get
+  operationId: e355b6a3-acbf-4126-a3be-3265be8be1d4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.government-id.change
+  method: post
+  operationId: 1674eff8-a08c-4b9f-861d-8321587b0c2e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.highest-level-education.change
+  method: post
+  operationId: 2fd919a0-2707-4477-83b3-0bee2482ae65
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.highest-level-education.change/meta
+  method: get
+  operationId: 9b540c73-f3f6-4196-98f1-8fdd7cfd46aa
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.leave.change
+  method: post
+  operationId: 4790b3b0-1937-4ded-b1cb-10fbe6fb4171
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.leave.change/meta
+  method: get
+  operationId: 13022cef-ee8f-4fa9-af5c-510b428a7dd8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.legal-address.change
+  method: post
+  operationId: 6464449c-0ab9-44eb-a605-4b7a867e1555
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.marital-status.change
+  method: post
+  operationId: ac023a04-af5c-4c0c-a9e3-b4356abc5ff6
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.marital-status.change/meta
+  method: get
+  operationId: 80479a99-120d-4863-95d5-e755d7431af5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.military-classification.change/meta
+  method: get
+  operationId: ec766cfe-1c83-4164-97a3-51ef18f9bf0f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.military-classification.change
+  method: post
+  operationId: b9260882-f502-408f-afd9-6abba3be0122
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.military-status.change/meta
+  method: get
+  operationId: 62e55096-9f7f-4645-93b7-98ea78085641
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.military-status.change
+  method: post
+  operationId: ba171a9e-86b6-456b-9a73-d364bbba7abf
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-address.change
+  method: post
+  operationId: 40222107-8983-4e7a-b2af-5a0c8d3fb742
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.email.change
+  method: post
+  operationId: 01616688-5568-4b35-9a69-19a094fd3717
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.fax.change
+  method: post
+  operationId: 3dc2dcf4-4058-4573-a4d7-c49ecd2fb77e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.landline.change
+  method: post
+  operationId: 8d2d259d-519b-4229-bd84-b1e38b12aaa8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.mobile.change
+  method: post
+  operationId: 2489dd92-2228-42ce-8edb-f3c44fdcd114
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.pager.change
+  method: post
+  operationId: c5de8d91-e119-41fe-b284-9f380ad0e260
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.worker-type.change
+  method: post
+  operationId: 4335aa62-7068-4ea8-bc0b-119935dbc9bb
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/base-remuneration
+  method: put
+  operationId: a638ee8c-1f38-4d0c-b54c-42f90c14fffd
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/base-remuneration/meta
+  method: get
+  operationId: a4bdb22e-d9ed-4f78-b9cf-74e2ca8ec1fe
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/additional-remunerations
+  method: post
+  operationId: e10cd2d8-c8cb-4cc6-9803-b0f498059457
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/additional-remunerations
+  method: get
+  operationId: 1c7e1eaa-6258-4751-966e-d3f28e49c096
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/additional-remunerations
+  method: put
+  operationId: 88505d88-9d17-486e-bcba-b224ff234dce
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/reportable-benefits/meta
+  method: get
+  operationId: ce62769f-1b88-4b1b-b59a-c5698423df93
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/additional-remunerations/meta
+  method: get
+  operationId: 7cad475e-59cd-4615-84ca-4189a44b3ee2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/reportable-benefits
+  method: post
+  operationId: 9f87f9fe-b071-4110-848a-651ba9abf56a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/reportable-benefits
+  method: get
+  operationId: 959c1e5a-fce1-4233-b3f0-0ab65529606a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/reportable-benefits
+  method: put
+  operationId: 3458a21c-aa66-4f38-9445-822bb83c08a3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /talent/v2/associates/{aoid}/associate-competencies
+  method: get
+  operationId: 5b6b44c5-d871-4c9f-bbcf-62af3f2b3235
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-competencies/meta
+  method: get
+  operationId: c468ade5-6600-4ca6-8d52-058636887f4e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-competencies/{competency-id}
+  method: get
+  operationId: d5ef17c0-e2e5-4e72-90e2-40574a4bcc15
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.competency.add/meta
+  method: get
+  operationId: 05e229e0-df07-40c5-ac3e-8ddf10c3ddbd
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.competency.add
+  method: post
+  operationId: 3438c21c-a427-43ce-b9fe-f3814dd6545b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.competency.change/meta
+  method: get
+  operationId: ac84f03e-2b97-4518-9fb7-f56341bfd75a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.competency.change
+  method: post
+  operationId: b0e4848d-578e-4ff4-acb1-25e64a99e75d
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.competency.remove
+  method: post
+  operationId: c1669f4c-c35b-4fd5-afd2-1bd9e8627f8e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.competency.remove/meta
+  method: get
+  operationId: 21c960fa-e8c2-4bb8-a961-fc6ff6907004
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule-day.copy
+  method: post
+  operationId: 8c24cf19-ec6e-4907-94b6-53c17bdff824
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.copy/meta
+  method: get
+  operationId: 88d25b1c-5c0e-470d-b05c-5a602063d277
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule.copy
+  method: post
+  operationId: d2e334dd-2935-4423-ac9b-975e6de83372
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule.copy/meta
+  method: get
+  operationId: 9cf9c2f2-eace-48dd-99a1-f43e58b7ca72
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{sor-id}/hr/v1/corporate-contact-photos/{image-id}.{image-extension}
+  method: get
+  operationId: 2c062122-684c-49e2-a210-8b202b003a86
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/corporate-groups
+  method: post
+  operationId: bc3c3561-d1ae-4849-a04f-6c900cfb2196
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/corporate-groups/meta
+  method: get
+  operationId: 60becb9d-9f51-49b4-a5c4-086c581625ec
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/cost-centers
+  method: post
+  operationId: 241c8033-89f3-4506-9471-c4f18c9bd9cf
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hcm/v1/validation-tables/cost-centers
+  method: get
+  operationId: 58fb93f2-49d3-4cc5-8ae8-e7502b758077
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v3/deduction-configurations
+  method: get
+  operationId: e6d44d07-2c10-43c1-913b-2d67ab3ce72a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/departments
+  method: post
+  operationId: 549f5652-be12-473c-b97b-edfc95c51fbd
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hcm/v1/validation-tables/departments
+  method: get
+  operationId: dadec7d3-d60c-47da-9349-970d81feb07c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /benefits/v1/associates/{aoid}/dependents
+  method: get
+  operationId: 8c5c07b8-3a60-491d-868d-2ffb6e97fc88
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.educational-degree.add
+  method: post
+  operationId: a84e1371-ede5-40c5-a775-24575aa2f828
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.educational-degree.add/meta
+  method: get
+  operationId: 7734a0cb-d379-4aff-9d88-969a2730b73c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.educational-degree.change
+  method: post
+  operationId: 002f0e7e-563a-4eaf-bda8-9ad742e151e0
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.educational-degree.change/meta
+  method: get
+  operationId: d6bdc043-17a5-4eec-b8e8-b9a28cf9e921
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.educational-degree.remove
+  method: post
+  operationId: 2e34aa9a-88d2-4ee4-919c-4b5c5bdcc91b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.educational-degree.remove/meta
+  method: get
+  operationId: 18fc03fc-a7df-4bcb-9274-40291a182e6a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-educational-degrees/meta
+  method: get
+  operationId: 45821e06-4214-4530-9863-c4a72004f6e0
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-educational-degrees/{educational-degree-id}
+  method: get
+  operationId: 77ce9eab-5948-40f5-a728-50e45c5fa2ea
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-educational-degrees
+  method: get
+  operationId: 483c4292-ce7a-4875-9fc0-8e90ac67d985
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /benefits/v1/external-partner/benefit-plans
+  method: post
+  operationId: 1d41d5e6-9f26-4de7-b38b-03e27730ad26
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /event-notifications/benefits/v1/external-benefit-plan.data.confirm
+  method: post
+  operationId: a6730d23-589d-4680-954c-0d3a77e3a831
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v2/worker-general-deduction-instruction.change
+  method: post
+  operationId: 3fe788ed-1c55-4813-ab94-5c29837d1493
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v2/worker-general-deduction-instruction.change/meta
+  method: get
+  operationId: cb8a054d-9cf9-4a10-bc46-64600d8b8971
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v2/worker-general-deduction-instruction.start/meta
+  method: get
+  operationId: ee8c9182-58e9-4bc2-937b-9d6796d29194
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v2/worker-general-deduction-instruction.start
+  method: post
+  operationId: 5b9c7e7c-84bd-44ad-b381-59be1e4478d8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v2/worker-general-deduction-instruction.stop/meta
+  method: get
+  operationId: de98161b-7e2a-4ace-af56-2372f91c4935
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v2/worker-general-deduction-instruction.stop
+  method: post
+  operationId: 6842e574-85a6-4cbc-9fba-9cfcca7eb8a8
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /payroll/v1/general-ledger/documents
+  method: get
+  operationId: df687442-6c0c-4a5d-ba55-9cf0523cf8d4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/general-ledger/documents/{document-id}
+  method: get
+  operationId: dd041f41-f507-4371-85d9-11d5fe3702f7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /staffing/v2/job-applications/{job-application-id}
+  method: get
+  operationId: ab513f15-9bdb-4991-ad9d-c6a32b557dfb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /staffing/v2/job-applications
+  method: get
+  operationId: fa2ab202-5c9f-4587-8901-cb926f3b2324
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /staffing/v1/job-requisitions/{job-requisition-id}
+  method: get
+  operationId: d791abaf-8fc6-4568-bcf8-b643258c312c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /staffing/v1/job-requisitions
+  method: get
+  operationId: c9f0500f-183c-493b-b569-eb2cf9daef81
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/jobs/{item-id}
+  method: get
+  operationId: 497e2edf-aa8f-45fa-92a1-1a8fe78f6ced
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/jobs
+  method: post
+  operationId: ff297ab3-89f6-40f5-825e-a156f50eb57e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /time/v1/labor-allocation-code/upload-requests/meta
+  method: get
+  operationId: 8d102edc-cdec-44b0-9ca0-079b35918215
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/labor-allocation-code/upload-requests/{request-id}/confirm-message
+  method: get
+  operationId: ffb4168c-ad0d-47ca-9a58-60cf36757f38
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/labor-allocation-code/upload-requests
+  method: post
+  operationId: db5fa8dc-edb7-4b41-8be3-2915372ea3bd
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.language.add/meta
+  method: get
+  operationId: 09b1a4a1-7602-4867-b925-cb4b32ac16c6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.language.add
+  method: post
+  operationId: 574ffd0b-fa55-482a-9543-8c2f0b505739
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.language.change/meta
+  method: get
+  operationId: d5d3bdf0-d791-48b5-9a9d-936358632519
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.language.change
+  method: post
+  operationId: 569f64f4-f256-4b5c-a3b1-4c3ae426b210
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.language.remove/meta
+  method: get
+  operationId: 12c346a0-fa89-4e7e-9130-9987e64f60ff
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.language.remove
+  method: post
+  operationId: 4544f08e-fb3f-43b9-9e26-941fa6e66310
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /talent/v2/associates/{aoid}/associate-languages
+  method: get
+  operationId: ca3c13cb-b29d-427c-86cd-5c33da66fd64
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-languages/{language-id}
+  method: get
+  operationId: 59f624aa-640a-41c0-8069-476b8c5d9ef9
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-languages/meta
+  method: get
+  operationId: 79c44c43-beb8-4cce-9033-6dbe1fd6bc59
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-languages/{language-id}/meta
+  method: get
+  operationId: b19bc408-bd31-4e8e-b8bf-f4bba0519f97
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.license.add/meta
+  method: get
+  operationId: aa3f793a-dfa3-495b-9044-56518b2490bf
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.license.add
+  method: post
+  operationId: a61208b1-eea9-4fc1-9416-2ffe687c1c15
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.license.change
+  method: post
+  operationId: cfe3c863-c7a6-4023-8eea-8947b09189e6
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.license.change/meta
+  method: get
+  operationId: caed45d1-17ef-4bd0-9277-8b6b91c620a3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.license.remove
+  method: post
+  operationId: 11fcd51a-4933-42e9-84e1-c542c7cb32b5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.license.remove/meta
+  method: get
+  operationId: 0b1c66ef-37e4-4de1-a3bb-908d8eefa962
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-licenses/{license-id}/meta
+  method: get
+  operationId: 1d82eca1-eeab-4035-85e6-f2e6df213e9f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-licenses
+  method: get
+  operationId: 16ef2969-f421-4437-a448-ad294357b785
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-licenses/{license-id}
+  method: get
+  operationId: ff0393aa-9e08-4dbc-9081-e7fac50d7af9
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-licenses/meta
+  method: get
+  operationId: f7de60c6-bb4f-42e8-8db0-210ed4dd8677
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.amount.change/meta
+  method: get
+  operationId: 24838713-5ad8-433a-8391-d14374b201d6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.amount.change
+  method: post
+  operationId: f374bee3-7fca-4c28-b74c-e1abf30b36ce
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.code.change
+  method: post
+  operationId: a40225fa-32c8-420a-870d-07cd2fdb3acd
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.code.change/meta
+  method: get
+  operationId: 040a83ca-4a4e-44a7-8e98-08ce791edcdd
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.date.change/meta
+  method: get
+  operationId: 5cf41f4f-5230-4e4d-9daa-c8e6c30b4e3b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.date.change
+  method: post
+  operationId: cbd5304f-8f2f-4ac6-afa5-4d758e94d06d
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.indicator.change
+  method: post
+  operationId: 6444e570-d4b8-43f9-a40f-68c6936a3378
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.indicator.change/meta
+  method: get
+  operationId: a824fcac-4794-4a95-b833-cf36ef8294a5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.number.change
+  method: post
+  operationId: 7887d684-ee75-4bb9-961e-50294f0876e4
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.number.change/meta
+  method: get
+  operationId: c6185358-beed-471d-b19f-bfb98afa4359
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.custom-field.string.change
+  method: post
+  operationId: 659cb98a-5c2b-4947-b9a8-589621176d34
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.custom-field.string.change/meta
+  method: get
+  operationId: ca703a22-b627-4ee6-8452-f4644978b6e8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.add
+  method: post
+  operationId: ce4d8dd6-fa4c-4248-93d5-0a783381f1a2
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.add/meta
+  method: get
+  operationId: 64fce864-5ea9-40fd-978a-d025eff1a4bb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.add
+  method: post
+  operationId: 91367470-6046-43aa-8278-0381d8afcf17
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.change
+  method: post
+  operationId: ee6ddc81-ebbd-433e-b173-c802b964934c
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.change
+  method: post
+  operationId: fb0a0116-55f7-4dc0-b0ce-508c77219784
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.change/meta
+  method: get
+  operationId: b309e7de-9959-44cc-9053-d1c4f8e96dbc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.remove/meta
+  method: get
+  operationId: 1081ab64-a9b0-45b1-8792-0717a6c4c5e6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.remove
+  method: post
+  operationId: 10be8ea6-5679-4e9a-977e-54e98f68509c
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.remove
+  method: post
+  operationId: e9b6c581-198f-46cd-913e-0f39ba6fe454
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /talent/v2/associates/{aoid}/associate-memberships/{membership-id}
+  method: get
+  operationId: d645b7fa-6c1a-4113-8f4b-4be12a2f40d7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-memberships/{membership-id}/meta
+  method: get
+  operationId: 20d291ee-66e2-4611-8bac-a98ad91cdf3a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-memberships
+  method: get
+  operationId: 1b7a0547-aaa3-41cc-ba43-b4263abd0e06
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-memberships/meta
+  method: get
+  operationId: 539ebd67-15d2-47f7-9315-d4371a7653fb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/jobs/meta
+  method: get
+  operationId: 9217ada8-0a5f-438b-9b7a-38f68bc04ea8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/meta
+  method: get
+  operationId: 35716bd3-c89e-450f-b892-cda5d39feb1c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.assigned-organizational-units.modify
+  method: post
+  operationId: 5a56cde5-e1c7-4dd9-bd8b-b0d5678d459c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.assigned-organizational-units.modify/meta
+  method: get
+  operationId: 1836e437-c4d1-4052-ae8a-ee66b6b4adac
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v2/time-entries.modify
+  method: post
+  operationId: 9ac8f6cc-0cb7-4fe9-a90a-dd0d85fbfea6
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v3/time-off-balances.modify/meta
+  method: get
+  operationId: 1389a296-ed07-4683-a02d-72cfd9861620
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v3/time-off-balances.modify
+  method: post
+  operationId: 0beb2f86-ef24-4ddd-b831-667b0d7fedd3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.modify
+  method: post
+  operationId: 5c3b1946-8403-4011-876b-d572d7f938e2
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.modify/meta
+  method: get
+  operationId: b451d2d2-c440-423a-97a8-4012fb88d6cc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.reports-to.modify/meta
+  method: get
+  operationId: 6600eea1-9cb6-453b-8401-7c0c2ae376d8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.reports-to.modify
+  method: post
+  operationId: 5b5eec90-f484-4d13-b334-5ae6fe87734c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hcm/v2/applicant.onboard/meta
+  method: get
+  operationId: de9a8c8b-fb90-4737-b068-ff96b2cc3283
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v2/applicant.onboard
+  method: post
+  operationId: c2fe03be-a3ba-470a-88fe-ec02b2216905
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /core/v1/organization-departments
+  method: get
+  operationId: listDepartments
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v2/workers/{aoid}/time-off-requests/{request-id}
+  method: put
+  operationId: 647e8a1a-602c-4639-8512-74ee148c1954
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /time/v2/workers/{aoid}/time-off-details/time-off-balances
+  method: get
+  operationId: 9a71bd46-49bf-4c8f-a88a-d98591b556d7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v2/workers/{aoid}/time-off-details/time-off-configurations
+  method: get
+  operationId: 2795816c-4161-4743-9919-8b98a1fa7d1a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v2/workers/{aoid}/time-off-details/time-off-requests
+  method: get
+  operationId: 282fb8d5-4746-4857-9432-e59524acc578
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v2/workers/{aoid}/time-off-requests
+  method: post
+  operationId: f0010334-0978-41c5-9eef-837cc9350ccb
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/pay-data-input.modify
+  method: post
+  operationId: 1616325c-2826-44d6-876b-a806a99700a5
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/pay-data-input.modify/meta
+  method: get
+  operationId: f149b8b5-443d-484f-9c04-a60da170f90a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/workers/{aoid}/pay-distributions
+  method: get
+  operationId: ade9efcb-49b5-4af3-b3ba-eab61ff077f7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/workers/{aoid}/pay-distributions/{pay-distribution-id}
+  method: get
+  operationId: 555388d7-3bad-47b8-be4e-21aab1d429fa
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/organizational-pay-statements/{pay-statement-id}/images/{image-id}.{image-extension}
+  method: get
+  operationId: 5f32da43-e14c-4690-b147-359ed5d5ef9b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/organizational-pay-statements/{pay-statement-id}
+  method: get
+  operationId: f4f4fd27-1035-42a0-b8eb-802667e6385b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/organizational-pay-statements
+  method: get
+  operationId: 880a38af-1ece-4606-b028-6d7d319e2ec9
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codelists/payroll/v4/payroll-instruction-management/{code-type}/wfn/{version-id}
+  method: get
+  operationId: 9dc55d26-8b3b-4a26-beb8-7895823894cb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codelists/payroll/v3/payroll-instruction-management/{code-type}/WFN/{version-id}
+  method: get
+  operationId: 10046edd-d049-4c19-b7a7-a8aad1002c83
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/pay-schedule/payroll-groups
+  method: get
+  operationId: 9a9692cc-1066-44f9-8ec8-a4fcac04495c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/pay-schedule/payroll-groups/{group-code}
+  method: get
+  operationId: 368fa69a-f69e-4b9f-9aa3-33b8fdd02a7f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-allocations/statutory-deductions
+  method: get
+  operationId: dee7a55d-f1a1-40c9-be21-f11bb243680c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-allocations/non-statutory-deductions
+  method: get
+  operationId: 051b75d6-39b0-47c0-adf2-103a7da4288c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-allocations/earnings
+  method: get
+  operationId: e25e5bcc-8fdf-48bf-9ba2-6777258c7b71
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-allocations/reportable-earnings-and-benefits
+  method: get
+  operationId: e8cd454f-497f-497e-9bbf-59b7ba613345
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-summary/non-statutory-deductions
+  method: get
+  operationId: ebe7fa5e-f7b4-4f18-acfa-52a91f8dc9aa
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-summary/statutory-deductions
+  method: get
+  operationId: 84300f8e-2c06-4469-859d-4db7704f17b3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-summary/reportable-earnings-and-benefits
+  method: get
+  operationId: c77f7daf-22b2-4b8c-b10b-7fdad1e10b9c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}/associate-payment-summary/earnings
+  method: get
+  operationId: f8cc0b03-5638-4ae2-ac60-88764ca2d25f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output/{output-id}
+  method: get
+  operationId: e228fbee-847b-4704-aa65-ae01b69f21e2
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/payroll-output
+  method: get
+  operationId: a4be6d02-ebe9-4c20-bc34-f80631735607
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v2/employment-verification/payroll-output
+  method: get
+  operationId: 9780791c-1df6-4665-97f6-69d868597f74
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /payroll/v1/payroll-outputs
   method: get
   operationId: listPayrollOutputs
@@ -71,6 +3516,1288 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /hcm/v1/validation-tables/person-custom-fields/{item-id}
+  method: get
+  operationId: baba45b0-9bf8-41c5-bdbf-d930d517b44a
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/person-custom-fields
+  method: get
+  operationId: e852dfba-0983-4d90-828b-b693bb641bd4
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/associates/{aoid}/personal-contacts/meta
+  method: get
+  operationId: 02260289-3081-475a-a495-d05b7dac93fa
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/associates/{aoid}/personal-contacts
+  method: get
+  operationId: 35bacf54-d51f-4fab-8cd8-4526accce7f1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/associates/{aoid}/personal-contacts/{personal-contact-id}
+  method: get
+  operationId: 09993a86-70f5-4543-83aa-6f1a32c64d38
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/worker-dates
+  method: put
+  operationId: bfc3e27b-7f49-4daa-b0ab-751d51576f5a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/primary-assignment
+  method: put
+  operationId: cb6150c7-47d0-41f5-8adb-3298dbb02755
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/work-schedules
+  method: get
+  operationId: b2e4f8a1-3c7d-4e9b-a5f2-8d1c6e0b4a37
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/work-schedules
+  method: put
+  operationId: c9f3a2e7-5d8b-4f1c-b6e4-2a0d7c9f5e83
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/work-schedules/meta
+  method: get
+  operationId: d7a6c1b9-4e2f-4a8d-9c3b-6f5e1d2a0b74
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/data-collection-entries.process
+  method: post
+  operationId: ecc32a68-e5a2-4f73-9ff1-fdc567fc9e76
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/data-collection-entries.process/{event-id}
+  method: get
+  operationId: f87f7e5d-d646-4fe7-ba14-48f0b391cd25
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /staffing/v3/work-fulfillment/recruiting-questionnaires/{questionnaireID}
+  method: get
+  operationId: 259e8241-7309-4f7c-aac3-f1af2b149c6f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.read/meta
+  method: get
+  operationId: cc1c5b36-1562-49e3-94ed-8b18e81f014c
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.read
+  method: post
+  operationId: 52dff6cc-ad24-4edf-817a-651da2f65744
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.recognition.add/meta
+  method: get
+  operationId: a34cf60e-537b-4c1e-ae43-80778420e707
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.recognition.add
+  method: post
+  operationId: d9a9241f-aa42-456f-880a-7ae7c6cee413
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.recognition.change/meta
+  method: get
+  operationId: f3874b25-f1f9-4149-8fef-1b7a0e83b25e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.recognition.change
+  method: post
+  operationId: 8203e1b0-9f17-46e5-b1ae-f48d6fc5cf2e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.recognition.remove
+  method: post
+  operationId: bdc6f40d-151f-407b-b142-d68e0180abce
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.recognition.remove/meta
+  method: get
+  operationId: 94eae8ba-a98f-49b1-bcfe-82666f3177d8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-recognitions/meta
+  method: get
+  operationId: 2995fb9d-2fae-4011-bf90-226f416ee667
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /talent/v2/associates/{aoid}/associate-recognitions
+  method: get
+  operationId: 3d90a725-ab1a-436c-aeaa-1d592d8deadf
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.rehire
+  method: post
+  operationId: f3355703-f654-47ee-a98a-f67b74c4b364
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.rehire/meta
+  method: get
+  operationId: df6fbf20-b396-4db9-b76c-cd7bbd2bef8b
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.remove
+  method: post
+  operationId: 10537f8d-d4bb-492f-a6ea-9d755316ef78
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.work-assignment.additional-remuneration.remove/meta
+  method: get
+  operationId: 32df617c-3942-4bad-94e8-72dc0da52402
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.personal-contact.remove/meta
+  method: get
+  operationId: 724298ae-22df-4cc9-8f9a-605cd3392184
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.personal-contact.remove
+  method: post
+  operationId: 5f3ca1ce-743b-469d-b9c4-e8d2464f4563
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.remove
+  method: post
+  operationId: 6018baf5-e56d-48c0-8085-68c78e598d39
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/time/v1/work-schedule-day.remove/meta
+  method: get
+  operationId: 00e7c35d-e9d5-417f-a81b-3167465ccb65
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule.remove/meta
+  method: get
+  operationId: 7f60a0d4-7175-47cd-a427-fc1c24b7e422
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/time/v1/work-schedule.remove
+  method: post
+  operationId: 9fa44618-96ff-4196-b69c-1fbb1b0c9732
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.email.remove
+  method: post
+  operationId: e4574717-e61d-4f59-9711-d4b9fb6e7c2a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.fax.remove
+  method: post
+  operationId: 21a75031-1b6b-4401-9d1b-17a6f3f16a4e
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.landline.remove
+  method: post
+  operationId: f05ee622-3c1d-4d9b-b92f-b19a236fae8f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.mobile.remove
+  method: post
+  operationId: b218fd15-8df6-4a44-ba94-97c0a8c336b9
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.business-communication.pager.remove
+  method: post
+  operationId: 772c2463-9f74-41f1-a73d-372d2ff542c0
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.legal-address.remove
+  method: post
+  operationId: 176685fd-03f1-4333-958f-fcec05ef627a
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-address.remove
+  method: post
+  operationId: e955c2f0-de57-4a08-b201-af2afa6c7236
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.email.remove
+  method: post
+  operationId: db880d66-662c-492c-b03f-6318f1a67adc
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.fax.remove
+  method: post
+  operationId: eb54a19f-c4e2-46a4-9f9e-bc511c4f4c58
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.landline.remove
+  method: post
+  operationId: 5e0ec52f-a3b5-45db-a04e-9684d357949c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.mobile.remove
+  method: post
+  operationId: eec48c29-3d80-41e8-ae89-dfa6d9b53bd8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.pager.remove
+  method: post
+  operationId: 7daa2d7f-2592-4f98-8567-9f153b6c344f
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.personal-communication.pager.remove/meta
+  method: get
+  operationId: c6636451-473b-459a-8091-cba4d7f0e8ee
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.leave.absence.request/meta
+  method: get
+  operationId: 791b6c0a-f1d0-4fb4-8301-2532933ce4a1
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.leave.absence.request
+  method: post
+  operationId: 49fe5d30-ac90-43e6-8468-ed0caf35c2d3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.leave.return.request
+  method: post
+  operationId: 1ac19fb3-fee5-4fb0-a4f5-c79196800696
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.leave.return.request/meta
+  method: get
+  operationId: 8ad1dd5d-6e9a-4cf8-ada0-f43ff63ab548
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.add.review
+  method: post
+  operationId: 7c66fd1c-927d-45ba-b194-98782916bc40
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.add.review/meta
+  method: get
+  operationId: 470cd203-830d-415a-a3ff-d77702d09401
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.add.review
+  method: post
+  operationId: 88779903-0d9f-428f-b0e2-77cd89701b58
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.change.review
+  method: post
+  operationId: ae8e6d84-a6d2-428f-9b87-cbb078547f34
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.change.review
+  method: post
+  operationId: 6bb8755c-0948-4161-af42-73e648f2341a
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/talent/v1/associate.ksaoc.membership.change.review/meta
+  method: get
+  operationId: facdfa9b-2ec1-40c2-98cc-c5a0855719cf
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.remove.review/meta
+  method: get
+  operationId: 3250c50c-2d37-4e3e-b7b7-6b7e9613826f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/talent/v1/associate.ksaoc.membership.remove.review
+  method: post
+  operationId: 024b5f1a-4593-4b2d-89e9-20b1c07669cc
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /event-notifications/talent/v1/associate.ksaoc.membership.remove.review
+  method: post
+  operationId: 81599c64-7b94-44be-998b-3952d3c22f2b
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payroll/v2/tax-policy-eligibility-solutions/read-request
+  method: post
+  operationId: 897ff391-d33b-4e5f-a111-fff989362d9b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /time/v2/workers/{aoid}/team-time-cards
+  method: get
+  operationId: 60adf481-ff04-48ef-bf76-f84dcf2fc503
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.work-assignment.terminate
+  method: post
+  operationId: 9b1be338-a34e-4ae2-8255-f7ae20aec06d
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
+- path: /events/payroll/v1/us-tax-profile.federal-income-tax-instruction.change
+  method: post
+  operationId: a085b482-090b-4d76-82f5-69b285f235ca
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/us-tax-profile.federal-income-tax-instruction.change/meta
+  method: get
+  operationId: 17478ca9-5584-4452-9225-04fe62310113
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.add/meta
+  method: get
+  operationId: 7702fba4-1c78-471c-a5b1-8ddc0ad65c13
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.add
+  method: post
+  operationId: 1c845c87-7593-44f9-bd4d-f46e622b51d8
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /payroll/v1/workers/{aoid}/us-tax-profiles/{us-tax-profile-id}/local
+  method: get
+  operationId: 9db71395-2aae-4985-b67d-c33e5db7c810
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.change
+  method: post
+  operationId: 4fa858e7-b1a4-402b-97cf-85c39c940c52
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.change/meta
+  method: get
+  operationId: d501fd06-eb59-4022-a14b-c57a9f29fd69
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.remove
+  method: post
+  operationId: dfe2e3e6-1924-4c2a-a84e-54c3e895ec49
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v1/us-tax-profile.local-income-tax-instruction.remove/meta
+  method: get
+  operationId: 94c63176-3b2c-4ecf-b804-305cd5e44cb6
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v2/us-tax-profile.state-income-tax-instruction.add
+  method: post
+  operationId: e9e17835-005b-4555-91e7-e5f03838cb9c
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v2/us-tax-profile.state-income-tax-instruction.add/meta
+  method: get
+  operationId: 62fc3ab7-fa4d-49d2-9fd9-07c3a0f9f9db
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/us-tax-profiles/{us-tax-profile-id}/state
+  method: get
+  operationId: 9db3cc85-7d2a-4459-8a99-0ae06529ce4e
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/payroll/v2/us-tax-profile.state-income-tax-instruction.change
+  method: post
+  operationId: 9b9b30c2-6c4d-4294-b428-d2f48d9840ae
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/payroll/v2/us-tax-profile.state-income-tax-instruction.change/meta
+  method: get
+  operationId: 01f58827-dcf8-481b-9f73-1177c1610553
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/us-tax-profiles
+  method: get
+  operationId: 1d035775-5fa6-4a6a-8764-83acbe83cfc8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/work-schedule-entry/upload-requests
+  method: post
+  operationId: a3f56fcb-8125-4c1f-bba9-b45bd2494bb1
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /time/v1/work-schedule-entry/upload-requests/{request-id}/confirm-message
+  method: get
+  operationId: 9d2dca88-786c-4577-91e8-0d42431c31b8
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/work-schedules
+  method: get
+  operationId: 6b8ee769-74d2-4741-b286-ea03f36cd197
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/workers/{aoid}/work-schedules
+  method: get
+  operationId: 90a8113c-bbb3-4723-a6e8-ca54c23093fb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/worker-custom-fields
+  method: get
+  operationId: 459f75ae-eeda-433f-998f-a7b7b1b7c3b0
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hcm/v1/validation-tables/worker-custom-fields/{item-id}
+  method: get
+  operationId: 99dc8cd0-d392-433b-9215-bbe8d6d3a308
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/worker-demographics/meta
+  method: get
+  operationId: a8916e30-0b89-4dc7-b997-8d9fb20a2eb3
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/worker-demographics
+  method: get
+  operationId: bacd4442-7e96-4048-b08c-53bfc68afbcb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/worker-demographics/{aoid}
+  method: get
+  operationId: f8c35994-9a9a-4d73-8707-e6dec08c7114
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/workers/{aoid}/worker-images/photo
+  method: get
+  operationId: 9d4c0a76-aec3-43ec-912e-f9b029d1e5a5
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/workers/{aoid}/leaves
+  method: get
+  operationId: dd5a01cc-0901-4aa5-b5b3-4f826b021ef7
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codelists/hr/v4/worker-management/{code-type}/wfn/{version-id}
+  method: get
+  operationId: c074ccbd-b37a-4e0e-afc4-cf9d54502f7d
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /codelists/hr/v3/worker-management/{code-type}/WFN/{version-id}
+  method: get
+  operationId: 60f7e727-3af8-4910-89e9-c4735eef9289
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/payroll-instructions/{payroll-instruction-id}
+  method: get
+  operationId: 16833646-8273-4837-8110-5cea3793b8ef
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /payroll/v1/workers/{aoid}/payroll-instructions
+  method: get
+  operationId: c1de25c2-6bd0-4550-8f55-8fcc6acebc1f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.photo.remove/meta
+  method: get
+  operationId: a1b73e92-9e2d-40f8-8a6f-3f1b5bd17c2f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /events/hr/v1/worker.photo.remove
+  method: post
+  operationId: 60b868b8-99f7-4662-9181-33fa6ee24dd3
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.photo.upload
+  method: post
+  operationId: 1e9d32a7-32bf-4261-a3fa-bc6e75a3adde
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /events/hr/v1/worker.photo.upload/meta
+  method: get
+  operationId: c05ddcc0-ba71-45dc-87d7-8b4e2a17d441
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v1/worker-time-card-inputs
+  method: post
+  operationId: 5dafb647-ef5e-4f3a-9504-da6ad9c0497b
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /time/v3/workers/{aoid}/time-off-request-summaries
+  method: get
+  operationId: f0c00538-c249-4904-9717-aa3894361d26
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v3/workers/{aoid}/team-time-off-request-summaries
+  method: get
+  operationId: 3a1428bd-7471-460f-ac47-5eb7e15e3879
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /time/v3/workers/{aoid}/time-off-request-summaries/meta
+  method: get
+  operationId: 04b981a3-253d-48d3-b647-abdaa5a9bf1f
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /hr/v2/workers
   method: get
   operationId: listWorkers
@@ -133,9 +4860,29 @@ operations:
     escalation:
       human-in-the-loop: required
     audit: required
-- path: /core/v1/organization-departments
+- path: /hr/v2/workers/meta
   method: get
-  operationId: listDepartments
+  operationId: ff6cbf8f-dd8b-4d22-8086-1caa805fe384
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/workers/{aoid}
+  method: get
+  operationId: 6501f53d-1c15-4ea9-902c-52a49970e0d9
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /hr/v2/workers
+  method: get
+  operationId: 2aa32939-9059-4187-8785-0eb593ece43b
   x-agentic-access:
     action-class: connected
     consequence: read
