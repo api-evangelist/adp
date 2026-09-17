@@ -112,28 +112,6 @@ apis:
     url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
-- aid: adp:adp-payrolloutputs-api
-  name: ADP PayrollOutputs API
-  description: Payroll output and run data
-  humanURL: https://developers.adp.com/
-  baseURL: https://api.adp.com
-  tags:
-  - PayrollOutputs
-  properties:
-  - type: OpenAPI
-    url: openapi/adp-payrolloutputs-api-openapi.yml
-  - type: Documentation
-    url: https://developers.adp.com/
-  - type: GettingStarted
-    url: https://developers.adp.com/getting-started/client-integration-overview
-  - type: JSONSchema
-    url: json-schema/adp-worker-schema.json
-  - type: JSONLD
-    url: json-ld/adp-workers-context.jsonld
-  - type: GraphQL
-    url: graphql/adp-graphql.md
-  - type: JSONLD
-    url: json-ld/adp-payroll-context.jsonld
 - aid: adp:adp-workers-api
   name: ADP Workers API
   description: Worker (employee) data access
