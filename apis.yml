@@ -60,6 +60,11 @@ apis:
   - Benefits
   - Enrollment
   - HCM
+  - Human Resources
+  tags_raw:
+  - Benefits
+  - Enrollment
+  - HCM
   - HR
   humanURL: https://developers.adp.com/
   baseURL: https://api.adp.com
@@ -594,6 +599,8 @@ apis:
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
   tags:
+  - Certification
+  tags_raw:
   - Certifications
   properties:
   - type: OpenAPI
@@ -1561,6 +1568,8 @@ apis:
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -1631,6 +1640,8 @@ apis:
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
   tags:
+  - Language
+  tags_raw:
   - Languages
   properties:
   - type: OpenAPI
@@ -1827,6 +1838,8 @@ apis:
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
   tags:
+  - Membership
+  tags_raw:
   - Memberships
   properties:
   - type: OpenAPI
@@ -2572,7 +2585,8 @@ apis:
   description: APIs to manage the change of a US tax profile federal income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US Federal Tax Profile - Change Federal Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -2586,7 +2600,8 @@ apis:
   description: APIs to manage the addition of a US tax profile local income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US Local Tax Profile - Add Local Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -2614,7 +2629,8 @@ apis:
   description: APIs to manage  the change of a US tax profile local income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US Local Tax Profile - Change Local Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -2628,7 +2644,8 @@ apis:
   description: APIs to manage  the change of a US tax profile local income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US Local Tax Profile - Remove Local Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -2642,7 +2659,8 @@ apis:
   description: APIs to manage the addition of a US tax profile state income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US State Tax Profile - Add State Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -2670,7 +2688,8 @@ apis:
   description: APIs to manage  the change of a US tax profile state income tax instruction
   humanURL: https://developers.adp.com/getting-started/embedded-payroll
   baseURL: https://api.adp.com
-  tags:
+  tags: []
+  tags_raw:
   - US State Tax Profile - Change State Income Tax Instruction
   properties:
   - type: OpenAPI
@@ -3121,6 +3140,12 @@ maintainers:
 - name: Kin Lane
   email: kin@apievangelist.com
 tags:
+- Benefits
+- HCM
+- Human Resources
+- Payroll
+- Workforce
+tags_raw:
 - Benefits
 - HCM
 - HR
