@@ -24,7 +24,8 @@ edges:
   reason: Creates and lists payroll instructions (pay amounts) for payroll processing — payroll administration
     within HR Operations Management.
 - tag: PayrollOutputs
-  spec_file: adp-payrolloutputs-api-openapi.yml
+  spec_file: adp-payroll-outputs-api-openapi.yml
+  reanchored_from: adp-payrolloutputs-api-openapi.yml
   capability_id: BC-300.70
   capability_id_l1: BC-300
   capability_name: HR Operations Management
