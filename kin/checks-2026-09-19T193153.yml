@@ -2,16 +2,16 @@
 kin_checks:
   slug: adp
   schema_version: 0.22.0
-  scored_at: '2026-09-18'
-  run_ts: 2026-09-18T231945
+  scored_at: '2026-09-19'
+  run_ts: 2026-09-19T193153
   note: Actionable checks (missed + partial) in `checks`, plus the ids that did not
     apply in `na`. Everything else in rubric/scoring-0.22.0.yml was earned; counts
     below let you verify that.
   counts:
     total: 136
-    earned: 40
+    earned: 37
     partial: 33
-    missed: 41
+    missed: 44
     na: 22
   checks:
   - id: description_substantive
@@ -58,7 +58,10 @@ kin_checks:
     status: missed
   - id: examples_published
     status: missed
-  - id: documentation_present
+  - id: portal_present
+    status: missed
+    detail: pointer liveness 0.0
+  - id: api_reference_present
     status: missed
     detail: pointer liveness 0.0
   - id: getting_started_present
@@ -71,8 +74,14 @@ kin_checks:
     status: missed
   - id: cli_present
     status: missed
+  - id: support_channel
+    status: missed
+    detail: pointer liveness 0.0
   - id: plans_multiple
     status: missed
+  - id: sign_up_present
+    status: missed
+    detail: pointer liveness 0.0
   - id: upsert_outcome_discriminator
     status: missed
   - id: upsert_alternate_key
