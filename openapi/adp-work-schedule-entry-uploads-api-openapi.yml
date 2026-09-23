@@ -1,0 +1,964 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Vamshi Krishna Guduru
+    email: VAMSHI.KRISHNA.GUDURU@ADP.COM
+  description: The Time and Labor Management (TLM) Import Work Schedule Application Programming Interface (API) is used to upload employees' schedule entry data. This is data that comprises of an Employee Position's Schedule. For more information please refer to the Time and Labor Management (TLM) Import Work Schedule API Guide for ADP Workforce Now guide.
+  title: Work Schedule Import Management Work Schedule Entry Uploads…
+  version: 2.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/time/work-schedule-entry-uploads/v2/work-schedule-entry-uploads-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: time/work-schedule-entry-uploads/v2/work-schedule-entry-uploads
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Work Schedule Entry Uploads
+  description: Import Schedules for multiple employees
+paths:
+  /time/v1/work-schedule-entry/upload-requests:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: scheduleManagement
+      functionCode: workScheduleUpload
+      serviceCode: timeLaborManagement
+      serviceCategoryCode: time
+      canonicalName: Work Schedule Entries Upload APIs
+    post:
+      summary: Schedule Entry Import
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSTimeSchedule
+        - MobileADMTimeSchedule
+        canonicalUri: time/timeLaborManagement/scheduleManagement/workScheduleUpload/scheduleEntry.upload
+        operationCode: scheduleEntry.upload
+        operationId: a3f56fcb-8125-4c1f-bba9-b45bd2494bb1
+        roleCodes:
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 10. Add end date time lessthan start date time
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/10._Add_end_date_time_lessthan_start_date_time_Custom_Example_scheduleEntry.upload_202_353031.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/10._Add_end_date_time_lessthan_start_date_time_Custom_Example_scheduleEntry.upload_request_31907.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 23. Change end date time less than start date time
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/23._Change_end_date_time_less_than_start_date_time_Custom_Example_scheduleEntry.upload_202_353107.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/23._Change_end_date_time_less_than_start_date_time_Custom_Example_scheduleEntry.upload_request_31961.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 22. Change invalid AOID
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/22._Change_invalid_AOID_Custom_Example_scheduleEntry.upload_202_353106.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/22._Change_invalid_AOID_Custom_Example_scheduleEntry.upload_request_31960.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 33. Remove invalid AOID
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/33._Remove_invalid_AOID_Custom_Example_scheduleEntry.upload_202_353118.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/33._Remove_invalid_AOID_Custom_Example_scheduleEntry.upload_request_31971.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 4. Add schedule entry MA shift in day
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/4._Add_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_202_353000.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/4._Add_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_request_31889.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 19. Change schedule entry SA same shift in multidays
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/19._Change_schedule_entry_SA_same_shift_in_multidays_Custom_Example_scheduleEntry.upload_202_353103.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/19._Change_schedule_entry_SA_same_shift_in_multidays_Custom_Example_scheduleEntry.upload_request_31957.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 3. Add schedule entry SA same shift
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/3._Add_schedule_entry_SA_same_shift_Custom_Example_scheduleEntry.upload_202_352999.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/3._Add_schedule_entry_SA_same_shift_Custom_Example_scheduleEntry.upload_request_31888.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 18. Change schedule entry SA multishifts in day
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/18._Change_schedule_entry_SA_multishifts_in_day_Custom_Example_scheduleEntry.upload_202_353102.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/18._Change_schedule_entry_SA_multishifts_in_day_Custom_Example_scheduleEntry.upload_request_31956.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 5. Add schedule entry MA shift multi days
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/5._Add_schedule_entry_MA_shift_multi_days_Custom_Example_scheduleEntry.upload_202_353001.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/5._Add_schedule_entry_MA_shift_multi_days_Custom_Example_scheduleEntry.upload_request_31890.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 30. Remove schedule entry MA shift multi days
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/30._Remove_schedule_entry_MA_shift_multi_days_Custom_Example_scheduleEntry.upload_202_353115.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/30._Remove_schedule_entry_MA_shift_multi_days_Custom_Example_scheduleEntry.upload_request_31968.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 15. Add invalid modification type code
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/15._Add_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_202_353099.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/15._Add_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_request_31953.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 12. Add overlapping with existing shift
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/12._Add_overlapping_with_existing_shift_Custom_Example_scheduleEntry.upload_202_353095.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/12._Add_overlapping_with_existing_shift_Custom_Example_scheduleEntry.upload_request_31950.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 34. Remove invalid modification type code
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/34._Remove_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_202_353119.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/34._Remove_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_request_31972.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 20. Change schedule entry MA shift multidays
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/20._Change_schedule_entry_MA_shift_multidays_Custom_Example_scheduleEntry.upload_202_353104.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/20._Change_schedule_entry_MA_shift_multidays_Custom_Example_scheduleEntry.upload_request_31958.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 26. Change text more than 512 char
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/26._Change_text_more_than_512_char_Custom_Example_scheduleEntry.upload_202_353110.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/26._Change_text_more_than_512_char_Custom_Example_scheduleEntry.upload_request_31964.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 28. Remove schedule entry SA multishifts in day
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/28._Remove_schedule_entry_SA_multishifts_in_day_Custom_Example_scheduleEntry.upload_202_353113.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/28._Remove_schedule_entry_SA_multishifts_in_day_Custom_Example_scheduleEntry.upload_request_31966.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 25. Change invalid modification type code
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/25._Change_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_202_353109.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/25._Change_invalid_modification_type_code_Custom_Example_scheduleEntry.upload_request_31963.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 17. Change schedule entry MA shift in day
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/17._Change_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_202_353101.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/17._Change_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_request_31955.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 8. Add invalid AOID
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/8._Add_invalid_AOID_Custom_Example_scheduleEntry.upload_202_353011.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/8._Add_invalid_AOID_Custom_Example_scheduleEntry.upload_request_31897.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 21. Change external ReferenceID empty
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/21._Change_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_202_353105.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/21._Change_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_request_31959.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 27. Remove schedule entry MA shift in day
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/27._Remove_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_202_353112.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/27._Remove_schedule_entry_MA_shift_in_day_Custom_Example_scheduleEntry.upload_request_31965.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 11. Add date time more than 24 hours
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/11._Add_date_time_more_than_24_hours_Custom_Example_scheduleEntry.upload_202_353094.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/11._Add_date_time_more_than_24_hours_Custom_Example_scheduleEntry.upload_request_31949.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 24. Change invalid paycode and dept
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/24._Change_invalid_paycode_and_dept_Custom_Example_scheduleEntry.upload_202_353108.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/24._Change_invalid_paycode_and_dept_Custom_Example_scheduleEntry.upload_request_31962.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 29. Remove schedule entry SA same shift in multi days
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/29._Remove_schedule_entry_SA_same_shift_in_multi_days_Custom_Example_scheduleEntry.upload_202_353114.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/29._Remove_schedule_entry_SA_same_shift_in_multi_days_Custom_Example_scheduleEntry.upload_request_31967.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 9. Add end date lessthan start date
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/9._Add_end_date_lessthan_start_date_Custom_Example_scheduleEntry.upload_202_353029.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/9._Add_end_date_lessthan_start_date_Custom_Example_scheduleEntry.upload_request_31905.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 7. Add external ReferenceID empty
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/7._Add_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_202_353007.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/7._Add_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_request_31895.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 13. Add invalid paycode
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/13._Add_invalid_paycode_Custom_Example_scheduleEntry.upload_202_353096.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/13._Add_invalid_paycode_Custom_Example_scheduleEntry.upload_request_31951.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 32. Remove external ReferenceID empty
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/32._Remove_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_202_353117.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/32._Remove_external_ReferenceID_empty_Custom_Example_scheduleEntry.upload_request_31970.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 6. Add existing external ReferenceID
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/6._Add_existing_external_ReferenceID_Custom_Example_scheduleEntry.upload_202_353002.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/6._Add_existing_external_ReferenceID_Custom_Example_scheduleEntry.upload_request_31891.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 16. Add text more than 512 char
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/16._Add_text_more_than_512_char_Custom_Example_scheduleEntry.upload_202_353100.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/16._Add_text_more_than_512_char_Custom_Example_scheduleEntry.upload_request_31954.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 1. Add schedule entry multi shifts
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/1._Add_schedule_entry_multi_shifts_Custom_Example_scheduleEntry.upload_202_352949.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/1._Add_schedule_entry_multi_shifts_Custom_Example_scheduleEntry.upload_request_31869.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 14. Add invalid department
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/14._Add_invalid_department_Custom_Example_scheduleEntry.upload_202_353097.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/14._Add_invalid_department_Custom_Example_scheduleEntry.upload_request_31952.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 2. Add schedule entry SA multi shifts
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/2._Add_schedule_entry_SA_multi_shifts_Custom_Example_scheduleEntry.upload_202_352951.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/2._Add_schedule_entry_SA_multi_shifts_Custom_Example_scheduleEntry.upload_request_31870.json
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 31. Remove external ReferenceID invalid
+          responses:
+          - code: '202'
+            description: Accepted
+            content:
+              application/json:
+                externalValue: ./examples/31._Remove_external_ReferenceID_invalid_Custom_Example_scheduleEntry.upload_202_353116.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/31._Remove_external_ReferenceID_invalid_Custom_Example_scheduleEntry.upload_request_31969.json
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: true
+      requestBody:
+        description: It includes the input data that is required to submit the work schesule entry import request.
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/work-schedule-entry-uploads-schema_v01.json
+        required: true
+      responses:
+        '404':
+          $ref: '#/components/responses/404'
+        '400':
+          $ref: '#/components/responses/400'
+        '202':
+          $ref: '#/components/responses/202'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+      operationId: a3f56fcb-8125-4c1f-bba9-b45bd2494bb1
+      description: Market Place User can use this endpoint to upload the Work Schedule Entries
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: practitioner,administrator.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application. This header is required, if the actor (service consumer) is an application and it's internal to ADP.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Work Schedule Entry Uploads
+  /time/v1/work-schedule-entry/upload-requests/{request-id}/confirm-message:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: scheduleManagement
+      functionCode: workScheduleUpload
+      serviceCode: timeLaborManagement
+      serviceCategoryCode: time
+      canonicalName: Work Schedule Entry Upload APIs
+    get:
+      summary: Get Status fo Work Schedule Entries Upload
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSTimeSchedule
+        - MobileADMTimeSchedule
+        canonicalUri: time/timeLaborManagement/scheduleManagement/workScheduleUpload/scheduleEntry.upload.status.read
+        operationCode: scheduleEntry.upload.status.read
+        operationId: 9d2dca88-786c-4577-91e8-0d42431c31b8
+        roleCodes:
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 1. Get status schedule entry
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: 'GET-status-endDateTime-lessthan-startDate
+
+              Time'
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353016.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-enddate-lessthan-startdate
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353014.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-Overlapping-with-existing-shift
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353018.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-Invalid-Department
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353020.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-DateTime-morethan24
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353017.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-Invalid-Paycode
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353019.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: Used to get the status of imported work schedule, which is added in the previous call.
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_352950.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-Text-morethan512
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353021.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: GET-status-Invalid-AOID
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353012.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: Get status external reference ID empty
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353010.json
+          - headers:
+              Last-Modified: ''
+              ETag: ''
+              Content-Language: ''
+              Content-Type: ''
+            code: '200'
+            description: 'GET-status-existing-external
+
+              ReferenceID'
+            content:
+              application/json:
+                externalValue: ./examples/1._Get_status_schedule_entry_Custom_Example_scheduleEntry.upload.status.read_200_353005.json
+          description: New description scenario for the consumer of this API to better understand this example.
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: true
+      responses:
+        '404':
+          $ref: '#/components/responses/404'
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+      operationId: 9d2dca88-786c-4577-91e8-0d42431c31b8
+      description: Marketplace user can access this endpoint to get the status of uploaded work schedule entry import
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: request-id
+        description: Confirmation ID for processing work schedule list
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: practitioner,administrator.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application. This header is required, if the actor (service consumer) is an application and it's internal to ADP.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Work Schedule Entry Uploads
+components:
+  responses:
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '202':
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '401':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: Time
+  specId: 8899b9d0-13b6-4147-85fd-9d3115f8abc1
+  canonicalSpecId: 620ed9f0-c168-44cb-af02-a25560ef71f5
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  filename: work-schedule-entry-uploads-swagger_v1-merged.json
+  serviceProviderId: ezLM
+  resourcePath: time/work-schedule-entry-uploads/v1
+  libraryVersion: ''
+  businessRules:
+  - rule: R0.1
+    ruleTitle: 'This API follow async Polling Pattern. Consumer sends ''Prefer'' header with ''async-respond''.  Service Provider responds back with 202 and link header.  The consumer uses the link provided in ''link'' header to make a subsequent call to get status on request. '
+    visibilityCodes:
+    - internal
+    - external
+  testCaseCollection:
+    example:
+      href: WFNCG_WorkScheduleImportManagement.postman_collection.json
+    description: WFNCG_WorkScheduleImportManagement.postman_collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

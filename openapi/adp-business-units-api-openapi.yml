@@ -1,0 +1,788 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Mary Arem
+    email: MARY.AREM@ADP.COM
+  description: The Validation Tables Cost Number APIs are used to Add or Retrieve Cost Number codes to/from the Validation Tables setup of an ADP WorkForce Now client.For more information refer Validation Tables Job Title API Guide For ADP WFN. For more information refer Validation Tables Cost Number API Guide For ADP WFN. For more information refer Validation table Location Guide for ADP WFN
+  title: Client Data - Validation Tables Business Units API
+  version: 1.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hcm/validation-tables/v1/validation-tables-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hcm/validation-tables/v1/validation-tables
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Business Units
+  description: Validation Table - Business Units
+paths:
+  /hcm/v1/validation-tables/business-units:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: Validation Tables
+    post:
+      summary: Add new code to a validation table - Business Units
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileADMClientMasterData
+        - MobilePSSClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/businessUnits.item.add
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: businessUnits.item.add
+        operationId: df5e396a-5bed-4ea5-a268-82c9cb34cc44
+        roleCodes:
+        - administrator
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 4. Add business unit without nameCode
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit without nameCode.
+
+
+              "message": "/nameCode/code is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/4._Add_business_unit_without_nameCode_Custom_Example_businessUnits.item.add_400_353008.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/4._Add_business_unit_without_nameCode_Custom_Example_businessUnits.item.add_request_31896.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 11. Adding business unit with invalid country code
+          responses:
+          - code: '500'
+            description: 'Adds business unit  with invalid country code.
+
+
+              "developerMessage": "could not find any system type for code:C1A and category :T_SYS_TRANS_ISO_COUNTRY and userLocale:en_US",'
+            content:
+              application/json:
+                externalValue: ./examples/11._Adding_business_unit_with_invalid_country_code_Custom_Example_businessUnits.item.add_500_353026.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/11._Adding_business_unit_with_invalid_country_code_Custom_Example_businessUnits.item.add_request_31904.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 8. Add business unit with invalid postal code
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit with invalid postal code.
+
+
+              "message": "Enter a valid U.S. Zip code.",'
+            content:
+              application/json:
+                externalValue: ./examples/8._Add_business_unit_with_invalid_postal_code_Custom_Example_businessUnits.item.add_400_353023.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/8._Add_business_unit_with_invalid_postal_code_Custom_Example_businessUnits.item.add_request_31901.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 6. Add business unit with invalid email
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit with invalid email.
+
+
+              Email must be in the format name@company.domain and may not contain diacritical symbols. Examples of diacritical symbols include the accent (á), caret (^), tilde (~), and so forth.",
+
+              "contextType": "GLOBAL",
+
+              "errorCode": "eMailAddressFormat"
+
+              }
+
+              ],'
+            content:
+              application/json:
+                externalValue: ./examples/6._Add_business_unit_with_invalid_email_Custom_Example_businessUnits.item.add_400_353015.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/6._Add_business_unit_with_invalid_email_Custom_Example_businessUnits.item.add_request_31899.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 1. Adding Business Unit codes to Validation Tables
+          responses:
+          - code: '200'
+            description: Adds Business unit code into validation table.
+            content:
+              application/json:
+                externalValue: ./examples/1._Adding_Business_Unit_codes_to_Validation_Tables_Custom_Example_businessUnits.item.add_200_353003.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/1._Adding_Business_Unit_codes_to_Validation_Tables_Custom_Example_businessUnits.item.add_request_31892.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>w description scenario for the consumer of this API to better understand this example.
+          name: 7. Add business unit without postal code
+          responses:
+          - headers:
+              Content-Language: ''
+              Last-Modified: ''
+            code: '400'
+            description: 'Adds business unit without postal code.
+
+
+              "message": "Zip Code is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/7._Add_business_unit_without_postal_code_Custom_Example_businessUnits.item.add_400_353022.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>w description scenario for the consumer of this API to better understand this example.
+          content:
+            application/json:
+              externalValue: ./examples/7._Add_business_unit_without_postal_code_Custom_Example_businessUnits.item.add_request_31900.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 9. Add business unit without line one
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit without line one.
+
+
+              "message": "Address Line 1, City, State/Province and Zip Code/Postal Code are required when the country is the U.S. or Canada.",'
+            content:
+              application/json:
+                externalValue: ./examples/9._Add_business_unit_without_line_one_Custom_Example_businessUnits.item.add_400_353024.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/9._Add_business_unit_without_line_one_Custom_Example_businessUnits.item.add_request_31902.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 2. Adding an already existing business unit into validation table
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds an already existing business unit into validation table.
+
+
+              "message": "This record already exists. Enter a unique value.",'
+            content:
+              application/json:
+                externalValue: ./examples/2._Adding_an_already_existing_business_unit_into_validation_table_Custom_Example_businessUnits.item.add_400_353004.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/2._Adding_an_already_existing_business_unit_into_validation_table_Custom_Example_businessUnits.item.add_request_31893.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 10. Add business unit without landline/name code
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit without landline/name code.
+
+
+              "message": "/landlines/nameCode/code is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/10._Add_business_unit_without_landline/name_code_Custom_Example_businessUnits.item.add_400_353025.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/10._Add_business_unit_without_landline/name_code_Custom_Example_businessUnits.item.add_request_31903.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 5. Adding business unit code with invalid subdivision code
+          responses:
+          - headers:
+              Content-Language: ''
+              Last-Modified: ''
+            code: '400'
+            description: 'Adds business unit code with invalid subdivision code.
+
+
+              "message": "Label not found, missing following key: label_personal_state_province is invalid.",'
+            content:
+              application/json:
+                externalValue: ./examples/5._Adding_business_unit_code_with_invalid_subdivision_code_Custom_Example_businessUnits.item.add_400_353013.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/5._Adding_business_unit_code_with_invalid_subdivision_code_Custom_Example_businessUnits.item.add_request_31898.json
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 3. Add business unit with invalid tagCode
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adds business unit with invalid tagCode.
+
+
+              "message": "customTags/tagCode Auxiliary 1 is invalid.",'
+            content:
+              application/json:
+                externalValue: ./examples/3._Add_business_unit_with_invalid_tagCode_Custom_Example_businessUnits.item.add_400_353006.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          content:
+            application/json:
+              externalValue: ./examples/3._Add_business_unit_with_invalid_tagCode_Custom_Example_businessUnits.item.add_request_31894.json
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      requestBody:
+        description: To add a new code to the validation table
+        content:
+          application/json: {}
+        required: true
+      responses:
+        '200':
+          description: This code is used for a successful request.
+          content:
+            application/json: {}
+        '201':
+          headers:
+            Retry-After:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Location:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+      operationId: df5e396a-5bed-4ea5-a268-82c9cb34cc44
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Business Units
+    get:
+      summary: List of tems in the validation table - Business Units
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileADMClientMasterData
+        - MobilePSSClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/businessUnits.items.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: businessUnits.items.read
+        operationId: 630627bc-5fb0-4fc0-bae8-392eb27e3272
+        roleCodes:
+        - administrator
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>Retrieves all business unit codes setup for the client</span>
+          name: Retrieving business units codes from validation tables
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: "Retrieves GET meta information based on subdivisionCode filter.\nSupported country codes:'US' and 'CA'\n These codes can be retrieved by calling \"/hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post\""
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_business_units_codes_from_validation_tables_Provide_Example_businessUnits.items.read_200_44778.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: Retrieving list of business unit codes setup for a client.
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_business_units_codes_from_validation_tables_Custom_Example_businessUnits.items.read_200_353027.json
+          - headers:
+              Last-Modified: ''
+              ETag: ''
+              Content-Language: ''
+              Content-Type: ''
+            code: '200'
+            description: Retrieves all business unit codes setup for the client
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_business_units_codes_from_validation_tables_Provide_Example_businessUnits.items.read_200_44776.json
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              The parameters validationTableType=Business Units&method=get are mandatory.
+
+              This meta does not include subdivision codeList filter.
+
+              This response can be retrieved by
+
+              below API:
+
+              /hcm/v1/validation-tables/meta?validationTableType=Business Units&method=get'
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_business_units_codes_from_validation_tables_Custom_Example_businessUnits.items.read_200_353028.json
+          - code: '404'
+            description: "Not Found.When an invalid API URI is used.\n\"applicationCode\": {\n            \"code\": 404,\n            \"typeCode\": \"error\",\n            \"message\": \"Canonical URI Not Found\"\n        }\nMake sure you pass valid URI :\n/hcm/v1/validation-tables/business-units"
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_business_units_codes_from_validation_tables_Provide_Example_businessUnits.items.read_404_44780.json
+          description: <span>Retrieves all business unit codes setup for the client</span>
+          parameters:
+            $filter: ?validationTableType=Business Units&method=get
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/validation-table-response-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '412':
+          $ref: '#/components/responses/412'
+        '500':
+          $ref: '#/components/responses/500'
+        '204':
+          $ref: '#/components/responses/204'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: List of items in validation table - Business Units
+      operationId: 630627bc-5fb0-4fc0-bae8-392eb27e3272
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $search
+        description: The OData $search parameter MUST be used to specify the search criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $top
+        description: The OData $top parameter MUST be used to specify the maximum number criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: version
+        description: The version of the associated validation table
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $skip
+        description: The OData $skip parameter MUST be used to specify the start sequence criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Business Units
+components:
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '204':
+      headers:
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: No Content
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: HCM
+  specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d
+  canonicalSpecId: eb89f93f-c521-43b3-a24a-604d17cd31b9
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: validation-tables-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hcm/validation-tables/v1
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: WFN_CG_ClientData_Validation_Tables.postman_collection.zip
+    description: Client Data Validation Tables Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

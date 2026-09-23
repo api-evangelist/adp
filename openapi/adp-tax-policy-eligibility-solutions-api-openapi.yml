@@ -1,0 +1,559 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Lavanya Appa
+    email: LAVANYA.APPA@ADP.COM
+  description: APIs to retrieve statutory policies combined with applicable ADP codes and statutory data for specified locations. For more information please refer to the Tax Policy Eligibility Solutions API Guide for ADP Workforce Now guide.
+  title: (PI) Tax Policy Eligibility Solutions API
+  version: 1.0.1
+  x-apievangelist-source: https://api-library-marketplace.adp.com/pr-offrg-pi/payroll/tax-policy-eligibility-solutions/v1/tax-policy-eligibility-solutions-swagger_v2-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: payroll/tax-policy-eligibility-solutions/v1/tax-policy-eligibility-solutions
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Tax Policy Eligibility Solutions
+  description: APIs to retrieve statutory policies with applicable ADP codes and statutory data
+paths:
+  /payroll/v2/tax-policy-eligibility-solutions/read-request:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: payrollPolicyManagement
+      functionCode: taxPolicyEligibilityManagement
+      serviceCode: payrollManagment
+      serviceCategoryCode: payroll
+      canonicalName: Tax Policy Eligibility Solutions (PI)
+    post:
+      summary: Retrieve statutory policies for provided addresses
+      x-adpOperationData:
+        asaFeatureCodes:
+        - MobilePSSTaxPolicyEligibility
+        - MobileADMTaxPolicyEligibility
+        canonicalUri: payroll/payrollManagment/payrollPolicyManagement/taxPolicyEligibilityManagement/taxPolicyEligibility.read
+        operationCode: taxPolicyEligibility.read
+        roleCodes:
+        - practitioner
+        - administrator
+        scenarios:
+        - summary: This API returns a list of all Stat Policy Instances for a given primary workedIn, primary livedIn and worked in addresses
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Different Primary WorkedIn, LivedIn and WorkedIn States Mapped
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Request was successful
+            content:
+              application/json:
+                externalValue: ./examples/Different_Primary_WorkedIn,_LivedIn_and_WorkedIn_States_Mapped_Custom_Example_taxPolicyEligibility.read_200_615992.json
+          description: This API returns a list of all Stat Policy Instances for a given primary workedIn, primary livedIn and worked in addresses
+          content:
+            application/json:
+              externalValue: ./examples/Different_Primary_WorkedIn,_LivedIn_and_WorkedIn_States_Mapped_Custom_Example_taxPolicyEligibility.read_request_59037.json
+        - summary: workedIn or primaryWorkedIn required.
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Sending only Livedin State
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Sending_only_Livedin_State_Custom_Example_taxPolicyEligibility.read_400_615996.json
+          description: workedIn or primaryWorkedIn required.
+          content:
+            application/json:
+              externalValue: ./examples/Sending_only_Livedin_State_Custom_Example_taxPolicyEligibility.read_request_59041.json
+        - summary: Send only one livedIn address per request.
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: 'Error Condition: More than one livedIn address submitted.'
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Error_Condition:_More_than_one_livedIn_address_submitted._Custom_Example_taxPolicyEligibility.read_400_615999.json
+          description: Send only one livedIn address per request.
+          content:
+            application/json:
+              externalValue: ./examples/Error_Condition:_More_than_one_livedIn_address_submitted._Custom_Example_taxPolicyEligibility.read_request_59044.json
+        - summary: WorkedIn state defaults to primaryWorkedIn state
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Sending Only Primary Workedin and LivedIn
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Request was successful
+            content:
+              application/json:
+                externalValue: ./examples/Sending_Only_Primary_Workedin_and_LivedIn_Custom_Example_taxPolicyEligibility.read_200_615993.json
+          description: WorkedIn state defaults to primaryWorkedIn state
+          content:
+            application/json:
+              externalValue: ./examples/Sending_Only_Primary_Workedin_and_LivedIn_Custom_Example_taxPolicyEligibility.read_request_59038.json
+        - summary: PrimaryWorkedIn defaults to workedIn
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Sending Only Livedin and Workedin States
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Request was successful
+            content:
+              application/json:
+                externalValue: ./examples/Sending_Only_Livedin_and_Workedin_States_Custom_Example_taxPolicyEligibility.read_200_615994.json
+          description: PrimaryWorkedIn defaults to workedIn
+          content:
+            application/json:
+              externalValue: ./examples/Sending_Only_Livedin_and_Workedin_States_Custom_Example_taxPolicyEligibility.read_request_59039.json
+        - summary: Ensure countryCode, livedIn, and workedIn/primaryWorkedIn are correct.
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: 'Error conditions : Required fields missing or invalid.'
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Error_conditions_:_Required_fields_missing_or_invalid._Custom_Example_taxPolicyEligibility.read_400_615997.json
+          description: Ensure countryCode, livedIn, and workedIn/primaryWorkedIn are correct.
+          content:
+            application/json:
+              externalValue: ./examples/Error_conditions_:_Required_fields_missing_or_invalid._Custom_Example_taxPolicyEligibility.read_request_59042.json
+        - summary: Livedin State is required.&nbsp;
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Sending only Workedin State
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Sending_only_Workedin_State_Custom_Example_taxPolicyEligibility.read_400_615995.json
+          description: Livedin State is required.&nbsp;
+          content:
+            application/json:
+              externalValue: ./examples/Sending_only_Workedin_State_Custom_Example_taxPolicyEligibility.read_request_59040.json
+        - summary: This API returns a list of all Stat Policy Instances for a given primary workedIn, primary livedIn and worked in addresses<br><br>
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: Primary WorkedIn, LivedIn and WorkedIn States Mapped
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Request was successful
+            content:
+              application/json:
+                externalValue: ./examples/Primary_WorkedIn,_LivedIn_and_WorkedIn_States_Mapped_Custom_Example_taxPolicyEligibility.read_200_615991.json
+          description: This API returns a list of all Stat Policy Instances for a given primary workedIn, primary livedIn and worked in addresses<br><br>
+          content:
+            application/json:
+              externalValue: ./examples/Primary_WorkedIn,_LivedIn_and_WorkedIn_States_Mapped_Custom_Example_taxPolicyEligibility.read_request_59036.json
+        - summary: Send only one primaryWorkedIn address per request.
+          headers:
+            orgoid: G3G7ZG5NFFZ0NF2A
+            roleCode: practitioner
+          name: 'Error Condition: More than one primaryWorkedIn address submitted.'
+          responses:
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request
+            content:
+              application/json:
+                externalValue: ./examples/Error_Condition:_More_than_one_primaryWorkedIn_address_submitted._Custom_Example_taxPolicyEligibility.read_400_615998.json
+          description: Send only one primaryWorkedIn address per request.
+          content:
+            application/json:
+              externalValue: ./examples/Error_Condition:_More_than_one_primaryWorkedIn_address_submitted._Custom_Example_taxPolicyEligibility.read_request_59043.json
+        globalViewDevPortalIndicator: false
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        operationDataAttributeSensitivitylevels:
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/address
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/taxJurisdictions/jurisdictionCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/address/subdivisionCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/policies/reportingCodes/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/resourceMessages/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/address/typeCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/taxJurisdictions/jurisdictionLevelCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/address/subdivisionCode2/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /taxPolicyEligibilitySolutions/statutoryLocations/locations/taxJurisdictions/jurisdictionTypeCode/name
+          dataSensitivityLevelCode: 2
+        operationId: 897ff391-d33b-4e5f-a111-fff989362d9b
+        performAuthIndicator: true
+        dataSensitivityLevelCode: 2
+        visibilityCodes:
+        - internal
+      requestBody:
+        description: Inputs for tax poliy eligibility solutions retrieval
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/tax-policy-eligibility-solutions-request-schema_v2.json
+        required: true
+      responses:
+        '200':
+          headers:
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Request was successful
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/tax-policy-eligibility-solutions-response-schema_v2.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '204':
+          $ref: '#/components/responses/204'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: 897ff391-d33b-4e5f-a111-fff989362d9b
+      parameters:
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Tax Policy Eligibility Solutions
+components:
+  responses:
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '412':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '503':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '403':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '204':
+      headers:
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: No Content
+    '500':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+x-adpSpecData:
+  domain: Payroll
+  specId: 794634ff-54b8-4653-967b-c5a274e086d7
+  canonicalSpecId: 30e1275c-4907-43f0-b92f-c0ba161b8b82
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  filename: tax-policy-eligibility-solutions-swagger_v2-merged.json
+  serviceProviderId: Pi
+  resourcePath: payroll/tax-policy-eligibility-solutions/v2
+  libraryVersion: ''
+  businessRules:
+  - rule: workedIn
+    ruleTitle: In US locationEligibilityInputs workedIn and/or primaryWorkedIn are required
+    visibilityCodes:
+    - internal
+  - rule: locationEligibilityInputs
+    ruleTitle: In US locationEligibilityInputs primaryWorkedIn and livedIn may have only one value, workedIn may have multiple values
+    visibilityCodes:
+    - internal
+  - rule: primaryWorkedIn
+    ruleTitle: In US locationEligibilityInputs primaryWorkedIn is required if workedIn has multiple values
+    visibilityCodes:
+    - internal
+  - rule: livedIn
+    ruleTitle: In US locationEligibilityInputs livedIn is required
+    visibilityCodes:
+    - internal
+  - rule: statutoryClassificationCode
+    ruleTitle: 'The following code values are currently supported in US: workedIn, livedIn, primaryWorkedIn'
+    visibilityCodes:
+    - internal
+  testCaseCollection:
+    example:
+      href: TaxPolicyEligibilitySolutions.postman_collection.json
+    description: Tax Policy Eligibility Solutions
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

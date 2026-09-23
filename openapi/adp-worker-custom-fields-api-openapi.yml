@@ -1,0 +1,569 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Mary Arem
+    email: MARY.AREM@ADP.COM
+  description: The Validation Tables Cost Number APIs are used to Add or Retrieve Cost Number codes to/from the Validation Tables setup of an ADP WorkForce Now client.For more information refer Validation Tables Job Title API Guide For ADP WFN. For more information refer Validation Tables Cost Number API Guide For ADP WFN. For more information refer Validation table Location Guide for ADP WFN
+  title: Client Data - Validation Tables Worker Custom Fields API
+  version: 1.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hcm/validation-tables/v1/validation-tables-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hcm/validation-tables/v1/validation-tables
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Worker Custom Fields
+  description: Validation Table Worker Custom Fields
+paths:
+  /hcm/v1/validation-tables/worker-custom-fields:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: Validation Tables
+    get:
+      summary: List of tems in the validation table - Worker Custom Fields
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileADMClientMasterData
+        - MobilePSSClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/workerCustomFields.items.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: workerCustomFields.items.read
+        operationId: 459f75ae-eeda-433f-998f-a7b7b1b7c3b0
+        roleCodes:
+        - administrator
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>List of the Employment custom fields.</span>
+          name: Retrieve collection of Employment custom fields
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Retrieve_collection_of_Employment_custom_fields_Custom_Example_workerCustomFields.items.read_200_495141.json
+          description: <span>List of the Employment custom fields.</span>
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/validation-table-response-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '412':
+          $ref: '#/components/responses/412'
+        '500':
+          $ref: '#/components/responses/500'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '304':
+          $ref: '#/components/responses/304'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: List of items in Woerker Custom Fields - Worker Custom Fields
+      operationId: 459f75ae-eeda-433f-998f-a7b7b1b7c3b0
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $search
+        description: The OData $search parameter MUST be used to specify the search criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $top
+        description: The OData $top parameter MUST be used to specify the maximum number criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $skip
+        description: The OData $skip parameter MUST be used to specify the start sequence criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: version
+        description: The version of the associated validation table
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Worker Custom Fields
+  /hcm/v1/validation-tables/worker-custom-fields/{item-id}:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: Validation Tables
+    get:
+      summary: Specific record in the custom fields - Worker Custom Fields
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSClientMasterData
+        - MobileADMClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/workerCustomFields.item.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: workerCustomFields.item.read
+        operationId: 99dc8cd0-d392-433b-9215-bbe8d6d3a308
+        roleCodes:
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: Get details of a Employment Custom Field including any code values configured.
+          name: Scenario 1
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_Custom_Example_workerCustomFields.item.read_200_495140.json
+          description: Get details of a Employment Custom Field including any code values configured.
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/validation-table-response-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '412':
+          $ref: '#/components/responses/412'
+        '500':
+          $ref: '#/components/responses/500'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: Details of a specific record in the Custom Fields
+      operationId: 99dc8cd0-d392-433b-9215-bbe8d6d3a308
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: item-id
+        description: The unique identifier of the item in a validation table
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Worker Custom Fields
+components:
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: HCM
+  specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d
+  canonicalSpecId: eb89f93f-c521-43b3-a24a-604d17cd31b9
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: validation-tables-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hcm/validation-tables/v1
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: WFN_CG_ClientData_Validation_Tables.postman_collection.zip
+    description: Client Data Validation Tables Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

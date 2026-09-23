@@ -1,0 +1,696 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Vamshi Krishna Guduru
+    email: VAMSHI.KRISHNA.GUDURU@ADP.COM
+  description: WFN custom codelists. Please note, that 'Custom' denotes the SOR specific content, rather than a custom structure. The codelist schemas (v3 - legacy and v4 - nextgen) are shared across all standard and custom codelists.
+  title: WFN Custom Codelists Payroll Codelists API
+  version: 3.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hcm/wfn-codelists/v3/wfn-codelists-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hcm/wfn-codelists/v3/wfn-codelists
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Payroll Codelists
+  description: Custom codelists applicable to the WFN APIs across payroll management features
+paths:
+  /codelists/payroll/v4/payroll-instruction-management/{code-type}/wfn/{version-id}:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: payrollInstructionManagement
+      functionCode: codeListViewing
+      serviceCode: payrollManagement
+      serviceCategoryCode: payroll
+      canonicalName: WFN Payroll Instruction Management Codelists
+    get:
+      summary: Payroll Instruction Management Codelists
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSUSTaxProfiles
+        - MobileESSUSTaxProfiles
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: payroll/payrollManagement/payrollInstructionManagement/codeListViewing/codelist.read
+        operationCode: codelist.read
+        operationId: 9dc55d26-8b3b-4a26-beb8-7895823894cb
+        roleCodes:
+        - practitioner
+        - employee
+        performAuthIndicator: true
+        scenarios:
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: Scenario 1 - Data Control API
+          responses:
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of Local Tax Service Jurisdictions.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263534.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of SUI/SDI Jurisdictions.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263538.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Specifies the list of school districts for a specified company code.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263531.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of State Marital Statuses.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263539.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of State Tax Jurisdictions.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263537.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Specifies the list of local tax jurisdictions for the New York metro area.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263533.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of legal entity
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263544.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: The currency code list returns the the list of Currencies available for selection and it's not client configurable.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263535.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: The client practitioner can manage data controls in the ADP Workforce Now user interface (UI) by selecting Setup > Tools > Validation Tables > Payroll > Other Pay Settings > Data Control. Data Control codes identify employees for special reasons.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Provide_Example_codelist.read_200_49665.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Get company code lists
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263540.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of Canada Tax Province Codes.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263542.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Specifies the list of clocks for a specified company code.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263530.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Get pay group codelists
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263541.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: Specifies the list of local tax jurisdictions.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263532.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of labor Profile
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263543.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of Wage Entities.
+            content:
+              application/json:
+                externalValue: ./examples/Scenario_1_-_Data_Control_API_Custom_Example_codelist.read_200_263536.json
+          description: New description scenario for the consumer of this API to better understand this example.
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      responses:
+        '200':
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Request the list of all available payroll instruction management codes that the requester is authorized to view
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/code-list-schema_v04.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: Request the list of all available codes based on the {code-type} value that are possible duirng the payroll instruction management in WFN
+      operationId: 9dc55d26-8b3b-4a26-beb8-7895823894cb
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: code-type
+        description: The type of the associated codelist
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: version-id
+        description: The version of the associated codelist
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_user
+        description: 'SiteMinder user ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_user: JJohns@Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Payroll Codelists
+  /codelists/payroll/v3/payroll-instruction-management/{code-type}/WFN/{version-id}:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: payrollInstructionManagement
+      functionCode: codeListViewing
+      serviceCode: payrollManagement
+      serviceCategoryCode: payroll
+      canonicalName: WFN Payroll Instruction Management Codelists
+    get:
+      summary: Payroll Instruction Management Codelists
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileESSUSTaxProfiles
+        - MobilePSSUSTaxProfiles
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: payroll/payrollManagement/payrollInstructionManagement/codeListViewing/codelist.read
+        operationCode: codelist.read
+        operationId: 10046edd-d049-4c19-b7a7-a8aad1002c83
+        roleCodes:
+        - employee
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: Deduction Configuration Code List
+          responses:
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of deduction codes setup for a Company Code under the specified category.
+            content:
+              application/json:
+                externalValue: ./examples/Deduction_Configuration_Code_List_Custom_Example_codelist.read_200_263582.json
+          - headers:
+              Cache-Control: unset
+              ETag: unset
+              Content-Type: unset
+            code: '200'
+            description: List of deduction codes configured for a specified company code.
+            content:
+              application/json:
+                externalValue: ./examples/Deduction_Configuration_Code_List_Custom_Example_codelist.read_200_263581.json
+          description: New description scenario for the consumer of this API to better understand this example.
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      responses:
+        '200':
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Request the list of all available payroll instruction management codes that the requester is authorized to view
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/code-list-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: Request the list of all available codes based on the {code-type} value that are possible duirng the payroll instruction management in WFN
+      operationId: 10046edd-d049-4c19-b7a7-a8aad1002c83
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: version-id
+        description: The version of the associated codelist
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: path
+        name: code-type
+        description: The type of the associated codelist
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_user
+        description: 'SiteMinder user ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_user: JJohns@Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Payroll Codelists
+components:
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: HCM
+  specId: 864ade6d-103f-438c-806c-cecf5f5e8bf4
+  canonicalSpecId: 6b80d349-f5c3-4603-ab97-d2b98060a15e
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: wfn-codelists-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hcm/sor-codelists/v1
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: WFN_CG_Custom_Codelists.postman_collection.json
+    description: ' WFN Custom Codelists Postman Collection'
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

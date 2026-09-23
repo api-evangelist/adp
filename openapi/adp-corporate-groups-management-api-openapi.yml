@@ -1,0 +1,771 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Donald Vargo
+    email: Donald.vargo@gmail.com
+  description: Experience APIs to manage the HR Worker Profile implementation by WorkforceNow.
+  title: Worker Profile Experience (WFN) Corporate Groups Management…
+  version: 1.0.3
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hr/hr-worker-profiles/v1/hr-worker-profiles-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hr/hr-worker-profiles/v1/hr-worker-profiles
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Corporate Groups Management
+  description: Corporate Groups data APIs
+paths:
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/corporate-groups:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: corporateGroupManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    post:
+      summary: Create Corporate Group
+      x-adpOperationData:
+        asaFeatureCodes:
+        - WfnExperienceMSSWorkerProfile
+        - WfnExperienceESSWorkerProfile
+        - WfnExperiencePSSWorkerProfile
+        canonicalUri: hr/wfnService/workerProfileManagement/corporateGroupManagement/corporateGroups.add
+        operationCode: corporateGroups.add
+        roleCodes:
+        - manager
+        - employee
+        - practitioner
+        scenarios:
+        - summary: <p>This use case describes on how to use Corporate Group API to update corporate group details like</p><ul><li>Corporate Group Change Reasons</li><li>Home Department number</li><li>Home Cost number</li><li>Business Unit</li><li>Union Code</li><li>Union Local</li><li>Location</li><li><span>Benefits Eligibility Class</span></li></ul><p>The change is made with respect to an effective Date. For example, the changes are effective from the date which you provide in the <strong>effectiveDate</strong> field of the API request payload provided in this use case.&nbsp;</p>
+          name: 1. Successfully update an employees corporate groups.
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/1._Successfully_update_an_employees_corporate_groups._Provide_Example_corporateGroups.add_200_44413.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: "Updating corporate group details with blank reasonCode.\n\"userMessage\": {\n                            \"messageTxt\": \"Label not found, missing following key: errors.required\"\n                        }"
+            content:
+              application/json:
+                externalValue: ./examples/1._Successfully_update_an_employees_corporate_groups._Provide_Example_corporateGroups.add_400_94143.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: "Updating corporate group details without changing any field value.\n\"userMessage\": {\n                            \"messageTxt\": \"You cannot save this record unless you change a field value.\"\n                        }"
+            content:
+              application/json:
+                externalValue: ./examples/1._Successfully_update_an_employees_corporate_groups._Provide_Example_corporateGroups.add_400_94141.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: "Updating corporate group details with invalid reasonCode.\n \"userMessage\": {\n                            \"messageTxt\": \"/eventReasonCode is invalid.\"\n                        }"
+            content:
+              application/json:
+                externalValue: ./examples/1._Successfully_update_an_employees_corporate_groups._Provide_Example_corporateGroups.add_400_94142.json
+          description: <p>This use case describes on how to use Corporate Group API to update corporate group details like</p><ul><li>Corporate Group Change Reasons</li><li>Home Department number</li><li>Home Cost number</li><li>Business Unit</li><li>Union Code</li><li>Union Local</li><li>Location</li><li><span>Benefits Eligibility Class</span></li></ul><p>The change is made with respect to an effective Date. For example, the changes are effective from the date which you provide in the <strong>effectiveDate</strong> field of the API request payload provided in this use case.&nbsp;</p>
+          content:
+            application/json:
+              externalValue: ./examples/1._Successfully_update_an_employees_corporate_groups._Provide_Example_corporateGroups.add_request_3857.json
+        - summary: <span>Updating corporate group details without&nbsp;</span><strong>homeWorkLocation</strong><span>.</span>
+          name: 2. Updating corporate group details without homeWorkLocation.
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of Updating corporate group details without homeWorkLocation.
+            content:
+              application/json:
+                externalValue: ./examples/2._Updating_corporate_group_details_without_homeWorkLocation._Provide_Example_corporateGroups.add_200_94138.json
+          description: <span>Updating corporate group details without&nbsp;</span><strong>homeWorkLocation</strong><span>.</span>
+          content:
+            application/json:
+              externalValue: ./examples/2._Updating_corporate_group_details_without_homeWorkLocation._Provide_Example_corporateGroups.add_request_8645.json
+        - summary: Update Home Work Location
+          name: 5. Update Home Work Location
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of updating home work location
+            content:
+              application/json:
+                externalValue: ./examples/5._Update_Home_Work_Location_Custom_Example_corporateGroups.add_200_557725.json
+          description: Update Home Work Location
+          content:
+            application/json:
+              externalValue: ./examples/5._Update_Home_Work_Location_Custom_Example_corporateGroups.add_request_53094.json
+        - summary: <span>Updating corporate group details without&nbsp;</span><strong>laborUnion&nbsp;</strong><span>(Union Code).</span>
+          name: 3. Updating corporate group details without laborUnion (Union Code).
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of Updating corporate group details without laborUnion (Union Code).
+            content:
+              application/json:
+                externalValue: ./examples/3._Updating_corporate_group_details_without_laborUnion_(Union_Code)._Provide_Example_corporateGroups.add_200_94139.json
+          description: <span>Updating corporate group details without&nbsp;</span><strong>laborUnion&nbsp;</strong><span>(Union Code).</span>
+          content:
+            application/json:
+              externalValue: ./examples/3._Updating_corporate_group_details_without_laborUnion_(Union_Code)._Provide_Example_corporateGroups.add_request_8646.json
+        - summary: <span>Updating corporate group details without&nbsp;</span><strong>bargainingUnit&nbsp;</strong><span>(Union Code).</span>
+          name: 4. Updating corporate group details without bargainingUnit (Union Code).
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of Updating corporate group details without bargainingUnit (Union Code).
+            content:
+              application/json:
+                externalValue: ./examples/4._Updating_corporate_group_details_without_bargainingUnit_(Union_Code)._Provide_Example_corporateGroups.add_200_94140.json
+          description: <span>Updating corporate group details without&nbsp;</span><strong>bargainingUnit&nbsp;</strong><span>(Union Code).</span>
+          content:
+            application/json:
+              externalValue: ./examples/4._Updating_corporate_group_details_without_bargainingUnit_(Union_Code)._Provide_Example_corporateGroups.add_request_8647.json
+        globalViewDevPortalIndicator: false
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationId: bc3c3561-d1ae-4849-a04f-6c900cfb2196
+        performAuthIndicator: true
+        dataSensitivityLevelCode: 2
+        visibilityCodes:
+        - internal
+      requestBody:
+        description: Representation of the corporate groups for a given work assignment
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/corporate-groups-request-schema_v03.json
+      responses:
+        '200':
+          headers:
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/corporate-groups-request-schema_v03.json
+        '201':
+          headers:
+            Retry-After:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Location:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+      description: Create a corporate group for a given work assignment
+      operationId: bc3c3561-d1ae-4849-a04f-6c900cfb2196
+      parameters:
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Accept-Language
+        description: Accept-Language:language|*;q=qvalue. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Corporate Groups Management
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/corporate-groups/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: corporateGroupManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    get:
+      summary: Read additional Corporate Groups add/update metadata
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - WfnExperienceMSSWorkerProfile
+        - WfnExperiencePSSWorkerProfile
+        - WfnExperienceESSWorkerProfile
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: hr/wfnService/workerProfileManagement/corporateGroupManagement/corporateGroup.change.meta.read
+        operationCode: corporateGroup.change.meta.read
+        operationId: 60becb9d-9f51-49b4-a5c4-086c581625ec
+        performAuthIndicator: true
+        roleCodes:
+        - manager
+        - practitioner
+        - employee
+        scenarios:
+        - summary: '<span style=''color: rgb(23, 43, 77); font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;''>Returns metadata information, including relevant code lists.</span>'
+          name: Returns metadata information.
+          responses:
+          - headers:
+              ADP-CorrelationID: unset
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+            code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Returns_metadata_information._Provide_Example_corporateGroup.change.meta.read_200_44412.json
+          description: '<span style=''color: rgb(23, 43, 77); font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;''>Returns metadata information, including relevant code lists.</span>'
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            ADP-CorrelationID:
+              schema:
+                type: string
+              description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/corporate-groups-meta-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      operationId: 60becb9d-9f51-49b4-a5c4-086c581625ec
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Accept-Language
+        description: Accept-Language:language|*;q=qvalue. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion to limit the resultset
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Corporate Groups Management
+components:
+  responses:
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '503':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '403':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '413':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '401':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '500':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+x-adpSpecData:
+  domain: HR
+  specId: 5afa1b81-07cb-4310-86dd-3532c436e9f1
+  canonicalSpecId: 45cc5e01-8ce8-49c0-b9a3-91e761406665
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: hr-worker-profiles-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hr/worker-profile-management-wfn/v1
+  libraryVersion: ''
+  eventNotifications:
+  - eventCode: worker.workAssignment.homeWorkLocation.change.eventNotify.subscribe
+    example:
+      href: worker.workAssignment.homeWorkLocation.change-event-response.json
+  - eventCode: additionalRemunerations.added.eventNotify.subscribe
+    example:
+      href: ADD-Additional-Remunerations-Get-EventNotification-http-200-response.json
+  - eventCode: reportableBenefits.changed.eventNotify.subscribe
+    example:
+      href: Change-reportable-benefits-event-notification-http-200-response.json
+  - eventCode: timeOffRequest.review.eventNotify
+    example:
+      href: timeOffRequest.event-notification-Approved-status.json
+  - eventCode: additionalRemunerations.changed.eventNotify.subscribe
+    example:
+      href: UPDATE-Additional-Remuneration-GET-EventNotification-http-200-response.json
+  - eventCode: corporateGroup.changed.eventNotify.subscribe
+    example:
+      href: corporateGroup.changed.eventNotify.json
+  - eventCode: additionalRemunerations.removed.eventNotify
+    example:
+      href: Remove-Additional-Remunerations-GET-EventNotification-http-200-response.json
+  - eventCode: timeOffRequest.cancel.eventNotify
+    example:
+      href: timeOffRequest.event-notifications-Cancel-status.json
+  - eventCode: additionalRemunerations.removed.eventNotify.subscribe
+    example:
+      href: Remove-Additional-Remunerations-GET-EventNotification-http-200-response.json
+  - eventCode: reportableBenefits.added.eventNotify.subscribe
+    example:
+      href: Add-reportable-benefit-event-notification-http-200-response.json
+  testCaseCollection:
+    example:
+      href: WFN_CG_Worker_Profile_Experience.postman_collection.zip
+    description: Worker Profile Experience Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

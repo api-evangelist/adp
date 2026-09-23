@@ -1,0 +1,1568 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Lavanya Appa
+    email: LAVANYA.APPA@ADP.COM
+  description: The U.S.
+  title: US Tax Profiles US Local Tax Profile - Add Local Income Tax…
+  version: 1.0.5
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/payroll/us-tax-profiles/v1/us-tax-profiles-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: payroll/us-tax-profiles/v1/us-tax-profiles
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: US Local Tax Profile - Add Local Income Tax Instruction
+  description: APIs to manage the addition of a US tax profile local income tax instruction
+paths:
+  /events/payroll/v1/us-tax-profile.local-income-tax-instruction.add/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: payrollInstructionManagement
+      functionCode: taxProfileManagement
+      serviceCode: payrollManagement
+      serviceCategoryCode: payroll
+      canonicalName: US Tax Profiles
+    get:
+      summary: US Local Tax Profile - Add Local Income Tax Instruction Meta
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileESSUSTaxProfiles
+        - MobilePSSUSTaxProfiles
+        canonicalUri: payroll/payrollManagement/payrollInstructionManagement/taxProfileManagement/usTaxProfileLocalIncomeTaxInstruction.add.meta.read
+        operationCode: usTaxProfileLocalIncomeTaxInstruction.add.meta.read
+        operationId: 7702fba4-1c78-471c-a5b1-8ddc0ad65c13
+        roleCodes:
+        - employee
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>Meta details for Local tax ADD POST call.</span>
+          name: Meta details for Local tax ADD POST call.
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: ''
+              Cache-Control: ''
+              sm_transactionid: ''
+              ETag: ''
+              ADP-Acting-SessionID: ''
+              Content-Type: ''
+            code: '200'
+            description: Meta details for Local tax ADD POST call.
+            content:
+              application/json:
+                externalValue: ./examples/Meta_details_for_Local_tax_ADD_POST_call._Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add.meta.read_200_352918.json
+          description: <span>Meta details for Local tax ADD POST call.</span>
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: true
+      responses:
+        '200':
+          headers:
+            ADP-Acting-Session-Expires:
+              schema:
+                type: string
+              description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            sm_transactionid:
+              schema:
+                type: string
+              description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ADP-Acting-SessionID:
+              schema:
+                type: string
+              description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Returns an event metadata
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/events_payroll.worker.usTaxProfile.localIncomeTaxInstruction.add_meta_schema_v01_00_rev001.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+        '504':
+          $ref: '#/components/responses/504'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      operationId: 7702fba4-1c78-471c-a5b1-8ddc0ad65c13
+      description: Returns an event metadata
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SORContext
+        description: Context within an SOR that the call should be routed to
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_serversessionid
+        description: 'SiteMinder session ID.   Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_serversessionid: SoFpy8UMyhtXY6YsEumvXJbznFA='
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion.  Please refer RESTful Web API Design Standard document for this query parameter specification details.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_user
+        description: 'SiteMinder user ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_user: JJohns@Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Act-As-OrgOID
+        description: Org OID for organization of the associate that is the actor in 'Acting As' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to - usuall injected by the API proxy, with few exceptions
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Act-As-AssociateOID
+        description: Associate OID of the associate that is the actor in 'Acting As' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-On-Behalf-Of-OrgOID
+        description: Org OID for organization of the associate that is the actor in ' On Behalf Of' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application.  This header is required, if the actor (Service Consumer) is an application or the actor is internal to ADP
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: en-US
+          type: string
+        in: header
+        name: Accept-Language
+        description: 'Accept-Language'' '': '' ( language | ''*'' ) ['';'' ''q'' ''=''qvalue]. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_auth_level
+        description: 'SiteMinder autorization level.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_auth_level: 10'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_transactionid
+        description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Acting-SessionID
+        description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_userdn
+        description: 'SiteMinder user LDAP distinguished name.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_userdn: uid=JJohns@Abc,ou=Users,o=Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ISI
+          type: string
+        in: header
+        name: realm
+        description: The identity management realm, e.g. ISI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-On-Behalf-Of-AssociateOID
+        description: Associate OID for the associate that is the actor in ' On Behalf Of' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SORUri
+        description: Actual Uri within the SOR
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - US Local Tax Profile - Add Local Income Tax Instruction
+  /events/payroll/v1/us-tax-profile.local-income-tax-instruction.add:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: payrollInstructionManagement
+      functionCode: taxProfileManagement
+      serviceCode: payrollManagement
+      serviceCategoryCode: payroll
+      canonicalName: US Tax Profiles
+    post:
+      summary: US Local Tax Profile - Add Local Income Tax Instruction
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileESSUSTaxProfiles
+        - MobilePSSUSTaxProfiles
+        canonicalUri: payroll/payrollManagement/payrollInstructionManagement/taxProfileManagement/usTaxProfileLocalIncomeTaxInstruction.add
+        operationCode: usTaxProfileLocalIncomeTaxInstruction.add
+        operationId: 1c845c87-7593-44f9-bd4d-f46e622b51d8
+        roleCodes:
+        - employee
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>Add a Local Tax Code to a workers Profile based on Worked in localities.</span>
+          name: 1. Adding a Local Tax Code to a workers Profile based on Worked in localities.
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Response of adding a Local Tax Code to a workers Profile based on Worked in localities.
+            content:
+              application/json:
+                externalValue: ./examples/1._Adding_a_Local_Tax_Code_to_a_workers_Profile_based_on_Worked_in_localities._Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_200_352915.json
+          description: <span>Add a Local Tax Code to a workers Profile based on Worked in localities.</span>
+          content:
+            application/json:
+              externalValue: ./examples/1._Adding_a_Local_Tax_Code_to_a_workers_Profile_based_on_Worked_in_localities._Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_request_31860.json
+        - summary: This usecase is for&nbsp;<span>Unsuccessful response with an invalid&nbsp;</span><strong>Payroll File Number</strong>
+          name: 4. Unsuccessful response with an invalid Payroll File Number
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '400'
+            description: "Bad Request\n\n \"userMessage\": {\n                            \"messageTxt\": \"Matching Error, itemID or payrollFileNumber/payrollGroupCode is invalid.\"\n                        }"
+            content:
+              application/json:
+                externalValue: ./examples/4._Unsuccessful_response_with_an_invalid_Payroll_File_Number_Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_400_602204.json
+          description: This usecase is for&nbsp;<span>Unsuccessful response with an invalid&nbsp;</span><strong>Payroll File Number</strong>
+          content:
+            application/json:
+              externalValue: ./examples/4._Unsuccessful_response_with_an_invalid_Payroll_File_Number_Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_request_57372.json
+        - summary: Adding a Local Tax Code to a workers Profile based on Lived in localities
+          name: 2. Adding a Local Tax Code to a workers Profile based on Lived in localities
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Response of Adding a Local Tax Code to a workers Profile based on Lived in localities
+            content:
+              application/json:
+                externalValue: ./examples/2._Adding_a_Local_Tax_Code_to_a_workers_Profile_based_on_Lived_in_localities_Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_200_352916.json
+          description: Adding a Local Tax Code to a workers Profile based on Lived in localities
+          content:
+            application/json:
+              externalValue: ./examples/2._Adding_a_Local_Tax_Code_to_a_workers_Profile_based_on_Lived_in_localities_Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_request_31861.json
+        - summary: <span>Unsuccessful response with an invalid Associate Object ID (</span><strong>AOID</strong><span>).</span>
+          name: 3. Unsuccessful response with an invalid Associate Object ID (AOID).
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '400'
+            description: Unsuccessful response with an invalid Associate Object ID (AOID).
+            content:
+              application/json:
+                externalValue: ./examples/3._Unsuccessful_response_with_an_invalid_Associate_Object_ID_(AOID)._Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_400_352917.json
+          description: <span>Unsuccessful response with an invalid Associate Object ID (</span><strong>AOID</strong><span>).</span>
+          content:
+            application/json:
+              externalValue: ./examples/3._Unsuccessful_response_with_an_invalid_Associate_Object_ID_(AOID)._Custom_Example_usTaxProfileLocalIncomeTaxInstruction.add_request_31862.json
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: true
+      requestBody:
+        description: posted contents
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/events_payroll.worker.usTaxProfile.localIncomeTaxInstruction.add_schema_v01_00_rev001.json
+        required: true
+      responses:
+        '200':
+          headers:
+            ADP-Acting-Session-Expires:
+              schema:
+                type: string
+              description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            sm_transactionid:
+              schema:
+                type: string
+              description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ADP-Acting-SessionID:
+              schema:
+                type: string
+              description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Add a new US tax profile local income tax instruction
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/events_payroll.worker.usTaxProfile.localIncomeTaxInstruction.add_schema_v01_00_rev001.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '412':
+          $ref: '#/components/responses/412'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '405':
+          $ref: '#/components/responses/405'
+        '504':
+          $ref: '#/components/responses/504'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      operationId: 1c845c87-7593-44f9-bd4d-f46e622b51d8
+      description: Add a new US tax profile local income tax instruction
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SORContext
+        description: Context within an SOR that the call should be routed to
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_serversessionid
+        description: 'SiteMinder session ID.   Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_serversessionid: SoFpy8UMyhtXY6YsEumvXJbznFA='
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_user
+        description: 'SiteMinder user ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_user: JJohns@Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Act-As-OrgOID
+        description: Org OID for organization of the associate that is the actor in 'Acting As' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to - usuall injected by the API proxy, with few exceptions
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Act-As-AssociateOID
+        description: Associate OID of the associate that is the actor in 'Acting As' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-On-Behalf-Of-OrgOID
+        description: Org OID for organization of the associate that is the actor in ' On Behalf Of' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ConsumerAppOID
+        description: Identifier for the service consumer application.  This header is required, if the actor (Service Consumer) is an application or the actor is internal to ADP
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: en-US
+          type: string
+        in: header
+        name: Accept-Language
+        description: 'Accept-Language'' '': '' ( language | ''*'' ) ['';'' ''q'' ''=''qvalue]. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_auth_level
+        description: 'SiteMinder autorization level.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_auth_level: 10'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_transactionid
+        description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Acting-SessionID
+        description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: sm_userdn
+        description: 'SiteMinder user LDAP distinguished name.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_userdn: uid=JJohns@Abc,ou=Users,o=Abc'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ISI
+          type: string
+        in: header
+        name: realm
+        description: The identity management realm, e.g. ISI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-On-Behalf-Of-AssociateOID
+        description: Associate OID for the associate that is the actor in ' On Behalf Of' as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SORUri
+        description: Actual Uri within the SOR
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - US Local Tax Profile - Add Local Income Tax Instruction
+components:
+  responses:
+    '404':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '405':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '503':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '403':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '304':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Modified
+    '413':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '400':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '429':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '500':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '412':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '406':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '504':
+      description: Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+x-adpSpecData:
+  domain: Payroll
+  specId: ed7d4a9c-44a1-4ac8-9bcc-20c180f05c6c
+  canonicalSpecId: 7e5e38e8-bf27-4b0f-bff4-a2e53f849ea4
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: us-tax-profiles-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: payroll/us-tax-profiles/v1
+  libraryVersion: ''
+  businessRules:
+  - rule: R8.1
+    ruleTitle: An event notification includes the /data/eventContext and /data/output objects.
+    visibilityCodes:
+    - internal
+  - rule: R2.1
+    ruleTitle: If the event is declared by an actor then the creationDateTime is the date time when the first call is made to the System of Record.
+    visibilityCodes:
+    - internal
+  - rule: R8.3
+    ruleTitle: 'A self link is included in the /data/links with 1 links item with the following 2 properties: rel=”self” href=”/events-notifications/{domain}/v1/{event-name}/{eventID}”'
+    visibilityCodes:
+    - internal
+  - rule: R4.0
+    ruleTitle: All envelope data is set by the System of Record (e.g. event.ID, creationDateTime, recordDateTime, event.status.code, etc…
+    visibilityCodes:
+    - internal
+  - rule: R6.0
+    ruleTitle: An event instance may be created by a System of record for a user to complete. This event instance will have a event.status.code=created
+    visibilityCodes:
+    - internal
+  - rule: R8.2
+    ruleTitle: An event notification does not include the transform or meta objects.
+    visibilityCodes:
+    - internal
+  - rule: R2.3
+    ruleTitle: effectiveDateTime is the date that the event is effective from a business perspective
+    visibilityCodes:
+    - internal
+  - rule: R5.0
+    ruleTitle: Meta returns the context rules for each data section
+    visibilityCodes:
+    - internal
+  - rule: R3.1
+    ruleTitle: /data/input is optional.  Input communicates data that is needed to complete recording the event instance.  An example is a benefits.enroll event.  The input communicates the benefitOfferings (the choices) that the user has to make which are communicated in the transform.
+    visibilityCodes:
+    - internal
+  - rule: R11.1
+    ruleTitle: '''associateoid'' in the uri pattern should match the ''associateoid'' in the request header parameter'
+    visibilityCodes:
+    - internal
+  - rule: R0.2
+    ruleTitle: If request contains ADP-On-Behalf-Of-OrgOID, ADP-On-Behalf-Of-AssociateOID and ADP-Acting-SessionID header values, SOR MUST use ADP-On-Behalf-Of-AssociateOID header value to authorize the data requested, NOT associateoid header value to authorize the data.
+    visibilityCodes:
+    - internal
+  - rule: R3.4
+    ruleTitle: /data/output may be provided during the recording of the event showing the intermediary results.
+    visibilityCodes:
+    - internal
+  - rule: R0.3
+    ruleTitle: 'For Act-As or On-Behalf-Of requests, header ''Cache-Control: no-store'' MUST be set to indicate on server or on UI the response object SHOULD not be cached'
+    visibilityCodes:
+    - internal
+  - rule: R15.1
+    ruleTitle: 'An SOR may return an HTTP 503 when they are down for a scheduled maintenance or for an outage.If an SOR is planning a maintenance window then they should plan on having an end point available to return the 503 with a standard confirmMessage.  The confirmMessage will contain a message stating the date and timeframe that the maintenance window is for.The SOR should return the Retry-After response-header field with the Date and Time when they expect the system to be available.  E.g. §  Retry-After: Fri, 31 Dec 1999 23:59:59 GMT  This does not need to be handled dynamically.  They can set the time that their maintenance window ends.'
+    visibilityCodes:
+    - internal
+  - rule: R1.0
+    ruleTitle: event.id is generated once an event is recorded with a event.status.code=complete
+    visibilityCodes:
+    - internal
+  - rule: R6.1
+    ruleTitle: An event instance which is being “worked on” has an event.status.code=inprogress
+    visibilityCodes:
+    - internal
+  - rule: R2.4
+    ruleTitle: If there is no effective date from a business perspective then the effective date should be set equal to the record date time.
+    visibilityCodes:
+    - internal
+  - rule: R2.2
+    ruleTitle: The recordDateTime is the date time which the event is recorded in the system of record with an event.status.code=complete
+    visibilityCodes:
+    - internal
+  - rule: R3.5
+    ruleTitle: A complete event has /data/eventContext and /data/output
+    visibilityCodes:
+    - internal
+  - rule: R3.3
+    ruleTitle: /data/output communicates the result of the event instance.
+    visibilityCodes:
+    - internal
+  - rule: R5.1
+    ruleTitle: The only information that must be valued in the meta for the events header are the standard codelist references for priorityCode, eventStatusCode, and serviceCategoryCode
+    visibilityCodes:
+    - internal
+  - rule: R3.0
+    ruleTitle: /data/schemaContext communicates the keys and properties that relate the event instance to a concrete concept (e.g. associate).
+    visibilityCodes:
+    - internal
+  - rule: R2.0
+    ruleTitle: creationDateTime is the date that the event is created.  If a System of Record creates the event instance then it sets the creationDateTime.
+    visibilityCodes:
+    - internal
+  - rule: R0.1
+    ruleTitle: If request contains ADP-Act-As-OrgOID, ADP-Act-As-AssociateOID and ADP-Acting-SessionID header values, SOR MUST use ADP-Act-As-AssociateOID header value to authorize the data requested, NOT associateoid header value to authorize the data.
+    visibilityCodes:
+    - internal
+  - rule: R3.6
+    ruleTitle: An event which is being recorded includes the /data/eventContext and the /data/transform during the composition phase (i.e. recording of the event).
+    visibilityCodes:
+    - internal
+  - rule: R6.2
+    ruleTitle: An event instance which has been recorded has an event.status.code=complete
+    visibilityCodes:
+    - internal
+  - rule: R3.2
+    ruleTitle: /data/transform is only used during the recording of the event.  The transform is the data that is provided by a user/machine to complete the recording of the event.
+    visibilityCodes:
+    - internal
+  testCaseCollection:
+    example:
+      href: Us_Tax_Profile_postmanCollectionWFN.zip
+    description: US Tax Profile Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

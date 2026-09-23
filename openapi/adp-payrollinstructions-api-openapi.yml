@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: ADP Payroll Organizations Payroll Instructions API
+  title: ADP Payroll Payroll Instructions API
   description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
   version: 1.0.0
   contact:
@@ -118,6 +118,17 @@ components:
           type: string
           format: date
           example: '2026-01-15'
+    AmountValue:
+      type: object
+      properties:
+        amountValue:
+          type: number
+          format: double
+          example: 42.5
+        currencyCode:
+          type: string
+          default: USD
+          example: example_value
     PayrollInstructionRequest:
       type: object
       required:
@@ -145,17 +156,6 @@ components:
         description:
           type: string
           example: A sample description.
-    AmountValue:
-      type: object
-      properties:
-        amountValue:
-          type: number
-          format: double
-          example: 42.5
-        currencyCode:
-          type: string
-          default: USD
-          example: example_value
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

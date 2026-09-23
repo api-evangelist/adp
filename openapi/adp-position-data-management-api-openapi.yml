@@ -1,0 +1,1219 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Donald Vargo
+    email: Donald.vargo@gmail.com
+  description: Experience APIs to manage the HR Worker Profile implementation by WorkforceNow.
+  title: Worker Profile Experience (WFN) Position Data Management API
+  version: 1.0.3
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hr/hr-worker-profiles/v1/hr-worker-profiles-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hr/hr-worker-profiles/v1/hr-worker-profiles
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Position Data Management
+  description: Work assignment data APIs, e.g. business communication, employment custom fields, etc.
+paths:
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/worker-dates:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: workerDatesManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    put:
+      summary: Update worker dates
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - WfnExperiencePSSWorkerProfile
+        - WfnExperienceMSSWorkerProfile
+        - WfnExperienceESSWorkerProfile
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: hr/wfnService/workerProfileManagement/workerDatesManagement/workerDates.change
+        operationCode: workerDates.change
+        operationId: bfc3e27b-7f49-4daa-b0ab-751d51576f5a
+        performAuthIndicator: true
+        roleCodes:
+        - practitioner
+        - manager
+        - employee
+        scenarios:
+        - summary: <span>Updates the Worker Dates.</span>
+          name: Updating the Worker Dates.
+          responses:
+          - headers:
+              Retry-After: unset
+              Location: unset
+            code: '201'
+            description: Response of Updating the Worker Dates.
+            content:
+              application/json:
+                externalValue: ./examples/Updating_the_Worker_Dates._Custom_Example_workerDates.change_201_353092.json
+          description: <span>Updates the Worker Dates.</span>
+          content:
+            application/json:
+              externalValue: ./examples/Updating_the_Worker_Dates._Custom_Example_workerDates.change_request_31947.json
+        visibilityCodes:
+        - internal
+        globalViewDevPortalIndicator: false
+      requestBody:
+        description: Representation of the worker dates for a given work assignment
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/worker-dates-request-schema_v01.json
+      responses:
+        '201':
+          headers:
+            Retry-After:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Location:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      description: Operation to update worker dates
+      operationId: bfc3e27b-7f49-4daa-b0ab-751d51576f5a
+      parameters:
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Position Data Management
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/primary-assignment:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: workAssignmentManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    put:
+      summary: Update worker's primary assignment
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - WfnExperienceESSWorkerProfile
+        - WfnExperienceMSSWorkerProfile
+        - WfnExperiencePSSWorkerProfile
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: hr/wfnService/workerProfileManagement/workAssignmentManagement/primaryAssignment.change
+        operationCode: primaryAssignment.change
+        operationId: cb6150c7-47d0-41f5-8adb-3298dbb02755
+        performAuthIndicator: true
+        roleCodes:
+        - employee
+        - manager
+        - practitioner
+        scenarios:
+        - summary: <p><span>Supply an asOfDate as a parameter to choose the effective date of the primary position change.</span></p><p><span><span>/hr/worker-profile/v1/workers/{AOID}/work-assignments/</span><span>{assignment-id}</span><span>/primary-assignment?asOfDate=2021-10-20</span></span></p>
+          name: 2. Supplying an asOfDate as a parameter to choose the effective date of the primary position change
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: 'Successful response of Supplying an asOfDate as a parameter to choose the effective date of the primary position change.
+
+
+              /hr/worker-profile/v1/workers/{AOID}/work-assignments/{assignment-id}/primary-assignment?asOfDate=2021-10-20'
+            content:
+              application/json:
+                externalValue: ./examples/2._Supplying_an_asOfDate_as_a_parameter_to_choose_the_effective_date_of_the_primary_position_change_Provide_Example_primaryAssignment.change_200_44532.json
+          description: <p><span>Supply an asOfDate as a parameter to choose the effective date of the primary position change.</span></p><p><span><span>/hr/worker-profile/v1/workers/{AOID}/work-assignments/</span><span>{assignment-id}</span><span>/primary-assignment?asOfDate=2021-10-20</span></span></p>
+        - summary: <span>Change the primary position for an terminated employee</span>
+          name: 3. Changing the primary position for an terminated employee
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of Change the primary position for an terminated employee
+            content:
+              application/json:
+                externalValue: ./examples/3._Changing_the_primary_position_for_an_terminated_employee_Provide_Example_primaryAssignment.change_200_44533.json
+          description: <span>Change the primary position for an terminated employee</span>
+        - summary: <p><span>Updates the primary assignment of an employee when an employee having more than one position.</span></p><p><span><strong>Note:</strong></span></p><ul><li><span><strong>{associateoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</span></li><li><span><span><strong>{</strong><strong>assignment-id}</strong><span>&nbsp;can be obtained by making hr/v2/workers API call.</span><br><span>Use&nbsp;</span><strong>itemID</strong><span>&nbsp;under&nbsp;</span><strong>workAssignments</strong><span>&nbsp;of the API response.</span></span></span></li></ul>
+          name: 1. Updating the primary assignment of an employee when an employee having more than one position
+          responses:
+          - headers:
+              ETag: unset
+              Content-Language: unset
+              Last-Modified: unset
+            code: '200'
+            description: Successful response of Updating the primary assignment of an employee when an employee having more than one position
+            content:
+              application/json:
+                externalValue: ./examples/1._Updating_the_primary_assignment_of_an_employee_when_an_employee_having_more_than_one_position_Provide_Example_primaryAssignment.change_200_44531.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: Bad Request of Changing the primary position for an invalid employee AOID
+            content:
+              application/json:
+                externalValue: ./examples/1._Updating_the_primary_assignment_of_an_employee_when_an_employee_having_more_than_one_position_Provide_Example_primaryAssignment.change_400_44534.json
+          description: <p><span>Updates the primary assignment of an employee when an employee having more than one position.</span></p><p><span><strong>Note:</strong></span></p><ul><li><span><strong>{associateoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</span></li><li><span><span><strong>{</strong><strong>assignment-id}</strong><span>&nbsp;can be obtained by making hr/v2/workers API call.</span><br><span>Use&nbsp;</span><strong>itemID</strong><span>&nbsp;under&nbsp;</span><strong>workAssignments</strong><span>&nbsp;of the API response.</span></span></span></li></ul>
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      requestBody:
+        description: ''
+        required: false
+        content:
+          ? ''
+          : {}
+      responses:
+        '200':
+          headers:
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/worker-primary-assignment-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      description: Operation to change worker's primary assignment
+      operationId: cb6150c7-47d0-41f5-8adb-3298dbb02755
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: asOfDate
+        description: Indicative data as of this effective date. System date will be considered if as-of-date is not provided.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Position Data Management
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/work-schedules:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: workScheduleManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    get:
+      summary: Read work schedule
+      x-adpOperationData:
+        canonicalUri: hr/wfnService/workerProfileManagement/workScheduleManagement/workSchedules.read
+        operationCode: workSchedules.read
+        roleCodes:
+        - manager
+        - practitioner
+        - employee
+        scenarios:
+        - summary: <p>Retrieve all work schedules for employees. </p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+          name: Retrieve all work schedules for employees
+          responses:
+          - code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Retrieve_all_work_schedules_for_employees_response_workSchedules.read_200_619146.json
+          description: <p>Retrieve all work schedules for employees. </p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+        - summary: Retrieve the work schedule for employees for a given date &nbsp;by appending ?asOfDate=YYYY-MM-DD in request URI
+          name: Retrieve the work schedule for employees for a given date
+          responses:
+          - code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Retrieve_the_work_schedule_for_employees_for_a_given_date_response_workSchedules.read_200_619148.json
+          description: Retrieve the work schedule for employees for a given date &nbsp;by appending ?asOfDate=YYYY-MM-DD in request URI
+        globalViewDevPortalIndicator: true
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationDataAttributeSensitivitylevels:
+        - dataSensitivityCategory: NA
+          attributeName: /workSchedules/standardHours/unitCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /workSchedules/workerTypeCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /workSchedules/payCycleCode/name
+          dataSensitivityLevelCode: 2
+        operationId: b2e4f8a1-3c7d-4e9b-a5f2-8d1c6e0b4a37
+        performAuthIndicator: true
+        dataSensitivityLevelCode: 2
+        visibilityCodes:
+        - internal
+        - external
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/work-schedules-response-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      description: Operation to read work schedule details for a given work assignment, e.g. scheduled hours, pay cycle, and full-time/part-time indicator
+      operationId: b2e4f8a1-3c7d-4e9b-a5f2-8d1c6e0b4a37
+      parameters:
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Accept-Language
+        description: Accept-Language:language|*;q=qvalue. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion to limit the resultset
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Position Data Management
+    put:
+      summary: Update work schedule
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: hr/wfnService/workerProfileManagement/workScheduleManagement/workSchedule.change
+        operationCode: workSchedule.change
+        operationId: c9f3a2e7-5d8b-4f1c-b6e4-2a0d7c9f5e83
+        performAuthIndicator: true
+        roleCodes:
+        - employee
+        - manager
+        - practitioner
+        scenarios:
+        - summary: <p>Update the Work Schedule for employees for a specified date by setting Blank Scheduled Hours and Blank Hours Period if necessary.</p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+          name: Update the Work Schedule for employees for a specified date by setting Blank Scheduled Hours and Blank Hours Period if necessary
+          responses:
+          - code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Update_the_Work_Schedule_for_employees_for_a_specified_date_by_setting_Blank_Scheduled_Hours_and_Blank_Hours_Period_if_necessary_response_workSchedule.change_200_619145.json
+          description: <p>Update the Work Schedule for employees for a specified date by setting Blank Scheduled Hours and Blank Hours Period if necessary.</p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+          content:
+            application/json:
+              externalValue: ./examples/Update_the_Work_Schedule_for_employees_for_a_specified_date_by_setting_Blank_Scheduled_Hours_and_Blank_Hours_Period_if_necessary_WorkScheduleUpdateExample_workSchedule.change_request_59959.json
+        - summary: <p>Update the Work Schedule for employees for a given date</p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+          name: Update the Work Schedule for employees for a given date
+          responses:
+          - code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Update_the_Work_Schedule_for_employees_for_a_given_date_response_workSchedule.change_200_619144.json
+          description: <p>Update the Work Schedule for employees for a given date</p><p><strong>Note:</strong></p><ul><li><strong>{aoid}&nbsp;</strong>can be obtained by making&nbsp;hr/v2/workers API call.</li><li><strong>{assignment-id}</strong> can be obtained by making hr/v2/workers API call.<br>Use <strong>itemID</strong> under <strong>workAssignments</strong> of the API response.</li></ul>
+          content:
+            application/json:
+              externalValue: ./examples/Update_the_Work_Schedule_for_employees_for_a_given_date_WorkScheduleUpdateExample_workSchedule.change_request_59958.json
+        dataSensitivityLevelCode: 0
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      requestBody:
+        description: Request to update the work schedule details for a given work assignment
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./schemas/work-schedule-update-request-schema_v01.json
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v01.json
+        '202':
+          $ref: '#/components/responses/202'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '500':
+          $ref: '#/components/responses/500'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+      description: Operation to update work schedule details for a given work assignment, e.g. scheduled hours, pay cycle, and full-time/part-time indicator
+      operationId: c9f3a2e7-5d8b-4f1c-b6e4-2a0d7c9f5e83
+      parameters:
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Position Data Management
+  /hr/worker-profile/v1/workers/{aoid}/work-assignments/{assignment-id}/work-schedules/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: workerProfileManagement
+      functionCode: workScheduleManagement
+      serviceCode: wfnService
+      serviceCategoryCode: hr
+      canonicalName: Worker Profile Experience (WFN)
+    get:
+      summary: Read work schedule metadata
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        canonicalUri: hr/wfnService/workerProfileManagement/workScheduleManagement/workSchedules.meta.read
+        operationCode: workSchedules.meta.read
+        operationId: d7a6c1b9-4e2f-4a8d-9c3b-6f5e1d2a0b74
+        performAuthIndicator: true
+        roleCodes:
+        - practitioner
+        - employee
+        - manager
+        scenarios:
+        - summary: Work Schedules operations meta data
+          name: Work Schedule operations meta data
+          responses:
+          - code: '200'
+            description: OK
+            content:
+              application/json:
+                externalValue: ./examples/Work_Schedule_operations_meta_data_response_workSchedules.meta.read_200_619150.json
+          description: Work Schedules operations meta data
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/work-schedules-response-meta-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+      description: Operation to read the metadata for the work schedule update, providing field-level constraints and display rules
+      operationId: d7a6c1b9-4e2f-4a8d-9c3b-6f5e1d2a0b74
+      parameters:
+      - schema:
+          default: employee
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header will be passed in all calls. When coming from Myself capabilities rolecode=employee. When coming from Team capabilities roleCode=manager. When coming from Practitioner capabilities roleCode=practitioner.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Accept-Language
+        description: Accept-Language:language|*;q=qvalue. Specifies the language(s) that are acceptable for the response. The optional qvalue represents a quality level for acceptable languages.
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-CorrelationID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion to limit the resultset
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          type: string
+        in: path
+        name: assignment-id
+        description: Unique identifier of a work assignment
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: aoid
+        description: Unique worker associate OID as generated by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Position Data Management
+components:
+  responses:
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '202':
+      description: Accepted
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '503':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '403':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '413':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '401':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '500':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+x-adpSpecData:
+  domain: HR
+  specId: 5afa1b81-07cb-4310-86dd-3532c436e9f1
+  canonicalSpecId: 45cc5e01-8ce8-49c0-b9a3-91e761406665
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: hr-worker-profiles-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hr/worker-profile-management-wfn/v1
+  libraryVersion: ''
+  eventNotifications:
+  - eventCode: worker.workAssignment.homeWorkLocation.change.eventNotify.subscribe
+    example:
+      href: worker.workAssignment.homeWorkLocation.change-event-response.json
+  - eventCode: additionalRemunerations.added.eventNotify.subscribe
+    example:
+      href: ADD-Additional-Remunerations-Get-EventNotification-http-200-response.json
+  - eventCode: reportableBenefits.changed.eventNotify.subscribe
+    example:
+      href: Change-reportable-benefits-event-notification-http-200-response.json
+  - eventCode: timeOffRequest.review.eventNotify
+    example:
+      href: timeOffRequest.event-notification-Approved-status.json
+  - eventCode: additionalRemunerations.changed.eventNotify.subscribe
+    example:
+      href: UPDATE-Additional-Remuneration-GET-EventNotification-http-200-response.json
+  - eventCode: corporateGroup.changed.eventNotify.subscribe
+    example:
+      href: corporateGroup.changed.eventNotify.json
+  - eventCode: additionalRemunerations.removed.eventNotify
+    example:
+      href: Remove-Additional-Remunerations-GET-EventNotification-http-200-response.json
+  - eventCode: timeOffRequest.cancel.eventNotify
+    example:
+      href: timeOffRequest.event-notifications-Cancel-status.json
+  - eventCode: additionalRemunerations.removed.eventNotify.subscribe
+    example:
+      href: Remove-Additional-Remunerations-GET-EventNotification-http-200-response.json
+  - eventCode: reportableBenefits.added.eventNotify.subscribe
+    example:
+      href: Add-reportable-benefit-event-notification-http-200-response.json
+  testCaseCollection:
+    example:
+      href: WFN_CG_Worker_Profile_Experience.postman_collection.zip
+    description: Worker Profile Experience Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

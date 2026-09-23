@@ -1,0 +1,651 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Mary Arem
+    email: MARY.AREM@ADP.COM
+  description: The Validation Tables Cost Number APIs are used to Add or Retrieve Cost Number codes to/from the Validation Tables setup of an ADP WorkForce Now client.For more information refer Validation Tables Job Title API Guide For ADP WFN. For more information refer Validation Tables Cost Number API Guide For ADP WFN. For more information refer Validation table Location Guide for ADP WFN
+  title: Client Data - Validation Tables Associate Work Locations API
+  version: 1.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hcm/validation-tables/v1/validation-tables-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hcm/validation-tables/v1/validation-tables
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Associate Work Locations
+  description: Validation Table - Associate Work Locations
+paths:
+  /hcm/v1/validation-tables/associate-work-locations:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: Validation Tables
+    post:
+      summary: Add new code to a validation table - Associate Work Locations
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobileADMClientMasterData
+        - MobilePSSClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/associateWorkLocations.item.add
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: associateWorkLocations.item.add
+        operationId: 8892c480-b9ae-47e4-ba82-6b1d7c5c2387
+        roleCodes:
+        - administrator
+        - practitioner
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>Adds Location into validation table</span>
+          name: Adds location details to validation table.
+          responses:
+          - headers:
+              Retry-After: unset
+              Location: unset
+            code: '201'
+            description: Adding a Location into validation table.
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_201_44490.json
+          - headers:
+              Retry-After: unset
+              Location: unset
+            code: '201'
+            description: Adds Location into validation table
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_201_44489.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Add location without nameCode."message": "/nameCode/code is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44493.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Add location with invalid sub division code.
+
+              "message": "State is invalid.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44494.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Add location with invalid email
+
+              "message": "The e-mail address must be in the format name@company.domain
+
+
+              and may not contain diacritical symbols. Examples of diacritical symbols include the accent (á), caret (^), tilde (~), and so forth.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44495.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adding an already existing location into validation table."message": "This record already exists. Enter a unique value.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44491.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Add location without line one
+
+              "message": "You must also enter the street, city, and state.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44499.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: "Adding location with invalid postal code.\n  \"message\": \"Enter a valid Canadian Zip code.\","
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44498.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Adding Location with blank landline name Code."message": "/landlines/nameCode/code is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44497.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'Add location with invalid tagCode."message": "customTags/tagCode Aux 2 is invalid.",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_400_44492.json
+          - code: '500'
+            description: 'Adding location with invalid country code.
+
+              "developerMessage": "could not find any system type for code:USAN and category :T_SYS_TRANS_ISO_COUNTRY and userLocale:en_US",'
+            content:
+              application/json:
+                externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_500_44496.json
+          description: <span>Adds Location into validation table</span>
+          content:
+            application/json:
+              externalValue: ./examples/Adds_location_details_to_validation_table._Provide_Example_associateWorkLocations.item.add_request_3882.json
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      requestBody:
+        description: To add a new code to the validation table
+        content:
+          application/json: {}
+        required: true
+      responses:
+        '201':
+          headers:
+            Retry-After:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Location:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: ../../../common/shared/confirm-message-schema_v03.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '401':
+          $ref: '#/components/responses/401'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '503':
+          $ref: '#/components/responses/503'
+      operationId: 8892c480-b9ae-47e4-ba82-6b1d7c5c2387
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Action-Reason
+        description: Free format to indicate a reason for the current request
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Associate Work Locations
+    get:
+      summary: List of tems in the validation table - Associate Work Locations
+      x-adpOperationData:
+        asaFeatureCodes:
+        - MobileADMClientMasterData
+        - MobilePSSClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/associateWorkLocations.items.read
+        operationCode: associateWorkLocations.items.read
+        roleCodes:
+        - administrator
+        - practitioner
+        scenarios:
+        - summary: <span>This use case returns a &nbsp;set of Location codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: Retrieving Location codes from the Validation Tables
+          responses:
+          - headers:
+              Last-Modified: unset
+              ETag: unset
+              Content-Language: unset
+              Content-Type: unset
+            code: '200'
+            description: Retrieves all Location codes setup for the client
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_Location_codes_from_the_Validation_Tables_Custom_Example_associateWorkLocations.items.read_200_495399.json
+          - code: '404'
+            description: 'We will get this error When an invalid API URI is used.
+
+
+              Make sure you pass valid URI :
+
+
+              /hcm/v1/validation-tables/associate-work-locations'
+            content:
+              application/json:
+                externalValue: ./examples/Retrieving_Location_codes_from_the_Validation_Tables_Custom_Example_associateWorkLocations.items.read_404_495400.json
+          description: <span>This use case returns a &nbsp;set of Location codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+        globalViewDevPortalIndicator: false
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationDataAttributeSensitivitylevels:
+        - dataSensitivityCategory: NA
+          attributeName: /validationTables/actions/actionDataTags/tagCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/resourceMessages/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /_confirmMessage/messages/alternateMessageTexts/languageCode/name
+          dataSensitivityLevelCode: 2
+        - dataSensitivityCategory: NA
+          attributeName: /validationTables/groupCode/name
+          dataSensitivityLevelCode: 2
+        operationId: b0192620-cc68-4882-a07f-92a4a1fd4bd4
+        performAuthIndicator: true
+        dataSensitivityLevelCode: 2
+        visibilityCodes:
+        - internal
+        - external
+      responses:
+        '200':
+          headers:
+            Last-Modified:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Language:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/validation-table-response-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: List of items in validation table - Associate Work Locations
+      operationId: b0192620-cc68-4882-a07f-92a4a1fd4bd4
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $search
+        description: The OData $search parameter MUST be used to specify the search criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $top
+        description: The OData $top parameter MUST be used to specify the maximum number criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: version
+        description: The version of the associated validation table
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $skip
+        description: The OData $skip parameter MUST be used to specify the start sequence criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Associate Work Locations
+components:
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: HCM
+  specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d
+  canonicalSpecId: eb89f93f-c521-43b3-a24a-604d17cd31b9
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: validation-tables-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hcm/validation-tables/v1
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: WFN_CG_ClientData_Validation_Tables.postman_collection.zip
+    description: Client Data Validation Tables Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''

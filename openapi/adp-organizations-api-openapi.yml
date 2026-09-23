@@ -1,10 +1,13 @@
 openapi: 3.2.0
 info:
-  title: ADP Payroll Organizations API
-  description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
-  version: 1.0.0
+  title: ADP Workers Organizations API
+  description: The ADP Workers API enables access to employee and worker data including personal information, job assignments, pay grades, compensation, and employment status. REST APIs support worker lifecycle management for HCM integrations across ADP Workforce Now, Vantage HCM, and Enterprise HR platforms.
+  version: 2.0.0
   contact:
     name: ADP Developer Resources
+    url: https://developers.adp.com/
+  license:
+    name: ADP API License
     url: https://developers.adp.com/
 servers:
 - url: https://api.adp.com
@@ -67,4 +70,5 @@ components:
         clientCredentials:
           tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
           scopes:
-            api__payroll-output-v1__read: Read payroll output data
+            api__workers-v2__read: Read worker data
+            api__workers-v2__write: Write worker data

@@ -1,10 +1,13 @@
 openapi: 3.2.0
 info:
-  title: ADP Payroll Organizations Workers API
-  description: The ADP Payroll API provides programmatic access to payroll processing, payroll output data, and compensation management. REST APIs support payroll runs, payroll output retrieval (including CSV-formatted bulk data), and headcount and compensation analysis across ADP payroll platforms.
-  version: 1.0.0
+  title: ADP Workers API
+  description: The ADP Workers API enables access to employee and worker data including personal information, job assignments, pay grades, compensation, and employment status. REST APIs support worker lifecycle management for HCM integrations across ADP Workforce Now, Vantage HCM, and Enterprise HR platforms.
+  version: 2.0.0
   contact:
     name: ADP Developer Resources
+    url: https://developers.adp.com/
+  license:
+    name: ADP API License
     url: https://developers.adp.com/
 servers:
 - url: https://api.adp.com
@@ -258,108 +261,55 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    Unauthorized:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
-    NotFound:
-      description: Not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
-    Forbidden:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
   schemas:
-    WorkerResponse:
+    WorkersResponse:
       type: object
       properties:
         workers:
           type: array
-          maxItems: 1
           items:
             $ref: '#/components/schemas/Worker'
           example: []
-    Address:
-      type: object
-      properties:
-        lineOne:
-          type: string
-          example: example_value
-        lineTwo:
-          type: string
-          example: example_value
-        cityName:
-          type: string
-          example: example_value
-        countrySubdivisionLevel1:
+        meta:
           type: object
           properties:
-            codeValue:
-              type: string
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
           example: example_value
-        postalCode:
-          type: string
-          example: example_value
-        countryCode:
-          type: string
-          example: example_value
-    Worker:
+    ConfirmMessage:
       type: object
-      description: ADP Worker (employee or contractor)
       properties:
-        associateOID:
-          type: string
-          description: ADP Associate Object Identifier - unique worker identifier
-          example: '500123'
-        workerID:
+        confirmMessageID:
           type: object
           properties:
             idValue:
               type: string
-            schemeCode:
-              type: object
-              properties:
-                codeValue:
-                  type: string
           example: '500123'
-        person:
-          $ref: '#/components/schemas/Person'
-        workerDates:
-          type: object
-          properties:
-            originalHireDate:
-              type: string
-              format: date
-            terminationDate:
-              type: string
-              format: date
-            rehireDate:
-              type: string
-              format: date
-          example: example_value
-        workAssignments:
+        processMessages:
           type: array
           items:
-            $ref: '#/components/schemas/WorkAssignment'
+            type: object
+            properties:
+              processMessageID:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+              messageTypeCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              userMessage:
+                type: object
+                properties:
+                  messageTxt:
+                    type: string
           example: []
-        customFieldGroup:
-          type: object
-          additionalProperties: true
-          example: example_value
     WorkAssignment:
       type: object
       properties:
@@ -442,6 +392,137 @@ components:
                   codeValue:
                     type: string
           example: []
+    Worker:
+      type: object
+      description: ADP Worker (employee or contractor)
+      properties:
+        associateOID:
+          type: string
+          description: ADP Associate Object Identifier - unique worker identifier
+          example: '500123'
+        workerID:
+          type: object
+          properties:
+            idValue:
+              type: string
+            schemeCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+          example: '500123'
+        person:
+          $ref: '#/components/schemas/Person'
+        workerDates:
+          type: object
+          properties:
+            originalHireDate:
+              type: string
+              format: date
+            terminationDate:
+              type: string
+              format: date
+            rehireDate:
+              type: string
+              format: date
+          example: example_value
+        workAssignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkAssignment'
+          example: []
+        customFieldGroup:
+          type: object
+          additionalProperties: true
+          example: example_value
+    Address:
+      type: object
+      properties:
+        lineOne:
+          type: string
+          example: example_value
+        lineTwo:
+          type: string
+          example: example_value
+        cityName:
+          type: string
+          example: example_value
+        countrySubdivisionLevel1:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        postalCode:
+          type: string
+          example: example_value
+        countryCode:
+          type: string
+          example: example_value
+    WorkerHireEvent:
+      type: object
+      required:
+      - events
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            required:
+            - eventNameCode
+            - data
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum:
+                    - worker.hire
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      worker:
+                        $ref: '#/components/schemas/Worker'
+          example: []
+    WorkerTerminateEvent:
+      type: object
+      required:
+      - events
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum:
+                    - worker.terminate
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      workerDates:
+                        type: object
+                        properties:
+                          terminationDate:
+                            type: string
+                            format: date
+                      terminationReason:
+                        type: object
+                        properties:
+                          codeValue:
+                            type: string
+          example: []
     Person:
       type: object
       properties:
@@ -502,58 +583,14 @@ components:
           example: example_value
         legalAddress:
           $ref: '#/components/schemas/Address'
-    WorkersResponse:
+    WorkerResponse:
       type: object
       properties:
         workers:
           type: array
+          maxItems: 1
           items:
             $ref: '#/components/schemas/Worker'
-          example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-            startIndex:
-              type: integer
-            itemsPerPage:
-              type: integer
-          example: example_value
-    WorkerTerminateEvent:
-      type: object
-      required:
-      - events
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-                    enum:
-                    - worker.terminate
-              data:
-                type: object
-                properties:
-                  transform:
-                    type: object
-                    properties:
-                      workerDates:
-                        type: object
-                        properties:
-                          terminationDate:
-                            type: string
-                            format: date
-                      terminationReason:
-                        type: object
-                        properties:
-                          codeValue:
-                            type: string
           example: []
     EventResponse:
       type: object
@@ -573,65 +610,31 @@ components:
               confirmMessage:
                 $ref: '#/components/schemas/ConfirmMessage'
           example: []
-    ConfirmMessage:
-      type: object
-      properties:
-        confirmMessageID:
-          type: object
-          properties:
-            idValue:
-              type: string
-          example: '500123'
-        processMessages:
-          type: array
-          items:
-            type: object
-            properties:
-              processMessageID:
-                type: object
-                properties:
-                  idValue:
-                    type: string
-              messageTypeCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              userMessage:
-                type: object
-                properties:
-                  messageTxt:
-                    type: string
-          example: []
-    WorkerHireEvent:
-      type: object
-      required:
-      - events
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            required:
-            - eventNameCode
-            - data
-            properties:
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-                    enum:
-                    - worker.hire
-              data:
-                type: object
-                properties:
-                  transform:
-                    type: object
-                    properties:
-                      worker:
-                        $ref: '#/components/schemas/Worker'
-          example: []
+  responses:
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2
@@ -639,4 +642,5 @@ components:
         clientCredentials:
           tokenUrl: https://accounts.adp.com/auth/oauth/v2/token
           scopes:
-            api__payroll-output-v1__read: Read payroll output data
+            api__workers-v2__read: Read worker data
+            api__workers-v2__write: Write worker data

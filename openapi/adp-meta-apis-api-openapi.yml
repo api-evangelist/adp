@@ -1,0 +1,1074 @@
+openapi: 3.2.0
+info:
+  contact:
+    name: Mary Arem
+    email: MARY.AREM@ADP.COM
+  description: The Validation Tables Cost Number APIs are used to Add or Retrieve Cost Number codes to/from the Validation Tables setup of an ADP WorkForce Now client.For more information refer Validation Tables Job Title API Guide For ADP WFN. For more information refer Validation Tables Cost Number API Guide For ADP WFN. For more information refer Validation table Location Guide for ADP WFN
+  title: Client Data - Validation Tables Meta APIs API
+  version: 1.0.0
+  x-apievangelist-source: https://api-library-marketplace.adp.com/hcm-offrg-wfn/hcm/validation-tables/v1/validation-tables-swagger_v1-merged.json
+  x-apievangelist-product: ADP Workforce Now (hcm-offrg-wfn)
+  x-apievangelist-resource-path: hcm/validation-tables/v1/validation-tables
+servers:
+- url: https://api.adp.com
+  description: 'ADP production API gateway (mutual-TLS). Source: https://developers.adp.com/getting-started/key-concepts/access-tokens'
+- url: https://api.eu.adp.com
+  description: ADP European API gateway
+- url: https://uat-api.adp.com
+  description: ADP UAT / sandbox gateway
+tags:
+- name: Meta APIs
+  description: APIs to request the metadata to manage the corresponding valdiation table
+paths:
+  /hcm/v1/validation-tables/jobs/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: Validation Tables
+    get:
+      summary: Returns the meta for the Jobs validation tables
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSClientMasterData
+        - MobileADMClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/jobs.item.meta.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: jobs.item.meta.read
+        operationId: 9217ada8-0a5f-438b-9b7a-38f68bc04ea8
+        roleCodes:
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>This use case helps the user add Job Title codes and its details into validation table.</span>
+          name: 2. Adding job title code details to the validation table
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Returns a meta.Retrieves POST meta information.
+            content:
+              application/json:
+                externalValue: ./examples/2._Adding_job_title_code_details_to_the_validation_table_Custom_Example_jobs.item.meta.read_200_352987.json
+          description: <span>This use case helps the user add Job Title codes and its details into validation table.</span>
+          parameters:
+            $filter: ?method=post
+        - summary: New description scenario for the consumer of this API to better understand this example.
+          name: 3. Retrieves get meta Information
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Retrieves POST meta information.
+            content:
+              application/json:
+                externalValue: ./examples/3._Retrieves_get_meta_Information_Provide_Example_jobs.item.meta.read_200_44671.json
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Retrieves GET meta information.
+            content:
+              application/json:
+                externalValue: ./examples/3._Retrieves_get_meta_Information_Provide_Example_jobs.item.meta.read_200_44670.json
+          description: New description scenario for the consumer of this API to better understand this example.
+          parameters:
+            $filter: ''
+            $method: method=post
+        - summary: <p><span>This use case returns a &nbsp;set of Job Title codes and its details that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Position &gt; Job Title</strong><span>&nbsp;section of an ADP WorkForce Now client.</span></p>
+          name: 1. Retrieving Job Title code details from Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              NOTE:
+
+              The parameter "method=get" is mandatory.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/jobs/meta?method=get'
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_Job_Title_code_details_from_Validation_Tables_Custom_Example_jobs.item.meta.read_200_353066.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: 'When method parameter is not passed in the GET META API URI.
+
+
+              "message": "Request Parameter method is required.",'
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_Job_Title_code_details_from_Validation_Tables_Custom_Example_jobs.item.meta.read_400_353065.json
+          description: <p><span>This use case returns a &nbsp;set of Job Title codes and its details that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Position &gt; Job Title</strong><span>&nbsp;section of an ADP WorkForce Now client.</span></p>
+        - summary: Retrieves get meta information.
+          name: 4. Retrieves get meta information using filter
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Returns a meta.Note-The parameter "method=get" is mandatory.
+            content:
+              application/json:
+                externalValue: ./examples/4._Retrieves_get_meta_information_using_filter_Custom_Example_jobs.item.meta.read_200_352986.json
+          description: Retrieves get meta information.
+          parameters:
+            $filter: ?method=get
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            ADP-Acting-Session-Expires:
+              schema:
+                type: string
+              description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            sm_transactionid:
+              schema:
+                type: string
+              description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            ADP-Acting-SessionID:
+              schema:
+                type: string
+              description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: Returns a meta
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/job-validation-table-request-meta-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '403':
+          $ref: '#/components/responses/403'
+        '304':
+          $ref: '#/components/responses/304'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: Returns a meta for Jobs, Pass method parameter to reterive appropriate response
+      operationId: 9217ada8-0a5f-438b-9b7a-38f68bc04ea8
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+          enum:
+          - GET
+          - ' POST'
+          - ' PATCH'
+          - ' PUT'
+          - ' DELETE'
+        in: query
+        name: $method
+        description: The $method parameter should be used to specify the HTTP method the meta is requested for
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      tags:
+      - Meta APIs
+  /hcm/v1/validation-tables/meta:
+    x-adpPathData:
+      uriTranslationIndicator: false
+      featureCode: clientMasterDataManagement
+      functionCode: validationTableManagement
+      serviceCode: standardsInformationManagement
+      serviceCategoryCode: hcm
+      canonicalName: WFN Validation Table Meta
+    get:
+      summary: Returns the meta for validation tables based on parameters
+      x-adpOperationData:
+        operationStateCode: active
+        grantTypes:
+        - authorization_code
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+        - client_credential
+        asaFeatureCodes:
+        - MobilePSSClientMasterData
+        - MobileADMClientMasterData
+        canonicalUri: hcm/standardsInformationManagement/clientMasterDataManagement/validationTableManagement/validationTable.meta.read
+        sorRequestTimeoutPolicies:
+          cachedTimeout: 3
+          notCachedTimeout: 10
+        operationCode: validationTable.meta.read
+        operationId: 35716bd3-c89e-450f-b892-cda5d39feb1c
+        roleCodes:
+        - practitioner
+        - administrator
+        performAuthIndicator: true
+        scenarios:
+        - summary: <span>This use case returns a &nbsp;set of business unit codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 5. Retrieving Business Units codes from Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves GET meta information based on subdivisionCode filter.
+
+
+              NOTE:
+
+              1.Supported country codes:''US'' and ''CA''
+
+              2.These codes can be retrieved by calling "/hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post"
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Business Units&method=get&$filter=subdivisionCode eq ''{countryCode}''
+
+
+              EX:/hcm/v1/validation-tables/meta?validationTableType=Business Units&method=get&$filter=subdivisionCode eq ''US'''
+            content:
+              application/json:
+                externalValue: ./examples/5._Retrieving_Business_Units_codes_from_Validation_Tables_Custom_Example_validationTable.meta.read_200_353060.json
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              NOTE:
+
+              1.The parameters validationTableType=Business Units&method=get are mandatory.
+
+              2.This meta does not include subdivision codeList filter.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Business Units&method=get'
+            content:
+              application/json:
+                externalValue: ./examples/5._Retrieving_Business_Units_codes_from_Validation_Tables_Custom_Example_validationTable.meta.read_200_353061.json
+          description: <span>This use case returns a &nbsp;set of business unit codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+        - summary: <span>This use case returns a &nbsp;set of Location codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>New description scenario for the consumer of this API to better understand this example.
+          name: 3. Retrieves the location codes from the validation tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: "Retrieves GET meta information along with supported sub division codes for given country code.\n\nNOTE:\nSupported country codes:'US' and 'CA'\n These codes can be retrieved by calling \"/hcm/v1/validation-tables/meta?method=GET&validationTableType=Associate Work Locations\" API\n\nBelow API is used\n/hcm/v1/validation-tables/meta?validationTableType=Associate Work Locations&method=get&$filter=subdivisionCode eq '{countryCode}'\n\nEX:/hcm/v1/validation-tables/meta?validationTableType=Associate Work Locations&method=get&$filter=subdivisionCode eq 'US'"
+            content:
+              application/json:
+                externalValue: ./examples/3._Retrieves_the_location_codes_from_the_validation_tables_Custom_Example_validationTable.meta.read_200_353047.json
+          - headers:
+              ADP-Acting-Session-Expires: ''
+              Cache-Control: ''
+              sm_transactionid: ''
+              ETag: ''
+              ADP-Acting-SessionID: ''
+              Content-Type: ''
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              NOTE:
+
+              1.The parameters method=GET&validationTableType=Associate Work Locations are mandatory.
+
+              2.This meta does not include subdivision filter details.
+
+
+              Below API is used
+
+              /hcm/v1/validation-tables/meta?method=GET&validationTableType=Associate Work Locations'
+            content:
+              application/json:
+                externalValue: ./examples/3._Retrieves_the_location_codes_from_the_validation_tables_Custom_Example_validationTable.meta.read_200_352990.json
+          description: <span>This use case returns a &nbsp;set of Location codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>New description scenario for the consumer of this API to better understand this example.
+          parameters:
+            $filter: ?method=GET&validationTableType=AssociateWorkLocations
+        - summary: <span>This use case helps the user add Department codes into the validation table for ADP Work force now.</span>
+          name: 8. Adding department codes to the validation table
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information .
+
+
+              NOTE -
+
+              1)The parameters"validationTableType=departments&method=post" are mandatory.
+
+              2) This meta does not include subdivision codeList.'
+            content:
+              application/json:
+                externalValue: ./examples/8._Adding_department_codes_to_the_validation_table_Custom_Example_validationTable.meta.read_200_352973.json
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information along with supported sub division codes.
+
+
+              NOTE:
+
+              1.Supported country codes:''US'' and ''CA''
+
+              2.These codes can be retrieved by calling "/hcm/v1/validation-tables/meta?validationTableType=departments&method=post"
+
+
+              Below API is used to get response as shown in example
+
+              /hcm/v1/validation-tables/meta?validationTableType=departments&method=post&$filter=subdivisionCode eq ''countryCode''
+
+
+              EX:hcm/v1/validation-tables/meta?validationTableType=departments&method=post&$filter=subdivisionCode eq ''CA'''
+            content:
+              application/json:
+                externalValue: ./examples/8._Adding_department_codes_to_the_validation_table_Custom_Example_validationTable.meta.read_200_353043.json
+          description: <span>This use case helps the user add Department codes into the validation table for ADP Work force now.</span>
+          parameters:
+            $filter: ?validationTableType=departments&method=POST
+        - summary: <span>This use case helps the user add Department codes into the&nbsp;</span><span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Payroll&gt; Paydata &gt; Cost Number</strong>&nbsp;</span><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 2. Adding Cost Number to Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information.
+
+
+              NOTE:
+
+              The parameters "validationTableType=Cost Centers&method=POST" are mandatory.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Cost Centers&method=POST'
+            content:
+              application/json:
+                externalValue: ./examples/2._Adding_Cost_Number_to_Validation_Tables_Custom_Example_validationTable.meta.read_200_353059.json
+          description: <span>This use case helps the user add Department codes into the&nbsp;</span><span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Payroll&gt; Paydata &gt; Cost Number</strong>&nbsp;</span><span>&nbsp;section of an ADP WorkForce Now client.</span>
+        - summary: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 6. Adding Business Unit codes to Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information.
+
+
+              NOTE:
+
+              1.The parameters "validationTableType=Business Units&method=post" are mandatory.
+
+              2.This meta does not include subdivision codeList filter.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post'
+            content:
+              application/json:
+                externalValue: ./examples/6._Adding_Business_Unit_codes_to_Validation_Tables_Custom_Example_validationTable.meta.read_200_353062.json
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information along with supported sub division codes.
+
+
+              NOTE:
+
+              1.Supported country codes:''US'' and ''CA''
+
+              2.These codes can be retrieved by calling "/hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post"
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post&$filter=subdivisionCode eq ''{countryCode}''
+
+
+              EX: hcm/v1/validation-tables/meta?validationTableType=Business Units&method=post&$filter=subdivisionCode eq ''US'''
+            content:
+              application/json:
+                externalValue: ./examples/6._Adding_Business_Unit_codes_to_Validation_Tables_Custom_Example_validationTable.meta.read_200_353063.json
+          description: <span>This use case helps the user add Business Unit codes into the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt; Business Units</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+        - summary: <span>Retrieves GET meta information</span>
+          name: 7. Retrieve the department codes from the validation tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: ''
+              Cache-Control: ''
+              sm_transactionid: ''
+              ETag: ''
+              ADP-Acting-SessionID: ''
+              Content-Type: ''
+            code: '200'
+            description: 'Retrieves GET meta information along with supported sub division codes.
+
+
+              NOTE:-
+
+              1.Supported country codes:''US'' and ''CA''
+
+              2.These codes can be retrieved by calling "/hcm/v1/validation-tables/meta?validationTableType=departments&method=get"
+
+
+              Below API is used:
+
+              /hcm/v1/validation-tables/meta?validationTableType=departments&method=get&$filter=subdivisionCode eq ''countryCode''
+
+              EX:hcm/v1/validation-tables/meta?validationTableType=departments&method=get&$filter=subdivisionCode eq ''US'''
+            content:
+              application/json:
+                externalValue: ./examples/7._Retrieve_the_department_codes_from_the_validation_tables_Custom_Example_validationTable.meta.read_200_353041.json
+          - headers:
+              ADP-Acting-Session-Expires: ''
+              Cache-Control: ''
+              sm_transactionid: ''
+              ETag: ''
+              ADP-Acting-SessionID: ''
+              Content-Type: ''
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              NOTE-
+
+              1) The parameters validationTableType=departments&method=get are mandatory.
+
+              2) This meta does not include subdivision codeList.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=departments&method=get'
+            content:
+              application/json:
+                externalValue: ./examples/7._Retrieve_the_department_codes_from_the_validation_tables_Custom_Example_validationTable.meta.read_200_352969.json
+          description: <span>Retrieves GET meta information</span>
+          parameters:
+            $filter: ?validationTableType=departments&method=GET
+        - summary: <p>This use case helps the user add Location codes into the <strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong> section of an ADP WorkForce Now client.</p><p><br></p>
+          name: 4. Adding Location details into Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information .
+
+
+              NOTE:
+
+              1.The parameters "method=POST&validationTableType=Associate Work Locations" are mandatory.
+
+              2.This meta does not include subdivision codeList.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Associate Work Locations&method=POST'
+            content:
+              application/json:
+                externalValue: ./examples/4._Adding_Location_details_into_Validation_Tables_Custom_Example_validationTable.meta.read_200_353053.json
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves POST meta information along with supported sub division codes for specified country.
+
+
+              NOTE:
+
+              1.Supported country codes:''US'' and ''CA''
+
+              2.These codes can be retrieved by calling "/hcm/v1/validation-tables/meta?method=POST&validationTableType=Associate Work Locations" API
+
+              Below API is used
+
+              /hcm/v1/validation-tables/meta?validationTableType=Associate Work Locations&method=POST&$filter=subdivisionCode eq ''{countryCode}''
+
+
+              EX : /hcm/v1/validation-tables/meta?validationTableType=Associate Work Locations&method=POST&$filter=subdivisionCode eq ''US'''
+            content:
+              application/json:
+                externalValue: ./examples/4._Adding_Location_details_into_Validation_Tables_Custom_Example_validationTable.meta.read_200_353054.json
+          description: <p>This use case helps the user add Location codes into the <strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Employment Profile &gt; Corporate Groups &gt;Location</strong> section of an ADP WorkForce Now client.</p><p><br></p>
+        - summary: <span>This use case returns a &nbsp;set of Cost Number codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Payroll&gt; Paydata &gt; Cost Number</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+          name: 1. Retrieving Cost Number details from Validation Tables
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: 'Retrieves GET meta information.
+
+
+              NOTE:
+
+              The parameters validationTableType=Cost Centers&method=GET are mandatory.
+
+
+              Below API is used,
+
+              /hcm/v1/validation-tables/meta?validationTableType=Cost Centers&method=GET'
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_Cost_Number_details_from_Validation_Tables_Custom_Example_validationTable.meta.read_200_353057.json
+          - headers:
+              Content-Language: unset
+              Last-Modified: unset
+            code: '400'
+            description: "When method parameter is not sent in the API URI for META.\n\n \"message\": \"Request Parameter method is required.\",\t\n\nNOTE:\nMake sure to use correct API URI\n\n/hcm/v1/validation-tables/meta?validationTableType=Cost Centers&method=GET"
+            content:
+              application/json:
+                externalValue: ./examples/1._Retrieving_Cost_Number_details_from_Validation_Tables_Custom_Example_validationTable.meta.read_400_353058.json
+          description: <span>This use case returns a &nbsp;set of Cost Number codes that are setup in the&nbsp;</span><strong>Setup &gt;&nbsp;Tools &gt; Validation Tables &gt; Payroll&gt; Paydata &gt; Cost Number</strong><span>&nbsp;section of an ADP WorkForce Now client.</span>
+        - summary: <span>Retrieves POST meta information&nbsp;</span>
+          name: 9. Retrieves post meta details
+          responses:
+          - headers:
+              ADP-Acting-Session-Expires: unset
+              Cache-Control: unset
+              sm_transactionid: unset
+              ETag: unset
+              ADP-Acting-SessionID: unset
+              Content-Type: unset
+            code: '200'
+            description: Returns the post meta data.
+            content:
+              application/json:
+                externalValue: ./examples/9._Retrieves_post_meta_details_Custom_Example_validationTable.meta.read_200_352989.json
+          description: <span>Retrieves POST meta information&nbsp;</span>
+          parameters:
+            $filter: ?method=POST&validationTableType=AssociateWorkLocations
+        visibilityCodes:
+        - internal
+        - external
+        globalViewDevPortalIndicator: false
+      responses:
+        '200':
+          headers:
+            ADP-Acting-Session-Expires:
+              schema:
+                type: string
+              description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            sm_transactionid:
+              schema:
+                type: string
+              description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Cache-Control:
+              schema:
+                type: string
+              description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            ETag:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            ADP-Acting-SessionID:
+              schema:
+                type: string
+              description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+            Content-Type:
+              schema:
+                type: string
+              x-adpParameterData:
+                visibilityCodes:
+                - internal
+                - external
+              required: false
+          description: Returns a meta
+          content:
+            application/json:
+              schema:
+                $ref: ./schemas/validation-table-request-meta-schema_v01.json
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+        '412':
+          $ref: '#/components/responses/412'
+        '413':
+          $ref: '#/components/responses/413'
+        '304':
+          $ref: '#/components/responses/304'
+        '403':
+          $ref: '#/components/responses/403'
+        '503':
+          $ref: '#/components/responses/503'
+        '404':
+          $ref: '#/components/responses/404'
+        '405':
+          $ref: '#/components/responses/405'
+        '406':
+          $ref: '#/components/responses/406'
+        '429':
+          $ref: '#/components/responses/429'
+      description: Returns a meta for validation tables, Pass method and type parameters in order to reterive appropriate response
+      operationId: 35716bd3-c89e-450f-b892-cda5d39feb1c
+      parameters:
+      - schema:
+          default: ''
+          type: string
+        in: query
+        name: $filter
+        description: The OData $filter parameter MUST be used to specify the filter criterion
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+          enum:
+          - GET
+          - ' POST'
+          - ' PATCH'
+          - ' PUT'
+          - ' DELETE'
+        in: query
+        name: $method
+        description: The $method parameter should be used to specify the HTTP method the meta is requested for
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+          - external
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Context-ExpressionID
+        description: Geopolitical context, typically country, region, e.g. country=CA;subdivision=Quebec
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: practitioner
+          type: string
+          enum:
+          - employee
+          - ' manager'
+          - ' practitioner'
+          - ' administrator'
+          - ' supervisor'
+        in: header
+        name: roleCode
+        description: 'The role the user is playing during the transaction.  Possible values: employee,manager,practitioner,administrator,supervisor.  The roleCode header should be passed in all calls.'
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: SOR
+        description: SOR where the call is routed to. Typically injected by the API proxy, with few exceptions, e.g. callback scenarios
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: orgoid
+        description: Organization OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: G4O73G9Z62SL2NFM
+          type: string
+        in: header
+        name: associateoid
+        description: Associate OID of the requestor as provisioned by the ADP Registry
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: true
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: Authorization
+        description: Provides the client's authorization token to access the resource representation at a URI
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      - schema:
+          default: ''
+          type: string
+        in: header
+        name: ADP-Consumer-ApplicationID
+        description: Identifier of the application sending a request - not intended to be used as a correlation id for messages across systems participating in a collaboration
+        x-adpParameterData:
+          visibilityCodes:
+          - internal
+        required: false
+      tags:
+      - Meta APIs
+components:
+  responses:
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+x-adpSpecData:
+  domain: HCM
+  specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d
+  canonicalSpecId: eb89f93f-c521-43b3-a24a-604d17cd31b9
+  specStatusCode: publishing
+  specTypeCode: REST
+  specStateCode: active
+  nonStandardIndicator: false
+  visibilityCodes:
+  - internal
+  - external
+  filename: validation-tables-swagger_v1-merged.json
+  serviceProviderId: WFN
+  resourcePath: hcm/validation-tables/v1
+  libraryVersion: ''
+  testCaseCollection:
+    example:
+      href: WFN_CG_ClientData_Validation_Tables.postman_collection.zip
+    description: Client Data Validation Tables Postman Collection
+  publicationContext:
+    products:
+    - productId: hcm-offrg-wfn
+      productName: workforce now
+      marketplaceProductName: ADP Workforce Now®
+  specCategoryCode: ''
