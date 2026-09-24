@@ -91,8 +91,6 @@ apis:
     url: json-schema/adp-worker-schema.json
   - type: JSONLD
     url: json-ld/adp-workers-context.jsonld
-  - type: GraphQL
-    url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 - aid: adp:adp-payrollinstructions-api
@@ -113,8 +111,6 @@ apis:
     url: json-schema/adp-worker-schema.json
   - type: JSONLD
     url: json-ld/adp-workers-context.jsonld
-  - type: GraphQL
-    url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 - aid: adp:adp-workers-api
@@ -135,8 +131,6 @@ apis:
     url: json-schema/adp-worker-schema.json
   - type: JSONLD
     url: json-ld/adp-workers-context.jsonld
-  - type: GraphQL
-    url: graphql/adp-graphql.md
   - type: JSONLD
     url: json-ld/adp-payroll-context.jsonld
 - aid: automatic-data-processing:event-notifications-api
