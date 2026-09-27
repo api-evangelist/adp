@@ -262,53 +262,14 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WorkersResponse:
+    WorkerResponse:
       type: object
       properties:
         workers:
           type: array
+          maxItems: 1
           items:
             $ref: '#/components/schemas/Worker'
-          example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-            startIndex:
-              type: integer
-            itemsPerPage:
-              type: integer
-          example: example_value
-    ConfirmMessage:
-      type: object
-      properties:
-        confirmMessageID:
-          type: object
-          properties:
-            idValue:
-              type: string
-          example: '500123'
-        processMessages:
-          type: array
-          items:
-            type: object
-            properties:
-              processMessageID:
-                type: object
-                properties:
-                  idValue:
-                    type: string
-              messageTypeCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              userMessage:
-                type: object
-                properties:
-                  messageTxt:
-                    type: string
           example: []
     WorkAssignment:
       type: object
@@ -392,72 +353,23 @@ components:
                   codeValue:
                     type: string
           example: []
-    Worker:
+    WorkersResponse:
       type: object
-      description: ADP Worker (employee or contractor)
       properties:
-        associateOID:
-          type: string
-          description: ADP Associate Object Identifier - unique worker identifier
-          example: '500123'
-        workerID:
-          type: object
-          properties:
-            idValue:
-              type: string
-            schemeCode:
-              type: object
-              properties:
-                codeValue:
-                  type: string
-          example: '500123'
-        person:
-          $ref: '#/components/schemas/Person'
-        workerDates:
-          type: object
-          properties:
-            originalHireDate:
-              type: string
-              format: date
-            terminationDate:
-              type: string
-              format: date
-            rehireDate:
-              type: string
-              format: date
-          example: example_value
-        workAssignments:
+        workers:
           type: array
           items:
-            $ref: '#/components/schemas/WorkAssignment'
+            $ref: '#/components/schemas/Worker'
           example: []
-        customFieldGroup:
-          type: object
-          additionalProperties: true
-          example: example_value
-    Address:
-      type: object
-      properties:
-        lineOne:
-          type: string
-          example: example_value
-        lineTwo:
-          type: string
-          example: example_value
-        cityName:
-          type: string
-          example: example_value
-        countrySubdivisionLevel1:
+        meta:
           type: object
           properties:
-            codeValue:
-              type: string
-          example: example_value
-        postalCode:
-          type: string
-          example: example_value
-        countryCode:
-          type: string
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
           example: example_value
     WorkerHireEvent:
       type: object
@@ -523,6 +435,78 @@ components:
                           codeValue:
                             type: string
           example: []
+    Address:
+      type: object
+      properties:
+        lineOne:
+          type: string
+          example: example_value
+        lineTwo:
+          type: string
+          example: example_value
+        cityName:
+          type: string
+          example: example_value
+        countrySubdivisionLevel1:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        postalCode:
+          type: string
+          example: example_value
+        countryCode:
+          type: string
+          example: example_value
+    ConfirmMessage:
+      type: object
+      properties:
+        confirmMessageID:
+          type: object
+          properties:
+            idValue:
+              type: string
+          example: '500123'
+        processMessages:
+          type: array
+          items:
+            type: object
+            properties:
+              processMessageID:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+              messageTypeCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              userMessage:
+                type: object
+                properties:
+                  messageTxt:
+                    type: string
+          example: []
+    EventResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventID:
+                type: string
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              confirmMessage:
+                $ref: '#/components/schemas/ConfirmMessage'
+          example: []
     Person:
       type: object
       properties:
@@ -583,36 +567,52 @@ components:
           example: example_value
         legalAddress:
           $ref: '#/components/schemas/Address'
-    WorkerResponse:
+    Worker:
       type: object
+      description: ADP Worker (employee or contractor)
       properties:
-        workers:
+        associateOID:
+          type: string
+          description: ADP Associate Object Identifier - unique worker identifier
+          example: '500123'
+        workerID:
+          type: object
+          properties:
+            idValue:
+              type: string
+            schemeCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+          example: '500123'
+        person:
+          $ref: '#/components/schemas/Person'
+        workerDates:
+          type: object
+          properties:
+            originalHireDate:
+              type: string
+              format: date
+            terminationDate:
+              type: string
+              format: date
+            rehireDate:
+              type: string
+              format: date
+          example: example_value
+        workAssignments:
           type: array
-          maxItems: 1
           items:
-            $ref: '#/components/schemas/Worker'
+            $ref: '#/components/schemas/WorkAssignment'
           example: []
-    EventResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventID:
-                type: string
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              confirmMessage:
-                $ref: '#/components/schemas/ConfirmMessage'
-          example: []
+        customFieldGroup:
+          type: object
+          additionalProperties: true
+          example: example_value
   responses:
-    NotFound:
-      description: Not found
+    Forbidden:
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -629,8 +629,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ConfirmMessage'
-    Forbidden:
-      description: Forbidden
+    NotFound:
+      description: Not found
       content:
         application/json:
           schema:

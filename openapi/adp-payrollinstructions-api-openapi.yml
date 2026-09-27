@@ -95,6 +95,33 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PayrollInstructionRequest:
+      type: object
+      required:
+      - associateOID
+      - instructionTypeCode
+      - amount
+      properties:
+        associateOID:
+          type: string
+          example: '500123'
+        instructionTypeCode:
+          type: string
+          enum:
+          - Bonus
+          - Deduction
+          - Garnishment
+          - Override
+          example: Bonus
+        amount:
+          $ref: '#/components/schemas/AmountValue'
+        effectiveDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+        description:
+          type: string
+          example: A sample description.
     PayrollInstruction:
       type: object
       properties:
@@ -129,33 +156,6 @@ components:
           type: string
           default: USD
           example: example_value
-    PayrollInstructionRequest:
-      type: object
-      required:
-      - associateOID
-      - instructionTypeCode
-      - amount
-      properties:
-        associateOID:
-          type: string
-          example: '500123'
-        instructionTypeCode:
-          type: string
-          enum:
-          - Bonus
-          - Deduction
-          - Garnishment
-          - Override
-          example: Bonus
-        amount:
-          $ref: '#/components/schemas/AmountValue'
-        effectiveDate:
-          type: string
-          format: date
-          example: '2026-01-15'
-        description:
-          type: string
-          example: A sample description.
   securitySchemes:
     oauth2ClientCredentials:
       type: oauth2

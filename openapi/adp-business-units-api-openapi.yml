@@ -662,26 +662,14 @@ paths:
       - Business Units
 components:
   responses:
-    '404':
-      description: Not Found
+    '429':
+      description: Too Many Requests
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '405':
-      description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '412':
-      description: Precondition Failed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
+    '406':
+      description: Not Acceptable
       content:
         application/json:
           schema:
@@ -692,20 +680,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '413':
-      description: Request Entity Too Large
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '429':
-      description: Too Many Requests
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '401':
       description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      description: Method Not Allowed
       content:
         application/json:
           schema:
@@ -734,6 +716,12 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '400':
       headers:
         Content-Language:
@@ -755,8 +743,20 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      description: Not Acceptable
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '412':
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      description: Request Entity Too Large
       content:
         application/json:
           schema:

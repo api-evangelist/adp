@@ -384,7 +384,7 @@ paths:
       - Change Worker Personal Mobile
 components:
   responses:
-    '405':
+    '429':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -438,12 +438,12 @@ components:
             - internal
             - external
           required: false
-      description: Method Not Allowed
+      description: Too Many Requests
       content:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '412':
+    '406':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -497,7 +497,7 @@ components:
             - internal
             - external
           required: false
-      description: Precondition Failed
+      description: Not Acceptable
       content:
         application/json:
           schema:
@@ -561,7 +561,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '503':
+    '405':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -615,66 +615,7 @@ components:
             - internal
             - external
           required: false
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '429':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        sm_transactionid:
-          schema:
-            type: string
-          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: Too Many Requests
+      description: Method Not Allowed
       content:
         application/json:
           schema:
@@ -738,6 +679,65 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '503':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
     '400':
       headers:
         ADP-Acting-Session-Expires:
@@ -797,7 +797,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '406':
+    '412':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -851,7 +851,7 @@ components:
             - internal
             - external
           required: false
-      description: Not Acceptable
+      description: Precondition Failed
       content:
         application/json:
           schema:

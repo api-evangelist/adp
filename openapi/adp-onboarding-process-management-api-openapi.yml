@@ -720,7 +720,7 @@ paths:
       - Onboarding Process Management
 components:
   responses:
-    '405':
+    '429':
       headers:
         Content-Language:
           schema:
@@ -736,12 +736,12 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Method Not Allowed
+      description: Too Many Requests
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '412':
+    '406':
       headers:
         Content-Language:
           schema:
@@ -757,7 +757,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Precondition Failed
+      description: Not Acceptable
       content:
         application/json:
           schema:
@@ -783,13 +783,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '429':
+    '405':
       headers:
         Content-Language:
           schema:
@@ -805,13 +799,19 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Too Many Requests
+      description: Method Not Allowed
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
     '500':
       description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -837,7 +837,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
+    '412':
       headers:
         Content-Language:
           schema:
@@ -853,7 +853,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Not Acceptable
+      description: Precondition Failed
       content:
         application/json:
           schema:

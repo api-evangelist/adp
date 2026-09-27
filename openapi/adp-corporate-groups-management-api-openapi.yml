@@ -566,48 +566,6 @@ paths:
       - Corporate Groups Management
 components:
   responses:
-    '404':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v01.json
-    '503':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v01.json
     '403':
       headers:
         Content-Language:
@@ -625,27 +583,6 @@ components:
             - internal
           required: false
       description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v01.json
-    '413':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Request Entity Too Large
       content:
         application/json:
           schema:
@@ -692,6 +629,48 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '503':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
     '400':
       headers:
         Content-Language:
@@ -709,6 +688,27 @@ components:
             - internal
           required: false
       description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v01.json
+    '413':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
       content:
         application/json:
           schema:

@@ -210,14 +210,16 @@ paths:
       - Questionnaire Management
 components:
   responses:
-    '404':
-      description: Not Found
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '412':
-      description: Precondition Failed
+    '204':
+      description: No Content
+    '404':
+      description: Not Found
       content:
         application/json:
           schema:
@@ -228,16 +230,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
+    '400':
+      description: Bad Request
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '204':
-      description: No Content
-    '400':
-      description: Bad Request
+    '412':
+      description: Precondition Failed
       content:
         application/json:
           schema:
