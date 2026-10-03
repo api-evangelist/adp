@@ -254,8 +254,8 @@ paths:
       - External Benefit Plans
 components:
   responses:
-    '403':
-      description: Forbidden
+    '503':
+      description: Service Unavailable
       content:
         application/json: {}
         '*/*':
@@ -268,15 +268,8 @@ components:
         '*/*':
           schema:
             $ref: ../../common/schemas/confirm-message-schema_v03.json
-    '404':
-      description: Not Found
-      content:
-        application/json: {}
-        '*/*':
-          schema:
-            $ref: ../../common/schemas/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
+    '403':
+      description: Forbidden
       content:
         application/json: {}
         '*/*':
@@ -291,6 +284,13 @@ components:
             $ref: ../../common/schemas/confirm-message-schema_v03.json
     '412':
       description: Precondition Failed
+      content:
+        application/json: {}
+        '*/*':
+          schema:
+            $ref: ../../common/schemas/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
       content:
         application/json: {}
         '*/*':

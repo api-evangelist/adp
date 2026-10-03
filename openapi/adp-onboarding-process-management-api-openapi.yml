@@ -720,6 +720,12 @@ paths:
       - Onboarding Process Management
 components:
   responses:
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '429':
       headers:
         Content-Language:
@@ -737,6 +743,33 @@ components:
             - internal
           required: false
       description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '405':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -779,39 +812,6 @@ components:
             - internal
           required: false
       description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '405':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
       content:
         application/json:
           schema:

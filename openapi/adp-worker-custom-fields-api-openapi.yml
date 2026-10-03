@@ -465,8 +465,28 @@ paths:
       - Worker Custom Fields
 components:
   responses:
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '429':
       description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '405':
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -483,26 +503,6 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '405':
-      description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
     '400':
       headers:
         Content-Language:
@@ -524,12 +524,6 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '412':
       description: Precondition Failed
       content:
@@ -538,6 +532,12 @@ components:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
     '413':
       description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
       content:
         application/json:
           schema:

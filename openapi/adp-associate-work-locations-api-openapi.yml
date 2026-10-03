@@ -541,20 +541,14 @@ paths:
       - Associate Work Locations
 components:
   responses:
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '429':
       description: Too Many Requests
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
       content:
         application/json:
           schema:
@@ -565,6 +559,8 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
     '405':
       description: Method Not Allowed
       content:
@@ -577,10 +573,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
-    '404':
-      description: Not Found
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -606,12 +606,6 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '412':
       description: Precondition Failed
       content:
@@ -620,6 +614,12 @@ components:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
     '413':
       description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
       content:
         application/json:
           schema:

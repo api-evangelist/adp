@@ -1864,6 +1864,58 @@ paths:
       - Paid Time Off - Requests
 components:
   responses:
+    '503':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
     '429':
       headers:
         ADP-Acting-Session-Expires:
@@ -1912,6 +1964,164 @@ components:
             - external
           required: false
       description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '304':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: Not Modified
+    '404':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '500':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -1968,264 +2178,6 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '204':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: No Content
-    '500':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '404':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '304':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: Not Modified
-    '503':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ETag:
-          schema:
-            type: string
-          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Content-Type:
-          schema:
-            type: string
-          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
     '400':
       headers:
         ADP-Acting-Session-Expires:
@@ -2278,12 +2230,54 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '504':
-      description: Gateway Timeout
-      content:
-        application/json:
+    '204':
+      headers:
+        ADP-Acting-Session-Expires:
           schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale. Session ID for the acting session, Act-As and act On-Behalf-Off
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          description: Specifies directives that must be obeyed by all caching mechanisms along the request/response chain.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ETag:
+          schema:
+            type: string
+          description: Defines the entity tag for use with the If-Match and If-None-Match request headers.
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Content-Type:
+          schema:
+            type: string
+          description: 'Content-Type'' '': '' type ''/'' subtype. Describes the media type and subtype of an entity-body.'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+      description: No Content
     '413':
       headers:
         ADP-Acting-Session-Expires:
@@ -2336,6 +2330,12 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '504':
+      description: Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
 x-adpSpecData:
   domain: Time
   specId: 832d62bd-38ac-4b86-a754-abc8c9eef452

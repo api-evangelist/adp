@@ -451,6 +451,12 @@ paths:
       - Onboarding API Metadata
 components:
   responses:
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '429':
       headers:
         Content-Language:
@@ -468,6 +474,35 @@ components:
             - internal
           required: false
       description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
+    '405':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Method Not Allowed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -514,41 +549,6 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '405':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
     '400':
       headers:
         Content-Language:
@@ -566,12 +566,6 @@ components:
             - internal
           required: false
       description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -614,6 +608,12 @@ components:
             - internal
           required: false
       description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      description: Not Found
       content:
         application/json:
           schema:

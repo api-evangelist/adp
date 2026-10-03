@@ -203,7 +203,7 @@ paths:
       - Worker Time Card Inputs
 components:
   responses:
-    '403':
+    '503':
       headers:
         Content-Language:
           schema:
@@ -219,7 +219,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Forbidden
+      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -266,7 +266,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '404':
+    '403':
       headers:
         Content-Language:
           schema:
@@ -282,28 +282,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Service Unavailable
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -346,6 +325,27 @@ components:
             - internal
           required: false
       description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '404':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Found
       content:
         application/json:
           schema:
