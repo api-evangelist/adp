@@ -521,8 +521,8 @@ paths:
       - Departments
 components:
   responses:
-    '503':
-      description: Service Unavailable
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -533,53 +533,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '401':
-      description: Unauthorized
+    '503':
+      description: Service Unavailable
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
     '405':
       description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '400':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
       content:
         application/json:
           schema:
@@ -602,20 +563,59 @@ components:
             - internal
           required: false
       description: No Content
+    '400':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '412':
       description: Precondition Failed
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '413':
-      description: Request Entity Too Large
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
     '404':
       description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      description: Request Entity Too Large
       content:
         application/json:
           schema:

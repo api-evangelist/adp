@@ -262,49 +262,16 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WorkersResponse:
+    WorkerResponse:
       type: object
       properties:
         workers:
           type: array
+          maxItems: 1
           items:
             $ref: '#/components/schemas/Worker'
           example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-            startIndex:
-              type: integer
-            itemsPerPage:
-              type: integer
-          example: example_value
-    Address:
-      type: object
-      properties:
-        lineOne:
-          type: string
-          example: example_value
-        lineTwo:
-          type: string
-          example: example_value
-        cityName:
-          type: string
-          example: example_value
-        countrySubdivisionLevel1:
-          type: object
-          properties:
-            codeValue:
-              type: string
-          example: example_value
-        postalCode:
-          type: string
-          example: example_value
-        countryCode:
-          type: string
-          example: example_value
-    WorkerHireEvent:
+    WorkerTerminateEvent:
       type: object
       required:
       - events
@@ -313,9 +280,6 @@ components:
           type: array
           items:
             type: object
-            required:
-            - eventNameCode
-            - data
             properties:
               eventNameCode:
                 type: object
@@ -323,15 +287,24 @@ components:
                   codeValue:
                     type: string
                     enum:
-                    - worker.hire
+                    - worker.terminate
               data:
                 type: object
                 properties:
                   transform:
                     type: object
                     properties:
-                      worker:
-                        $ref: '#/components/schemas/Worker'
+                      workerDates:
+                        type: object
+                        properties:
+                          terminationDate:
+                            type: string
+                            format: date
+                      terminationReason:
+                        type: object
+                        properties:
+                          codeValue:
+                            type: string
           example: []
     WorkAssignment:
       type: object
@@ -415,14 +388,59 @@ components:
                   codeValue:
                     type: string
           example: []
-    WorkerResponse:
+    Address:
       type: object
       properties:
-        workers:
+        lineOne:
+          type: string
+          example: example_value
+        lineTwo:
+          type: string
+          example: example_value
+        cityName:
+          type: string
+          example: example_value
+        countrySubdivisionLevel1:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        postalCode:
+          type: string
+          example: example_value
+        countryCode:
+          type: string
+          example: example_value
+    ConfirmMessage:
+      type: object
+      properties:
+        confirmMessageID:
+          type: object
+          properties:
+            idValue:
+              type: string
+          example: '500123'
+        processMessages:
           type: array
-          maxItems: 1
           items:
-            $ref: '#/components/schemas/Worker'
+            type: object
+            properties:
+              processMessageID:
+                type: object
+                properties:
+                  idValue:
+                    type: string
+              messageTypeCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              userMessage:
+                type: object
+                properties:
+                  messageTxt:
+                    type: string
           example: []
     Person:
       type: object
@@ -484,6 +502,24 @@ components:
           example: example_value
         legalAddress:
           $ref: '#/components/schemas/Address'
+    EventResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventID:
+                type: string
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              confirmMessage:
+                $ref: '#/components/schemas/ConfirmMessage'
+          example: []
     Worker:
       type: object
       description: ADP Worker (employee or contractor)
@@ -527,37 +563,25 @@ components:
           type: object
           additionalProperties: true
           example: example_value
-    ConfirmMessage:
+    WorkersResponse:
       type: object
       properties:
-        confirmMessageID:
-          type: object
-          properties:
-            idValue:
-              type: string
-          example: '500123'
-        processMessages:
+        workers:
           type: array
           items:
-            type: object
-            properties:
-              processMessageID:
-                type: object
-                properties:
-                  idValue:
-                    type: string
-              messageTypeCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              userMessage:
-                type: object
-                properties:
-                  messageTxt:
-                    type: string
+            $ref: '#/components/schemas/Worker'
           example: []
-    WorkerTerminateEvent:
+        meta:
+          type: object
+          properties:
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
+          example: example_value
+    WorkerHireEvent:
       type: object
       required:
       - events
@@ -566,6 +590,9 @@ components:
           type: array
           items:
             type: object
+            required:
+            - eventNameCode
+            - data
             properties:
               eventNameCode:
                 type: object
@@ -573,52 +600,25 @@ components:
                   codeValue:
                     type: string
                     enum:
-                    - worker.terminate
+                    - worker.hire
               data:
                 type: object
                 properties:
                   transform:
                     type: object
                     properties:
-                      workerDates:
-                        type: object
-                        properties:
-                          terminationDate:
-                            type: string
-                            format: date
-                      terminationReason:
-                        type: object
-                        properties:
-                          codeValue:
-                            type: string
-          example: []
-    EventResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventID:
-                type: string
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              confirmMessage:
-                $ref: '#/components/schemas/ConfirmMessage'
+                      worker:
+                        $ref: '#/components/schemas/Worker'
           example: []
   responses:
-    NotFound:
-      description: Not found
+    BadRequest:
+      description: Bad request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ConfirmMessage'
-    BadRequest:
-      description: Bad request
+    Forbidden:
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -629,8 +629,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ConfirmMessage'
-    Forbidden:
-      description: Forbidden
+    NotFound:
+      description: Not found
       content:
         application/json:
           schema:

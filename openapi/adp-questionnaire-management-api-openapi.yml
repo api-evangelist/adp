@@ -210,20 +210,14 @@ paths:
       - Questionnaire Management
 components:
   responses:
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '400':
       description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '503':
+      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -232,6 +226,12 @@ components:
       description: No Content
     '412':
       description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:

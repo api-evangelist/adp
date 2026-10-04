@@ -514,7 +514,7 @@ paths:
       - Deduction Configuration Details
 components:
   responses:
-    '503':
+    '500':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -554,7 +554,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Service Unavailable
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -604,7 +604,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
+    '503':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -644,7 +644,11 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Not Modified
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '405':
       headers:
         ADP-Acting-Session-Expires:
@@ -686,141 +690,6 @@ components:
             - internal
           required: false
       description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        sm_transactionid:
-          schema:
-            type: string
-          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ETag:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        sm_transactionid:
-          schema:
-            type: string
-          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ETag:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      headers:
-        ADP-Acting-Session-Expires:
-          schema:
-            type: string
-          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Cache-Control:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        sm_transactionid:
-          schema:
-            type: string
-          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ETag:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        ADP-Acting-SessionID:
-          schema:
-            type: string
-          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Forbidden
       content:
         application/json:
           schema:
@@ -915,7 +784,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '413':
+    '403':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -955,7 +824,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Request Entity Too Large
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -1005,6 +874,137 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      headers:
+        ADP-Acting-Session-Expires:
+          schema:
+            type: string
+          description: Specifies the date and time the representational state of the resource is considered stale in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Cache-Control:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        sm_transactionid:
+          schema:
+            type: string
+          description: 'SiteMinder transaction ID.  Required for requests where conversation was initiated from a service consumer, external to ADP, and that consumer was authenticated by SMS. Example - sm_transactionid: 1aaf14ac-7083-54c0186f-4680c940-82b33ca3'
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        ADP-Acting-SessionID:
+          schema:
+            type: string
+          description: Session ID for the acting session in 'Act-As' and act 'On-Behalf-Of' scenarios
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Not Modified
 x-adpSpecData:
   domain: Payroll
   specId: cc73013b-2f96-4291-95fb-beb7960f10ff

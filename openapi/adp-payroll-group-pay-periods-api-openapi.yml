@@ -763,7 +763,7 @@ paths:
       - Payroll Group Pay Periods
 components:
   responses:
-    '503':
+    '500':
       headers:
         Content-Language:
           schema:
@@ -779,7 +779,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Service Unavailable
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -805,9 +805,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
-    '500':
+    '503':
       headers:
         Content-Language:
           schema:
@@ -823,28 +821,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      headers:
-        Content-Language:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: Forbidden
+      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -887,7 +864,7 @@ components:
             - internal
           required: false
       description: No Content
-    '413':
+    '403':
       headers:
         Content-Language:
           schema:
@@ -903,7 +880,7 @@ components:
             visibilityCodes:
             - internal
           required: false
-      description: Request Entity Too Large
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -929,6 +906,29 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      headers:
+        Content-Language:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
 x-adpSpecData:
   domain: Payroll
   specId: e7ba881b-ca8e-4b50-af90-3c5860447515

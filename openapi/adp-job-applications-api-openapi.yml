@@ -1081,7 +1081,7 @@ paths:
       - Job Applications
 components:
   responses:
-    '503':
+    '500':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1134,7 +1134,7 @@ components:
             - internal
             - external
           required: false
-      description: Service Unavailable
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -1197,19 +1197,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '504':
-      description: Gateway Timeout
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '304':
+    '503':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1262,7 +1250,11 @@ components:
             - internal
             - external
           required: false
-      description: Not Modified
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
     '405':
       headers:
         ADP-Acting-Session-Expires:
@@ -1321,7 +1313,11 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '500':
+    '204':
+      description: No content
+      content:
+        application/json: {}
+    '400':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1374,12 +1370,12 @@ components:
             - internal
             - external
           required: false
-      description: Internal Server Error
+      description: Bad Request
       content:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '406':
+    '412':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1432,7 +1428,19 @@ components:
             - internal
             - external
           required: false
-      description: Not Acceptable
+      description: Precondition Failed
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '504':
+      description: Gateway Timeout
       content:
         application/json:
           schema:
@@ -1495,7 +1503,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '400':
+    '404':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1548,16 +1556,12 @@ components:
             - internal
             - external
           required: false
-      description: Bad Request
+      description: Not Found
       content:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '204':
-      description: No content
-      content:
-        application/json: {}
-    '412':
+    '406':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1610,7 +1614,7 @@ components:
             - internal
             - external
           required: false
-      description: Precondition Failed
+      description: Not Acceptable
       content:
         application/json:
           schema:
@@ -1673,7 +1677,7 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '404':
+    '304':
       headers:
         ADP-Acting-Session-Expires:
           schema:
@@ -1726,11 +1730,7 @@ components:
             - internal
             - external
           required: false
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+      description: Not Modified
 x-adpSpecData:
   domain: Staffing
   specId: 9a45d7fb-6303-4fbc-98e0-24d161a06a99

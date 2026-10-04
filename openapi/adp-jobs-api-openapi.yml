@@ -515,14 +515,8 @@ paths:
       - Jobs
 components:
   responses:
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '401':
-      description: Unauthorized
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -533,28 +527,44 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '405':
       description: Method Not Allowed
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
+    '204':
+      headers:
+        ETag:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+            - external
+          required: false
+        Last-Modified:
+          schema:
+            type: string
+          x-adpParameterData:
+            visibilityCodes:
+            - internal
+          required: false
+      description: No Content
+    '503':
+      description: Service Unavailable
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
+    '412':
+      description: Precondition Failed
       content:
         application/json:
           schema:
@@ -580,32 +590,8 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '204':
-      headers:
-        ETag:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-            - external
-          required: false
-        Last-Modified:
-          schema:
-            type: string
-          x-adpParameterData:
-            visibilityCodes:
-            - internal
-          required: false
-      description: No Content
-    '412':
-      description: Precondition Failed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '413':
-      description: Request Entity Too Large
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -616,6 +602,20 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
 x-adpSpecData:
   domain: HCM
   specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d

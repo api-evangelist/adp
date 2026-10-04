@@ -465,8 +465,8 @@ paths:
       - Person Custom Fields
 components:
   responses:
-    '503':
-      description: Service Unavailable
+    '500':
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -477,28 +477,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '304':
-      description: Not Modified
+    '503':
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
     '405':
       description: Method Not Allowed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '500':
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '406':
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
       content:
         application/json:
           schema:
@@ -530,8 +516,8 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '413':
-      description: Request Entity Too Large
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -542,6 +528,20 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '304':
+      description: Not Modified
 x-adpSpecData:
   domain: HCM
   specId: 5c3f804f-ddea-490e-920c-4a80aeb20f9d
