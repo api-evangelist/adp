@@ -1,4 +1,4 @@
-generated: '2026-09-16'
+generated: '2026-09-23'
 method: generated
 source: openapi/adp-add-additional-remuneration-api-openapi.yml, openapi/adp-add-personal-contact-api-openapi.yml,
   openapi/adp-add-schedule-day-api-openapi.yml, openapi/adp-add-work-assignment-api-openapi.yml,
@@ -99,11 +99,11 @@ description: Recommended x-agentic-access execution contracts, classified heuris
 summary:
   operations: 373
   by_action_class:
-    connected: 202
-    acting: 171
+    connected: 203
+    acting: 170
   by_consequence:
-    read: 202
-    write: 155
+    read: 203
+    write: 154
     safety-critical: 3
     physical: 13
   human_in_the_loop_required: 3
@@ -4320,18 +4320,12 @@ operations:
   method: post
   operationId: 897ff391-d33b-4e5f-a111-fff989362d9b
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /time/v2/workers/{aoid}/team-time-cards
   method: get
   operationId: 60adf481-ff04-48ef-bf76-f84dcf2fc503

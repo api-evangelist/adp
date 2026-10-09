@@ -63,3 +63,29 @@ plans:
       - name: Marketplace listing
       - name: SLA and support
       - name: Certified partner integrations
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units:
+  - negotiated
+  - request
+  plans:
+  - name: Partner Sandbox
+    access: freemium
+    model: free
+    model_how: derived
+    units:
+    - request
+    periods:
+    - per-use
+  - name: Enterprise / Marketplace Partner
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - month
