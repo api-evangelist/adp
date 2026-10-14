@@ -54,7 +54,6 @@
   arazzo: null
 - slug: adp-concur
   label: Concur
-  partner: concur
   partner_name: Concur
   category: EeT
   type: marketplace
@@ -610,7 +609,6 @@
   arazzo: null
 - slug: adp-icims
   label: ICIMS
-  partner: icims
   partner_name: ICIMS
   category: EeT
   type: marketplace
@@ -756,7 +754,6 @@
   arazzo: null
 - slug: adp-paradox
   label: paradox
-  partner: paradox
   partner_name: paradox
   category: EeT
   type: marketplace
@@ -866,7 +863,6 @@
   arazzo: null
 - slug: adp-lever
   label: Lever
-  partner: lever
   partner_name: Lever
   category: EeT
   type: marketplace
@@ -1892,7 +1888,6 @@
   arazzo: null
 - slug: adp-aclaimant
   label: Aclaimant
-  partner: aclaimant
   partner_name: Aclaimant
   category: EeT
   type: marketplace
@@ -2277,7 +2272,6 @@
   arazzo: null
 - slug: adp-quinyx
   label: Quinyx
-  partner: quinyx
   partner_name: Quinyx
   category: EeT
   type: marketplace
@@ -3142,7 +3136,6 @@
   arazzo: null
 - slug: adp-reflektive
   label: Reflektive
-  partner: reflektive
   partner_name: Reflektive
   category: EeT
   type: marketplace
@@ -3665,6 +3658,18 @@
   marketplace: own
   channel: provider-built
   evidence: https://apps.adp.com/apps/333402/adp-timekeeping-plus-scheduling-for-run-powered-by-adp
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: adp-clover-own
+  label: Clover (own)
+  partner: clover
+  partner_name: Clover (own)
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.clover.com/appmarket/apps/SSBVGQF0D12CM
   source: edge
   relationship: platform-app
   status: not-a-workflow

@@ -1,6 +1,7 @@
 generated: '2026-10-12'
 method: searched
 checked:
+- clover/integrations/clover-integration-edges.yml
 - https://apps.adp.com/
 marketplace_apps:
 - marketplace: own
@@ -10902,3 +10903,21 @@ edges:
   partner_domain: null
   detected_by: sweep-hr-stores.py
   detected: '2026-10-12'
+- partner_name: Clover (own)
+  partner: clover
+  partner_match: mirror
+  mirror_match: domain+name-among-holders
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.clover.com/appmarket/apps/SSBVGQF0D12CM
+  mirror_of: clover/integrations/clover-integration-edges.yml
+  apps:
+  - ADP Time
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+source:
+- clover/integrations/clover-integration-edges.yml
