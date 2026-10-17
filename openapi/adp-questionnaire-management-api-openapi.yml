@@ -216,22 +216,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '204':
-      description: No Content
     '412':
       description: Precondition Failed
       content:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
+    '503':
+      description: Service Unavailable
       content:
         application/json:
           schema:
@@ -242,6 +234,14 @@ components:
         application/json:
           schema:
             $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/shared/confirm-message-schema_v03.json
+    '204':
+      description: No Content
 x-adpSpecData:
   domain: Staffing
   specId: 63bfccc9-1a0f-4ecb-af13-67ec5f50ea0f

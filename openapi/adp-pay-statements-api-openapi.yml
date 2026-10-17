@@ -1324,8 +1324,34 @@ paths:
       - Pay Statements
 components:
   responses:
+    '304':
+      description: Not Modified
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
     '500':
       description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '504':
+      description: Gateway Timeout
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
+    '412':
+      description: Precondition Failed
       content:
         application/json:
           schema:
@@ -1336,14 +1362,32 @@ components:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '413':
+      description: Request Entity Too Large
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
     '503':
       description: Service Unavailable
       content:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '405':
-      description: Method Not Allowed
+    '406':
+      description: Not Acceptable
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
+    '403':
+      description: Forbidden
       content:
         application/json:
           schema:
@@ -1405,56 +1449,12 @@ components:
             - external
           required: false
       description: No Content
-    '400':
-      description: Bad Request
+    '405':
+      description: Method Not Allowed
       content:
         application/json:
           schema:
             $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '412':
-      description: Precondition Failed
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '401':
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '504':
-      description: Gateway Timeout
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/confirmMessage_schema_v01_00_rev008.json
-    '403':
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '404':
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '406':
-      description: Not Acceptable
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '413':
-      description: Request Entity Too Large
-      content:
-        application/json:
-          schema:
-            $ref: ../../../common/responses/v1/schemas/response_v1_0_schema_rev004_file.json
-    '304':
-      description: Not Modified
 x-adpSpecData:
   domain: Payroll
   specId: 4eaad21f-c9a7-47a7-97a6-43c25ad1b23b

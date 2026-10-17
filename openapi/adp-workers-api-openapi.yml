@@ -262,15 +262,66 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    WorkerResponse:
+    Address:
+      type: object
+      properties:
+        lineOne:
+          type: string
+          example: example_value
+        lineTwo:
+          type: string
+          example: example_value
+        cityName:
+          type: string
+          example: example_value
+        countrySubdivisionLevel1:
+          type: object
+          properties:
+            codeValue:
+              type: string
+          example: example_value
+        postalCode:
+          type: string
+          example: example_value
+        countryCode:
+          type: string
+          example: example_value
+    EventResponse:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            properties:
+              eventID:
+                type: string
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+              confirmMessage:
+                $ref: '#/components/schemas/ConfirmMessage'
+          example: []
+    WorkersResponse:
       type: object
       properties:
         workers:
           type: array
-          maxItems: 1
           items:
             $ref: '#/components/schemas/Worker'
           example: []
+        meta:
+          type: object
+          properties:
+            totalCount:
+              type: integer
+            startIndex:
+              type: integer
+            itemsPerPage:
+              type: integer
+          example: example_value
     WorkerTerminateEvent:
       type: object
       required:
@@ -305,6 +356,78 @@ components:
                         properties:
                           codeValue:
                             type: string
+          example: []
+    Worker:
+      type: object
+      description: ADP Worker (employee or contractor)
+      properties:
+        associateOID:
+          type: string
+          description: ADP Associate Object Identifier - unique worker identifier
+          example: '500123'
+        workerID:
+          type: object
+          properties:
+            idValue:
+              type: string
+            schemeCode:
+              type: object
+              properties:
+                codeValue:
+                  type: string
+          example: '500123'
+        person:
+          $ref: '#/components/schemas/Person'
+        workerDates:
+          type: object
+          properties:
+            originalHireDate:
+              type: string
+              format: date
+            terminationDate:
+              type: string
+              format: date
+            rehireDate:
+              type: string
+              format: date
+          example: example_value
+        workAssignments:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkAssignment'
+          example: []
+        customFieldGroup:
+          type: object
+          additionalProperties: true
+          example: example_value
+    WorkerHireEvent:
+      type: object
+      required:
+      - events
+      properties:
+        events:
+          type: array
+          items:
+            type: object
+            required:
+            - eventNameCode
+            - data
+            properties:
+              eventNameCode:
+                type: object
+                properties:
+                  codeValue:
+                    type: string
+                    enum:
+                    - worker.hire
+              data:
+                type: object
+                properties:
+                  transform:
+                    type: object
+                    properties:
+                      worker:
+                        $ref: '#/components/schemas/Worker'
           example: []
     WorkAssignment:
       type: object
@@ -388,30 +511,6 @@ components:
                   codeValue:
                     type: string
           example: []
-    Address:
-      type: object
-      properties:
-        lineOne:
-          type: string
-          example: example_value
-        lineTwo:
-          type: string
-          example: example_value
-        cityName:
-          type: string
-          example: example_value
-        countrySubdivisionLevel1:
-          type: object
-          properties:
-            codeValue:
-              type: string
-          example: example_value
-        postalCode:
-          type: string
-          example: example_value
-        countryCode:
-          type: string
-          example: example_value
     ConfirmMessage:
       type: object
       properties:
@@ -441,6 +540,15 @@ components:
                 properties:
                   messageTxt:
                     type: string
+          example: []
+    WorkerResponse:
+      type: object
+      properties:
+        workers:
+          type: array
+          maxItems: 1
+          items:
+            $ref: '#/components/schemas/Worker'
           example: []
     Person:
       type: object
@@ -502,135 +610,27 @@ components:
           example: example_value
         legalAddress:
           $ref: '#/components/schemas/Address'
-    EventResponse:
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            properties:
-              eventID:
-                type: string
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-              confirmMessage:
-                $ref: '#/components/schemas/ConfirmMessage'
-          example: []
-    Worker:
-      type: object
-      description: ADP Worker (employee or contractor)
-      properties:
-        associateOID:
-          type: string
-          description: ADP Associate Object Identifier - unique worker identifier
-          example: '500123'
-        workerID:
-          type: object
-          properties:
-            idValue:
-              type: string
-            schemeCode:
-              type: object
-              properties:
-                codeValue:
-                  type: string
-          example: '500123'
-        person:
-          $ref: '#/components/schemas/Person'
-        workerDates:
-          type: object
-          properties:
-            originalHireDate:
-              type: string
-              format: date
-            terminationDate:
-              type: string
-              format: date
-            rehireDate:
-              type: string
-              format: date
-          example: example_value
-        workAssignments:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkAssignment'
-          example: []
-        customFieldGroup:
-          type: object
-          additionalProperties: true
-          example: example_value
-    WorkersResponse:
-      type: object
-      properties:
-        workers:
-          type: array
-          items:
-            $ref: '#/components/schemas/Worker'
-          example: []
-        meta:
-          type: object
-          properties:
-            totalCount:
-              type: integer
-            startIndex:
-              type: integer
-            itemsPerPage:
-              type: integer
-          example: example_value
-    WorkerHireEvent:
-      type: object
-      required:
-      - events
-      properties:
-        events:
-          type: array
-          items:
-            type: object
-            required:
-            - eventNameCode
-            - data
-            properties:
-              eventNameCode:
-                type: object
-                properties:
-                  codeValue:
-                    type: string
-                    enum:
-                    - worker.hire
-              data:
-                type: object
-                properties:
-                  transform:
-                    type: object
-                    properties:
-                      worker:
-                        $ref: '#/components/schemas/Worker'
-          example: []
   responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
-    Forbidden:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ConfirmMessage'
     Unauthorized:
       description: Unauthorized
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ConfirmMessage'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
     NotFound:
       description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ConfirmMessage'
+    Forbidden:
+      description: Forbidden
       content:
         application/json:
           schema:

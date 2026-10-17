@@ -254,13 +254,6 @@ paths:
       - External Benefit Plans
 components:
   responses:
-    '500':
-      description: Internal Server Error
-      content:
-        application/json: {}
-        '*/*':
-          schema:
-            $ref: ../../common/schemas/confirm-message-schema_v03.json
     '400':
       description: Bad Request
       content:
@@ -268,8 +261,8 @@ components:
         '*/*':
           schema:
             $ref: ../../common/schemas/confirm-message-schema_v03.json
-    '503':
-      description: Service Unavailable
+    '500':
+      description: Internal Server Error
       content:
         application/json: {}
         '*/*':
@@ -282,8 +275,8 @@ components:
         '*/*':
           schema:
             $ref: ../../common/schemas/confirm-message-schema_v03.json
-    '403':
-      description: Forbidden
+    '503':
+      description: Service Unavailable
       content:
         application/json: {}
         '*/*':
@@ -291,6 +284,13 @@ components:
             $ref: ../../common/schemas/confirm-message-schema_v03.json
     '404':
       description: Not Found
+      content:
+        application/json: {}
+        '*/*':
+          schema:
+            $ref: ../../common/schemas/confirm-message-schema_v03.json
+    '403':
+      description: Forbidden
       content:
         application/json: {}
         '*/*':
