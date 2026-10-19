@@ -3712,3 +3712,43 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: adp-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.adp.marketplace.api.product.userinfo/ADPUserInfo
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.adp.marketplace.api.product.userinfo:ADPUserInfo
+      version: 1.0.0
+      released: '2016-03-23'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.adp.marketplace.api.product.userinfo/ADPUserInfo
+      repo_leg: domain:adp.com
+      publisher_leg: groupId:adp.com
+      matched_by: domain+name-among-holders
+    - name: com.adp.marketplace.connection:ADPConnection
+      version: 1.0.0
+      released: '2016-03-23'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.adp.marketplace.connection/ADPConnection
+      repo_leg: domain:adp.com
+      publisher_leg: groupId:adp.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null

@@ -2,7 +2,14 @@ generated: '2026-10-12'
 method: searched
 checked:
 - clover/integrations/clover-integration-edges.yml
+- https://api.nuget.org/v3
 - https://apps.adp.com/
+- https://crates.io/api/v1
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
 - microsoft-teams/integrations/microsoft-teams-integration-edges.yml
 marketplace_apps:
@@ -10965,5 +10972,44 @@ edges:
   category: Microsoft Teams app
   publisher_verified:
   - Microsoft 365 Certified
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.adp.marketplace.api.product.userinfo/ADPUserInfo
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.adp.marketplace.api.product.userinfo:ADPUserInfo
+      version: 1.0.0
+      released: '2016-03-23'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.adp.marketplace.api.product.userinfo/ADPUserInfo
+      repo_leg: domain:adp.com
+      publisher_leg: groupId:adp.com
+      matched_by: domain+name-among-holders
+    - name: com.adp.marketplace.connection:ADPConnection
+      version: 1.0.0
+      released: '2016-03-23'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.adp.marketplace.connection/ADPConnection
+      repo_leg: domain:adp.com
+      publisher_leg: groupId:adp.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
+  first_seen: '2026-10-18'
 source:
 - clover/integrations/clover-integration-edges.yml
