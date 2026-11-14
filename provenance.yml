@@ -5,6 +5,9 @@ artifacts:
   agentic-access/adp-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/adp-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   asyncapi/adp-event-notifications-webhooks.yml:
     method: searched
     evidence: declared in the artifact
@@ -12,6 +15,12 @@ artifacts:
     method: derived
     evidence: declared in the artifact
   capabilities/adp-capability-edges.yml:
+    method: unknown
+    evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
     method: unknown
     evidence: no authorship recorded
   changelog/adp-changelog.yml:
@@ -53,6 +62,9 @@ artifacts:
   collections/adp-workers.postman_collection.json:
     method: derived
     evidence: openapi/adp-workers
+  compliance/adp-compliance.yml:
+    method: harvested
+    evidence: declared in the artifact
   components/adp-components.yml:
     method: searched
     evidence: declared in the artifact
@@ -62,8 +74,14 @@ artifacts:
   conventions/adp-conventions.yml:
     method: searched
     evidence: declared in the artifact
+  data-license/adp-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/adp-data-model.yml:
     method: derived
+    evidence: declared in the artifact
+  eligibility/adp-eligibility.yml:
+    method: harvested
     evidence: declared in the artifact
   errors/adp-problem-types.yml:
     method: derived
@@ -147,6 +165,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   heartbeat/2026-11-02.yml:
+    method: unknown
+    evidence: no authorship recorded
+  heartbeat/2026-11-06.yml:
+    method: unknown
+    evidence: no authorship recorded
+  heartbeat/2026-11-13.yml:
     method: unknown
     evidence: no authorship recorded
   integrations/_index.yml:
@@ -314,7 +338,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -381,6 +405,9 @@ artifacts:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-11-02T082323.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   lifecycle/adp-lifecycle.yml:
@@ -1218,6 +1245,75 @@ artifacts:
   openapi/adp-workers-data-retrieval-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  overlays/adp-add-additional-remuneration-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-personal-contact-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-schedule-day-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-work-assignment-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-work-schedule-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-email-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-fax-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-landline-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-mobile-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-pager-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-legal-address-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-address-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-email-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-fax-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-landline-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-mobile-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-pager-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-applicant-onboard-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-associate-authorization-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-associate-certifications-manager-practitioner-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-associate-preferred-gender-pronoun-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-associate-work-locations-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-background-check-orders-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
   overlays/adp-benefits-beneficiaries-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
@@ -1227,6 +1323,57 @@ artifacts:
   overlays/adp-benefits-external-plans-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-billing-configurations-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-business-units-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-cancel-worker-leave-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-cancel-worker-termination-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-certification-add-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-certification-change-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-certification-remove-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-additional-remuneration-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-base-remuneration-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-birth-date-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-birth-name-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-birthplace-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-citizenship-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-former-name-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-gender-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-job-application-status-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-legal-name-api-certification-overlay.yaml:
+    method: derived
+    evidence: declared in the artifact
   overlays/adp-hcm-applicant-onboarding-v2-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
@@ -1404,6 +1551,9 @@ artifacts:
   postman/adp-wfn-postman-collection.json:
     method: unknown
     evidence: no authorship recorded
+  privacy/adp-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/adp-rate-limits.yml:
     method: generated
     evidence: declared in the artifact
@@ -1446,6 +1596,9 @@ artifacts:
   subway/build-map.py:
     method: unknown
     evidence: no authorship recorded
+  terms/adp-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
   vocabulary/adp-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
