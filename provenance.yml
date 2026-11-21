@@ -173,6 +173,9 @@ artifacts:
   heartbeat/2026-11-13.yml:
     method: unknown
     evidence: no authorship recorded
+  heartbeat/2026-11-20.yml:
+    method: unknown
+    evidence: no authorship recorded
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -338,7 +341,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-06T143934.yml:
+  kin/checks-2026-11-13T214628.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -408,6 +411,9 @@ artifacts:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-13T214628.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   lifecycle/adp-lifecycle.yml:
@@ -1248,56 +1254,116 @@ artifacts:
   overlays/adp-add-additional-remuneration-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-additional-remuneration-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-personal-contact-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-personal-contact-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-schedule-day-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-schedule-day-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-work-assignment-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-work-assignment-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-work-schedule-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-work-schedule-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-business-email-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-email-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-business-fax-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-business-fax-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-business-landline-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-landline-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-business-mobile-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-business-mobile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-business-pager-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-business-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-add-worker-government-id-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-legal-address-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-legal-address-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-personal-address-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-address-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-personal-email-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-personal-email-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-personal-fax-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-fax-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-personal-landline-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-personal-landline-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-add-worker-personal-mobile-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-add-worker-personal-mobile-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-add-worker-personal-pager-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-add-worker-personal-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-applicant-onboard-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-applicant-s-external-assessment-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-applicant-s-external-screening-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-associate-authorization-api-certification-overlay.yaml:
     method: derived
@@ -1308,11 +1374,20 @@ artifacts:
   overlays/adp-associate-preferred-gender-pronoun-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-associate-preferred-gender-pronoun-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-associate-work-locations-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-associate-work-locations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-background-check-orders-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-beneficiaries-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-benefits-beneficiaries-v1-overlay.yaml:
     method: derived
@@ -1329,8 +1404,14 @@ artifacts:
   overlays/adp-business-units-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-business-units-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-cancel-worker-leave-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-cancel-worker-leave-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-cancel-worker-termination-api-certification-overlay.yaml:
     method: derived
@@ -1338,23 +1419,47 @@ artifacts:
   overlays/adp-certification-add-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-certification-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-certification-change-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-certification-change-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-certification-remove-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-certification-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-certifications-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-change-additional-remuneration-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-additional-remuneration-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-change-base-remuneration-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-change-base-remuneration-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-change-birth-date-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-change-birth-date-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-change-birth-name-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-birth-name-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-change-birthplace-api-certification-overlay.yaml:
     method: derived
@@ -1368,11 +1473,197 @@ artifacts:
   overlays/adp-change-gender-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
+  overlays/adp-change-gender-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-change-job-application-status-api-certification-overlay.yaml:
     method: derived
     evidence: declared in the artifact
   overlays/adp-change-legal-name-api-certification-overlay.yaml:
     method: derived
+    evidence: declared in the artifact
+  overlays/adp-change-legal-name-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-pay-distribution-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-amount-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-code-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-date-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-indicator-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-number-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-percentage-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-string-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-person-custom-telephone-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-personal-contact-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-preferred-name-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-race-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-schedule-day-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-schedule-entry-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-standard-hours-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-work-schedule-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-business-email-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-business-fax-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-business-landline-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-business-mobile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-business-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-custom-percentage-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-custom-telephone-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-gender-identity-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-government-id-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-highest-education-level-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-leave-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-legal-address-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-marital-status-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-military-classification-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-military-status-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-address-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-email-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-fax-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-landline-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-mobile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-personal-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-change-worker-type-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-compensation-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-competencies-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-competency-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-competency-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-competency-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-copy-schedule-day-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-copy-work-schedule-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-corporate-directory-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-corporate-groups-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-cost-centers-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-deduction-configuration-details-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-departments-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-dependents-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-educational-degree-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-educational-degree-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-educational-degree-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-educational-degrees-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-external-benefit-plans-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-general-deduction-instruction-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-general-deduction-instruction-start-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-general-deduction-instruction-stop-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-general-ledger-documents-api-phrasing-overlay.yaml:
+    method: generated
     evidence: declared in the artifact
   overlays/adp-hcm-applicant-onboarding-v2-overlay.yaml:
     method: derived
@@ -1446,12 +1737,132 @@ artifacts:
   overlays/adp-hr-workers-work-deployment-management-v2-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-job-applications-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-job-requisitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-jobs-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-labor-charge-code-uploads-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-language-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-language-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-language-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-languages-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-license-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-license-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-license-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-licenses-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-amount-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-code-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-date-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-indicator-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-number-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-manage-worker-custom-string-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-membership-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-membership-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-membership-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-memberships-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-meta-apis-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-modify-assigned-organizational-units-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-modify-time-entries-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-modify-time-off-balances-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-modify-work-assignment-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-modify-worker-reports-to-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-onboarding-api-metadata-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-onboarding-process-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-organizations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-paid-time-off-requests-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-pay-data-input-modify-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-pay-distributions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-pay-statements-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-payroll-codelists-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-payroll-deduction-configurations-v3-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
   overlays/adp-payroll-general-ledger-documents-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-payroll-group-pay-periods-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-payroll-output-associate-payment-allocations-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-payroll-output-associate-payment-summaries-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-payroll-outputs-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-payroll-pay-data-input-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
@@ -1479,6 +1890,105 @@ artifacts:
   overlays/adp-payroll-worker-payroll-instructions-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-payrollinstructions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-person-custom-fields-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-personal-contacts-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-position-data-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-process-data-collection-entries-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-questionnaire-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-read-worker-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-recognition-add-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-recognition-change-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-recognition-remove-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-recognitions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-rehire-worker-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-additional-remuneration-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-personal-contact-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-schedule-day-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-work-schedule-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-business-email-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-business-fax-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-business-landline-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-business-mobile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-business-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-legal-address-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-address-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-email-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-fax-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-landline-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-mobile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-remove-worker-personal-pager-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-request-leave-of-absence-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-request-return-from-leave-of-absence-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-review-add-membership-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-review-change-membership-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-review-remove-membership-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-staffing-job-applicants-v2-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
@@ -1512,6 +2022,15 @@ artifacts:
   overlays/adp-talent-associate-recognitions-v2-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-tax-policy-eligibility-solutions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-team-time-cards-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-terminate-work-assignment-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   overlays/adp-time-data-collection-entries-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
@@ -1542,6 +2061,72 @@ artifacts:
   overlays/adp-time-work-schedules-v1-overlay.yaml:
     method: derived
     evidence: an API Evangelist overlay (title) over the provider's contract
+  overlays/adp-us-federal-tax-profile-change-federal-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-local-tax-profile-add-local-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-local-tax-profile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-local-tax-profile-change-local-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-local-tax-profile-remove-local-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-state-tax-profile-add-state-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-state-tax-profile-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-state-tax-profile-change-state-income-tax-instruction-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-us-tax-profiles-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-work-schedule-entry-uploads-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-work-schedules-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-custom-fields-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-demographics-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-images-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-leaves-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-management-codelists-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-payroll-instructions-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-profile-photo-management-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-time-card-inputs-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-worker-time-off-requests-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-workers-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
+  overlays/adp-workers-data-retrieval-api-phrasing-overlay.yaml:
+    method: generated
+    evidence: declared in the artifact
   packages/adp-packages.yml:
     method: searched
     evidence: declared in the artifact
