@@ -298,7 +298,7 @@ Model Context Protocol servers that expose the API to agents.
 
 Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Adp Agentic Access](https://apis.io/agentic-access/adp/adp-agentic-access/)
+- [ADP Agentic Access](https://apis.io/agentic-access/adp/adp-agentic-access/)
 
 #### JSON Schema (25)
 
@@ -334,30 +334,30 @@ The data models the API reads and writes.
 
 Data models expressed in JSON Structure.
 
-- [Adp Payroll Amount Value Structure](https://apis.io/json-structure/adp/adp-payroll-amount-value-structure/)
-- [Adp Payroll Deduction Item Structure](https://apis.io/json-structure/adp/adp-payroll-deduction-item-structure/)
-- [Adp Payroll Earning Item Structure](https://apis.io/json-structure/adp/adp-payroll-earning-item-structure/)
-- [Adp Payroll Error Message Structure](https://apis.io/json-structure/adp/adp-payroll-error-message-structure/)
-- [Adp Payroll Payroll Instruction Request Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-instruction-request-structure/)
-- [Adp Payroll Payroll Instruction Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-instruction-structure/)
-- [Adp Payroll Payroll Output Response Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-response-structure/)
-- [Adp Payroll Payroll Output Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-structure/)
-- [Adp Payroll Payroll Output Summary Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-summary-structure/)
-- [Adp Payroll Payroll Outputs Response Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-outputs-response-structure/)
-- [Adp Payroll Tax Item Structure](https://apis.io/json-structure/adp/adp-payroll-tax-item-structure/)
-- [Adp Payroll Worker Outputs Response Structure](https://apis.io/json-structure/adp/adp-payroll-worker-outputs-response-structure/)
-- [Adp Payroll Worker Pay Output Structure](https://apis.io/json-structure/adp/adp-payroll-worker-pay-output-structure/)
-- [Adp Workers Address Structure](https://apis.io/json-structure/adp/adp-workers-address-structure/)
-- [Adp Workers Confirm Message Structure](https://apis.io/json-structure/adp/adp-workers-confirm-message-structure/)
-- [Adp Workers Department Structure](https://apis.io/json-structure/adp/adp-workers-department-structure/)
-- [Adp Workers Event Response Structure](https://apis.io/json-structure/adp/adp-workers-event-response-structure/)
-- [Adp Workers Person Structure](https://apis.io/json-structure/adp/adp-workers-person-structure/)
-- [Adp Workers Work Assignment Structure](https://apis.io/json-structure/adp/adp-workers-work-assignment-structure/)
-- [Adp Workers Worker Hire Event Structure](https://apis.io/json-structure/adp/adp-workers-worker-hire-event-structure/)
-- [Adp Workers Worker Response Structure](https://apis.io/json-structure/adp/adp-workers-worker-response-structure/)
-- [Adp Workers Worker Structure](https://apis.io/json-structure/adp/adp-workers-worker-structure/)
-- [Adp Workers Worker Terminate Event Structure](https://apis.io/json-structure/adp/adp-workers-worker-terminate-event-structure/)
-- [Adp Workers Workers Response Structure](https://apis.io/json-structure/adp/adp-workers-workers-response-structure/)
+- [ADP Payroll Amount Value Structure](https://apis.io/json-structure/adp/adp-payroll-amount-value-structure/)
+- [ADP Payroll Deduction Item Structure](https://apis.io/json-structure/adp/adp-payroll-deduction-item-structure/)
+- [ADP Payroll Earning Item Structure](https://apis.io/json-structure/adp/adp-payroll-earning-item-structure/)
+- [ADP Payroll Error Message Structure](https://apis.io/json-structure/adp/adp-payroll-error-message-structure/)
+- [ADP Payroll Payroll Instruction Request Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-instruction-request-structure/)
+- [ADP Payroll Payroll Instruction Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-instruction-structure/)
+- [ADP Payroll Payroll Output Response Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-response-structure/)
+- [ADP Payroll Payroll Output Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-structure/)
+- [ADP Payroll Payroll Output Summary Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-output-summary-structure/)
+- [ADP Payroll Payroll Outputs Response Structure](https://apis.io/json-structure/adp/adp-payroll-payroll-outputs-response-structure/)
+- [ADP Payroll Tax Item Structure](https://apis.io/json-structure/adp/adp-payroll-tax-item-structure/)
+- [ADP Payroll Worker Outputs Response Structure](https://apis.io/json-structure/adp/adp-payroll-worker-outputs-response-structure/)
+- [ADP Payroll Worker Pay Output Structure](https://apis.io/json-structure/adp/adp-payroll-worker-pay-output-structure/)
+- [ADP Workers Address Structure](https://apis.io/json-structure/adp/adp-workers-address-structure/)
+- [ADP Workers Confirm Message Structure](https://apis.io/json-structure/adp/adp-workers-confirm-message-structure/)
+- [ADP Workers Department Structure](https://apis.io/json-structure/adp/adp-workers-department-structure/)
+- [ADP Workers Event Response Structure](https://apis.io/json-structure/adp/adp-workers-event-response-structure/)
+- [ADP Workers Person Structure](https://apis.io/json-structure/adp/adp-workers-person-structure/)
+- [ADP Workers Work Assignment Structure](https://apis.io/json-structure/adp/adp-workers-work-assignment-structure/)
+- [ADP Workers Worker Hire Event Structure](https://apis.io/json-structure/adp/adp-workers-worker-hire-event-structure/)
+- [ADP Workers Worker Response Structure](https://apis.io/json-structure/adp/adp-workers-worker-response-structure/)
+- [ADP Workers Worker Structure](https://apis.io/json-structure/adp/adp-workers-worker-structure/)
+- [ADP Workers Worker Terminate Event Structure](https://apis.io/json-structure/adp/adp-workers-worker-terminate-event-structure/)
+- [ADP Workers Workers Response Structure](https://apis.io/json-structure/adp/adp-workers-workers-response-structure/)
 
 #### JSON-LD (3)
 
@@ -377,30 +377,30 @@ The provider's domain terms, defined.
 
 Example requests and responses.
 
-- [Adp Payroll Amount Value Example](https://apis.io/examples/adp/adp-payroll-amount-value-example/)
-- [Adp Payroll Deduction Item Example](https://apis.io/examples/adp/adp-payroll-deduction-item-example/)
-- [Adp Payroll Earning Item Example](https://apis.io/examples/adp/adp-payroll-earning-item-example/)
-- [Adp Payroll Error Message Example](https://apis.io/examples/adp/adp-payroll-error-message-example/)
-- [Adp Payroll Payroll Instruction Example](https://apis.io/examples/adp/adp-payroll-payroll-instruction-example/)
-- [Adp Payroll Payroll Instruction Request Example](https://apis.io/examples/adp/adp-payroll-payroll-instruction-request-example/)
-- [Adp Payroll Payroll Output Example](https://apis.io/examples/adp/adp-payroll-payroll-output-example/)
-- [Adp Payroll Payroll Output Response Example](https://apis.io/examples/adp/adp-payroll-payroll-output-response-example/)
-- [Adp Payroll Payroll Output Summary Example](https://apis.io/examples/adp/adp-payroll-payroll-output-summary-example/)
-- [Adp Payroll Payroll Outputs Response Example](https://apis.io/examples/adp/adp-payroll-payroll-outputs-response-example/)
-- [Adp Payroll Tax Item Example](https://apis.io/examples/adp/adp-payroll-tax-item-example/)
-- [Adp Payroll Worker Outputs Response Example](https://apis.io/examples/adp/adp-payroll-worker-outputs-response-example/)
-- [Adp Payroll Worker Pay Output Example](https://apis.io/examples/adp/adp-payroll-worker-pay-output-example/)
-- [Adp Workers Address Example](https://apis.io/examples/adp/adp-workers-address-example/)
-- [Adp Workers Confirm Message Example](https://apis.io/examples/adp/adp-workers-confirm-message-example/)
-- [Adp Workers Department Example](https://apis.io/examples/adp/adp-workers-department-example/)
-- [Adp Workers Event Response Example](https://apis.io/examples/adp/adp-workers-event-response-example/)
-- [Adp Workers Person Example](https://apis.io/examples/adp/adp-workers-person-example/)
-- [Adp Workers Work Assignment Example](https://apis.io/examples/adp/adp-workers-work-assignment-example/)
-- [Adp Workers Worker Example](https://apis.io/examples/adp/adp-workers-worker-example/)
-- [Adp Workers Worker Hire Event Example](https://apis.io/examples/adp/adp-workers-worker-hire-event-example/)
-- [Adp Workers Worker Response Example](https://apis.io/examples/adp/adp-workers-worker-response-example/)
-- [Adp Workers Worker Terminate Event Example](https://apis.io/examples/adp/adp-workers-worker-terminate-event-example/)
-- [Adp Workers Workers Response Example](https://apis.io/examples/adp/adp-workers-workers-response-example/)
+- [ADP Payroll Amount Value Example](https://apis.io/examples/adp/adp-payroll-amount-value-example/)
+- [ADP Payroll Deduction Item Example](https://apis.io/examples/adp/adp-payroll-deduction-item-example/)
+- [ADP Payroll Earning Item Example](https://apis.io/examples/adp/adp-payroll-earning-item-example/)
+- [ADP Payroll Error Message Example](https://apis.io/examples/adp/adp-payroll-error-message-example/)
+- [ADP Payroll Payroll Instruction Example](https://apis.io/examples/adp/adp-payroll-payroll-instruction-example/)
+- [ADP Payroll Payroll Instruction Request Example](https://apis.io/examples/adp/adp-payroll-payroll-instruction-request-example/)
+- [ADP Payroll Payroll Output Example](https://apis.io/examples/adp/adp-payroll-payroll-output-example/)
+- [ADP Payroll Payroll Output Response Example](https://apis.io/examples/adp/adp-payroll-payroll-output-response-example/)
+- [ADP Payroll Payroll Output Summary Example](https://apis.io/examples/adp/adp-payroll-payroll-output-summary-example/)
+- [ADP Payroll Payroll Outputs Response Example](https://apis.io/examples/adp/adp-payroll-payroll-outputs-response-example/)
+- [ADP Payroll Tax Item Example](https://apis.io/examples/adp/adp-payroll-tax-item-example/)
+- [ADP Payroll Worker Outputs Response Example](https://apis.io/examples/adp/adp-payroll-worker-outputs-response-example/)
+- [ADP Payroll Worker Pay Output Example](https://apis.io/examples/adp/adp-payroll-worker-pay-output-example/)
+- [ADP Workers Address Example](https://apis.io/examples/adp/adp-workers-address-example/)
+- [ADP Workers Confirm Message Example](https://apis.io/examples/adp/adp-workers-confirm-message-example/)
+- [ADP Workers Department Example](https://apis.io/examples/adp/adp-workers-department-example/)
+- [ADP Workers Event Response Example](https://apis.io/examples/adp/adp-workers-event-response-example/)
+- [ADP Workers Person Example](https://apis.io/examples/adp/adp-workers-person-example/)
+- [ADP Workers Work Assignment Example](https://apis.io/examples/adp/adp-workers-work-assignment-example/)
+- [ADP Workers Worker Example](https://apis.io/examples/adp/adp-workers-worker-example/)
+- [ADP Workers Worker Hire Event Example](https://apis.io/examples/adp/adp-workers-worker-hire-event-example/)
+- [ADP Workers Worker Response Example](https://apis.io/examples/adp/adp-workers-worker-response-example/)
+- [ADP Workers Worker Terminate Event Example](https://apis.io/examples/adp/adp-workers-worker-terminate-event-example/)
+- [ADP Workers Workers Response Example](https://apis.io/examples/adp/adp-workers-workers-response-example/)
 
 #### Collections (6)
 
@@ -413,36 +413,36 @@ Postman and Open Collection request collections.
 - [ADP Workers API](https://apis.io/collections/adp/open-adp-workers/)
 - [ADP Payroll Organizations Workers API](https://apis.io/collections/adp/open-adp-workers-api/)
 
-#### Overlays (59)
+#### Overlays (292)
 
 OpenAPI overlays, including conversational phrasing for each operation.
 
-- [Adp Benefits Beneficiaries V1 Overlay](https://apis.io/overlays/adp/adp-benefits-beneficiaries-v1-overlay/)
-- [Adp Benefits Dependents V1 Overlay](https://apis.io/overlays/adp/adp-benefits-dependents-v1-overlay/)
-- [Adp Benefits External Plans V1 Overlay](https://apis.io/overlays/adp/adp-benefits-external-plans-v1-overlay/)
-- [Adp Hcm Applicant Onboarding V2 Overlay](https://apis.io/overlays/adp/adp-hcm-applicant-onboarding-v2-overlay/)
-- [Adp Hcm Validation Tables V1 Overlay](https://apis.io/overlays/adp/adp-hcm-validation-tables-v1-overlay/)
-- [Adp Hcm Wfn Codelists V3 Overlay](https://apis.io/overlays/adp/adp-hcm-wfn-codelists-v3-overlay/)
-- [Adp Hr Corporate Directory V1 Overlay](https://apis.io/overlays/adp/adp-hr-corporate-directory-v1-overlay/)
-- [Adp Hr Hr Work Assignment Management V3 Overlay](https://apis.io/overlays/adp/adp-hr-hr-work-assignment-management-v3-overlay/)
-- [Adp Hr Hr Worker Profiles V1 Overlay](https://apis.io/overlays/adp/adp-hr-hr-worker-profiles-v1-overlay/)
-- [Adp Hr Personal Contacts V2 Overlay](https://apis.io/overlays/adp/adp-hr-personal-contacts-v2-overlay/)
-- [Adp Hr Worker Associate Profiles V2 Overlay](https://apis.io/overlays/adp/adp-hr-worker-associate-profiles-v2-overlay/)
-- [Adp Hr Worker Demographics V2 Overlay](https://apis.io/overlays/adp/adp-hr-worker-demographics-v2-overlay/)
-- [Adp Hr Worker Leaves V2 Overlay](https://apis.io/overlays/adp/adp-hr-worker-leaves-v2-overlay/)
-- [Adp Hr Workers Biological Data Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-biological-data-management-v2-overlay/)
-- [Adp Hr Workers Business Communication Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-business-communication-management-v2-overlay/)
-- [Adp Hr Workers Compensation Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-compensation-management-v2-overlay/)
-- [Adp Hr Workers Custom Data Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-custom-data-management-v2-overlay/)
-- [Adp Hr Workers Data Integration Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-data-integration-management-v2-overlay/)
-- [Adp Hr Workers Demographic Data Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-demographic-data-management-v2-overlay/)
-- [Adp Hr Workers Identification Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-identification-management-v2-overlay/)
-- [Adp Hr Workers Ksaoc Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-ksaoc-management-v2-overlay/)
-- [Adp Hr Workers Lifecycle Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-lifecycle-management-v2-overlay/)
-- [Adp Hr Workers Person Custom Data Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-person-custom-data-management-v2-overlay/)
-- [Adp Hr Workers Personal Communication Management V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-personal-communication-management-v2-overlay/)
-- [Adp Hr Workers V2 Overlay](https://apis.io/overlays/adp/adp-hr-workers-v2-overlay/)
-- …and 34 more published on APIs.io
+- [ADP Add Additional Remuneration Api Certification Overlay](https://apis.io/overlays/adp/adp-add-additional-remuneration-api-certification-overlay/)
+- [ADP Add Additional Remuneration Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-additional-remuneration-api-phrasing-overlay/)
+- [ADP Add Personal Contact Api Certification Overlay](https://apis.io/overlays/adp/adp-add-personal-contact-api-certification-overlay/)
+- [ADP Add Personal Contact Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-personal-contact-api-phrasing-overlay/)
+- [ADP Add Schedule Day Api Certification Overlay](https://apis.io/overlays/adp/adp-add-schedule-day-api-certification-overlay/)
+- [ADP Add Schedule Day Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-schedule-day-api-phrasing-overlay/)
+- [ADP Add Work Assignment Api Certification Overlay](https://apis.io/overlays/adp/adp-add-work-assignment-api-certification-overlay/)
+- [ADP Add Work Assignment Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-work-assignment-api-phrasing-overlay/)
+- [ADP Add Work Schedule Api Certification Overlay](https://apis.io/overlays/adp/adp-add-work-schedule-api-certification-overlay/)
+- [ADP Add Work Schedule Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-work-schedule-api-phrasing-overlay/)
+- [ADP Add Worker Business Email Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-business-email-api-certification-overlay/)
+- [ADP Add Worker Business Email Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-business-email-api-phrasing-overlay/)
+- [ADP Add Worker Business Fax Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-business-fax-api-certification-overlay/)
+- [ADP Add Worker Business Fax Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-business-fax-api-phrasing-overlay/)
+- [ADP Add Worker Business Landline Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-business-landline-api-certification-overlay/)
+- [ADP Add Worker Business Landline Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-business-landline-api-phrasing-overlay/)
+- [ADP Add Worker Business Mobile Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-business-mobile-api-certification-overlay/)
+- [ADP Add Worker Business Mobile Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-business-mobile-api-phrasing-overlay/)
+- [ADP Add Worker Business Pager Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-business-pager-api-certification-overlay/)
+- [ADP Add Worker Business Pager Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-business-pager-api-phrasing-overlay/)
+- [ADP Add Worker Government Id Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-government-id-api-phrasing-overlay/)
+- [ADP Add Worker Legal Address Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-legal-address-api-certification-overlay/)
+- [ADP Add Worker Legal Address Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-legal-address-api-phrasing-overlay/)
+- [ADP Add Worker Personal Address Api Certification Overlay](https://apis.io/overlays/adp/adp-add-worker-personal-address-api-certification-overlay/)
+- [ADP Add Worker Personal Address Api Phrasing Overlay](https://apis.io/overlays/adp/adp-add-worker-personal-address-api-phrasing-overlay/)
+- …and 267 more published on APIs.io
 
 #### Governance rules (2)
 
@@ -455,34 +455,34 @@ Spectral rulesets for the provider's contracts.
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Adp Authentication](https://apis.io/security/adp/adp-authentication/)
-- [Adp Domain Security](https://apis.io/security/adp/adp-domain-security/)
-- [Adp Trust Center](https://apis.io/security/adp/adp-trust-center/)
-- [Adp Vulnerability Disclosure](https://apis.io/security/adp/adp-vulnerability-disclosure/)
+- [ADP Authentication](https://apis.io/security/adp/adp-authentication/)
+- [ADP Domain Security](https://apis.io/security/adp/adp-domain-security/)
+- [ADP Trust Center](https://apis.io/security/adp/adp-trust-center/)
+- [ADP Vulnerability Disclosure](https://apis.io/security/adp/adp-vulnerability-disclosure/)
 
 #### OAuth scopes (1)
 
 The permissions the API asks for.
 
-- [Adp Scopes](https://apis.io/scopes/adp/adp-scopes/)
+- [ADP Scopes](https://apis.io/scopes/adp/adp-scopes/)
 
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
-- [Adp Plans Pricing](https://apis.io/plans/adp/adp-plans-pricing/)
+- [ADP Plans Pricing](https://apis.io/plans/adp/adp-plans-pricing/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [Adp Rate Limits](https://apis.io/rate-limits/adp/adp-rate-limits/)
+- [ADP Rate Limits](https://apis.io/rate-limits/adp/adp-rate-limits/)
 
 #### FinOps (1)
 
 What the API costs to run, by operation.
 
-- [Adp Finops](https://apis.io/finops/adp/adp-finops/)
+- [ADP Finops](https://apis.io/finops/adp/adp-finops/)
 
 ## Where to find this API
 
@@ -504,18 +504,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 43.8** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 45.6** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 66.1 |
 | Contract quality | 28.4 |
 | Contract governance | 31.8 |
-| Operational transparency | 42.1 |
+| Operational transparency | 40.5 |
 | Developer ergonomics | 29.2 |
-| Access clarity | 52.6 |
+| Access clarity | 57.4 |
 
-**Agent readiness 35.7** — agent-ready
+**Agent readiness 39.8** — agent-ready (gated down from agent-native)
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -525,7 +525,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | MCP Server | — |
 | Auth Clarity | negotiable (partial credit) |
 | Idempotency | — |
-| Error Semantics | derived (partial credit) |
+| Error Semantics | verified |
 | OpenAPI Examples | partial |
 | Rate Limit Signal | verified |
 | Event Surface Described | yes |
@@ -540,6 +540,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | mostly (partial credit) |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
 **Regulatory alignment 52.9** — Employment & Payroll
 
